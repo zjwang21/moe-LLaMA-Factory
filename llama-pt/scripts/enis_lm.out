@@ -1,0 +1,1174 @@
+[2024-02-25 14:53:16,477] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-25 14:53:17,502] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-02-25 14:53:17,502] [INFO] [runner.py:568:main] cmd = /home/yangdezhao/anaconda3/envs/zhouh/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=9901 --enable_each_rank_log=None src/train_bash.py --deepspeed /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json --stage pt --model_name_or_path /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf --flash_attn --do_train --dataset opus100_is --preprocessing_num_workers 20 --cutoff_len 2048 --finetuning_type moe --moe_every_k_layers 1 --moe_router_type hard --moe_num_experts 2 --output_dir /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis --overwrite_output_dir --overwrite_cache --per_device_train_batch_size 12 --gradient_accumulation_steps 4 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 500000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16
+[2024-02-25 14:53:19,464] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-25 14:53:20,374] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-02-25 14:53:20,374] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-02-25 14:53:20,374] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-02-25 14:53:20,374] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-02-25 14:53:20,374] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-02-25 14:53:23,706] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-25 14:53:23,706] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-25 14:53:23,853] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-25 14:53:23,853] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-25 14:53:26,100] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-25 14:53:26,101] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-02-25 14:53:26,285] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-25 14:53:26,425] [INFO] [comm.py:637:init_distributed] cdb=None
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis/runs/Feb25_14-53-26_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+02/25/2024 14:53:26 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+[2024-02-25 14:53:26,562] [INFO] [comm.py:637:init_distributed] cdb=None
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis/runs/Feb25_14-53-26_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis/runs/Feb25_14-53-26_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2027] 2024-02-25 14:53:26,658 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2027] 2024-02-25 14:53:26,658 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-25 14:53:26,658 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-25 14:53:26,658 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-25 14:53:26,658 >> loading file tokenizer.json
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/25/2024 14:53:26 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis/runs/Feb25_14-53-26_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=12,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+02/25/2024 14:53:26 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:727] 2024-02-25 14:53:26,786 >> loading configuration file /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf/config.json
+[INFO|configuration_utils.py:792] 2024-02-25 14:53:26,788 >> Model config LlamaConfig {
+  "_name_or_path": "/home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+02/25/2024 14:53:26 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+[INFO|modeling_utils.py:3334] 2024-02-25 14:53:26,823 >> loading weights file /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf/pytorch_model.bin.index.json
+[INFO|modeling_utils.py:1459] 2024-02-25 14:53:26,824 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+[WARNING|logging.py:329] 2024-02-25 14:53:26,825 >> The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+[WARNING|logging.py:329] 2024-02-25 14:53:26,828 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:827] 2024-02-25 14:53:26,831 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+02/25/2024 14:53:26 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.09s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.21s/it]
+02/25/2024 14:53:31 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/25/2024 14:53:31 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+02/25/2024 14:53:32 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/25/2024 14:53:32 - INFO - llmtuner.data.template - Add pad token: </s>
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.14s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.39s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.32s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.63s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.86s/it]
+02/25/2024 14:53:33 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/25/2024 14:53:33 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.77s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.01s/it]
+[INFO|modeling_utils.py:4070] 2024-02-25 14:53:33,449 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4078] 2024-02-25 14:53:33,449 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:780] 2024-02-25 14:53:33,451 >> loading configuration file /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf/generation_config.json
+[INFO|configuration_utils.py:827] 2024-02-25 14:53:33,452 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+02/25/2024 14:53:33 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/25/2024 14:53:33 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.87s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.10s/it]
+02/25/2024 14:53:33 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/25/2024 14:53:33 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+02/25/2024 14:53:34 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/25/2024 14:53:34 - INFO - llmtuner.data.template - Add pad token: </s>
+02/25/2024 14:53:34 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/25/2024 14:53:34 - INFO - llmtuner.data.template - Add pad token: </s>
+02/25/2024 14:53:34 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_is.jsonl.
+02/25/2024 14:53:34 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/25/2024 14:53:34 - INFO - llmtuner.data.template - Add pad token: </s>
+Using custom data configuration default-2431450ed5974c88
+Loading Dataset Infos from /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/packaged_modules/json
+Generating dataset json (/home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Downloading and preparing dataset json/default to /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 15141.89it/s]
+Downloading took 0.0 min
+Checksum Computation took 0.0 min
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 1846.08it/s]
+Generating train split
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 676009 examples [00:00, 5420291.97 examples/s]Generating train split: 1000000 examples [00:00, 5627528.62 examples/s]
+Unable to verify splits sizes.
+Dataset json downloaded and prepared to /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96. Subsequent calls will reuse this data.
+{'text': 'Hvađ er í gangi? - Hæ, Larry.'}
+Process #0 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00000_of_00020.arrow
+Process #1 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00001_of_00020.arrow
+Process #2 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00002_of_00020.arrow
+Process #3 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00003_of_00020.arrow
+Process #4 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00004_of_00020.arrow
+Process #5 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00005_of_00020.arrow
+Process #6 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00006_of_00020.arrow
+Process #7 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00007_of_00020.arrow
+Process #8 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00008_of_00020.arrow
+Process #9 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00009_of_00020.arrow
+Process #10 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00010_of_00020.arrow
+Process #11 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00011_of_00020.arrow
+Process #12 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00012_of_00020.arrow
+Process #13 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00013_of_00020.arrow
+Process #14 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00014_of_00020.arrow
+Process #15 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00015_of_00020.arrow
+Process #16 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00016_of_00020.arrow
+Process #17 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00017_of_00020.arrow
+Process #18 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00018_of_00020.arrow
+Process #19 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00019_of_00020.arrow
+Spawning 20 processes
+Converting format of dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00002_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00000_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00001_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00003_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00004_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00005_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00006_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00007_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00009_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00008_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00018_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00012_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00017_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00011_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00013_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00016_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00014_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00010_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00015_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-004cb1f4e1468ad4_00019_of_00020.arrow
+Converting format of dataset (num_proc=20):   0%|          | 4000/1000000 [00:00<01:29, 11146.50 examples/s]Converting format of dataset (num_proc=20):  32%|███▏      | 317000/1000000 [00:00<00:00, 883225.99 examples/s]Converting format of dataset (num_proc=20):  74%|███████▍  | 741000/1000000 [00:00<00:00, 1811721.65 examples/s]Converting format of dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:01<00:00, 767801.25 examples/s]
+Concatenating 20 shards
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+Process #0 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00000_of_00020.arrow
+Process #1 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00001_of_00020.arrow
+Process #2 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00002_of_00020.arrow
+Process #3 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00003_of_00020.arrow
+Process #4 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00004_of_00020.arrow
+Process #5 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00005_of_00020.arrow
+Process #6 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00006_of_00020.arrow
+Process #7 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00007_of_00020.arrow
+Process #8 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00008_of_00020.arrow
+Process #9 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00009_of_00020.arrow
+Process #10 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00010_of_00020.arrow
+Process #11 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00011_of_00020.arrow
+Process #12 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00012_of_00020.arrow
+Process #13 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00013_of_00020.arrow
+Process #14 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00014_of_00020.arrow
+Process #15 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00015_of_00020.arrow
+Process #16 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00016_of_00020.arrow
+Process #17 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00017_of_00020.arrow
+Process #18 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00018_of_00020.arrow
+Process #19 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00019_of_00020.arrow
+02/25/2024 14:53:44 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_is.jsonl.
+02/25/2024 14:53:44 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_is.jsonl.
+02/25/2024 14:53:44 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_is.jsonl.
+{'text': 'Hvađ er í gangi? - Hæ, Larry.'}
+{'text': 'Hvađ er í gangi? - Hæ, Larry.'}
+{'text': 'Hvađ er í gangi? - Hæ, Larry.'}
+Spawning 20 processes
+Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00000_of_00020.arrow
+Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:00<11:47, 1412.86 examples/s]Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00001_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00007_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00008_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00006_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00009_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00005_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00004_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00010_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00011_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00012_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00002_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00014_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00018_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00019_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00003_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00015_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00016_of_00020.arrow
+Running tokenizer on dataset (num_proc=20):   1%|▏         | 14000/1000000 [00:00<00:42, 23002.51 examples/s]Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00013_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-4598e757b543304d_00017_of_00020.arrow
+Running tokenizer on dataset (num_proc=20):   3%|▎         | 31000/1000000 [00:00<00:18, 51370.51 examples/s]Converting format of dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=20):   5%|▌         | 52000/1000000 [00:01<00:11, 83383.09 examples/s]Running tokenizer on dataset (num_proc=20):   7%|▋         | 71000/1000000 [00:01<00:08, 106692.19 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 91000/1000000 [00:01<00:07, 128712.11 examples/s]Running tokenizer on dataset (num_proc=20):  11%|█         | 111000/1000000 [00:01<00:06, 146581.51 examples/s]Running tokenizer on dataset (num_proc=20):  13%|█▎        | 130000/1000000 [00:01<00:05, 156909.27 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▍        | 149000/1000000 [00:01<00:05, 164746.90 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 168000/1000000 [00:01<00:04, 169867.40 examples/s]Converting format of dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Converting format of dataset (num_proc=20):   0%|          | 4000/1000000 [00:00<03:00, 5506.90 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▊        | 187000/1000000 [00:01<00:05, 160475.93 examples/s]Converting format of dataset (num_proc=20):  22%|██▏       | 221000/1000000 [00:00<00:02, 357477.35 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 205000/1000000 [00:01<00:05, 157595.62 examples/s]Converting format of dataset (num_proc=20):  50%|█████     | 504000/1000000 [00:00<00:00, 819208.87 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 222000/1000000 [00:02<00:04, 158146.99 examples/s]Converting format of dataset (num_proc=20):  77%|███████▋  | 771000/1000000 [00:01<00:00, 1182701.43 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 239000/1000000 [00:02<00:04, 153458.34 examples/s]Converting format of dataset (num_proc=20):  98%|█████████▊| 984000/1000000 [00:01<00:00, 1370704.35 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 256000/1000000 [00:02<00:04, 157796.11 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 275000/1000000 [00:02<00:04, 166039.39 examples/s]Converting format of dataset (num_proc=20):   0%|          | 5000/1000000 [00:00<02:19, 7122.61 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 292000/1000000 [00:02<00:04, 164083.92 examples/s]Converting format of dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Converting format of dataset (num_proc=20):  20%|█▉        | 198000/1000000 [00:00<00:02, 328603.50 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███       | 309000/1000000 [00:02<00:04, 160249.72 examples/s]Converting format of dataset (num_proc=20):  46%|████▌     | 461000/1000000 [00:00<00:00, 763477.21 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 326000/1000000 [00:02<00:04, 156679.93 examples/s]Converting format of dataset (num_proc=20):  76%|███████▌  | 758000/1000000 [00:01<00:00, 1212783.25 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 342000/1000000 [00:02<00:04, 153548.13 examples/s]Converting format of dataset (num_proc=20):  97%|█████████▋| 970000/1000000 [00:01<00:00, 1390358.61 examples/s]Converting format of dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:01<00:00, 534202.26 examples/s]
+Running tokenizer on dataset (num_proc=20):  36%|███▌      | 358000/1000000 [00:02<00:04, 145069.57 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 377000/1000000 [00:02<00:03, 156113.90 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▉      | 393000/1000000 [00:03<00:03, 156278.57 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████      | 409000/1000000 [00:03<00:04, 147005.59 examples/s]Converting format of dataset (num_proc=20):   1%|          | 6000/1000000 [00:00<02:10, 7641.37 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 429000/1000000 [00:03<00:04, 137822.76 examples/s]Converting format of dataset (num_proc=20):  12%|█▏        | 123000/1000000 [00:00<00:04, 183833.84 examples/s]Converting format of dataset (num_proc=20):  32%|███▎      | 325000/1000000 [00:01<00:01, 504297.83 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▍     | 446000/1000000 [00:03<00:03, 139885.93 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+Converting format of dataset (num_proc=20):  57%|█████▋    | 568000/1000000 [00:01<00:00, 877426.59 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 461000/1000000 [00:03<00:03, 137768.19 examples/s]Converting format of dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:01<00:00, 511158.82 examples/s]
+Converting format of dataset (num_proc=20):  81%|████████  | 807000/1000000 [00:01<00:00, 1183930.18 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 475000/1000000 [00:03<00:04, 127433.55 examples/s]Converting format of dataset (num_proc=20):  99%|█████████▉| 990000/1000000 [00:01<00:00, 1309619.18 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 491000/1000000 [00:03<00:03, 130366.23 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████     | 506000/1000000 [00:03<00:03, 132283.70 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 521000/1000000 [00:04<00:03, 132848.69 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▍    | 539000/1000000 [00:04<00:03, 141991.31 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▌    | 554000/1000000 [00:04<00:03, 141713.47 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 573000/1000000 [00:04<00:02, 149569.89 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 592000/1000000 [00:04<00:02, 159477.34 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████    | 611000/1000000 [00:04<00:02, 167807.90 examples/s]Converting format of dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:02<00:00, 455736.02 examples/s]
+Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 630000/1000000 [00:04<00:02, 173101.33 examples/s]Running tokenizer on dataset (num_proc=20):  65%|██████▍   | 648000/1000000 [00:04<00:02, 169584.76 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 666000/1000000 [00:04<00:02, 165175.48 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 683000/1000000 [00:05<00:02, 154118.33 examples/s]Running tokenizer on dataset (num_proc=20):  70%|██████▉   | 699000/1000000 [00:05<00:02, 146968.49 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 715000/1000000 [00:05<00:01, 145694.80 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 730000/1000000 [00:05<00:01, 144700.52 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▍  | 747000/1000000 [00:05<00:01, 150812.44 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+Running tokenizer on dataset (num_proc=20):  76%|███████▋  | 764000/1000000 [00:05<00:01, 154767.96 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 784000/1000000 [00:05<00:01, 167416.06 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 804000/1000000 [00:05<00:01, 175882.64 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 822000/1000000 [00:05<00:01, 176886.96 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 840000/1000000 [00:06<00:00, 176968.37 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 860000/1000000 [00:06<00:00, 182778.17 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 879000/1000000 [00:06<00:00, 184549.06 examples/s]Running tokenizer on dataset (num_proc=20):  90%|████████▉ | 898000/1000000 [00:06<00:00, 182438.59 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 917000/1000000 [00:06<00:00, 182773.05 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▎| 937000/1000000 [00:06<00:00, 183676.28 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 956000/1000000 [00:06<00:00, 177550.09 examples/s]Running tokenizer on dataset (num_proc=20):  97%|█████████▋| 974000/1000000 [00:06<00:00, 164927.55 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 991000/1000000 [00:06<00:00, 129042.79 examples/s]Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:07<00:00, 128437.65 examples/s]
+Concatenating 20 shards
+input_ids:
+[379, 1564, 30128, 604, 14468, 20676, 29875, 29973, 448, 379, 30078, 29892, 26977, 29889, 2, 6667, 30128, 29884, 27442, 298, 1564, 30128, 29871, 30132, 30030, 540, 4316, 30128, 381, 263, 30128, 447, 7241, 9814, 303, 29892, 29871, 30132, 29976, 27873, 7779, 2377, 1764, 29871, 30132, 1064, 298, 1564, 30128, 9814, 30128, 391, 14468, 1153, 348, 29889, 2, 13351, 263, 30128, 29871, 30132, 29875, 30128, 14744, 430, 29884, 30128, 413, 4125, 29889, 2, 383, 31748, 29902, 29895, 29871, 30132, 272, 381, 14921, 1984, 263, 30128, 413, 4125, 29889, 29871, 30132, 29874, 30128, 604, 29871, 31748, 698, 294, 1397, 29875, 30128, 29889, 2, 1425, 9161, 6928, 29890, 30030, 262, 29973, 2, 3067, 29887, 4023, 655, 29871, 30132, 11300, 29889, 2, 448, 14619, 29895, 29889, 2, 317, 10536, 29889, 2, 8626, 29895, 12405, 30189, 2, 1570, 2, 2694, 1240, 29889, 2, 448, 4693, 16341, 30078, 2273, 29889, 2, 29871, 29906, 29900, 29900, 1361, 29873, 14628, 332, 3031, 29871, 30078, 29873, 433, 30128, 722, 263, 30128, 8626, 3068, 279, 29871, 30078, 698, 29884, 14468, 298, 29880, 329, 29889, 2, 6978, 29874, 30128, 29884, 29871, 30132, 335, 29889, 2, 10630, 30128, 1147, 30128, 398, 263, 30128, 1439, 941, 14468, 29871, 30132, 29874, 30128, 29889, 2, 13889, 29871, 30132, 29293, 289, 2518, 1560, 29976, 260, 29983, 655, 29889, 2, 350, 4227, 592, 30128, 29871, 30132, 335, 29889, 2, 3067, 29887, 2453, 277, 29871, 30132, 30030, 604, 29873, 29871, 30132, 11441, 29991, 2, 20807, 19061, 1240, 29889, 2, 448, 29871, 30452, 29874, 30189, 604, 14468, 11755, 29875, 29889, 2, 1771, 29926, 2464, 30078, 30128, 292, 332, 29991, 2, 29871, 200, 173, 11300, 604, 289, 2518, 321, 986, 10908, 29997, 1204, 29889, 2, 448, 29871, 200, 173, 30030, 604, 29873, 10856, 1915, 29876, 29889, 2, 448, 15797, 2638, 30128, 29973, 2, 382, 2559, 2982, 29876, 14208, 856, 4677, 2071, 19177, 30128, 392, 29875, 3720, 29873, 3720, 29878, 289, 1267, 29876, 392, 29875, 413, 974, 29874, 29889, 2, 435, 29976, 29973, 2, 3067, 29887, 1147, 30128, 29871, 30132, 29874, 30128, 394, 29881, 5803, 29889, 2, 29871, 200, 173, 30030, 29871, 30132, 12072, 391, 394, 311, 23285, 269, 791, 332, 29892, 14921, 1984, 269, 1131, 29973, 2, 29871, 200, 173, 11300, 604, 1361, 29874, 29871, 30132, 1064, 29889, 2, 1570, 26884, 29973, 2, 10705, 24532, 29891, 29889, 2, 379, 1064, 1056, 413, 331, 332, 298, 812, 29892, 298, 1064, 1056, 413, 331, 332, 298, 812, 29889, 2, 8713, 299, 392, 29875, 29889, 2, 3067, 29887, 3976, 698, 29875, 3033, 336, 413, 16233, 325, 5873, 29889, 2, 350, 1431, 30128, 29887, 1501, 29889, 2, 18089, 332, 29892, 29871, 30340, 30030, 604, 29873, 1147, 303, 29875, 13848, 332, 14468, 540, 10233, 29889, 2, 29871, 200, 173, 29874, 30128, 604, 321, 277, 386, 1564, 30128, 14468, 20676, 29875, 29889, 2, 6978, 29874, 30189, 29884, 12977, 21154, 30189, 29875, 30189, 29889, 2, 3067, 29887, 592, 1099, 856, 29871, 30078, 29873, 492, 7779, 447, 7241, 14921, 1984, 14284, 30189, 29871, 30340, 29874, 30189, 29973, 2, 448, 12553, 29876, 790, 29889, 2, 476, 29894, 277, 941, 298, 1064, 29892, 1850, 29895, 29889, 2, 11681, 1397, 29874, 29889, 2, 405, 30030, 604, 1055, 375, 30128, 948, 29889, 2, 6461, 1056, 14468, 285, 492, 3274, 2, 448, 379, 369, 14468, 285, 29926, 392, 273, 398, 604, 29871, 30132, 11300, 29973, 2, 405, 30052, 698, 12136, 2075, 2, 317, 30052, 1056, 3731, 30078, 30189, 3873, 29980, 30189, 29874, 2, 29871, 200, 173, 30030, 604, 29873, 14921, 1984, 5122, 29889, 2, 11198, 29884, 22956, 3459, 21478, 29889, 2, 3067, 29887, 540, 29888, 10235, 29875, 30128, 29871, 30132, 1064, 298, 688, 1357, 299, 381, 29889, 2, 3067, 29887, 285, 812, 298, 1648, 29889, 2, 448, 29967, 29976, 29889, 382, 29888, 29871, 30132, 29875, 30128, 2511, 29882, 26464, 30128, 27442, 298, 812, 14921, 1984, 298, 5393, 29875, 7779, 3976, 301, 6922, 1727, 29880, 4347, 29889, 2, 1425, 9161, 22003, 29973, 2, 3067, 29887, 534, 30030, 29875, 29871, 30132, 404, 29884, 14921, 1984, 29889, 2, 3067, 29887, 4213, 298, 812, 14468, 540, 309, 29884, 11755, 29875, 29889, 2, 6379, 29878, 30078, 30189, 434, 29888, 1240, 2, 10393, 298, 369, 4900, 298, 30078, 18228, 29871, 30132, 585, 3976, 263, 30128, 413, 4125, 6928, 14631, 30128, 279, 2559, 279, 29973, 2, 405, 30078, 303, 29892, 298, 8903, 29888, 292, 279, 29889, 2, 448, 14619, 29895, 29889, 2, 17122, 2, 13889, 22157, 524, 29875, 27442, 29991, 2, 4971, 9710, 28765, 2, 478, 2782, 29884, 966, 29874, 285, 29891, 12416, 29542, 29973, 2, 448, 838, 433, 29889, 2, 3067, 29887, 2453, 277, 14921, 1984, 592, 30128, 29871, 30132, 2108, 273, 29889, 2, 405, 30030, 604, 263, 30189, 27442, 4677, 29875, 30189, 29889, 2, 1425, 9161, 14921, 1984, 263, 30128, 330, 2330, 655, 1011, 29882, 369, 4900, 29973, 2, 341, 1064, 447, 29888, 30128, 29875, 270, 16853, 30128, 29871, 30132, 29874, 30128, 14468, 298, 688, 29889, 2, 7260, 22328, 10442, 29892, 3516, 30128, 3602, 398, 1506, 29976, 30128, 398, 14468, 658, 615, 29875, 30128, 29889, 2, 3067, 29887, 604, 263, 30128, 337, 18477, 29991, 2, 379, 345, 286, 10058, 30128, 2511, 29871, 30132, 404, 29884, 21625, 13678, 5678, 1039, 29973, 2, 448, 405, 29926, 7173, 29876, 1306, 29991, 2, 448, 8626, 6321, 1648, 29889, 2, 448, 3067, 29887, 604, 3976, 563, 273, 29871, 30132, 1064, 29889, 2, 1425, 29873, 29871, 30132, 30030, 29973, 2, 448, 379, 1564, 30128, 9814, 30128, 391, 29973, 2, 341, 1064, 1436, 29876, 303, 3516, 30128, 289, 2518, 260, 2883, 1922, 10908, 638, 1357, 299, 294, 314, 1076, 2559, 29889, 2, 448, 30062, 29887, 343, 28034, 21831, 29871, 30340, 335, 14921, 1984, 29889, 2, 2379, 30052, 29875, 30189, 29991, 2, 12043, 31748, 1193, 29889, 2, 350, 5521, 29931, 1170, 2, 3067, 29887, 2862, 30128, 29889, 2, 379, 29926, 29976, 298, 369, 29926, 398, 321, 7238, 1397, 29874, 29973, 2, 14619, 29895, 29889, 448, 7107, 700, 592, 30128, 27442, 29889, 2, 7107, 29875, 30128, 7622, 285, 29891, 12416, 29889, 2, 405, 29976, 30128, 29884, 10442, 474, 15246, 808, 4347, 29871, 30132, 1099, 29889, 2, 379, 1707, 14468, 285, 29926, 392, 273, 398, 604, 29884, 29871, 30132, 585, 29973, 2, 29871, 200, 173, 9584, 2377, 381, 30128, 29884, 27442, 29871, 30132, 29874, 30128, 14921, 1984, 10442, 1056, 29973, 2, 13889, 604, 11307, 14042, 31748, 29879, 1397, 29874, 298, 1340, 29885, 686, 29889, 2, 448, 5701, 514, 29892, 435, 1296, 29889, 2, 379, 1765, 29871, 30078, 29873, 4675, 30128, 29884, 263, 30128, 2215, 29874, 29892, 4813, 29894, 29973, 2, 448, 317, 342, 29884, 7622, 29889, 2, 1920, 638, 1076, 2753, 279, 604, 29884, 14468, 12977, 29888, 30128, 8675, 3976, 27442, 29889, 2, 379, 414, 13238, 29888, 30128, 292, 29875, 29889, 2, 350, 2222, 29889, 2, 1919, 3067, 29887, 11928, 260, 2883, 3516, 30189, 29871, 30340, 335, 29889, 2, 7255, 300, 888, 29879, 30052, 336, 2, 11198, 29884, 269, 30078, 29880, 29889, 2, 379, 9046, 1076, 29884, 29973, 2, 448, 10630, 30128, 805, 24900, 398, 3431, 23843, 29889, 2, 379, 1564, 30128, 2377, 381, 298, 812, 29973, 2, 20807, 678, 3470, 29889, 2, 1425, 29871, 30132, 29874, 30128, 28316, 2243, 30078, 4378, 29973, 2, 379, 7012, 3976, 698, 29875, 9631, 29997, 27856, 29876, 29889, 2, 448, 29871, 200, 173, 29874, 30128, 604, 23467, 986, 29889, 2, 14826, 29821, 579, 2, 29871, 200, 173, 9584, 3516, 30128, 1147, 30128, 398, 289, 2518, 29871, 31748, 29882, 499, 381, 3976, 3643, 30128, 332, 6391, 29879, 808, 1300, 20778, 2987, 29889, 2, 8396, 29627, 29889, 2, 26531, 29875, 29871, 30132, 1064, 5343, 29991, 2, 6573, 29980, 29889, 2, 13889, 604, 782, 30128, 29894, 2028, 30128, 10282, 29976, 29882, 2741, 29875, 30128, 14468, 29871, 30132, 404, 29884, 298, 433, 786, 29875, 3671, 3516, 30128, 19421, 29976, 398, 298, 812, 298, 1064, 29889, 2, 478, 30078, 374, 29871, 30132, 29874, 30128, 286, 6922, 1297, 10058, 29973, 2, 29871, 200, 173, 11300, 604, 599, 29873, 14468, 11755, 29875, 29889, 2, 3067, 29887, 29871, 30132, 29293, 289, 2518, 263, 30128, 571, 30128, 29889, 2, 405, 30030, 29871, 30132, 387, 279, 7779, 604, 298, 1064, 4934, 7779, 263, 30128, 7779, 11928, 2397, 29871, 30132, 29874, 30128, 14921, 1984, 29889, 2, 13351, 3671, 5343, 29889, 2, 5373, 265, 26333, 29892, 1804, 487, 29991, 2, 317, 1365, 269, 990, 16260, 29889, 2, 383, 29891, 12416, 479, 7241, 30128, 263, 30128, 7779, 604, 310, 409, 2559, 29892, 6573, 347, 29889, 2, 16462, 1984, 29871, 30132, 2108, 273, 408, 29874, 29991, 2, 341, 1064, 29871, 30132, 12072, 381, 29871, 30132, 11300, 454, 986, 29889, 2, 379, 1707, 604, 9161, 29973, 2, 3067, 29887, 11928, 10263, 1335, 7655, 29926, 579, 29889, 2, 323, 29983, 1195, 29876, 604, 1055, 398, 332, 29889, 7107, 29875, 30128, 29889, 2, 4942, 29976, 698, 279, 12491, 433, 571, 30128, 29973, 2, 2261, 1240, 30128, 604, 592, 30128, 325, 513, 8029, 29889, 2, 10630, 30128, 13848, 1949, 427, 29876, 14468, 29871, 30132, 9584, 29889, 2, 29871, 200, 173, 1064, 604, 14921, 1984, 394, 1707, 29874, 29889, 2, 20807, 298, 1564, 30128, 604, 29871, 30132, 11300, 22157, 30078, 30128, 488, 3249, 2071, 19177, 1516, 492, 29892, 4192, 4580, 309, 29894, 12190, 481, 1076, 332, 29973, 2, 382, 29888, 7779, 2453, 277, 25338, 30128, 1099, 1886, 29888, 1240, 7779, 3963, 645, 29884, 14468, 992, 30128, 29874, 29889, 2, 448, 379, 2142, 30128, 29884, 14921, 1984, 3976, 5819, 1505, 29926, 332, 2511, 29871, 30132, 9584, 29889, 2, 3067, 29887, 27873, 19421, 29976, 298, 1564, 30128, 298, 812, 2377, 381, 29889, 2, 5681, 30128, 29884, 29871, 30132, 335, 380, 324, 13161, 29889, 2, 341, 1064, 29871, 30132, 12072, 381, 29871, 30132, 29874, 30128, 28316, 454, 986, 29889, 2, 14211, 381, 479, 4951, 29892, 1011, 29879, 3671, 599, 941, 29888, 29889, 2, 341, 1064, 29871, 30132, 12072, 381, 28340, 593, 1922, 29871, 30132, 335, 29889, 2, 7298, 6830, 3274, 29914, 15347, 1705, 12637, 2, 448, 3067, 29887, 2453, 277, 29889, 379, 369, 29871, 30078, 29873, 492, 29871, 30132, 29874, 30128, 7019, 29973, 2, 3617, 14921, 1984, 9820, 30128, 29874, 30128, 592, 30128, 29871, 30132, 11300, 5810, 392, 29875, 3976, 29542, 29889, 2, 8081, 2464, 1278, 6135, 2, 10630, 30128, 9814, 30128, 398, 3514, 7218, 352, 351, 14468, 8168, 28065, 383, 4293, 29871, 30132, 279, 3031, 3516, 30128, 29712, 398, 29871, 29955, 29900, 2665, 3976, 2959, 2559, 29889, 2, 3067, 29887, 29871, 30132, 557, 1335, 298, 688, 7273, 331, 1099, 29889, 2, 20807, 285, 29926, 392, 2559, 298, 381, 30128, 29875, 1424, 19041, 902, 2559, 29889, 2, 2178, 381, 270, 585, 30128, 351, 1764, 15641, 29871, 30078, 698, 29884, 263, 30128, 2215, 29874, 29871, 30132, 12686, 30128, 3514, 273, 29889, 2, 29871, 30452, 29874, 30189, 29871, 30340, 29293, 14724, 1335, 6928, 263, 30189, 4365, 336, 263, 30189, 336, 14724, 1335, 29889, 2, 29871, 200, 173, 11300, 604, 14468, 11755, 29875, 29892, 435, 31748, 29875, 29889, 2, 10630, 30189, 9814, 398, 29871, 30340, 29874, 30189, 29889, 2, 382, 29888, 14921, 1984, 2071, 31105, 29873, 7779, 29871, 30132, 29976, 4082, 29871, 30132, 387, 279, 29871, 30132, 29872, 381, 330, 12686, 3720, 29873, 29889, 2, 341, 8055, 1147, 446, 29888, 6994, 2, 3067, 29887, 540, 29888, 330, 13533, 2511, 29871, 30132, 9584, 29871, 31748, 29894, 30078, 593, 29874, 29889, 2, 12019, 29926, 1297, 29887, 313, 4951, 1056, 282, 932, 29983, 2288, 914, 30189, 19421, 2464, 29888, 29895, 1929, 29874, 29897, 2, 29871, 200, 173, 29874, 30128, 604, 1424, 16341, 30078, 2273, 29889, 2, 13889, 6013, 321, 6859, 814, 29889, 2, 448, 379, 369, 604, 29871, 30132, 3642, 3976, 303, 30078, 30128, 29874, 29973, 2, 8407, 30128, 29894, 2028, 30128, 29889, 6749, 29887, 309, 29889, 379, 345, 28537, 29875, 540, 22613, 30128, 29884, 5810, 5444, 30128, 3516, 30128, 263, 30128, 14724, 3274, 285, 31748, 29880, 29895, 29973, 2, 11169, 30128, 332, 29889, 2, 21193, 273, 29889, 2, 448, 30175, 394, 29894, 29997, 582, 29973, 323, 309, 298, 11500, 4900, 29889, 2, 10630, 30189, 15761, 398, 599, 29873, 3031, 29871, 30340, 30030, 27016, 29876, 391, 29889, 2, 3067, 29887, 604, 27467, 30030, 29886, 336, 29884, 30128, 29874, 382, 430, 292, 262, 29889, 2, 3067, 29887, 604, 3514, 29885, 29976, 433, 29871, 30132, 9584, 29889, 2, 1174, 29871, 30132, 29874, 30128, 14993, 415, 381, 29542, 14921, 1984, 10269, 492, 10442, 29871, 30132, 9584, 7779, 285, 31748, 29878, 10282, 3976, 285, 29926, 497, 303, 513, 2559, 29889, 2, 317, 433, 1335, 30128, 29884, 29871, 30132, 1064, 29892, 13107, 29874, 29889, 2, 317, 342, 29884, 29889, 2, 13889, 658, 15641, 263, 30084, 2071, 9710, 29874, 14921, 1984, 310, 12637, 29889]
+inputs:
+Hvađ er í gangi? - Hæ, Larry.</s> Segđu mér hvađ ūú heyrđir ađ hafi gerst, ūá skal ég segja ūér hvađ gerđist í raun.</s> Gott ađ ūiđ skylduđ koma.</s> FķIk ūorir ekki ađ koma. ūađ er ķttaslegiđ.</s> Ertu tilbúin?</s> Ég harma ūetta.</s> - Takk.</s> SFL.</s> Lykilorð</s> New</s> Einni.</s> - Frábært.</s> 200 handtökur sem ætlađ var ađ Lycanar ættu í hlut.</s> Passađu ūig.</s> Viđ verđum ađ detta í ūađ.</s> Hann ūarf bara smá tíma.</s> Burt međ ūig.</s> Ég veit ūú ert ūarna!</s> Og henni.</s> - Það er í lagi.</s> Brjálæđingur!</s> Ūetta er bara eitt kvöId.</s> - Ūú ert karlinn.</s> -Skiliđ?</s> Einn landnemi... kom skríđandi út úr brennandi kofa.</s> Já?</s> Ég verđ ūađ aldrei.</s> Ūú ūykist aldeilis svalur, ekki satt?</s> Ūetta er handa ūér.</s> New Orleans?</s> Walter Mitty.</s> Hérna kemur hann, hérna kemur hann.</s> Syndandi.</s> Ég átti engra kosta völ.</s> Bragđgott.</s> Fantur, þú ert versti vinur í heimi.</s> Ūađ er eitthvađ í gangi.</s> Passaðu höfuðið.</s> Ég meina... ætli ég hafi ekki vitað það?</s> - Katniss.</s> Kvitta hér, takk.</s> Varlega.</s> Nú er nausđyn.</s> Opna í flipa</s> - Hver í fjandanum er ūetta?</s> Nýtt dagatal</s> Sýna svæðiskóða</s> Ūú ert ekki George.</s> Vertu grafkyrr.</s> Ég hef gefiđ ūér hugmyndir.</s> Ég fann hana.</s> -Já. Ef ūiđ afhendiđ mér hann ekki hringi ég á lögregluna.</s> Ertu viss?</s> Ég trúi ūessu ekki.</s> Ég vill hann í heilu lagi.</s> Umræðuefni</s> Af hverju hætta ūau á ađ koma til jarđarinnar?</s> Næst, hreyfingar.</s> - Takk.</s> SSL</s> Hann hrinti mér!</s> Skrifvilla</s> Viltu lesa fyrir mig?</s> - Alla.</s> Ég veit ekki međ ūennan.</s> Nú er að mér komið.</s> Ertu ekki ađ gleyma einhverju?</s> Mér hafđi dottiđ ūađ í hug.</s> Áfram nú, viđ förum bráđum í loftiđ.</s> Ég er ađ reyna!</s> Hve mikiđ af ūessu pirrar Rossi?</s> - Njósnari!</s> - Lyklana.</s> - Ég er á undan ūér.</s> Ert ūú?</s> - Hvađ gerđist?</s> Mér finnst viđ bara tala um kvikmyndasamninginn.</s> -Ég yfirgef þig ekki.</s> Flýið!</s> Klķkt.</s> BbalLName</s> Ég beiđ.</s> Hjá hverjum eiginlega?</s> Takk. - Komdu međ mér.</s> Komiđ inn fyrir.</s> Náđu nú i töskuna ūina.</s> Hvar í fjandanum eru ūau?</s> Ūví segirđu mér ūađ ekki núna?</s> Hann er augljķslega hörmung.</s> - Saell, Jake.</s> Hvert ætlarđu ađ fara, Kev?</s> - Sestu inn.</s> Teikningarnar eru í höfđinu á mér.</s> Hershöfđingi.</s> Bless.</s> , Ég vil tala við þig.</s> Acetónsýra</s> Vertu sæl.</s> Hvatningu?</s> - Viđ spjörum okkur.</s> Hvađ segir hann?</s> Og Chaff.</s> Er ūađ svo slæmt?</s> Hún átti tvö börn.</s> - Ūađ er erfitt.</s> weather forecast</s> Ūví viđ verđum bara ķhultir á norđurheimsskautsbaug.</s> Bon soir.</s> Gangi ūér vel!</s> Halló.</s> Hann er auđvitađ uppáhaldiđ í ūessu hlaupi og viđ sjáum hann hér.</s> Væri ūađ möguleiki?</s> Ūetta er allt í lagi.</s> Ég ūarf bara ađferđ.</s> Nú ūegar ég er hér held ég ađ ég vilji ūađ ekki.</s> Gott og vel.</s> Buon giorno, signore!</s> Svo sorglegt.</s> Fyrirgefiđ ađ ég er of seinn, Hallie.</s> Ekki ūennan asa!</s> Mér ūykir ūetta leitt.</s> Hvar ertu?</s> Ég vil líka berjast.</s> Tíminn er naumur. Komiđ.</s> Dráttarvélaferđ?</s> Barniđ er međ vindgang.</s> Viđ vinnum enn í ūví.</s> Ūér er ekki alvara.</s> Og hvađ er ūetta hræđilega skrímsli, drísilvanskapningur?</s> Ef ég veit leiđina stefni ég öllu í vođa.</s> - Hafđu ekki áhyggjur af ūví.</s> Ég skal sjá hvađ hann segir.</s> Gerđu ūig stoltan.</s> Mér ūykir ūađ svo leitt.</s> Undirgefin, eins og alltaf.</s> Mér ūykir vænt um ūig.</s> Evrópa/ Gibraltar</s> - Ég veit. Hver ætli ūađ sé?</s> Get ekki borđađ međ ūetta starandi á mig.</s> Annálaskrá</s> Viđ gerđum samkomulag í Twîn Falls ūar sem viđ fáum 70 sent á dalinn.</s> Ég ūakka hugulsemina.</s> Og fjandinn hirđi franska herinn.</s> Allir dauđagjafar ættu ađ fara ūangađ saman.</s> Það þarf dreka til að sigra aðra dreka.</s> Ūetta er í lagi, Jķi.</s> Við gerum það.</s> Ef ekki skũt ég ūá alla ūegar ūeir ganga út.</s> Mappa verkefnis</s> Ég hef gaman af ūví ķvænta.</s> Veljuleg (finna pappírsgerð sjálfkrafa)</s> Ūađ er frábært.</s> Hann fer ekkert.</s> - Hver er ūín ástæđa?</s> Auđvitađ. Virgil. Hve lengi hefurđu starfađ viđ ađ drepa fķlk?</s> Friđur.</s> Mulan.</s> -Í alvöru? Til hamingju.</s> Við eigum allt sem þú girnist.</s> Ég er Djúprauđa Eldingin.</s> Ég er sammála ūví.</s> En ūađ skiptir mig ekki máli nú ūví ég fķr upp á fjallstindinn.</s> Slakađu ūér, systa.</s> Sestu.</s> Hann lofar aõ skrifa ekki oftar.
+Caching indices mapping at /home/yangdezhao/.cache/huggingface/datasets/json/default-2431450ed5974c88/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5e1ef526376d7091.arrow
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 7560
+})
+[INFO|trainer.py:586] 2024-02-25 14:53:59,463 >> Using auto half precision backend
+[INFO|deepspeed.py:325] 2024-02-25 14:53:59,790 >> Detected ZeRO Offload and non-DeepSpeed optimizers: This combination should work as long as the custom optimizer has both CPU and GPU implementation (except LAMB)
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/yangdezhao/.cache/torch_extensions/py310_cu121/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:00<08:37, 1928.58 examples/s]Running tokenizer on dataset (num_proc=20):   2%|▏         | 20000/1000000 [00:00<00:23, 41592.15 examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=20):   4%|▍         | 40000/1000000 [00:00<00:12, 76901.45 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Running tokenizer on dataset (num_proc=20):   6%|▌         | 60000/1000000 [00:00<00:08, 106271.41 examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:00<09:20, 1783.77 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 77000/1000000 [00:00<00:07, 122429.39 examples/s]Running tokenizer on dataset (num_proc=20):   1%|          | 9000/1000000 [00:00<00:56, 17405.05 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 94000/1000000 [00:01<00:07, 120958.23 examples/s]Running tokenizer on dataset (num_proc=20):   2%|▏         | 24000/1000000 [00:00<00:21, 46445.02 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Running tokenizer on dataset (num_proc=20):  11%|█         | 110000/1000000 [00:01<00:07, 126845.15 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Running tokenizer on dataset (num_proc=20):   4%|▎         | 35000/1000000 [00:00<00:15, 61548.48 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Running tokenizer on dataset (num_proc=20):  12%|█▎        | 125000/1000000 [00:01<00:06, 129430.66 examples/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1387: FutureWarning: promote has been superseded by promote_options='default'.
+  return cls._concat_blocks(pa_tables_to_concat_vertically, axis=0)
+Running tokenizer on dataset (num_proc=20):   5%|▍         | 46000/1000000 [00:01<00:14, 65446.66 examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:00<11:37, 1431.54 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▍        | 140000/1000000 [00:01<00:07, 114919.19 examples/s]Running tokenizer on dataset (num_proc=20):   6%|▋         | 64000/1000000 [00:01<00:10, 92592.96 examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 4000/1000000 [00:00<02:54, 5720.15 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▌        | 153000/1000000 [00:01<00:07, 107516.90 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 76000/1000000 [00:01<00:10, 88492.74 examples/s]Running tokenizer on dataset (num_proc=20):   2%|▏         | 23000/1000000 [00:00<00:25, 37718.53 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 167000/1000000 [00:01<00:07, 113860.69 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▎         | 35000/1000000 [00:01<00:17, 53747.06 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▊         | 87000/1000000 [00:01<00:10, 86940.63 examples/s]Running tokenizer on dataset (num_proc=20):  10%|▉         | 98000/1000000 [00:01<00:09, 92373.75 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 180000/1000000 [00:01<00:07, 102547.33 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▍         | 45000/1000000 [00:01<00:17, 55559.92 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▉        | 192000/1000000 [00:01<00:07, 104874.10 examples/s]Running tokenizer on dataset (num_proc=20):  11%|█         | 109000/1000000 [00:01<00:10, 89007.73 examples/s]Running tokenizer on dataset (num_proc=20):   6%|▋         | 63000/1000000 [00:01<00:12, 75478.53 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 204000/1000000 [00:02<00:07, 106471.17 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▏        | 124000/1000000 [00:01<00:08, 100710.92 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 77000/1000000 [00:01<00:10, 89222.71 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 216000/1000000 [00:02<00:07, 102895.58 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▎        | 135000/1000000 [00:01<00:09, 88230.78 examples/s] Running tokenizer on dataset (num_proc=20):  23%|██▎       | 227000/1000000 [00:02<00:07, 102442.09 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 88000/1000000 [00:01<00:11, 82661.03 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▍        | 146000/1000000 [00:02<00:09, 93436.23 examples/s]Running tokenizer on dataset (num_proc=20):  10%|█         | 102000/1000000 [00:01<00:09, 93063.03 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 238000/1000000 [00:02<00:07, 100112.32 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▌        | 156000/1000000 [00:02<00:09, 91786.77 examples/s]Running tokenizer on dataset (num_proc=20):  25%|██▍       | 249000/1000000 [00:02<00:07, 101734.54 examples/s]Running tokenizer on dataset (num_proc=20):  11%|█▏        | 113000/1000000 [00:01<00:09, 89815.38 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 167000/1000000 [00:02<00:08, 96049.82 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 177000/1000000 [00:02<00:08, 93289.99 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 260000/1000000 [00:02<00:08, 89076.13 examples/s] Running tokenizer on dataset (num_proc=20):  12%|█▏        | 123000/1000000 [00:02<00:10, 82688.76 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 271000/1000000 [00:02<00:07, 93024.01 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▎        | 137000/1000000 [00:02<00:09, 95807.86 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▉        | 188000/1000000 [00:02<00:08, 92238.39 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 281000/1000000 [00:02<00:07, 91465.96 examples/s]Running tokenizer on dataset (num_proc=20):  20%|█▉        | 198000/1000000 [00:02<00:08, 93689.88 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▍        | 148000/1000000 [00:02<00:09, 90861.08 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██        | 208000/1000000 [00:02<00:08, 94622.27 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 293000/1000000 [00:03<00:07, 96279.64 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▌        | 159000/1000000 [00:02<00:08, 95145.09 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 218000/1000000 [00:02<00:08, 92206.48 examples/s]Running tokenizer on dataset (num_proc=20):  30%|███       | 303000/1000000 [00:03<00:07, 94641.69 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 169000/1000000 [00:02<00:09, 92160.02 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 315000/1000000 [00:03<00:06, 101040.59 examples/s]Running tokenizer on dataset (num_proc=20):  23%|██▎       | 230000/1000000 [00:02<00:08, 88606.50 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 180000/1000000 [00:02<00:08, 91930.75 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 326000/1000000 [00:03<00:06, 96414.11 examples/s] Running tokenizer on dataset (num_proc=20):  24%|██▍       | 244000/1000000 [00:03<00:07, 101561.46 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▉        | 190000/1000000 [00:02<00:09, 89381.55 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▎      | 336000/1000000 [00:03<00:06, 96296.97 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 200000/1000000 [00:02<00:08, 89552.25 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 255000/1000000 [00:03<00:08, 85659.97 examples/s] Running tokenizer on dataset (num_proc=20):  35%|███▍      | 346000/1000000 [00:03<00:07, 93389.15 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██        | 211000/1000000 [00:02<00:08, 92151.74 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 356000/1000000 [00:03<00:06, 92690.31 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 270000/1000000 [00:03<00:08, 88532.95 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 221000/1000000 [00:03<00:08, 89865.45 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 366000/1000000 [00:03<00:06, 93580.80 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 285000/1000000 [00:03<00:07, 102016.39 examples/s]Running tokenizer on dataset (num_proc=20):  23%|██▎       | 231000/1000000 [00:03<00:08, 90626.70 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 376000/1000000 [00:03<00:06, 92015.60 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 243000/1000000 [00:03<00:07, 97863.86 examples/s]Running tokenizer on dataset (num_proc=20):  30%|██▉       | 296000/1000000 [00:03<00:07, 88071.56 examples/s] Running tokenizer on dataset (num_proc=20):  39%|███▊      | 386000/1000000 [00:04<00:06, 88665.39 examples/s]Running tokenizer on dataset (num_proc=20):  25%|██▌       | 253000/1000000 [00:03<00:08, 93145.89 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███       | 310000/1000000 [00:03<00:07, 92520.07 examples/s]Running tokenizer on dataset (num_proc=20):  40%|███▉      | 398000/1000000 [00:04<00:06, 88020.91 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▋       | 263000/1000000 [00:03<00:07, 94177.25 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 321000/1000000 [00:03<00:07, 91712.52 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████      | 411000/1000000 [00:04<00:06, 93315.11 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 273000/1000000 [00:03<00:07, 92062.18 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 331000/1000000 [00:04<00:07, 91479.16 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 421000/1000000 [00:04<00:06, 94721.55 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 283000/1000000 [00:03<00:07, 93596.10 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 342000/1000000 [00:04<00:07, 93713.69 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 431000/1000000 [00:04<00:06, 92950.31 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 293000/1000000 [00:03<00:07, 92938.86 examples/s]Running tokenizer on dataset (num_proc=20):  35%|███▌      | 353000/1000000 [00:04<00:06, 94720.16 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███       | 306000/1000000 [00:03<00:06, 100421.82 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▍     | 443000/1000000 [00:04<00:06, 92686.91 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▋      | 363000/1000000 [00:04<00:06, 92271.23 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▌     | 453000/1000000 [00:04<00:05, 94231.19 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 317000/1000000 [00:04<00:07, 94467.15 examples/s] Running tokenizer on dataset (num_proc=20):  37%|███▋      | 374000/1000000 [00:04<00:06, 96349.34 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 327000/1000000 [00:04<00:07, 94329.06 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▋     | 463000/1000000 [00:04<00:05, 89833.57 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 384000/1000000 [00:04<00:06, 91418.60 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▎      | 337000/1000000 [00:04<00:06, 95230.24 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 474000/1000000 [00:04<00:05, 94611.32 examples/s]Running tokenizer on dataset (num_proc=20):  40%|███▉      | 395000/1000000 [00:04<00:06, 92577.10 examples/s]Running tokenizer on dataset (num_proc=20):  35%|███▍      | 347000/1000000 [00:04<00:06, 96527.44 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 484000/1000000 [00:05<00:05, 92392.20 examples/s]Running tokenizer on dataset (num_proc=20):  40%|████      | 405000/1000000 [00:04<00:06, 93597.35 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 357000/1000000 [00:04<00:07, 91780.14 examples/s]Running tokenizer on dataset (num_proc=20):  50%|████▉     | 495000/1000000 [00:05<00:05, 94974.72 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 415000/1000000 [00:04<00:06, 91017.35 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 367000/1000000 [00:04<00:06, 93759.15 examples/s]Running tokenizer on dataset (num_proc=20):  50%|█████     | 505000/1000000 [00:05<00:05, 95178.07 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 426000/1000000 [00:05<00:06, 94897.98 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 516000/1000000 [00:05<00:04, 98132.05 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 377000/1000000 [00:04<00:07, 88855.32 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▎     | 436000/1000000 [00:05<00:06, 91861.88 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 526000/1000000 [00:05<00:05, 94420.68 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▉      | 390000/1000000 [00:04<00:06, 90706.97 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▍     | 448000/1000000 [00:05<00:05, 97256.12 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▎    | 537000/1000000 [00:05<00:04, 97577.99 examples/s]Running tokenizer on dataset (num_proc=20):  40%|████      | 402000/1000000 [00:04<00:06, 98347.55 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 458000/1000000 [00:05<00:06, 89285.03 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▍    | 547000/1000000 [00:05<00:04, 92973.17 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████      | 412000/1000000 [00:05<00:06, 84201.13 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 470000/1000000 [00:05<00:05, 95879.09 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 559000/1000000 [00:05<00:04, 99750.03 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 428000/1000000 [00:05<00:05, 102955.06 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 480000/1000000 [00:05<00:05, 89798.54 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 570000/1000000 [00:06<00:04, 90716.76 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▍     | 439000/1000000 [00:05<00:06, 93211.06 examples/s] Running tokenizer on dataset (num_proc=20):  49%|████▉     | 492000/1000000 [00:05<00:05, 97597.86 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 581000/1000000 [00:06<00:04, 88691.44 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▍     | 449000/1000000 [00:05<00:05, 93147.67 examples/s]Running tokenizer on dataset (num_proc=20):  50%|█████     | 502000/1000000 [00:05<00:05, 89445.71 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 591000/1000000 [00:06<00:04, 91010.48 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 459000/1000000 [00:05<00:05, 92422.63 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 515000/1000000 [00:05<00:05, 94372.44 examples/s]Running tokenizer on dataset (num_proc=20):  60%|██████    | 601000/1000000 [00:06<00:04, 91108.39 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 469000/1000000 [00:05<00:06, 88431.15 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▎    | 525000/1000000 [00:06<00:05, 93872.59 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████▏   | 613000/1000000 [00:06<00:04, 95474.20 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 481000/1000000 [00:05<00:05, 96304.32 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▎    | 535000/1000000 [00:06<00:05, 92327.18 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 624000/1000000 [00:06<00:03, 96541.80 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 491000/1000000 [00:05<00:05, 87546.16 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▍    | 546000/1000000 [00:06<00:04, 96948.71 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 634000/1000000 [00:06<00:03, 97187.50 examples/s]Running tokenizer on dataset (num_proc=20):  50%|█████     | 502000/1000000 [00:06<00:05, 92714.38 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 556000/1000000 [00:06<00:04, 93088.25 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 644000/1000000 [00:06<00:03, 94517.35 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████     | 512000/1000000 [00:06<00:05, 89690.24 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 567000/1000000 [00:06<00:04, 96225.71 examples/s]Running tokenizer on dataset (num_proc=20):  65%|██████▌   | 654000/1000000 [00:06<00:03, 93421.89 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▋   | 664000/1000000 [00:06<00:03, 94603.71 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 577000/1000000 [00:06<00:04, 93892.86 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▎    | 525000/1000000 [00:06<00:04, 95408.10 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 674000/1000000 [00:07<00:03, 95504.84 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 589000/1000000 [00:06<00:04, 98751.66 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▎    | 535000/1000000 [00:06<00:05, 89921.31 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 684000/1000000 [00:07<00:03, 93761.95 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▍    | 547000/1000000 [00:06<00:04, 92236.42 examples/s]Running tokenizer on dataset (num_proc=20):  60%|█████▉    | 599000/1000000 [00:06<00:04, 85758.83 examples/s]Running tokenizer on dataset (num_proc=20):  70%|██████▉   | 695000/1000000 [00:07<00:03, 98247.46 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 558000/1000000 [00:06<00:04, 95834.69 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████    | 612000/1000000 [00:07<00:04, 90360.67 examples/s]Running tokenizer on dataset (num_proc=20):  70%|███████   | 705000/1000000 [00:07<00:03, 92107.65 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 568000/1000000 [00:06<00:04, 88294.29 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 622000/1000000 [00:07<00:04, 91111.10 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 717000/1000000 [00:07<00:02, 95892.94 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 580000/1000000 [00:06<00:04, 94396.67 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 634000/1000000 [00:07<00:03, 97862.54 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 727000/1000000 [00:07<00:02, 92338.05 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 644000/1000000 [00:07<00:03, 94249.85 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 590000/1000000 [00:07<00:04, 88532.26 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▎  | 737000/1000000 [00:07<00:02, 90803.51 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 656000/1000000 [00:07<00:03, 91659.31 examples/s]Running tokenizer on dataset (num_proc=20):  60%|██████    | 603000/1000000 [00:07<00:04, 93132.10 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▍  | 748000/1000000 [00:07<00:02, 94256.63 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 667000/1000000 [00:07<00:03, 94450.54 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████▏   | 613000/1000000 [00:07<00:04, 93010.39 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 758000/1000000 [00:07<00:02, 95106.42 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 677000/1000000 [00:07<00:03, 95863.52 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 623000/1000000 [00:07<00:04, 89745.67 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 768000/1000000 [00:08<00:02, 93772.77 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▊   | 687000/1000000 [00:07<00:03, 92979.65 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▎   | 635000/1000000 [00:07<00:03, 96962.21 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 780000/1000000 [00:08<00:02, 99412.28 examples/s]Running tokenizer on dataset (num_proc=20):  70%|██████▉   | 697000/1000000 [00:07<00:03, 92931.21 examples/s]Running tokenizer on dataset (num_proc=20):  79%|███████▉  | 790000/1000000 [00:08<00:02, 97850.40 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 645000/1000000 [00:07<00:03, 89307.51 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████   | 707000/1000000 [00:08<00:03, 92934.71 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 800000/1000000 [00:08<00:02, 97593.45 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 655000/1000000 [00:07<00:03, 90394.52 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 717000/1000000 [00:08<00:03, 92642.41 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████  | 810000/1000000 [00:08<00:01, 96300.36 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 666000/1000000 [00:07<00:03, 90858.06 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 727000/1000000 [00:08<00:02, 92723.29 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 822000/1000000 [00:08<00:01, 95771.98 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 677000/1000000 [00:07<00:03, 95463.26 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▎  | 737000/1000000 [00:08<00:02, 91560.21 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▊   | 687000/1000000 [00:08<00:03, 94756.60 examples/s]Running tokenizer on dataset (num_proc=20):  83%|████████▎ | 832000/1000000 [00:08<00:01, 93539.69 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▍  | 748000/1000000 [00:08<00:02, 96221.41 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 843000/1000000 [00:08<00:01, 97510.23 examples/s]Running tokenizer on dataset (num_proc=20):  70%|██████▉   | 699000/1000000 [00:08<00:03, 98891.31 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 758000/1000000 [00:08<00:02, 88761.31 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▌ | 853000/1000000 [00:08<00:01, 96579.08 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████   | 709000/1000000 [00:08<00:02, 98356.53 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 768000/1000000 [00:08<00:02, 86511.22 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 719000/1000000 [00:08<00:02, 96311.42 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▋ | 863000/1000000 [00:09<00:01, 93436.73 examples/s][1/4] /usr/local/cuda-12.2/bin/nvcc  -DTORCH_EXTENSION_NAME=cpu_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/ops/csrc/includes -I/usr/local/cuda-12.2/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/TH -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/THC -isystem /usr/local/cuda-12.2/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/include/python3.10 -D_GLIBCXX_USE_CXX11_ABI=0 -D__CUDA_NO_HALF_OPERATORS__ -D__CUDA_NO_HALF_CONVERSIONS__ -D__CUDA_NO_BFLOAT16_CONVERSIONS__ -D__CUDA_NO_HALF2_OPERATORS__ --expt-relaxed-constexpr -gencode=arch=compute_86,code=compute_86 -gencode=arch=compute_86,code=sm_86 --compiler-options '-fPIC' -O3 --use_fast_math -std=c++17 -U__CUDA_NO_HALF_OPERATORS__ -U__CUDA_NO_HALF_CONVERSIONS__ -U__CUDA_NO_HALF2_OPERATORS__ -gencode=arch=compute_86,code=sm_86 -gencode=arch=compute_86,code=compute_86 -DBF16_AVAILABLE -U__CUDA_NO_BFLOAT16_OPERATORS__ -U__CUDA_NO_BFLOAT162_OPERATORS__ -c /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/ops/csrc/common/custom_cuda_kernel.cu -o custom_cuda_kernel.cuda.o 
+Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 731000/1000000 [00:08<00:02, 102831.50 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 779000/1000000 [00:08<00:02, 90732.83 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 874000/1000000 [00:09<00:01, 93326.12 examples/s]Running tokenizer on dataset (num_proc=20):  79%|███████▉  | 789000/1000000 [00:08<00:02, 90184.26 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▍  | 742000/1000000 [00:08<00:02, 95532.21 examples/s] Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 884000/1000000 [00:09<00:01, 89584.60 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▌  | 752000/1000000 [00:08<00:02, 95503.58 examples/s]Running tokenizer on dataset (num_proc=20):  90%|████████▉ | 896000/1000000 [00:09<00:01, 97214.91 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 803000/1000000 [00:09<00:02, 96063.52 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 762000/1000000 [00:08<00:02, 96575.22 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████▏ | 813000/1000000 [00:09<00:02, 93478.39 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████ | 906000/1000000 [00:09<00:01, 87765.08 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 774000/1000000 [00:08<00:02, 100885.97 examples/s]Running tokenizer on dataset (num_proc=20):  83%|████████▎ | 826000/1000000 [00:09<00:01, 98802.38 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 919000/1000000 [00:09<00:00, 98394.50 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 785000/1000000 [00:09<00:02, 102120.37 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▎ | 836000/1000000 [00:09<00:01, 93901.46 examples/s]Running tokenizer on dataset (num_proc=20):  93%|█████████▎| 930000/1000000 [00:09<00:00, 94403.73 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▍ | 847000/1000000 [00:09<00:01, 97159.71 examples/s]Running tokenizer on dataset (num_proc=20):  80%|███████▉  | 796000/1000000 [00:09<00:02, 88319.90 examples/s] Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 941000/1000000 [00:09<00:00, 90203.26 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████  | 809000/1000000 [00:09<00:01, 97185.12 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 857000/1000000 [00:09<00:01, 92581.75 examples/s]Running tokenizer on dataset (num_proc=20):  95%|█████████▌| 953000/1000000 [00:10<00:00, 94334.86 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 868000/1000000 [00:09<00:01, 95526.04 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 820000/1000000 [00:09<00:01, 97578.24 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▋| 963000/1000000 [00:10<00:00, 92725.09 examples/s]Running tokenizer on dataset (num_proc=20):  83%|████████▎ | 832000/1000000 [00:09<00:01, 103369.96 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 878000/1000000 [00:09<00:01, 92805.83 examples/s]Running tokenizer on dataset (num_proc=20):  97%|█████████▋| 973000/1000000 [00:10<00:00, 91982.70 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 843000/1000000 [00:09<00:01, 104642.89 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▉ | 890000/1000000 [00:09<00:01, 98907.67 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 983000/1000000 [00:10<00:00, 82904.66 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 855000/1000000 [00:09<00:01, 108436.35 examples/s]Running tokenizer on dataset (num_proc=20):  90%|█████████ | 900000/1000000 [00:10<00:01, 98873.20 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 868000/1000000 [00:09<00:01, 114523.13 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████▏| 914000/1000000 [00:10<00:00, 100866.99 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 880000/1000000 [00:09<00:01, 114440.99 examples/s]Running tokenizer on dataset (num_proc=20):  93%|█████████▎| 929000/1000000 [00:10<00:00, 113102.64 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 992000/1000000 [00:10<00:00, 58853.32 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▉ | 892000/1000000 [00:10<00:00, 115357.06 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 943000/1000000 [00:10<00:00, 112256.26 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████ | 906000/1000000 [00:10<00:00, 118929.68 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 959000/1000000 [00:10<00:00, 118847.13 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 922000/1000000 [00:10<00:00, 129843.70 examples/s]Running tokenizer on dataset (num_proc=20):  97%|█████████▋| 971000/1000000 [00:10<00:00, 115174.00 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▎| 936000/1000000 [00:10<00:00, 131099.57 examples/s]Running tokenizer on dataset (num_proc=20): 100%|█████████▉| 999000/1000000 [00:11<00:00, 39603.07 examples/s]Running tokenizer on dataset (num_proc=20):  95%|█████████▌| 950000/1000000 [00:10<00:00, 130946.76 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 983000/1000000 [00:10<00:00, 100623.51 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▋| 964000/1000000 [00:10<00:00, 130695.37 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 978000/1000000 [00:10<00:00, 131617.00 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 994000/1000000 [00:11<00:00, 80955.14 examples/s] Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 992000/1000000 [00:10<00:00, 116577.16 examples/s]Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:11<00:00, 86397.71 examples/s]
+Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:11<00:00, 83955.86 examples/s]
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 7560
+})
+Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:11<00:00, 83896.39 examples/s]
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 7560
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 7560
+})
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+[2/4] c++ -MMD -MF cpu_adam.o.d -DTORCH_EXTENSION_NAME=cpu_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/ops/csrc/includes -I/usr/local/cuda-12.2/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/TH -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/THC -isystem /usr/local/cuda-12.2/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/include/python3.10 -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++17 -O3 -std=c++17 -g -Wno-reorder -L/usr/local/cuda-12.2/lib64 -lcudart -lcublas -g -march=native -fopenmp -D__AVX512__ -D__ENABLE_CUDA__ -DBF16_AVAILABLE -c /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/ops/csrc/adam/cpu_adam.cpp -o cpu_adam.o 
+[3/4] c++ -MMD -MF cpu_adam_impl.o.d -DTORCH_EXTENSION_NAME=cpu_adam -DTORCH_API_INCLUDE_EXTENSION_H -DPYBIND11_COMPILER_TYPE=\"_gcc\" -DPYBIND11_STDLIB=\"_libstdcpp\" -DPYBIND11_BUILD_ABI=\"_cxxabi1011\" -I/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/ops/csrc/includes -I/usr/local/cuda-12.2/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/torch/csrc/api/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/TH -isystem /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/include/THC -isystem /usr/local/cuda-12.2/include -isystem /home/yangdezhao/anaconda3/envs/zhouh/include/python3.10 -D_GLIBCXX_USE_CXX11_ABI=0 -fPIC -std=c++17 -O3 -std=c++17 -g -Wno-reorder -L/usr/local/cuda-12.2/lib64 -lcudart -lcublas -g -march=native -fopenmp -D__AVX512__ -D__ENABLE_CUDA__ -DBF16_AVAILABLE -c /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/ops/csrc/adam/cpu_adam_impl.cpp -o cpu_adam_impl.o 
+[4/4] c++ cpu_adam.o cpu_adam_impl.o custom_cuda_kernel.cuda.o -shared -lcurand -L/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/lib -lc10 -lc10_cuda -ltorch_cpu -ltorch_cuda -ltorch -ltorch_python -L/usr/local/cuda-12.2/lib64 -lcudart -o cpu_adam.so
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 35.44989228248596 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 15.60113263130188 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 16.038387775421143 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 16.70776057243347 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000050, betas=(0.900000, 0.999000), weight_decay=0.010000, adam_w=1
+[2024-02-25 14:54:37,163] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.13.1, git-hash=unknown, git-branch=unknown
+[2024-02-25 14:54:50,103] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-02-25 14:54:50,106] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-02-25 14:54:50,106] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-02-25 14:54:50,113] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-02-25 14:54:50,114] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-02-25 14:54:50,114] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-02-25 14:54:50,114] [INFO] [stage_1_and_2.py:143:__init__] Reduce bucket size 500000000
+[2024-02-25 14:54:50,114] [INFO] [stage_1_and_2.py:144:__init__] Allgather bucket size 500000000
+[2024-02-25 14:54:50,114] [INFO] [stage_1_and_2.py:145:__init__] CPU Offload: True
+[2024-02-25 14:54:50,114] [INFO] [stage_1_and_2.py:146:__init__] Round robin gradient partitioning: False
+[2024-02-25 14:55:07,755] [INFO] [utils.py:791:see_memory_usage] Before initializing optimizer states
+[2024-02-25 14:55:07,756] [INFO] [utils.py:792:see_memory_usage] MA 20.76 GB         Max_MA 20.76 GB         CA 20.76 GB         Max_CA 21 GB 
+[2024-02-25 14:55:07,757] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 45.74 GB, percent = 18.2%
+[2024-02-25 14:55:15,515] [INFO] [utils.py:791:see_memory_usage] After initializing optimizer states
+[2024-02-25 14:55:15,516] [INFO] [utils.py:792:see_memory_usage] MA 20.76 GB         Max_MA 20.76 GB         CA 20.76 GB         Max_CA 21 GB 
+[2024-02-25 14:55:15,516] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 111.52 GB, percent = 44.3%
+[2024-02-25 14:55:15,516] [INFO] [stage_1_and_2.py:533:__init__] optimizer state initialized
+[2024-02-25 14:55:15,722] [INFO] [utils.py:791:see_memory_usage] After initializing ZeRO optimizer
+[2024-02-25 14:55:15,723] [INFO] [utils.py:792:see_memory_usage] MA 20.76 GB         Max_MA 20.76 GB         CA 20.76 GB         Max_CA 21 GB 
+[2024-02-25 14:55:15,723] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 111.54 GB, percent = 44.3%
+[2024-02-25 14:55:15,725] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedCPUAdam
+[2024-02-25 14:55:15,725] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-02-25 14:55:15,725] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-02-25 14:55:15,725] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-05], mom=[(0.9, 0.999)]
+[2024-02-25 14:55:15,727] [INFO] [config.py:984:print] DeepSpeedEngine configuration:
+[2024-02-25 14:55:15,727] [INFO] [config.py:988:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-02-25 14:55:15,727] [INFO] [config.py:988:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-02-25 14:55:15,727] [INFO] [config.py:988:print]   amp_enabled .................. False
+[2024-02-25 14:55:15,727] [INFO] [config.py:988:print]   amp_params ................... False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   bfloat16_enabled ............. True
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   checkpoint_parallel_write_pipeline  False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   checkpoint_tag_validation_enabled  True
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   checkpoint_tag_validation_fail  False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fb4dca9be20>
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   communication_data_type ...... None
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   curriculum_enabled_legacy .... False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   curriculum_params_legacy ..... False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   data_efficiency_enabled ...... False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   dataloader_drop_last ......... False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   disable_allgather ............ False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   dump_state ................... False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   dynamic_loss_scale_args ...... None
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   eigenvalue_enabled ........... False
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   eigenvalue_gas_boundary_resolution  1
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   eigenvalue_layer_num ......... 0
+[2024-02-25 14:55:15,729] [INFO] [config.py:988:print]   eigenvalue_max_iter .......... 100
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   eigenvalue_stability ......... 1e-06
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   eigenvalue_tol ............... 0.01
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   eigenvalue_verbose ........... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   elasticity_enabled ........... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   fp16_auto_cast ............... None
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   fp16_enabled ................. False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   fp16_master_weights_and_gradients  False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   global_rank .................. 0
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   grad_accum_dtype ............. None
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   gradient_accumulation_steps .. 4
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   gradient_clipping ............ 1.0
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   gradient_predivide_factor .... 1.0
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   graph_harvesting ............. False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   initial_dynamic_scale ........ 1
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   load_universal_checkpoint .... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   loss_scale ................... 1.0
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   memory_breakdown ............. False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   mics_hierarchial_params_gather  False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   mics_shard_size .............. -1
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   optimizer_legacy_fusion ...... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   optimizer_name ............... None
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   optimizer_params ............. None
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   pld_enabled .................. False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   pld_params ................... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   prescale_gradients ........... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   scheduler_name ............... None
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   scheduler_params ............. None
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   seq_parallel_communication_data_type  torch.float32
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   sparse_attention ............. None
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   sparse_gradients_enabled ..... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   steps_per_print .............. inf
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   train_batch_size ............. 192
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   train_micro_batch_size_per_gpu  12
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   use_data_before_expert_parallel_  False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   use_node_local_storage ....... False
+[2024-02-25 14:55:15,730] [INFO] [config.py:988:print]   wall_clock_breakdown ......... False
+[2024-02-25 14:55:15,731] [INFO] [config.py:988:print]   weight_quantization_config ... None
+[2024-02-25 14:55:15,731] [INFO] [config.py:988:print]   world_size ................... 4
+[2024-02-25 14:55:15,731] [INFO] [config.py:988:print]   zero_allow_untested_optimizer  True
+[2024-02-25 14:55:15,731] [INFO] [config.py:988:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-02-25 14:55:15,731] [INFO] [config.py:988:print]   zero_enabled ................. True
+[2024-02-25 14:55:15,731] [INFO] [config.py:988:print]   zero_force_ds_cpu_optimizer .. True
+[2024-02-25 14:55:15,731] [INFO] [config.py:988:print]   zero_optimization_stage ...... 2
+[2024-02-25 14:55:15,731] [INFO] [config.py:974:print_user_config]   json = {
+    "train_batch_size": 192, 
+    "train_micro_batch_size_per_gpu": 12, 
+    "gradient_accumulation_steps": 4, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "initial_scale_power": 16, 
+        "loss_scale_window": 1000, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }
+}
+[INFO|trainer.py:1747] 2024-02-25 14:55:15,731 >> ***** Running training *****
+[INFO|trainer.py:1748] 2024-02-25 14:55:15,731 >>   Num examples = 7,560
+[INFO|trainer.py:1749] 2024-02-25 14:55:15,731 >>   Num Epochs = 1
+[INFO|trainer.py:1750] 2024-02-25 14:55:15,731 >>   Instantaneous batch size per device = 12
+[INFO|trainer.py:1753] 2024-02-25 14:55:15,731 >>   Total train batch size (w. parallel, distributed & accumulation) = 192
+[INFO|trainer.py:1754] 2024-02-25 14:55:15,731 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:1755] 2024-02-25 14:55:15,731 >>   Total optimization steps = 39
+[INFO|trainer.py:1756] 2024-02-25 14:55:15,733 >>   Number of trainable parameters = 4,328,521,760
+  0%|          | 0/39 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+  3%|▎         | 1/39 [01:20<50:45, 80.14s/it]  5%|▌         | 2/39 [02:38<48:40, 78.94s/it]  8%|▊         | 3/39 [03:56<47:10, 78.62s/it] 10%|█         | 4/39 [05:13<45:31, 78.04s/it] 13%|█▎        | 5/39 [06:31<44:06, 77.83s/it] 15%|█▌        | 6/39 [07:48<42:42, 77.66s/it] 18%|█▊        | 7/39 [09:05<41:19, 77.47s/it] 21%|██        | 8/39 [10:22<40:00, 77.43s/it] 23%|██▎       | 9/39 [11:40<38:40, 77.35s/it] 26%|██▌       | 10/39 [12:57<37:20, 77.25s/it]                                               {'loss': 4.1098, 'learning_rate': 4.231810883773999e-05, 'epoch': 0.25}
+ 26%|██▌       | 10/39 [12:57<37:20, 77.25s/it] 28%|██▊       | 11/39 [14:14<36:00, 77.18s/it] 31%|███       | 12/39 [15:31<34:44, 77.21s/it] 33%|███▎      | 13/39 [16:48<33:24, 77.11s/it] 36%|███▌      | 14/39 [18:06<32:13, 77.32s/it] 38%|███▊      | 15/39 [19:23<30:56, 77.35s/it] 41%|████      | 16/39 [20:40<29:38, 77.32s/it] 44%|████▎     | 17/39 [21:58<28:22, 77.38s/it] 46%|████▌     | 18/39 [23:15<27:04, 77.34s/it] 49%|████▊     | 19/39 [24:32<25:45, 77.26s/it] 51%|█████▏    | 20/39 [25:49<24:27, 77.21s/it]                                               {'loss': 2.8449, 'learning_rate': 2.399335149726463e-05, 'epoch': 0.51}
+ 51%|█████▏    | 20/39 [25:49<24:27, 77.21s/it] 54%|█████▍    | 21/39 [27:06<23:10, 77.25s/it] 56%|█████▋    | 22/39 [28:24<21:52, 77.21s/it] 59%|█████▉    | 23/39 [29:41<20:34, 77.14s/it] 62%|██████▏   | 24/39 [30:57<19:15, 77.06s/it] 64%|██████▍   | 25/39 [32:14<17:58, 77.05s/it] 67%|██████▋   | 26/39 [33:32<16:41, 77.05s/it] 69%|██████▉   | 27/39 [34:49<15:25, 77.11s/it] 72%|███████▏  | 28/39 [36:06<14:08, 77.15s/it] 74%|███████▍  | 29/39 [37:23<12:50, 77.10s/it] 77%|███████▋  | 30/39 [38:40<11:33, 77.07s/it]                                               {'loss': 2.5313, 'learning_rate': 6.28723129572247e-06, 'epoch': 0.76}
+ 77%|███████▋  | 30/39 [38:40<11:33, 77.07s/it] 79%|███████▉  | 31/39 [39:57<10:16, 77.07s/it] 82%|████████▏ | 32/39 [41:14<08:59, 77.13s/it] 85%|████████▍ | 33/39 [42:31<07:42, 77.10s/it] 87%|████████▋ | 34/39 [43:49<06:25, 77.12s/it] 90%|████████▉ | 35/39 [45:06<05:08, 77.21s/it] 92%|█████████▏| 36/39 [46:23<03:51, 77.13s/it] 95%|█████████▍| 37/39 [47:40<02:34, 77.11s/it] 97%|█████████▋| 38/39 [48:57<01:17, 77.13s/it]100%|██████████| 39/39 [50:14<00:00, 77.13s/it][INFO|trainer.py:1988] 2024-02-25 15:45:30,502 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                               {'train_runtime': 3014.7689, 'train_samples_per_second': 2.508, 'train_steps_per_second': 0.013, 'train_loss': 2.9975179036458335, 'epoch': 0.99}
+100%|██████████| 39/39 [50:14<00:00, 77.13s/it]100%|██████████| 39/39 [50:14<00:00, 77.30s/it]
+[INFO|trainer.py:2979] 2024-02-25 15:45:44,621 >> Saving model checkpoint to /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis
+/home/yangdezhao/zhouh_temp/peft/src/peft/utils/save_and_load.py:151: UserWarning: Could not find a config file in /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf - will assume that the vocabulary was not modified.
+  warnings.warn(
+[2024-02-25 15:45:50,901] [INFO] [launch.py:347:main] Process 1942128 exits successfully.
+[2024-02-25 15:45:51,902] [INFO] [launch.py:347:main] Process 1942127 exits successfully.
+[2024-02-25 15:45:53,905] [INFO] [launch.py:347:main] Process 1942129 exits successfully.
+[INFO|tokenization_utils_base.py:2435] 2024-02-25 15:45:56,288 >> tokenizer config file saved in /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2444] 2024-02-25 15:45:56,288 >> Special tokens file saved in /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis/special_tokens_map.json
+***** train metrics *****
+  epoch                    =       0.99
+  train_loss               =     2.9975
+  train_runtime            = 0:50:14.76
+  train_samples_per_second =      2.508
+  train_steps_per_second   =      0.013
+Figure saved: /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-lm-enis/training_loss.png
+02/25/2024 15:45:57 - WARNING - llmtuner.extras.ploting - No metric eval_loss to plot.
+[INFO|modelcard.py:452] 2024-02-25 15:45:57,337 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}}
+[2024-02-25 15:46:02,916] [INFO] [launch.py:347:main] Process 1942126 exits successfully.

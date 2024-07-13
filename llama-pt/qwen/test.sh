@@ -1,0 +1,34 @@
+cd ../../
+export WANDB_DISABLED=true
+deepspeed --num_gpus 4 --master_port=9902 src/train_bash.py \
+    --deepspeed /home/wangzj/LLaMA-Factory-hx/llama-pt/config/ds_config.json \
+    --stage pt \
+    --model_name_or_path /home/nfs04/wangzj/models/Qwen1.5-1.8B \
+    --cutoff_len 1024 \
+    --finetuning_type moe \
+    --moe_every_k_layers 1 \
+	--moe_num_experts 2 \
+    --topk 1 \
+    --use_load_balancing_loss \
+    --use_polarization_loss \
+    --polarization_func entropy \
+    --polarization_coef 0.01 \
+    --router_aux_loss_coef 0.01 \
+    --do_train \
+    --dataset ar_2b,de_2b,ru_2b \
+    --preprocessing_num_workers 16 \
+    --cutoff_len 512 \
+    --cache_path /home/nfs03/wangzj/dataset/pretrain/arderu6b \
+    --output_dir /home/nfs04/wangzj/checkpoints/moe/test \
+    --overwrite_output_dir \
+    --per_device_train_batch_size 16 \
+    --gradient_accumulation_steps 8 \
+    --lr_scheduler_type cosine \
+    --logging_steps 1 \
+    --save_total_limit 100 \
+    --save_steps 10000 \
+    --save_only_model \
+    --learning_rate 5e-5 \
+    --num_train_epochs 1.0 \
+    --plot_loss \
+    --bf16

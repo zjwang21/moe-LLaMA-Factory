@@ -1,0 +1,32 @@
+cd ../../
+export WANDB_DISABLED=true
+deepspeed --include="localhost:2,3,5,6" --master_port=9901 src/train_bash.py \
+    --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config.json \
+    --stage pt \
+    --flash_attn \
+    --model_name_or_path /home/nfs02/wangzj/models/Qwen1.5-1.8B \
+    --do_train \
+    --dataset skypile_1b,is_1b \
+    --cache_path /home/nfs03/wangzj/dataset/pretrain/arderu6b \
+    --preprocessing_num_workers 16 \
+    --mix_strategy concat \
+    --cutoff_len 1024 \
+    --finetuning_type lora \
+    --loramoe \
+    --lora_dropout 0.05 \
+    --lora_alpha 32 \
+    --lora_rank 4 \
+    --lora_target gate_proj,up_proj,down_proj \
+    --output_dir /home/nfs03/wangzj/checkpoints/LoRAMoE/qwen-arderu \
+    --overwrite_output_dir \
+    --per_device_train_batch_size 8 \
+    --gradient_accumulation_steps 16 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --save_total_limit 1 \
+    --save_only_model \
+    --save_steps 1000 \
+    --learning_rate 2e-4 \
+    --num_train_epochs 1.0 \
+    --plot_loss \
+    --bf16

@@ -1,0 +1,24 @@
+cd ../../
+deepspeed --include="localhost:0,2,3,5,6" --master_port=9901 src/train_bash.py \
+    --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config.json \
+    --stage pt \
+    --flash_attn \
+    --model_name_or_path /home/nfs02/model/phi-2 \
+    --do_train \
+    --dataset ar_1b \
+    --preprocessing_num_workers 16 \
+    --cutoff_len 1024 \
+    --finetuning_type full \
+    --output_dir /home/nfs03/wangzj/checkpoints/mot/phi-nonexpanded-ar1b \
+    --overwrite_output_dir \
+    --per_device_train_batch_size 4 \
+    --gradient_accumulation_steps 16 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --save_total_limit 1 \
+    --save_only_model \
+    --save_steps 100000 \
+    --learning_rate 5e-5 \
+    --num_train_epochs 1.0 \
+    --plot_loss \
+    --bf16

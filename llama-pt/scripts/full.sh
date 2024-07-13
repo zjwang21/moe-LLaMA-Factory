@@ -1,0 +1,25 @@
+cd ../../
+deepspeed --num_gpus 4 --master_port=9902 src/train_bash.py \
+    --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json \
+    --stage pt \
+    --model_name_or_path /home/nfs02/model/llama2/hf/Llama-2-7b-hf \
+    --flash_attn \
+    --do_train \
+    --dataset is_1b \
+    --preprocessing_num_workers 4 \
+    --cutoff_len 2048 \
+    --finetuning_type lora \
+    --lora_target all \
+    --output_dir /home/nfs02/wangzj/checkpoints/calm/llama-lora-is1b \
+    --overwrite_output_dir \
+    --per_device_train_batch_size 16 \
+    --gradient_accumulation_steps 4 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --save_total_limit 1 \
+    --save_only_model \
+    --save_steps 1000000 \
+    --learning_rate 2e-4 \
+    --num_train_epochs 1.0 \
+    --plot_loss \
+    --bf16

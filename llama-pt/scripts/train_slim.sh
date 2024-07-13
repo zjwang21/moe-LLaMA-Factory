@@ -1,0 +1,30 @@
+cd ../../
+export WANDB_DISABLED=true
+deepspeed --num_gpus 4 --master_port=9901 src/train_bash.py \
+    --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json \
+    --stage pt \
+    --model_name_or_path /home/nfs02/model/llama2/hf/Llama-2-7b-hf \
+    --do_train \
+    --flash_attn \
+    --dataset skypile_1b,is_1b \
+    --cache_path /home/nfs03/wangzj/dataset/pretrain/llama_zhis_2b \
+    --preprocessing_num_workers 16 \
+    --mix_strategy concat \
+    --cutoff_len 2048 \
+    --finetuning_type moe \
+    --layers_to_moe 2,3,6,11,13,14,16,17,18,19,21,22,23,26,28,29 \
+    --moe_router_type top1 \
+    --moe_num_experts 2 \
+    --output_dir /home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-slim \
+    --overwrite_output_dir \
+    --per_device_train_batch_size 8 \
+    --gradient_accumulation_steps 8 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --save_total_limit 1 \
+    --save_only_model \
+    --save_steps 2000 \
+    --learning_rate 5e-5 \
+    --num_train_epochs 1.0 \
+    --plot_loss \
+    --bf16

@@ -1,0 +1,1711 @@
+[2024-05-14 11:14:05,467] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-14 11:14:06,419] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-05-14 11:14:06,419] [INFO] [runner.py:568:main] cmd = /home/yangdezhao/anaconda3/envs/ydz/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=9902 --enable_each_rank_log=None src/train_bash.py --deepspeed /home/yangdezhao/ydz_temp/llm-moe/config/ds.json --stage pt --flash_attn --model_name_or_path /home/yangdezhao/ydz_temp/models/Qwen1.5-7B --small_path /home/yangdezhao/ydz_temp/models/0.5b-python --large_path /home/yangdezhao/ydz_temp/models/Qwen1.5-7B --every_k_layers_small 3 --every_k_layers_large 4 --seed 22 --max_samples 648112 --do_train --dataset python --preprocessing_num_workers 32 --cutoff_len 1024 --finetuning_type ca --output_dir /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07 --overwrite_output_dir --per_device_train_batch_size 8 --gradient_accumulation_steps 16 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 200 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16
+[2024-05-14 11:14:08,327] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-14 11:14:09,206] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-05-14 11:14:09,206] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-05-14 11:14:09,206] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-05-14 11:14:09,206] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-05-14 11:14:09,206] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-05-14 11:14:13,061] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-14 11:14:13,073] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-14 11:14:13,085] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-14 11:14:13,090] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-14 11:14:15,103] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-05-14 11:14:15,103] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-05-14 11:14:15,105] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-05-14 11:14:15,118] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-05-14 11:14:15,118] [INFO] [comm.py:637:init_distributed] cdb=None
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/ydz_temp/llm-moe/config/ds.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=16,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/runs/May14_11-14-15_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=200,
+save_strategy=steps,
+save_total_limit=1,
+seed=22,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2027] 2024-05-14 11:14:15,241 >> loading file vocab.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-14 11:14:15,242 >> loading file merges.txt
+[INFO|tokenization_utils_base.py:2027] 2024-05-14 11:14:15,242 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-14 11:14:15,242 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-14 11:14:15,242 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-14 11:14:15,242 >> loading file tokenizer.json
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/ydz_temp/llm-moe/config/ds.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=16,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/runs/May14_11-14-15_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=200,
+save_strategy=steps,
+save_total_limit=1,
+seed=22,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/ydz_temp/llm-moe/config/ds.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=16,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/runs/May14_11-14-15_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=200,
+save_strategy=steps,
+save_total_limit=1,
+seed=22,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+05/14/2024 11:14:15 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/ydz_temp/llm-moe/config/ds.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=16,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/runs/May14_11-14-15_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=200,
+save_strategy=steps,
+save_total_limit=1,
+seed=22,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[WARNING|logging.py:314] 2024-05-14 11:14:15,469 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:727] 2024-05-14 11:14:15,470 >> loading configuration file /home/yangdezhao/ydz_temp/models/0.5b-python/config.json
+[INFO|configuration_utils.py:792] 2024-05-14 11:14:15,470 >> Model config Qwen2Config {
+  "_name_or_path": "/home/yangdezhao/ydz_temp/models/0.5b-python",
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151643,
+  "hidden_act": "silu",
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 2816,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_key_value_heads": 16,
+  "rms_norm_eps": 1e-06,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": false,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|configuration_utils.py:727] 2024-05-14 11:14:15,471 >> loading configuration file /home/yangdezhao/ydz_temp/models/Qwen1.5-7B/config.json
+[INFO|configuration_utils.py:792] 2024-05-14 11:14:15,471 >> Model config Qwen2Config {
+  "_name_or_path": "/home/yangdezhao/ydz_temp/models/Qwen1.5-7B",
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151643,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 28,
+  "model_type": "qwen2",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "rms_norm_eps": 1e-06,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - Initializing cross attention model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - CrossAttnConfig {
+  "attention_dropout": 0.0,
+  "every_k_layers_large": 4,
+  "every_k_layers_small": 3,
+  "freeze_large": true,
+  "freeze_small": true,
+  "initializer_range": 0.02,
+  "large_hidden_size": 4096,
+  "large_layers": 32,
+  "large_path": "/home/yangdezhao/ydz_temp/models/Qwen1.5-7B",
+  "model_type": "qwen2_cross_attn",
+  "num_heads": 16,
+  "num_layers_to_align": 8,
+  "small_hidden_size": 1024,
+  "small_layers": 24,
+  "small_path": "/home/yangdezhao/ydz_temp/models/0.5b-python",
+  "transformers_version": "4.38.0.dev0"
+}
+
+[WARNING|logging.py:329] 2024-05-14 11:14:15,473 >> Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnMergeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[INFO|configuration_utils.py:827] 2024-05-14 11:14:15,473 >> Generate config GenerationConfig {}
+
+[INFO|configuration_utils.py:727] 2024-05-14 11:14:15,474 >> loading configuration file /home/yangdezhao/ydz_temp/models/0.5b-python/config.json
+[INFO|configuration_utils.py:792] 2024-05-14 11:14:15,474 >> Model config Qwen2Config {
+  "_name_or_path": "/home/yangdezhao/ydz_temp/models/0.5b-python",
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151643,
+  "hidden_act": "silu",
+  "hidden_size": 1024,
+  "initializer_range": 0.02,
+  "intermediate_size": 2816,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_key_value_heads": 16,
+  "rms_norm_eps": 1e-06,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": true,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": false,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|configuration_utils.py:727] 2024-05-14 11:14:15,474 >> loading configuration file /home/yangdezhao/ydz_temp/models/Qwen1.5-7B/config.json
+[INFO|configuration_utils.py:792] 2024-05-14 11:14:15,475 >> Model config Qwen2Config {
+  "_name_or_path": "/home/yangdezhao/ydz_temp/models/Qwen1.5-7B",
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151643,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 28,
+  "model_type": "qwen2",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "rms_norm_eps": 1e-06,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Enable flash attention for small and large model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init small models......
+[INFO|modeling_utils.py:3334] 2024-05-14 11:14:15,475 >> loading weights file /home/yangdezhao/ydz_temp/models/0.5b-python/model.safetensors
+[WARNING|logging.py:329] 2024-05-14 11:14:15,490 >> You are attempting to use Flash Attention 2.0 without specifying a torch dtype. This might lead to unexpected behaviour
+[WARNING|logging.py:329] 2024-05-14 11:14:15,490 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[WARNING|logging.py:329] 2024-05-14 11:14:15,491 >> Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnGeneratorModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - Initializing cross attention model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - CrossAttnConfig {
+  "attention_dropout": 0.0,
+  "every_k_layers_large": 4,
+  "every_k_layers_small": 3,
+  "freeze_large": true,
+  "freeze_small": true,
+  "initializer_range": 0.02,
+  "large_hidden_size": 4096,
+  "large_layers": 32,
+  "large_path": "/home/yangdezhao/ydz_temp/models/Qwen1.5-7B",
+  "model_type": "qwen2_cross_attn",
+  "num_heads": 16,
+  "num_layers_to_align": 8,
+  "small_hidden_size": 1024,
+  "small_layers": 24,
+  "small_path": "/home/yangdezhao/ydz_temp/models/0.5b-python",
+  "transformers_version": "4.38.0.dev0"
+}
+
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnMergeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Enable flash attention for small and large model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init small models......
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - Initializing cross attention model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - CrossAttnConfig {
+  "attention_dropout": 0.0,
+  "every_k_layers_large": 4,
+  "every_k_layers_small": 3,
+  "freeze_large": true,
+  "freeze_small": true,
+  "initializer_range": 0.02,
+  "large_hidden_size": 4096,
+  "large_layers": 32,
+  "large_path": "/home/yangdezhao/ydz_temp/models/Qwen1.5-7B",
+  "model_type": "qwen2_cross_attn",
+  "num_heads": 16,
+  "num_layers_to_align": 8,
+  "small_hidden_size": 1024,
+  "small_layers": 24,
+  "small_path": "/home/yangdezhao/ydz_temp/models/0.5b-python",
+  "transformers_version": "4.38.0.dev0"
+}
+
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnMergeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Enable flash attention for small and large model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init small models......
+You are attempting to use Flash Attention 2.0 without specifying a torch dtype. This might lead to unexpected behaviour
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnGeneratorModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+You are attempting to use Flash Attention 2.0 without specifying a torch dtype. This might lead to unexpected behaviour
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnGeneratorModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - Initializing cross attention model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.loader - CrossAttnConfig {
+  "attention_dropout": 0.0,
+  "every_k_layers_large": 4,
+  "every_k_layers_small": 3,
+  "freeze_large": true,
+  "freeze_small": true,
+  "initializer_range": 0.02,
+  "large_hidden_size": 4096,
+  "large_layers": 32,
+  "large_path": "/home/yangdezhao/ydz_temp/models/Qwen1.5-7B",
+  "model_type": "qwen2_cross_attn",
+  "num_heads": 16,
+  "num_layers_to_align": 8,
+  "small_hidden_size": 1024,
+  "small_layers": 24,
+  "small_path": "/home/yangdezhao/ydz_temp/models/0.5b-python",
+  "transformers_version": "4.38.0.dev0"
+}
+
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnMergeModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Enable flash attention for small and large model.
+05/14/2024 11:14:15 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init small models......
+You are attempting to use Flash Attention 2.0 without specifying a torch dtype. This might lead to unexpected behaviour
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Flash Attention 2.0 only supports torch.float16 and torch.bfloat16 dtypes, but the current dype in Qwen2CrossAttnGeneratorModel is torch.float32. You should run training or inference using Automatic Mixed-Precision via the `with torch.autocast(device_type='torch_device'):` decorator, or load the model with the `torch_dtype` argument. Example: `model = AutoModel.from_pretrained("openai/whisper-tiny", attn_implementation="flash_attention_2", torch_dtype=torch.float16)`
+[INFO|modeling_utils.py:4060] 2024-05-14 11:14:18,352 >> Some weights of the model checkpoint at /home/yangdezhao/ydz_temp/models/0.5b-python were not used when initializing Qwen2CrossAttnGeneratorModel: ['lm_head.weight']
+- This IS expected if you are initializing Qwen2CrossAttnGeneratorModel from the checkpoint of a model trained on another task or with another architecture (e.g. initializing a BertForSequenceClassification model from a BertForPreTraining model).
+- This IS NOT expected if you are initializing Qwen2CrossAttnGeneratorModel from the checkpoint of a model that you expect to be exactly identical (initializing a BertForSequenceClassification model from a BertForSequenceClassification model).
+[INFO|modeling_utils.py:4078] 2024-05-14 11:14:18,352 >> All the weights of Qwen2CrossAttnGeneratorModel were initialized from the model checkpoint at /home/yangdezhao/ydz_temp/models/0.5b-python.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use Qwen2CrossAttnGeneratorModel for predictions without further training.
+05/14/2024 11:14:18 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init large models......
+[INFO|modeling_utils.py:3334] 2024-05-14 11:14:18,356 >> loading weights file /home/yangdezhao/ydz_temp/models/Qwen1.5-7B/model.safetensors.index.json
+[INFO|configuration_utils.py:827] 2024-05-14 11:14:18,357 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "eos_token_id": 151643
+}
+
+05/14/2024 11:14:19 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init large models......
+05/14/2024 11:14:19 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init large models......
+05/14/2024 11:14:21 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init large models......
+Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.44s/it]Loading checkpoint shards:   0%|          | 0/4 [00:00<?, ?it/s]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.45s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.66s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.55s/it]Loading checkpoint shards:  25%|██▌       | 1/4 [00:01<00:04,  1.46s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:02<00:02,  1.44s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.47s/it]Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.65s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.45s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.40s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.44s/it]
+[INFO|modeling_utils.py:4070] 2024-05-14 11:14:29,167 >> All model checkpoint weights were used when initializing Qwen2CrossAttnCausalLM.
+
+[INFO|modeling_utils.py:4078] 2024-05-14 11:14:29,167 >> All the weights of Qwen2CrossAttnCausalLM were initialized from the model checkpoint at /home/yangdezhao/ydz_temp/models/Qwen1.5-7B.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use Qwen2CrossAttnCausalLM for predictions without further training.
+[INFO|configuration_utils.py:780] 2024-05-14 11:14:29,170 >> loading configuration file /home/yangdezhao/ydz_temp/models/Qwen1.5-7B/generation_config.json
+[INFO|configuration_utils.py:827] 2024-05-14 11:14:29,170 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "eos_token_id": 151643,
+  "max_new_tokens": 2048
+}
+
+05/14/2024 11:14:29 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init merge modules......
+Loading checkpoint shards:  50%|█████     | 2/4 [00:03<00:03,  1.53s/it]Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.50s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.33s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.38s/it]
+05/14/2024 11:14:30 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init merge modules......
+Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.31s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:05<00:00,  1.41s/it]
+05/14/2024 11:14:30 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init merge modules......
+Loading checkpoint shards:  75%|███████▌  | 3/4 [00:04<00:01,  1.38s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.09s/it]Loading checkpoint shards: 100%|██████████| 4/4 [00:04<00:00,  1.22s/it]
+05/14/2024 11:14:31 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - init merge modules......
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the small model.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the large model.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:36 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:36 - WARNING - llmtuner.model.loader - Current model does not support gradient checkpointing.
+05/14/2024 11:14:36 - INFO - llmtuner.model.loader - trainable params: 570589184 || all params: 8755901440 || trainable%: 6.5166
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the small model.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the large model.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:36 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:36 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:36 - WARNING - llmtuner.model.loader - Current model does not support gradient checkpointing.
+05/14/2024 11:14:36 - INFO - llmtuner.model.loader - trainable params: 570589184 || all params: 8755901440 || trainable%: 6.5166
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the small model.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the large model.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:37 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:37 - WARNING - llmtuner.model.loader - Current model does not support gradient checkpointing.
+05/14/2024 11:14:37 - INFO - llmtuner.model.loader - trainable params: 570589184 || all params: 8755901440 || trainable%: 6.5166
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the small model.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Freeze the parameters of the large model.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.src.models.qwen2_cross_attention.modeling_merge - Mark the parameters of the merge modules trainable.
+05/14/2024 11:14:37 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:37 - INFO - llmtuner.model.loader - Gradient checkpointing enabled.
+05/14/2024 11:14:37 - WARNING - llmtuner.model.loader - Current model does not support gradient checkpointing.
+05/14/2024 11:14:37 - INFO - llmtuner.model.loader - trainable params: 570589184 || all params: 8755901440 || trainable%: 6.5166
+05/14/2024 11:14:46 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/stackdedup_python.jsonl.
+Using custom data configuration default-c547dd0b93947e12
+Loading Dataset Infos from /home/yangdezhao/anaconda3/envs/ydz/lib/python3.10/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7
+Found cached dataset json (/home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7)
+Loading Dataset info from /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7
+Dataset({
+    features: ['text'],
+    num_rows: 648112
+})
+{'text': '#!/usr/bin/env python3\n\n"""Do a test run of the Ligrarian that resets everything afterwards."""\n\nfrom datetime import datetime as dt\nfrom datetime import timedelta\nimport time\n\nimport openpyxl\nfrom selenium import webdriver\nfrom selenium.webdriver.common.keys import Keys\nfrom selenium.webdriver.support import expected_conditions as EC\nfrom selenium.webdriver.support.ui import Select\nfrom selenium.webdriver.support.ui import WebDriverWait\n\nimport ligrarian\n\n\ndef review_function_cluster(driver, book_info, reread, shelves, url):\n    """Run through the Goodreads review functions."""\n    ligrarian.goodreads_date_input(driver, book_info[\'date\'], reread)\n    ligrarian.goodreads_add_review(driver, book_info[\'review\'])\n    driver.find_element_by_name(\'next\').click()\n    driver.get(url)\n    ligrarian.goodreads_rate_book(driver, book_info[\'rating\'])\n    if not reread:\n        ligrarian.goodreads_shelve(driver, shelves)\n\n\ndef run_test():\n    """Perform the Ligrarian test run."""\n    email = ligrarian.get_setting(\'User\', \'Email\')\n    password = ligrarian.get_setting(\'User\', \'Password\')\n    yesterday = dt.strftime(dt.now() - timedelta(1), \'%d/%m/%y\')\n    today = dt.strftime(dt.now(), \'%d/%m/%y\')\n    book_info = {\n        \'terms\': \'Cannery Row\', \'date\': yesterday,\n        \'format\': \'kindle\', \'rating\': \'4\', \'review\': \'Test Review\',\n    }\n\n    driver = webdriver.Firefox()\n    driver.implicitly_wait(10)\n\n    ligrarian.goodreads_login(driver, email, password)\n    ligrarian.goodreads_find(driver, book_info[\'terms\'])\n    url = ligrarian.goodreads_filter(driver, book_info[\'format\'])\n    shelves = ligrarian.goodreads_get_shelves(driver, book_info[\'rating\'])\n\n    # Check book is correct format\n    info_rows = driver.find_elements_by_class_name(\'row\')\n    row_text = [row.text for row in info_rows]\n    assert \'Kindle\' in \'\'.join(row_text), "Book is in incorrect format."\n\n    # Test review of a book that hasn\'t been read by the account before\n    review_function_cluster(driver, book_info, False, shelves, url)\n\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    assert undo_elem, "Book wasn\'t marked as read."\n    print("Book successfully marked as read.")\n\n    # Need a delay to avoid a Goodreads error popup\n    time.sleep(3)\n    # Change date and run testing for rereading a book\n    book_info[\'date\'] = today\n\n    review_function_cluster(driver, book_info, True, shelves, url)\n\n    # Reset Goodreads account\n    driver.get(url)\n\n    # Reset Goodreads account - Have to redo the find for undo due to refreshes\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    undo_elem.click()\n    alert_obj = driver.switch_to.alert\n    alert_obj.accept()\n\n    # Check book no longer marked as read before closing window\n    unread_check = driver.find_element_by_class_name(\'wtrToRead\')\n    assert unread_check, "Problem resetting account - Test run specific error."\n    print(\'Goodreads account reset correctly.\')\n    driver.close()\n\n    # Spreadsheet entry testing\n    path = ligrarian.get_setting(\'Settings\', \'Path\')\n    workbook = openpyxl.load_workbook(path)\n    print(\'Testing spreadsheet updating.\')\n    info = ligrarian.parse_page(url)\n    info[\'category\'], info[\'genre\'] = ligrarian.category_and_genre(shelves)\n    print(info)\n\n    year_sheet = \'20\' + book_info[\'date\'][-2:]\n\n    # Get first blank row before attempting to write\n    pre_year = ligrarian.first_blank_row(workbook[year_sheet])\n    pre_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n    workbook.close()\n\n    # Try to write info to both sheets\n    ligrarian.input_info(year_sheet, info, book_info[\'date\'])\n\n    # Find blank rows now that the data should have been entered\n    workbook = openpyxl.load_workbook(path)\n    post_year = ligrarian.first_blank_row(workbook[year_sheet])\n    post_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n\n    # Confirm data was entered\n    assert pre_year < post_year, "Data not written to year sheet."\n    assert pre_overall < post_overall, "Data not written to overall sheet."\n    print("Data was written to sheet successfully.")\n\n    # Delete newly entered data\n    for sheet in [year_sheet, \'Overall\']:\n        sheet = workbook[sheet]\n\n        input_row = ligrarian.first_blank_row(sheet) - 1\n\n        sheet.cell(row=input_row, column=1).value = \'\'\n        sheet.cell(row=input_row, column=2).value = \'\'\n        sheet.cell(row=input_row, column=3).value = \'\'\n        sheet.cell(row=input_row, column=4).value = \'\'\n        sheet.cell(row=input_row, column=5).value = \'\'\n        sheet.cell(row=input_row, column=6).value = \'\'\n\n    workbook.save(path)\n\n    print("Spreadsheet reset.")\n    print("Test run complete.")\n\n\nif __name__ == \'__main__\':\n    run_test()\n'}
+Process #0 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00000_of_00032.arrow
+Process #1 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00001_of_00032.arrow
+Process #2 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00002_of_00032.arrow
+Process #3 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00003_of_00032.arrow
+Process #4 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00004_of_00032.arrow
+Process #5 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00005_of_00032.arrow
+Process #6 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00006_of_00032.arrow
+Process #7 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00007_of_00032.arrow
+Process #8 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00008_of_00032.arrow
+Process #9 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00009_of_00032.arrow
+Process #10 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00010_of_00032.arrow
+Process #11 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00011_of_00032.arrow
+Process #12 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00012_of_00032.arrow
+Process #13 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00013_of_00032.arrow
+Process #14 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00014_of_00032.arrow
+Process #15 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00015_of_00032.arrow
+Process #16 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00016_of_00032.arrow
+Process #17 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00017_of_00032.arrow
+Process #18 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00018_of_00032.arrow
+Process #19 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00019_of_00032.arrow
+Process #20 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00020_of_00032.arrow
+Process #21 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00021_of_00032.arrow
+Process #22 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00022_of_00032.arrow
+Process #23 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00023_of_00032.arrow
+Process #24 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00024_of_00032.arrow
+Process #25 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00025_of_00032.arrow
+Process #26 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00026_of_00032.arrow
+Process #27 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00027_of_00032.arrow
+Process #28 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00028_of_00032.arrow
+Process #29 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00029_of_00032.arrow
+Process #30 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00030_of_00032.arrow
+Process #31 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_00031_of_00032.arrow
+Loading cached processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-1401cceefc360592_*_of_00032.arrow
+Concatenating 32 shards
+Process #0 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00000_of_00032.arrow
+Process #1 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00001_of_00032.arrow
+Process #2 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00002_of_00032.arrow
+Process #3 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00003_of_00032.arrow
+Process #4 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00004_of_00032.arrow
+Process #5 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00005_of_00032.arrow
+Process #6 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00006_of_00032.arrow
+Process #7 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00007_of_00032.arrow
+Process #8 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00008_of_00032.arrow
+Process #9 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00009_of_00032.arrow
+Process #10 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00010_of_00032.arrow
+Process #11 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00011_of_00032.arrow
+Process #12 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00012_of_00032.arrow
+Process #13 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00013_of_00032.arrow
+Process #14 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00014_of_00032.arrow
+Process #15 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00015_of_00032.arrow
+Process #16 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00016_of_00032.arrow
+Process #17 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00017_of_00032.arrow
+Process #18 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00018_of_00032.arrow
+Process #19 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00019_of_00032.arrow
+Process #20 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00020_of_00032.arrow
+Process #21 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00021_of_00032.arrow
+Process #22 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00022_of_00032.arrow
+Process #23 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00023_of_00032.arrow
+Process #24 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00024_of_00032.arrow
+Process #25 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00025_of_00032.arrow
+Process #26 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00026_of_00032.arrow
+Process #27 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00027_of_00032.arrow
+Process #28 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00028_of_00032.arrow
+Process #29 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00029_of_00032.arrow
+Process #30 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00030_of_00032.arrow
+Process #31 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_00031_of_00032.arrow
+Loading cached processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-f7dcad0f74ab2e9a_*_of_00032.arrow
+Concatenating 32 shards
+input_ids:
+[2, 87980, 7063, 8749, 14358, 10135, 18, 271, 12599, 5404, 264, 1273, 1598, 315, 279, 444, 5233, 8821, 429, 66197, 4297, 26807, 29184, 1499, 8874, 1159, 8874, 438, 7594, 198, 1499, 8874, 1159, 42255, 198, 474, 882, 271, 474, 1787, 3288, 24310, 198, 1499, 35945, 1159, 45681, 198, 1499, 35945, 57693, 6354, 9123, 1159, 24133, 198, 1499, 35945, 57693, 9397, 1159, 3601, 54099, 438, 20633, 198, 1499, 35945, 57693, 9397, 6391, 1159, 8427, 198, 1499, 35945, 57693, 9397, 6391, 1159, 63646, 271, 474, 326, 5233, 8821, 1406, 750, 3395, 9174, 28441, 24032, 11, 2311, 3109, 11, 435, 485, 329, 11, 35210, 11, 2515, 982, 262, 4210, 6727, 1526, 279, 7684, 30358, 3395, 5746, 14442, 262, 326, 5233, 8821, 59569, 30358, 4164, 5898, 24032, 11, 2311, 3109, 677, 1028, 4089, 435, 485, 329, 340, 262, 326, 5233, 8821, 59569, 30358, 2891, 38661, 24032, 11, 2311, 3109, 677, 19417, 7368, 262, 5579, 2658, 7894, 3710, 1269, 492, 3600, 1823, 3678, 741, 262, 5579, 670, 6522, 340, 262, 326, 5233, 8821, 59569, 30358, 9246, 26421, 24032, 11, 2311, 3109, 677, 21931, 7368, 262, 421, 537, 435, 485, 329, 510, 286, 326, 5233, 8821, 59569, 30358, 3712, 21210, 24032, 11, 35210, 3623, 750, 1598, 4452, 3932, 262, 4210, 46951, 279, 444, 5233, 8821, 1273, 1598, 14442, 262, 2551, 284, 326, 5233, 8821, 670, 20313, 492, 1474, 516, 364, 4781, 1305, 262, 3552, 284, 326, 5233, 8821, 670, 20313, 492, 1474, 516, 364, 4876, 1305, 262, 13671, 284, 7594, 30214, 24697, 10700, 368, 481, 42255, 7, 16, 701, 7677, 67, 12627, 76, 12627, 88, 1305, 262, 3351, 284, 7594, 30214, 24697, 10700, 1507, 7677, 67, 12627, 76, 12627, 88, 1305, 262, 2311, 3109, 284, 341, 286, 364, 18347, 1210, 364, 34, 1020, 722, 10801, 516, 364, 1028, 1210, 13671, 345, 286, 364, 2243, 1210, 364, 15314, 273, 516, 364, 21931, 1210, 364, 19, 516, 364, 19417, 1210, 364, 2271, 10294, 751, 262, 555, 262, 5579, 284, 45681, 71305, 15011, 741, 262, 5579, 13, 87295, 18760, 7, 16, 15, 692, 262, 326, 5233, 8821, 59569, 30358, 13681, 24032, 11, 2551, 11, 3552, 340, 262, 326, 5233, 8821, 59569, 30358, 21814, 24032, 11, 2311, 3109, 677, 18347, 7368, 262, 2515, 284, 326, 5233, 8821, 59569, 30358, 8727, 24032, 11, 2311, 3109, 677, 2243, 7368, 262, 35210, 284, 326, 5233, 8821, 59569, 30358, 3062, 3712, 4275, 24032, 11, 2311, 3109, 677, 21931, 23398, 262, 671, 4248, 2311, 374, 4396, 3561, 198, 262, 3546, 10949, 284, 5579, 2658, 22801, 3710, 4790, 1269, 492, 651, 1305, 262, 2802, 4326, 284, 508, 651, 2788, 369, 2802, 304, 3546, 10949, 921, 262, 2060, 364, 10629, 273, 6, 304, 42863, 5987, 7835, 4326, 701, 330, 7134, 374, 304, 15114, 3561, 2217, 262, 671, 3393, 3395, 315, 264, 2311, 429, 12492, 944, 1012, 1349, 553, 279, 2692, 1573, 198, 262, 3395, 9174, 28441, 24032, 11, 2311, 3109, 11, 3557, 11, 35210, 11, 2515, 692, 262, 28721, 28179, 284, 5579, 2658, 7894, 3710, 4790, 1269, 492, 86, 376, 2522, 4418, 1418, 376, 1806, 927, 21210, 1305, 262, 2060, 28721, 28179, 11, 330, 7134, 5710, 944, 12864, 438, 1349, 10040, 262, 1173, 445, 7134, 7790, 12864, 438, 1349, 31225, 262, 671, 14656, 264, 7626, 311, 5648, 264, 7684, 30358, 1465, 21960, 198, 262, 882, 11118, 7, 18, 340, 262, 671, 10388, 2400, 323, 1598, 7497, 369, 435, 485, 2228, 264, 2311, 198, 262, 2311, 3109, 677, 1028, 660, 284, 3351, 271, 262, 3395, 9174, 28441, 24032, 11, 2311, 3109, 11, 3007, 11, 35210, 11, 2515, 692, 262, 671, 16932, 7684, 30358, 2692, 198, 262, 5579, 670, 6522, 692, 262, 671, 16932, 7684, 30358, 2692, 481, 12243, 311, 57923, 279, 1477, 369, 28721, 4152, 311, 10408, 288, 198, 262, 28721, 28179, 284, 5579, 2658, 7894, 3710, 4790, 1269, 492, 86, 376, 2522, 4418, 1418, 376, 1806, 927, 21210, 1305, 262, 28721, 28179, 14459, 741, 262, 5115, 7328, 284, 5579, 40255, 2346, 20510, 198, 262, 5115, 7328, 28562, 2822, 262, 671, 4248, 2311, 902, 5021, 12864, 438, 1349, 1573, 15316, 3241, 198, 262, 60291, 7200, 284, 5579, 2658, 7894, 3710, 4790, 1269, 492, 86, 376, 1249, 4418, 1305, 262, 2060, 60291, 7200, 11, 330, 31198, 78028, 2692, 481, 3393, 1598, 3151, 1465, 10040, 262, 1173, 492, 15216, 30358, 2692, 7585, 12440, 20867, 262, 5579, 4653, 2822, 262, 671, 98501, 4343, 7497, 198, 262, 1815, 284, 326, 5233, 8821, 670, 20313, 492, 6086, 516, 364, 1820, 1305, 262, 45155, 284, 1787, 3288, 24310, 5104, 11498, 2190, 5581, 340, 262, 1173, 492, 16451, 45886, 21010, 20867, 262, 3546, 284, 326, 5233, 8821, 4632, 6129, 6522, 340, 262, 3546, 677, 5471, 4089, 3546, 677, 33613, 660, 284, 326, 5233, 8821, 18391, 8378, 91322, 23254, 4275, 340, 262, 1173, 14208, 692, 262, 1042, 43112, 284, 364, 17, 15, 6, 488, 2311, 3109, 677, 1028, 660, 7609, 17, 64631, 262, 671, 2126, 1156, 10113, 2802, 1573, 19405, 311, 3270, 198, 262, 855, 14645, 284, 326, 5233, 8821, 7389, 56103, 8530, 31470, 2190, 58, 3157, 43112, 2546, 262, 855, 15431, 541, 284, 326, 5233, 8821, 7389, 56103, 8530, 31470, 2190, 677, 27489, 7368, 262, 45155, 4653, 2822, 262, 671, 9735, 311, 3270, 3546, 311, 2176, 24140, 198, 262, 326, 5233, 8821, 10046, 3109, 28281, 43112, 11, 3546, 11, 2311, 3109, 677, 1028, 23398, 262, 671, 7379, 10113, 6978, 1431, 429, 279, 821, 1265, 614, 1012, 10636, 198, 262, 45155, 284, 1787, 3288, 24310, 5104, 11498, 2190, 5581, 340, 262, 1736, 14645, 284, 326, 5233, 8821, 7389, 56103, 8530, 31470, 2190, 58, 3157, 43112, 2546, 262, 1736, 15431, 541, 284, 326, 5233, 8821, 7389, 56103, 8530, 31470, 2190, 677, 27489, 23398, 262, 671, 33563, 821, 572, 10636, 198, 262, 2060, 855, 14645, 366, 1736, 14645, 11, 330, 1043, 537, 5326, 311, 1042, 10834, 10040, 262, 2060, 855, 15431, 541, 366, 1736, 15431, 541, 11, 330, 1043, 537, 5326, 311, 8084, 10834, 10040, 262, 1173, 445, 1043, 572, 5326, 311, 10834, 7790, 31225, 262, 671, 10428, 13631, 10636, 821, 198, 262, 369, 10834, 304, 508, 3157, 43112, 11, 364, 27489, 18381, 286, 10834, 284, 45155, 11880, 3674, 2533, 286, 1946, 8530, 284, 326, 5233, 8821, 7389, 56103, 8530, 61680, 8, 481, 220, 16, 271, 286, 10834, 24587, 7835, 39067, 8530]
+inputs:
+#!/usr/bin/env python3
+
+"""Do a test run of the Ligrarian that resets everything afterwards."""
+
+from datetime import datetime as dt
+from datetime import timedelta
+import time
+
+import openpyxl
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import WebDriverWait
+
+import ligrarian
+
+
+def review_function_cluster(driver, book_info, reread, shelves, url):
+    """Run through the Goodreads review functions."""
+    ligrarian.goodreads_date_input(driver, book_info['date'], reread)
+    ligrarian.goodreads_add_review(driver, book_info['review'])
+    driver.find_element_by_name('next').click()
+    driver.get(url)
+    ligrarian.goodreads_rate_book(driver, book_info['rating'])
+    if not reread:
+        ligrarian.goodreads_shelve(driver, shelves)
+
+
+def run_test():
+    """Perform the Ligrarian test run."""
+    email = ligrarian.get_setting('User', 'Email')
+    password = ligrarian.get_setting('User', 'Password')
+    yesterday = dt.strftime(dt.now() - timedelta(1), '%d/%m/%y')
+    today = dt.strftime(dt.now(), '%d/%m/%y')
+    book_info = {
+        'terms': 'Cannery Row', 'date': yesterday,
+        'format': 'kindle', 'rating': '4', 'review': 'Test Review',
+    }
+
+    driver = webdriver.Firefox()
+    driver.implicitly_wait(10)
+
+    ligrarian.goodreads_login(driver, email, password)
+    ligrarian.goodreads_find(driver, book_info['terms'])
+    url = ligrarian.goodreads_filter(driver, book_info['format'])
+    shelves = ligrarian.goodreads_get_shelves(driver, book_info['rating'])
+
+    # Check book is correct format
+    info_rows = driver.find_elements_by_class_name('row')
+    row_text = [row.text for row in info_rows]
+    assert 'Kindle' in ''.join(row_text), "Book is in incorrect format."
+
+    # Test review of a book that hasn't been read by the account before
+    review_function_cluster(driver, book_info, False, shelves, url)
+
+    undo_elem = driver.find_element_by_class_name('wtrStatusRead.wtrUnshelve')
+    assert undo_elem, "Book wasn't marked as read."
+    print("Book successfully marked as read.")
+
+    # Need a delay to avoid a Goodreads error popup
+    time.sleep(3)
+    # Change date and run testing for rereading a book
+    book_info['date'] = today
+
+    review_function_cluster(driver, book_info, True, shelves, url)
+
+    # Reset Goodreads account
+    driver.get(url)
+
+    # Reset Goodreads account - Have to redo the find for undo due to refreshes
+    undo_elem = driver.find_element_by_class_name('wtrStatusRead.wtrUnshelve')
+    undo_elem.click()
+    alert_obj = driver.switch_to.alert
+    alert_obj.accept()
+
+    # Check book no longer marked as read before closing window
+    unread_check = driver.find_element_by_class_name('wtrToRead')
+    assert unread_check, "Problem resetting account - Test run specific error."
+    print('Goodreads account reset correctly.')
+    driver.close()
+
+    # Spreadsheet entry testing
+    path = ligrarian.get_setting('Settings', 'Path')
+    workbook = openpyxl.load_workbook(path)
+    print('Testing spreadsheet updating.')
+    info = ligrarian.parse_page(url)
+    info['category'], info['genre'] = ligrarian.category_and_genre(shelves)
+    print(info)
+
+    year_sheet = '20' + book_info['date'][-2:]
+
+    # Get first blank row before attempting to write
+    pre_year = ligrarian.first_blank_row(workbook[year_sheet])
+    pre_overall = ligrarian.first_blank_row(workbook['Overall'])
+    workbook.close()
+
+    # Try to write info to both sheets
+    ligrarian.input_info(year_sheet, info, book_info['date'])
+
+    # Find blank rows now that the data should have been entered
+    workbook = openpyxl.load_workbook(path)
+    post_year = ligrarian.first_blank_row(workbook[year_sheet])
+    post_overall = ligrarian.first_blank_row(workbook['Overall'])
+
+    # Confirm data was entered
+    assert pre_year < post_year, "Data not written to year sheet."
+    assert pre_overall < post_overall, "Data not written to overall sheet."
+    print("Data was written to sheet successfully.")
+
+    # Delete newly entered data
+    for sheet in [year_sheet, 'Overall']:
+        sheet = workbook[sheet]
+
+        input_row = ligrarian.first_blank_row(sheet) - 1
+
+        sheet.cell(row=input_row
+05/14/2024 11:14:58 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/stackdedup_python.jsonl.
+05/14/2024 11:14:58 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/stackdedup_python.jsonl.
+05/14/2024 11:14:59 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/stackdedup_python.jsonl.
+Dataset({
+    features: ['text'],
+    num_rows: 648112
+})
+{'text': '#!/usr/bin/env python3\n\n"""Do a test run of the Ligrarian that resets everything afterwards."""\n\nfrom datetime import datetime as dt\nfrom datetime import timedelta\nimport time\n\nimport openpyxl\nfrom selenium import webdriver\nfrom selenium.webdriver.common.keys import Keys\nfrom selenium.webdriver.support import expected_conditions as EC\nfrom selenium.webdriver.support.ui import Select\nfrom selenium.webdriver.support.ui import WebDriverWait\n\nimport ligrarian\n\n\ndef review_function_cluster(driver, book_info, reread, shelves, url):\n    """Run through the Goodreads review functions."""\n    ligrarian.goodreads_date_input(driver, book_info[\'date\'], reread)\n    ligrarian.goodreads_add_review(driver, book_info[\'review\'])\n    driver.find_element_by_name(\'next\').click()\n    driver.get(url)\n    ligrarian.goodreads_rate_book(driver, book_info[\'rating\'])\n    if not reread:\n        ligrarian.goodreads_shelve(driver, shelves)\n\n\ndef run_test():\n    """Perform the Ligrarian test run."""\n    email = ligrarian.get_setting(\'User\', \'Email\')\n    password = ligrarian.get_setting(\'User\', \'Password\')\n    yesterday = dt.strftime(dt.now() - timedelta(1), \'%d/%m/%y\')\n    today = dt.strftime(dt.now(), \'%d/%m/%y\')\n    book_info = {\n        \'terms\': \'Cannery Row\', \'date\': yesterday,\n        \'format\': \'kindle\', \'rating\': \'4\', \'review\': \'Test Review\',\n    }\n\n    driver = webdriver.Firefox()\n    driver.implicitly_wait(10)\n\n    ligrarian.goodreads_login(driver, email, password)\n    ligrarian.goodreads_find(driver, book_info[\'terms\'])\n    url = ligrarian.goodreads_filter(driver, book_info[\'format\'])\n    shelves = ligrarian.goodreads_get_shelves(driver, book_info[\'rating\'])\n\n    # Check book is correct format\n    info_rows = driver.find_elements_by_class_name(\'row\')\n    row_text = [row.text for row in info_rows]\n    assert \'Kindle\' in \'\'.join(row_text), "Book is in incorrect format."\n\n    # Test review of a book that hasn\'t been read by the account before\n    review_function_cluster(driver, book_info, False, shelves, url)\n\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    assert undo_elem, "Book wasn\'t marked as read."\n    print("Book successfully marked as read.")\n\n    # Need a delay to avoid a Goodreads error popup\n    time.sleep(3)\n    # Change date and run testing for rereading a book\n    book_info[\'date\'] = today\n\n    review_function_cluster(driver, book_info, True, shelves, url)\n\n    # Reset Goodreads account\n    driver.get(url)\n\n    # Reset Goodreads account - Have to redo the find for undo due to refreshes\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    undo_elem.click()\n    alert_obj = driver.switch_to.alert\n    alert_obj.accept()\n\n    # Check book no longer marked as read before closing window\n    unread_check = driver.find_element_by_class_name(\'wtrToRead\')\n    assert unread_check, "Problem resetting account - Test run specific error."\n    print(\'Goodreads account reset correctly.\')\n    driver.close()\n\n    # Spreadsheet entry testing\n    path = ligrarian.get_setting(\'Settings\', \'Path\')\n    workbook = openpyxl.load_workbook(path)\n    print(\'Testing spreadsheet updating.\')\n    info = ligrarian.parse_page(url)\n    info[\'category\'], info[\'genre\'] = ligrarian.category_and_genre(shelves)\n    print(info)\n\n    year_sheet = \'20\' + book_info[\'date\'][-2:]\n\n    # Get first blank row before attempting to write\n    pre_year = ligrarian.first_blank_row(workbook[year_sheet])\n    pre_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n    workbook.close()\n\n    # Try to write info to both sheets\n    ligrarian.input_info(year_sheet, info, book_info[\'date\'])\n\n    # Find blank rows now that the data should have been entered\n    workbook = openpyxl.load_workbook(path)\n    post_year = ligrarian.first_blank_row(workbook[year_sheet])\n    post_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n\n    # Confirm data was entered\n    assert pre_year < post_year, "Data not written to year sheet."\n    assert pre_overall < post_overall, "Data not written to overall sheet."\n    print("Data was written to sheet successfully.")\n\n    # Delete newly entered data\n    for sheet in [year_sheet, \'Overall\']:\n        sheet = workbook[sheet]\n\n        input_row = ligrarian.first_blank_row(sheet) - 1\n\n        sheet.cell(row=input_row, column=1).value = \'\'\n        sheet.cell(row=input_row, column=2).value = \'\'\n        sheet.cell(row=input_row, column=3).value = \'\'\n        sheet.cell(row=input_row, column=4).value = \'\'\n        sheet.cell(row=input_row, column=5).value = \'\'\n        sheet.cell(row=input_row, column=6).value = \'\'\n\n    workbook.save(path)\n\n    print("Spreadsheet reset.")\n    print("Test run complete.")\n\n\nif __name__ == \'__main__\':\n    run_test()\n'}
+Dataset({
+    features: ['text'],
+    num_rows: 648112
+})
+{'text': '#!/usr/bin/env python3\n\n"""Do a test run of the Ligrarian that resets everything afterwards."""\n\nfrom datetime import datetime as dt\nfrom datetime import timedelta\nimport time\n\nimport openpyxl\nfrom selenium import webdriver\nfrom selenium.webdriver.common.keys import Keys\nfrom selenium.webdriver.support import expected_conditions as EC\nfrom selenium.webdriver.support.ui import Select\nfrom selenium.webdriver.support.ui import WebDriverWait\n\nimport ligrarian\n\n\ndef review_function_cluster(driver, book_info, reread, shelves, url):\n    """Run through the Goodreads review functions."""\n    ligrarian.goodreads_date_input(driver, book_info[\'date\'], reread)\n    ligrarian.goodreads_add_review(driver, book_info[\'review\'])\n    driver.find_element_by_name(\'next\').click()\n    driver.get(url)\n    ligrarian.goodreads_rate_book(driver, book_info[\'rating\'])\n    if not reread:\n        ligrarian.goodreads_shelve(driver, shelves)\n\n\ndef run_test():\n    """Perform the Ligrarian test run."""\n    email = ligrarian.get_setting(\'User\', \'Email\')\n    password = ligrarian.get_setting(\'User\', \'Password\')\n    yesterday = dt.strftime(dt.now() - timedelta(1), \'%d/%m/%y\')\n    today = dt.strftime(dt.now(), \'%d/%m/%y\')\n    book_info = {\n        \'terms\': \'Cannery Row\', \'date\': yesterday,\n        \'format\': \'kindle\', \'rating\': \'4\', \'review\': \'Test Review\',\n    }\n\n    driver = webdriver.Firefox()\n    driver.implicitly_wait(10)\n\n    ligrarian.goodreads_login(driver, email, password)\n    ligrarian.goodreads_find(driver, book_info[\'terms\'])\n    url = ligrarian.goodreads_filter(driver, book_info[\'format\'])\n    shelves = ligrarian.goodreads_get_shelves(driver, book_info[\'rating\'])\n\n    # Check book is correct format\n    info_rows = driver.find_elements_by_class_name(\'row\')\n    row_text = [row.text for row in info_rows]\n    assert \'Kindle\' in \'\'.join(row_text), "Book is in incorrect format."\n\n    # Test review of a book that hasn\'t been read by the account before\n    review_function_cluster(driver, book_info, False, shelves, url)\n\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    assert undo_elem, "Book wasn\'t marked as read."\n    print("Book successfully marked as read.")\n\n    # Need a delay to avoid a Goodreads error popup\n    time.sleep(3)\n    # Change date and run testing for rereading a book\n    book_info[\'date\'] = today\n\n    review_function_cluster(driver, book_info, True, shelves, url)\n\n    # Reset Goodreads account\n    driver.get(url)\n\n    # Reset Goodreads account - Have to redo the find for undo due to refreshes\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    undo_elem.click()\n    alert_obj = driver.switch_to.alert\n    alert_obj.accept()\n\n    # Check book no longer marked as read before closing window\n    unread_check = driver.find_element_by_class_name(\'wtrToRead\')\n    assert unread_check, "Problem resetting account - Test run specific error."\n    print(\'Goodreads account reset correctly.\')\n    driver.close()\n\n    # Spreadsheet entry testing\n    path = ligrarian.get_setting(\'Settings\', \'Path\')\n    workbook = openpyxl.load_workbook(path)\n    print(\'Testing spreadsheet updating.\')\n    info = ligrarian.parse_page(url)\n    info[\'category\'], info[\'genre\'] = ligrarian.category_and_genre(shelves)\n    print(info)\n\n    year_sheet = \'20\' + book_info[\'date\'][-2:]\n\n    # Get first blank row before attempting to write\n    pre_year = ligrarian.first_blank_row(workbook[year_sheet])\n    pre_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n    workbook.close()\n\n    # Try to write info to both sheets\n    ligrarian.input_info(year_sheet, info, book_info[\'date\'])\n\n    # Find blank rows now that the data should have been entered\n    workbook = openpyxl.load_workbook(path)\n    post_year = ligrarian.first_blank_row(workbook[year_sheet])\n    post_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n\n    # Confirm data was entered\n    assert pre_year < post_year, "Data not written to year sheet."\n    assert pre_overall < post_overall, "Data not written to overall sheet."\n    print("Data was written to sheet successfully.")\n\n    # Delete newly entered data\n    for sheet in [year_sheet, \'Overall\']:\n        sheet = workbook[sheet]\n\n        input_row = ligrarian.first_blank_row(sheet) - 1\n\n        sheet.cell(row=input_row, column=1).value = \'\'\n        sheet.cell(row=input_row, column=2).value = \'\'\n        sheet.cell(row=input_row, column=3).value = \'\'\n        sheet.cell(row=input_row, column=4).value = \'\'\n        sheet.cell(row=input_row, column=5).value = \'\'\n        sheet.cell(row=input_row, column=6).value = \'\'\n\n    workbook.save(path)\n\n    print("Spreadsheet reset.")\n    print("Test run complete.")\n\n\nif __name__ == \'__main__\':\n    run_test()\n'}
+Dataset({
+    features: ['text'],
+    num_rows: 648112
+})
+{'text': '#!/usr/bin/env python3\n\n"""Do a test run of the Ligrarian that resets everything afterwards."""\n\nfrom datetime import datetime as dt\nfrom datetime import timedelta\nimport time\n\nimport openpyxl\nfrom selenium import webdriver\nfrom selenium.webdriver.common.keys import Keys\nfrom selenium.webdriver.support import expected_conditions as EC\nfrom selenium.webdriver.support.ui import Select\nfrom selenium.webdriver.support.ui import WebDriverWait\n\nimport ligrarian\n\n\ndef review_function_cluster(driver, book_info, reread, shelves, url):\n    """Run through the Goodreads review functions."""\n    ligrarian.goodreads_date_input(driver, book_info[\'date\'], reread)\n    ligrarian.goodreads_add_review(driver, book_info[\'review\'])\n    driver.find_element_by_name(\'next\').click()\n    driver.get(url)\n    ligrarian.goodreads_rate_book(driver, book_info[\'rating\'])\n    if not reread:\n        ligrarian.goodreads_shelve(driver, shelves)\n\n\ndef run_test():\n    """Perform the Ligrarian test run."""\n    email = ligrarian.get_setting(\'User\', \'Email\')\n    password = ligrarian.get_setting(\'User\', \'Password\')\n    yesterday = dt.strftime(dt.now() - timedelta(1), \'%d/%m/%y\')\n    today = dt.strftime(dt.now(), \'%d/%m/%y\')\n    book_info = {\n        \'terms\': \'Cannery Row\', \'date\': yesterday,\n        \'format\': \'kindle\', \'rating\': \'4\', \'review\': \'Test Review\',\n    }\n\n    driver = webdriver.Firefox()\n    driver.implicitly_wait(10)\n\n    ligrarian.goodreads_login(driver, email, password)\n    ligrarian.goodreads_find(driver, book_info[\'terms\'])\n    url = ligrarian.goodreads_filter(driver, book_info[\'format\'])\n    shelves = ligrarian.goodreads_get_shelves(driver, book_info[\'rating\'])\n\n    # Check book is correct format\n    info_rows = driver.find_elements_by_class_name(\'row\')\n    row_text = [row.text for row in info_rows]\n    assert \'Kindle\' in \'\'.join(row_text), "Book is in incorrect format."\n\n    # Test review of a book that hasn\'t been read by the account before\n    review_function_cluster(driver, book_info, False, shelves, url)\n\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    assert undo_elem, "Book wasn\'t marked as read."\n    print("Book successfully marked as read.")\n\n    # Need a delay to avoid a Goodreads error popup\n    time.sleep(3)\n    # Change date and run testing for rereading a book\n    book_info[\'date\'] = today\n\n    review_function_cluster(driver, book_info, True, shelves, url)\n\n    # Reset Goodreads account\n    driver.get(url)\n\n    # Reset Goodreads account - Have to redo the find for undo due to refreshes\n    undo_elem = driver.find_element_by_class_name(\'wtrStatusRead.wtrUnshelve\')\n    undo_elem.click()\n    alert_obj = driver.switch_to.alert\n    alert_obj.accept()\n\n    # Check book no longer marked as read before closing window\n    unread_check = driver.find_element_by_class_name(\'wtrToRead\')\n    assert unread_check, "Problem resetting account - Test run specific error."\n    print(\'Goodreads account reset correctly.\')\n    driver.close()\n\n    # Spreadsheet entry testing\n    path = ligrarian.get_setting(\'Settings\', \'Path\')\n    workbook = openpyxl.load_workbook(path)\n    print(\'Testing spreadsheet updating.\')\n    info = ligrarian.parse_page(url)\n    info[\'category\'], info[\'genre\'] = ligrarian.category_and_genre(shelves)\n    print(info)\n\n    year_sheet = \'20\' + book_info[\'date\'][-2:]\n\n    # Get first blank row before attempting to write\n    pre_year = ligrarian.first_blank_row(workbook[year_sheet])\n    pre_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n    workbook.close()\n\n    # Try to write info to both sheets\n    ligrarian.input_info(year_sheet, info, book_info[\'date\'])\n\n    # Find blank rows now that the data should have been entered\n    workbook = openpyxl.load_workbook(path)\n    post_year = ligrarian.first_blank_row(workbook[year_sheet])\n    post_overall = ligrarian.first_blank_row(workbook[\'Overall\'])\n\n    # Confirm data was entered\n    assert pre_year < post_year, "Data not written to year sheet."\n    assert pre_overall < post_overall, "Data not written to overall sheet."\n    print("Data was written to sheet successfully.")\n\n    # Delete newly entered data\n    for sheet in [year_sheet, \'Overall\']:\n        sheet = workbook[sheet]\n\n        input_row = ligrarian.first_blank_row(sheet) - 1\n\n        sheet.cell(row=input_row, column=1).value = \'\'\n        sheet.cell(row=input_row, column=2).value = \'\'\n        sheet.cell(row=input_row, column=3).value = \'\'\n        sheet.cell(row=input_row, column=4).value = \'\'\n        sheet.cell(row=input_row, column=5).value = \'\'\n        sheet.cell(row=input_row, column=6).value = \'\'\n\n    workbook.save(path)\n\n    print("Spreadsheet reset.")\n    print("Test run complete.")\n\n\nif __name__ == \'__main__\':\n    run_test()\n'}
+Loading cached shuffled indices for dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-c547dd0b93947e12/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-2c6afbf4403ac7e4.arrow
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 838241
+})
+Qwen2CrossAttnMergeModel(
+  (small): Qwen2CrossAttnGeneratorModel(
+    (embed_tokens): Embedding(151936, 1024)
+    (layers): ModuleList(
+      (0-23): 24 x Qwen2CrossAttnGeneratorDecoderLayer(
+        (self_attn): Qwen2FlashAttention2(
+          (q_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (k_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (v_proj): Linear(in_features=1024, out_features=1024, bias=True)
+          (o_proj): Linear(in_features=1024, out_features=1024, bias=False)
+          (rotary_emb): Qwen2RotaryEmbedding()
+        )
+        (mlp): Qwen2MLP(
+          (gate_proj): Linear(in_features=1024, out_features=2816, bias=False)
+          (up_proj): Linear(in_features=1024, out_features=2816, bias=False)
+          (down_proj): Linear(in_features=2816, out_features=1024, bias=False)
+          (act_fn): SiLU()
+        )
+        (input_layernorm): Qwen2RMSNorm()
+        (post_attention_layernorm): Qwen2RMSNorm()
+      )
+    )
+    (norm): Qwen2RMSNorm()
+  )
+  (large): Qwen2CrossAttnCausalLM(
+    (model): Qwen2CrossAttnModel(
+      (embed_tokens): Embedding(151936, 4096)
+      (layers): ModuleList(
+        (0-31): 32 x Qwen2CrossAttnDecoderLayer(
+          (self_attn): Qwen2Attention(
+            (q_proj): Linear(in_features=4096, out_features=4096, bias=True)
+            (k_proj): Linear(in_features=4096, out_features=4096, bias=True)
+            (v_proj): Linear(in_features=4096, out_features=4096, bias=True)
+            (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+            (rotary_emb): Qwen2RotaryEmbedding()
+          )
+          (mlp): Qwen2MLP(
+            (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+            (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+            (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+            (act_fn): SiLU()
+          )
+          (input_layernorm): Qwen2RMSNorm()
+          (post_attention_layernorm): Qwen2RMSNorm()
+        )
+      )
+      (norm): Qwen2RMSNorm()
+    )
+    (lm_head): Linear(in_features=4096, out_features=151936, bias=False)
+  )
+  (align_modules): CrossAttn(
+    (merge_modules): ModuleList(
+      (0-7): 8 x ModuleDict(
+        (projector): Projector(
+          (fc): Linear(in_features=1024, out_features=4096, bias=True)
+        )
+        (q_weight): Linear(in_features=4096, out_features=4096, bias=True)
+        (k_weight): Linear(in_features=4096, out_features=4096, bias=True)
+        (v_weight): Linear(in_features=4096, out_features=4096, bias=True)
+        (o_weight): Linear(in_features=4096, out_features=4096, bias=True)
+      )
+    )
+  )
+)
+[INFO|trainer.py:586] 2024-05-14 11:15:00,275 >> Using auto half precision backend
+[2024-05-14 11:15:00,532] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.13.1, git-hash=unknown, git-branch=unknown
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 838241
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 838241
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 838241
+})
+[2024-05-14 11:15:32,378] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-05-14 11:15:32,381] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-05-14 11:15:32,381] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-05-14 11:15:32,388] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2024-05-14 11:15:32,388] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2024-05-14 11:15:32,388] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-05-14 11:15:32,389] [INFO] [stage_1_and_2.py:143:__init__] Reduce bucket size 500000000
+[2024-05-14 11:15:32,389] [INFO] [stage_1_and_2.py:144:__init__] Allgather bucket size 500000000
+[2024-05-14 11:15:32,389] [INFO] [stage_1_and_2.py:145:__init__] CPU Offload: False
+[2024-05-14 11:15:32,389] [INFO] [stage_1_and_2.py:146:__init__] Round robin gradient partitioning: False
+[2024-05-14 11:15:35,414] [INFO] [utils.py:791:see_memory_usage] Before initializing optimizer states
+[2024-05-14 11:15:35,415] [INFO] [utils.py:792:see_memory_usage] MA 17.55 GB         Max_MA 17.55 GB         CA 17.7 GB         Max_CA 18 GB 
+[2024-05-14 11:15:35,415] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 33.41 GB, percent = 13.3%
+[2024-05-14 11:15:35,653] [INFO] [utils.py:791:see_memory_usage] After initializing optimizer states
+[2024-05-14 11:15:35,654] [INFO] [utils.py:792:see_memory_usage] MA 18.62 GB         Max_MA 19.68 GB         CA 19.82 GB         Max_CA 20 GB 
+[2024-05-14 11:15:35,654] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 33.41 GB, percent = 13.3%
+[2024-05-14 11:15:35,654] [INFO] [stage_1_and_2.py:533:__init__] optimizer state initialized
+[2024-05-14 11:15:35,836] [INFO] [utils.py:791:see_memory_usage] After initializing ZeRO optimizer
+[2024-05-14 11:15:35,837] [INFO] [utils.py:792:see_memory_usage] MA 18.62 GB         Max_MA 18.62 GB         CA 19.82 GB         Max_CA 20 GB 
+[2024-05-14 11:15:35,837] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 33.42 GB, percent = 13.3%
+[2024-05-14 11:15:35,838] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2024-05-14 11:15:35,838] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-05-14 11:15:35,838] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-05-14 11:15:35,838] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-05, 5e-05], mom=[(0.9, 0.999), (0.9, 0.999)]
+[2024-05-14 11:15:35,840] [INFO] [config.py:984:print] DeepSpeedEngine configuration:
+[2024-05-14 11:15:35,840] [INFO] [config.py:988:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-05-14 11:15:35,840] [INFO] [config.py:988:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-05-14 11:15:35,840] [INFO] [config.py:988:print]   amp_enabled .................. False
+[2024-05-14 11:15:35,840] [INFO] [config.py:988:print]   amp_params ................... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   bfloat16_enabled ............. True
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   checkpoint_parallel_write_pipeline  False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   checkpoint_tag_validation_enabled  True
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   checkpoint_tag_validation_fail  False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f90c4287940>
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   communication_data_type ...... None
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   curriculum_enabled_legacy .... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   curriculum_params_legacy ..... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   data_efficiency_enabled ...... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   dataloader_drop_last ......... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   disable_allgather ............ False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   dump_state ................... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   dynamic_loss_scale_args ...... None
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_enabled ........... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_gas_boundary_resolution  1
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_layer_num ......... 0
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_max_iter .......... 100
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_stability ......... 1e-06
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_tol ............... 0.01
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   eigenvalue_verbose ........... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   elasticity_enabled ........... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   fp16_auto_cast ............... None
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   fp16_enabled ................. False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   fp16_master_weights_and_gradients  False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   global_rank .................. 0
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   grad_accum_dtype ............. None
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   gradient_accumulation_steps .. 16
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   gradient_clipping ............ 1.0
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   gradient_predivide_factor .... 1.0
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   graph_harvesting ............. False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   initial_dynamic_scale ........ 1
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   load_universal_checkpoint .... False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   loss_scale ................... 1.0
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   memory_breakdown ............. False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   mics_hierarchial_params_gather  False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   mics_shard_size .............. -1
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-05-14 11:15:35,841] [INFO] [config.py:988:print]   optimizer_legacy_fusion ...... False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   optimizer_name ............... None
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   optimizer_params ............. None
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   pld_enabled .................. False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   pld_params ................... False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   prescale_gradients ........... False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   scheduler_name ............... None
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   scheduler_params ............. None
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   seq_parallel_communication_data_type  torch.float32
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   sparse_attention ............. None
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   sparse_gradients_enabled ..... False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   steps_per_print .............. inf
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   train_batch_size ............. 512
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   train_micro_batch_size_per_gpu  8
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   use_data_before_expert_parallel_  False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   use_node_local_storage ....... False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   wall_clock_breakdown ......... False
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   weight_quantization_config ... None
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   world_size ................... 4
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   zero_allow_untested_optimizer  True
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   zero_enabled ................. True
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   zero_force_ds_cpu_optimizer .. True
+[2024-05-14 11:15:35,842] [INFO] [config.py:988:print]   zero_optimization_stage ...... 2
+[2024-05-14 11:15:35,842] [INFO] [config.py:974:print_user_config]   json = {
+    "train_batch_size": 512, 
+    "train_micro_batch_size_per_gpu": 8, 
+    "gradient_accumulation_steps": 16, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "initial_scale_power": 16, 
+        "loss_scale_window": 1000, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1e-09
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }
+}
+[INFO|trainer.py:1747] 2024-05-14 11:15:35,842 >> ***** Running training *****
+[INFO|trainer.py:1748] 2024-05-14 11:15:35,842 >>   Num examples = 838,241
+[INFO|trainer.py:1749] 2024-05-14 11:15:35,842 >>   Num Epochs = 1
+[INFO|trainer.py:1750] 2024-05-14 11:15:35,842 >>   Instantaneous batch size per device = 8
+[INFO|trainer.py:1753] 2024-05-14 11:15:35,842 >>   Total train batch size (w. parallel, distributed & accumulation) = 512
+[INFO|trainer.py:1754] 2024-05-14 11:15:35,842 >>   Gradient Accumulation steps = 16
+[INFO|trainer.py:1755] 2024-05-14 11:15:35,842 >>   Total optimization steps = 1,637
+[INFO|trainer.py:1756] 2024-05-14 11:15:35,844 >>   Number of trainable parameters = 570,589,184
+  0%|          | 0/1637 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/ydz/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1673: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/ydz/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1673: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/ydz/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1673: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/ydz/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1673: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+  0%|          | 1/1637 [01:51<50:27:08, 111.02s/it]  0%|          | 2/1637 [03:40<50:08:24, 110.40s/it]  0%|          | 3/1637 [05:30<50:00:49, 110.19s/it]  0%|          | 4/1637 [07:20<49:55:19, 110.05s/it]  0%|          | 5/1637 [09:10<49:52:02, 110.00s/it]  0%|          | 6/1637 [11:00<49:48:55, 109.95s/it]  0%|          | 7/1637 [12:50<49:46:26, 109.93s/it]  0%|          | 8/1637 [14:40<49:44:21, 109.92s/it]  1%|          | 9/1637 [16:30<49:42:10, 109.91s/it]  1%|          | 10/1637 [18:20<49:39:52, 109.89s/it]                                                     {'loss': 17.0549, 'learning_rate': 4.9995396384217385e-05, 'epoch': 0.01}
+  1%|          | 10/1637 [18:20<49:39:52, 109.89s/it]  1%|          | 11/1637 [20:09<49:38:15, 109.90s/it]  1%|          | 12/1637 [21:59<49:36:23, 109.90s/it]  1%|          | 13/1637 [23:49<49:34:35, 109.90s/it]  1%|          | 14/1637 [25:39<49:32:53, 109.90s/it]  1%|          | 15/1637 [27:29<49:31:11, 109.91s/it]  1%|          | 16/1637 [29:19<49:29:26, 109.91s/it]  1%|          | 17/1637 [31:09<49:28:04, 109.93s/it]  1%|          | 18/1637 [32:59<49:26:13, 109.93s/it]  1%|          | 19/1637 [34:49<49:24:24, 109.93s/it]  1%|          | 20/1637 [36:39<49:22:00, 109.91s/it]                                                     {'loss': 11.4766, 'learning_rate': 4.9981587232331793e-05, 'epoch': 0.01}
+  1%|          | 20/1637 [36:39<49:22:00, 109.91s/it]  1%|▏         | 21/1637 [38:29<49:20:12, 109.91s/it]  1%|▏         | 22/1637 [40:18<49:17:46, 109.89s/it]  1%|▏         | 23/1637 [42:08<49:15:26, 109.87s/it]  1%|▏         | 24/1637 [43:58<49:13:02, 109.85s/it]  2%|▏         | 25/1637 [45:48<49:10:20, 109.81s/it]  2%|▏         | 26/1637 [47:38<49:08:20, 109.81s/it]  2%|▏         | 27/1637 [49:27<49:05:57, 109.79s/it]  2%|▏         | 28/1637 [51:17<49:03:57, 109.78s/it]  2%|▏         | 29/1637 [53:07<49:01:50, 109.77s/it]  2%|▏         | 30/1637 [54:57<48:59:47, 109.76s/it]                                                     {'loss': 9.3706, 'learning_rate': 4.9958577630105604e-05, 'epoch': 0.02}
+  2%|▏         | 30/1637 [54:57<48:59:47, 109.76s/it]  2%|▏         | 31/1637 [56:46<48:57:31, 109.75s/it]  2%|▏         | 32/1637 [58:36<48:55:31, 109.74s/it]  2%|▏         | 33/1637 [1:00:26<48:53:29, 109.73s/it]  2%|▏         | 34/1637 [1:02:15<48:51:37, 109.73s/it]  2%|▏         | 35/1637 [1:04:05<48:49:28, 109.72s/it]  2%|▏         | 36/1637 [1:05:55<48:47:21, 109.71s/it]  2%|▏         | 37/1637 [1:07:45<48:45:18, 109.70s/it]  2%|▏         | 38/1637 [1:09:34<48:43:24, 109.70s/it]  2%|▏         | 39/1637 [1:11:24<48:41:28, 109.69s/it]  2%|▏         | 40/1637 [1:13:14<48:39:28, 109.69s/it]                                                       {'loss': 8.6236, 'learning_rate': 4.992637605172823e-05, 'epoch': 0.02}
+  2%|▏         | 40/1637 [1:13:14<48:39:28, 109.69s/it]  3%|▎         | 41/1637 [1:15:03<48:37:29, 109.68s/it]  3%|▎         | 42/1637 [1:16:53<48:35:21, 109.67s/it]  3%|▎         | 43/1637 [1:18:43<48:33:22, 109.66s/it]  3%|▎         | 44/1637 [1:20:32<48:31:18, 109.65s/it]  3%|▎         | 45/1637 [1:22:22<48:29:15, 109.65s/it]  3%|▎         | 46/1637 [1:24:11<48:27:01, 109.63s/it]  3%|▎         | 47/1637 [1:26:01<48:25:08, 109.63s/it]  3%|▎         | 48/1637 [1:27:51<48:23:37, 109.64s/it]  3%|▎         | 49/1637 [1:29:40<48:21:30, 109.63s/it]  3%|▎         | 50/1637 [1:31:30<48:19:36, 109.63s/it]                                                       {'loss': 8.4419, 'learning_rate': 4.9884994356695255e-05, 'epoch': 0.03}
+  3%|▎         | 50/1637 [1:31:30<48:19:36, 109.63s/it]  3%|▎         | 51/1637 [1:33:19<48:17:29, 109.62s/it]  3%|▎         | 52/1637 [1:35:09<48:15:26, 109.61s/it]  3%|▎         | 53/1637 [1:36:59<48:13:28, 109.60s/it]  3%|▎         | 54/1637 [1:38:48<48:11:59, 109.61s/it]  3%|▎         | 55/1637 [1:40:38<48:10:28, 109.63s/it]  3%|▎         | 56/1637 [1:42:28<48:08:38, 109.63s/it]  3%|▎         | 57/1637 [1:44:17<48:06:48, 109.63s/it]  4%|▎         | 58/1637 [1:46:07<48:04:43, 109.62s/it]  4%|▎         | 59/1637 [1:47:56<48:02:31, 109.60s/it]  4%|▎         | 60/1637 [1:49:46<48:01:12, 109.62s/it]                                                       {'loss': 8.2663, 'learning_rate': 4.983444778544061e-05, 'epoch': 0.04}
+  4%|▎         | 60/1637 [1:49:46<48:01:12, 109.62s/it]  4%|▎         | 61/1637 [1:51:36<47:59:22, 109.62s/it]  4%|▍         | 62/1637 [1:53:25<47:57:59, 109.64s/it]  4%|▍         | 63/1637 [1:55:15<47:55:55, 109.63s/it]  4%|▍         | 64/1637 [1:57:05<47:54:19, 109.64s/it]  4%|▍         | 65/1637 [1:58:54<47:52:28, 109.64s/it]  4%|▍         | 66/1637 [2:00:44<47:51:42, 109.68s/it]  4%|▍         | 67/1637 [2:02:34<47:50:37, 109.71s/it]  4%|▍         | 68/1637 [2:04:24<47:49:17, 109.72s/it]  4%|▍         | 69/1637 [2:06:13<47:47:40, 109.73s/it]  4%|▍         | 70/1637 [2:08:03<47:46:06, 109.74s/it]                                                       {'loss': 8.1298, 'learning_rate': 4.977475495372376e-05, 'epoch': 0.04}
+  4%|▍         | 70/1637 [2:08:03<47:46:06, 109.74s/it]  4%|▍         | 71/1637 [2:09:53<47:44:47, 109.76s/it]  4%|▍         | 72/1637 [2:11:43<47:43:45, 109.79s/it]  4%|▍         | 73/1637 [2:13:33<47:42:35, 109.82s/it]  5%|▍         | 74/1637 [2:15:22<47:41:15, 109.84s/it]  5%|▍         | 75/1637 [2:17:12<47:39:50, 109.85s/it]  5%|▍         | 76/1637 [2:19:02<47:38:39, 109.88s/it]  5%|▍         | 77/1637 [2:20:52<47:37:11, 109.89s/it]  5%|▍         | 78/1637 [2:22:42<47:35:55, 109.91s/it]  5%|▍         | 79/1637 [2:24:32<47:33:58, 109.91s/it]  5%|▍         | 80/1637 [2:26:22<47:32:14, 109.91s/it]                                                       {'loss': 8.0396, 'learning_rate': 4.970593784577366e-05, 'epoch': 0.05}
+  5%|▍         | 80/1637 [2:26:22<47:32:14, 109.91s/it]  5%|▍         | 81/1637 [2:28:12<47:30:47, 109.93s/it]  5%|▌         | 82/1637 [2:30:02<47:29:02, 109.93s/it]  5%|▌         | 83/1637 [2:31:52<47:27:04, 109.93s/it]  5%|▌         | 84/1637 [2:33:42<47:25:30, 109.94s/it]  5%|▌         | 85/1637 [2:35:32<47:23:34, 109.93s/it]  5%|▌         | 86/1637 [2:37:22<47:21:54, 109.94s/it]  5%|▌         | 87/1637 [2:39:12<47:19:44, 109.93s/it]  5%|▌         | 88/1637 [2:41:02<47:18:12, 109.94s/it]  5%|▌         | 89/1637 [2:42:51<47:15:53, 109.92s/it]  5%|▌         | 90/1637 [2:44:41<47:14:00, 109.92s/it]                                                       {'loss': 8.0403, 'learning_rate': 4.962802180619228e-05, 'epoch': 0.05}
+  5%|▌         | 90/1637 [2:44:41<47:14:00, 109.92s/it]  6%|▌         | 91/1637 [2:46:31<47:11:28, 109.89s/it]  6%|▌         | 92/1637 [2:48:21<47:09:16, 109.87s/it]  6%|▌         | 93/1637 [2:50:11<47:06:57, 109.86s/it]  6%|▌         | 94/1637 [2:52:01<47:05:10, 109.86s/it]  6%|▌         | 95/1637 [2:53:50<47:03:06, 109.85s/it]  6%|▌         | 96/1637 [2:55:40<47:01:23, 109.85s/it]  6%|▌         | 97/1637 [2:57:30<46:59:22, 109.85s/it]  6%|▌         | 98/1637 [2:59:20<46:57:17, 109.84s/it]  6%|▌         | 99/1637 [3:01:10<46:55:11, 109.83s/it]  6%|▌         | 100/1637 [3:03:00<46:53:31, 109.83s/it]                                                        {'loss': 8.0219, 'learning_rate': 4.954103553062037e-05, 'epoch': 0.06}
+  6%|▌         | 100/1637 [3:03:00<46:53:31, 109.83s/it]  6%|▌         | 101/1637 [3:04:49<46:51:40, 109.83s/it]  6%|▌         | 102/1637 [3:06:39<46:49:47, 109.83s/it]  6%|▋         | 103/1637 [3:08:29<46:47:48, 109.82s/it]  6%|▋         | 104/1637 [3:10:19<46:45:44, 109.81s/it]  6%|▋         | 105/1637 [3:12:09<46:43:57, 109.82s/it]  6%|▋         | 106/1637 [3:13:59<46:42:02, 109.81s/it]  7%|▋         | 107/1637 [3:15:48<46:40:05, 109.81s/it]  7%|▋         | 108/1637 [3:17:38<46:38:38, 109.82s/it]  7%|▋         | 109/1637 [3:19:28<46:36:50, 109.82s/it]  7%|▋         | 110/1637 [3:21:18<46:35:18, 109.84s/it]                                                        {'loss': 7.9438, 'learning_rate': 4.944501105516922e-05, 'epoch': 0.07}
+  7%|▋         | 110/1637 [3:21:18<46:35:18, 109.84s/it]  7%|▋         | 111/1637 [3:23:08<46:33:38, 109.84s/it]  7%|▋         | 112/1637 [3:24:58<46:31:56, 109.85s/it]  7%|▋         | 113/1637 [3:26:47<46:30:13, 109.85s/it]  7%|▋         | 114/1637 [3:28:37<46:28:29, 109.86s/it]  7%|▋         | 115/1637 [3:30:27<46:27:01, 109.87s/it]  7%|▋         | 116/1637 [3:32:17<46:25:02, 109.86s/it]  7%|▋         | 117/1637 [3:34:07<46:23:04, 109.86s/it]  7%|▋         | 118/1637 [3:35:57<46:21:17, 109.86s/it]  7%|▋         | 119/1637 [3:37:47<46:19:41, 109.87s/it]  7%|▋         | 120/1637 [3:39:37<46:18:00, 109.87s/it]                                                        {'loss': 7.9156, 'learning_rate': 4.933998374462208e-05, 'epoch': 0.07}
+  7%|▋         | 120/1637 [3:39:37<46:18:00, 109.87s/it]  7%|▋         | 121/1637 [3:41:26<46:16:23, 109.88s/it]  7%|▋         | 122/1637 [3:43:16<46:14:57, 109.90s/it]  8%|▊         | 123/1637 [3:45:06<46:13:12, 109.90s/it]  8%|▊         | 124/1637 [3:46:56<46:11:16, 109.90s/it]  8%|▊         | 125/1637 [3:48:46<46:09:38, 109.91s/it]  8%|▊         | 126/1637 [3:50:36<46:07:58, 109.91s/it]  8%|▊         | 127/1637 [3:52:26<46:06:38, 109.93s/it]  8%|▊         | 128/1637 [3:54:16<46:04:31, 109.92s/it]  8%|▊         | 129/1637 [3:56:06<46:02:32, 109.92s/it]  8%|▊         | 130/1637 [3:57:56<46:01:30, 109.95s/it]                                                        {'loss': 7.8721, 'learning_rate': 4.922599227940971e-05, 'epoch': 0.08}
+  8%|▊         | 130/1637 [3:57:56<46:01:30, 109.95s/it]  8%|▊         | 131/1637 [3:59:46<46:00:13, 109.97s/it]  8%|▊         | 132/1637 [4:01:36<45:58:38, 109.98s/it]  8%|▊         | 133/1637 [4:03:26<45:57:47, 110.02s/it]  8%|▊         | 134/1637 [4:05:16<45:56:48, 110.05s/it]  8%|▊         | 135/1637 [4:07:06<45:56:01, 110.09s/it]  8%|▊         | 136/1637 [4:08:56<45:54:35, 110.11s/it]  8%|▊         | 137/1637 [4:10:47<45:53:41, 110.15s/it]  8%|▊         | 138/1637 [4:12:37<45:52:31, 110.17s/it]  8%|▊         | 139/1637 [4:14:27<45:50:18, 110.16s/it]  9%|▊         | 140/1637 [4:16:17<45:48:32, 110.16s/it]                                                        {'loss': 7.9056, 'learning_rate': 4.9103078641364776e-05, 'epoch': 0.09}
+  9%|▊         | 140/1637 [4:16:17<45:48:32, 110.16s/it]  9%|▊         | 141/1637 [4:18:07<45:46:34, 110.16s/it]  9%|▊         | 142/1637 [4:19:58<45:44:43, 110.16s/it]  9%|▊         | 143/1637 [4:21:48<45:42:13, 110.13s/it]  9%|▉         | 144/1637 [4:23:38<45:40:06, 110.12s/it]  9%|▉         | 145/1637 [4:25:28<45:37:29, 110.09s/it]  9%|▉         | 146/1637 [4:27:18<45:35:37, 110.09s/it]  9%|▉         | 147/1637 [4:29:08<45:33:40, 110.08s/it]  9%|▉         | 148/1637 [4:30:58<45:31:40, 110.07s/it]  9%|▉         | 149/1637 [4:32:48<45:29:43, 110.07s/it]  9%|▉         | 150/1637 [4:34:38<45:28:17, 110.09s/it]                                                        {'loss': 7.8183, 'learning_rate': 4.8971288098260406e-05, 'epoch': 0.09}
+  9%|▉         | 150/1637 [4:34:38<45:28:17, 110.09s/it]  9%|▉         | 151/1637 [4:36:28<45:26:41, 110.10s/it]  9%|▉         | 152/1637 [4:38:18<45:25:30, 110.12s/it]  9%|▉         | 153/1637 [4:40:08<45:23:33, 110.12s/it]  9%|▉         | 154/1637 [4:41:59<45:22:02, 110.13s/it]  9%|▉         | 155/1637 [4:43:49<45:19:56, 110.12s/it] 10%|▉         | 156/1637 [4:45:39<45:18:01, 110.12s/it] 10%|▉         | 157/1637 [4:47:29<45:15:51, 110.10s/it] 10%|▉         | 158/1637 [4:49:19<45:13:56, 110.10s/it] 10%|▉         | 159/1637 [4:51:09<45:12:05, 110.10s/it] 10%|▉         | 160/1637 [4:52:59<45:10:06, 110.09s/it]                                                        {'loss': 7.7645, 'learning_rate': 4.8830669187138514e-05, 'epoch': 0.1}
+ 10%|▉         | 160/1637 [4:52:59<45:10:06, 110.09s/it] 10%|▉         | 161/1637 [4:54:49<45:08:33, 110.10s/it] 10%|▉         | 162/1637 [4:56:39<45:07:13, 110.12s/it] 10%|▉         | 163/1637 [4:58:30<45:05:46, 110.14s/it] 10%|█         | 164/1637 [5:00:20<45:04:01, 110.14s/it] 10%|█         | 165/1637 [5:02:10<45:02:11, 110.14s/it] 10%|█         | 166/1637 [5:04:00<45:00:19, 110.14s/it] 10%|█         | 167/1637 [5:05:50<44:58:02, 110.12s/it] 10%|█         | 168/1637 [5:07:40<44:56:16, 110.13s/it] 10%|█         | 169/1637 [5:09:30<44:54:48, 110.14s/it] 10%|█         | 170/1637 [5:11:21<44:53:12, 110.15s/it]                                                        {'loss': 7.7938, 'learning_rate': 4.868127369643421e-05, 'epoch': 0.1}
+ 10%|█         | 170/1637 [5:11:21<44:53:12, 110.15s/it] 10%|█         | 171/1637 [5:13:11<44:51:34, 110.16s/it] 11%|█         | 172/1637 [5:15:01<44:49:56, 110.17s/it] 11%|█         | 173/1637 [5:16:51<44:48:20, 110.18s/it] 11%|█         | 174/1637 [5:18:41<44:46:38, 110.18s/it] 11%|█         | 175/1637 [5:20:32<44:45:12, 110.20s/it] 11%|█         | 176/1637 [5:22:22<44:43:22, 110.20s/it] 11%|█         | 177/1637 [5:24:12<44:41:19, 110.19s/it] 11%|█         | 178/1637 [5:26:02<44:39:12, 110.18s/it] 11%|█         | 179/1637 [5:27:52<44:37:27, 110.18s/it] 11%|█         | 180/1637 [5:29:43<44:35:34, 110.18s/it]                                                        {'loss': 7.765, 'learning_rate': 4.8523156646902605e-05, 'epoch': 0.11}
+ 11%|█         | 180/1637 [5:29:43<44:35:34, 110.18s/it] 11%|█         | 181/1637 [5:31:33<44:33:40, 110.18s/it] 11%|█         | 182/1637 [5:33:23<44:31:52, 110.18s/it] 11%|█         | 183/1637 [5:35:13<44:30:24, 110.20s/it] 11%|█         | 184/1637 [5:37:03<44:29:00, 110.21s/it] 11%|█▏        | 185/1637 [5:38:54<44:27:04, 110.21s/it] 11%|█▏        | 186/1637 [5:40:44<44:24:59, 110.20s/it] 11%|█▏        | 187/1637 [5:42:34<44:22:50, 110.19s/it] 11%|█▏        | 188/1637 [5:44:24<44:20:55, 110.18s/it] 12%|█▏        | 189/1637 [5:46:14<44:19:14, 110.19s/it] 12%|█▏        | 190/1637 [5:48:05<44:17:36, 110.20s/it]                                                        {'loss': 7.7334, 'learning_rate': 4.835637627135526e-05, 'epoch': 0.12}
+ 12%|█▏        | 190/1637 [5:48:05<44:17:36, 110.20s/it] 12%|█▏        | 191/1637 [5:49:55<44:15:39, 110.19s/it] 12%|█▏        | 192/1637 [5:51:45<44:13:45, 110.19s/it] 12%|█▏        | 193/1637 [5:53:35<44:11:54, 110.19s/it] 12%|█▏        | 194/1637 [5:55:25<44:10:01, 110.19s/it] 12%|█▏        | 195/1637 [5:57:15<44:08:09, 110.19s/it] 12%|█▏        | 196/1637 [5:59:06<44:06:24, 110.19s/it] 12%|█▏        | 197/1637 [6:00:56<44:04:23, 110.18s/it] 12%|█▏        | 198/1637 [6:02:46<44:02:12, 110.17s/it] 12%|█▏        | 199/1637 [6:04:36<44:00:19, 110.17s/it] 12%|█▏        | 200/1637 [6:06:26<43:58:14, 110.16s/it]                                                        {'loss': 7.7015, 'learning_rate': 4.8180993993213716e-05, 'epoch': 0.12}
+ 12%|█▏        | 200/1637 [6:06:26<43:58:14, 110.16s/it][INFO|trainer.py:2979] 2024-05-14 17:22:12,782 >> Saving model checkpoint to /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-200
+[INFO|configuration_utils.py:473] 2024-05-14 17:22:12,783 >> Configuration saved in /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-200/config.json
+[INFO|configuration_utils.py:595] 2024-05-14 17:22:12,784 >> Configuration saved in /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-200/generation_config.json
+[INFO|modeling_utils.py:2540] 2024-05-14 17:22:33,090 >> The model is bigger than the maximum size per checkpoint (5GB) and is going to be split in 4 checkpoint shards. You can find where each parameters has been saved in the index located at /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-200/model.safetensors.index.json.
+[INFO|tokenization_utils_base.py:2435] 2024-05-14 17:22:33,091 >> tokenizer config file saved in /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-200/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2444] 2024-05-14 17:22:33,091 >> Special tokens file saved in /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-200/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2495] 2024-05-14 17:22:33,091 >> added tokens file saved in /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-200/added_tokens.json
+ 12%|█▏        | 201/1637 [6:08:48<47:44:42, 119.70s/it] 12%|█▏        | 202/1637 [6:10:38<46:34:08, 116.83s/it] 12%|█▏        | 203/1637 [6:12:28<45:43:48, 114.80s/it] 12%|█▏        | 204/1637 [6:14:18<45:07:23, 113.36s/it] 13%|█▎        | 205/1637 [6:16:08<44:41:06, 112.34s/it] 13%|█▎        | 206/1637 [6:17:58<44:22:01, 111.62s/it] 13%|█▎        | 207/1637 [6:19:48<44:08:01, 111.11s/it] 13%|█▎        | 208/1637 [6:21:38<43:57:45, 110.75s/it] 13%|█▎        | 209/1637 [6:23:28<43:49:58, 110.50s/it] 13%|█▎        | 210/1637 [6:25:18<43:43:32, 110.31s/it]                                                        {'loss': 7.657, 'learning_rate': 4.799707440388786e-05, 'epoch': 0.13}
+ 13%|█▎        | 210/1637 [6:25:18<43:43:32, 110.31s/it] 13%|█▎        | 211/1637 [6:27:08<43:38:13, 110.16s/it] 13%|█▎        | 212/1637 [6:28:58<43:34:10, 110.07s/it] 13%|█▎        | 213/1637 [6:30:47<43:30:20, 109.99s/it] 13%|█▎        | 214/1637 [6:32:37<43:26:49, 109.92s/it] 13%|█▎        | 215/1637 [6:34:27<43:23:56, 109.87s/it] 13%|█▎        | 216/1637 [6:36:17<43:21:01, 109.82s/it] 13%|█▎        | 217/1637 [6:38:06<43:18:46, 109.81s/it] 13%|█▎        | 218/1637 [6:39:56<43:16:10, 109.77s/it] 13%|█▎        | 219/1637 [6:41:46<43:13:59, 109.76s/it] 13%|█▎        | 220/1637 [6:43:36<43:11:48, 109.74s/it]                                                        {'loss': 7.6058, 'learning_rate': 4.780468523898762e-05, 'epoch': 0.13}
+ 13%|█▎        | 220/1637 [6:43:36<43:11:48, 109.74s/it] 14%|█▎        | 221/1637 [6:45:25<43:09:48, 109.74s/it] 14%|█▎        | 222/1637 [6:47:15<43:07:40, 109.72s/it] 14%|█▎        | 223/1637 [6:49:05<43:05:38, 109.72s/it] 14%|█▎        | 224/1637 [6:50:54<43:03:58, 109.72s/it] 14%|█▎        | 225/1637 [6:52:44<43:01:40, 109.70s/it] 14%|█▍        | 226/1637 [6:54:34<42:59:52, 109.70s/it] 14%|█▍        | 227/1637 [6:56:23<42:58:07, 109.71s/it] 14%|█▍        | 228/1637 [6:58:13<42:56:08, 109.70s/it] 14%|█▍        | 229/1637 [7:00:03<42:53:54, 109.68s/it] 14%|█▍        | 230/1637 [7:01:52<42:51:54, 109.68s/it]                                                        {'loss': 7.5581, 'learning_rate': 4.760389735337668e-05, 'epoch': 0.14}
+ 14%|█▍        | 230/1637 [7:01:52<42:51:54, 109.68s/it] 14%|█▍        | 231/1637 [7:03:42<42:50:06, 109.68s/it] 14%|█▍        | 232/1637 [7:05:32<42:48:04, 109.67s/it] 14%|█▍        | 233/1637 [7:07:21<42:46:20, 109.67s/it] 14%|█▍        | 234/1637 [7:09:11<42:44:19, 109.66s/it] 14%|█▍        | 235/1637 [7:11:01<42:42:29, 109.66s/it] 14%|█▍        | 236/1637 [7:12:50<42:40:29, 109.66s/it] 14%|█▍        | 237/1637 [7:14:40<42:38:32, 109.65s/it] 15%|█▍        | 238/1637 [7:16:30<42:36:31, 109.64s/it] 15%|█▍        | 239/1637 [7:18:19<42:34:36, 109.64s/it] 15%|█▍        | 240/1637 [7:20:09<42:32:38, 109.63s/it]                                                        {'loss': 7.5642, 'learning_rate': 4.739478469507736e-05, 'epoch': 0.15}
+ 15%|█▍        | 240/1637 [7:20:09<42:32:38, 109.63s/it] 15%|█▍        | 241/1637 [7:21:59<42:30:41, 109.63s/it] 15%|█▍        | 242/1637 [7:23:48<42:28:59, 109.63s/it] 15%|█▍        | 243/1637 [7:25:38<42:27:10, 109.63s/it] 15%|█▍        | 244/1637 [7:27:27<42:25:06, 109.62s/it] 15%|█▍        | 245/1637 [7:29:17<42:23:14, 109.62s/it] 15%|█▌        | 246/1637 [7:31:07<42:21:08, 109.61s/it] 15%|█▌        | 247/1637 [7:32:56<42:18:57, 109.60s/it] 15%|█▌        | 248/1637 [7:34:46<42:16:47, 109.58s/it] 15%|█▌        | 249/1637 [7:36:35<42:14:45, 109.57s/it] 15%|█▌        | 250/1637 [7:38:25<42:12:35, 109.56s/it]                                                        {'loss': 7.5579, 'learning_rate': 4.7177424278036395e-05, 'epoch': 0.15}
+ 15%|█▌        | 250/1637 [7:38:25<42:12:35, 109.56s/it] 15%|█▌        | 251/1637 [7:40:14<42:11:01, 109.57s/it] 15%|█▌        | 252/1637 [7:42:04<42:08:53, 109.55s/it] 15%|█▌        | 253/1637 [7:43:53<42:07:18, 109.57s/it] 16%|█▌        | 254/1637 [7:45:43<42:05:32, 109.57s/it] 16%|█▌        | 255/1637 [7:47:33<42:03:41, 109.57s/it] 16%|█▌        | 256/1637 [7:49:22<42:02:20, 109.59s/it] 16%|█▌        | 257/1637 [7:51:12<42:00:50, 109.60s/it] 16%|█▌        | 258/1637 [7:53:02<41:59:35, 109.63s/it] 16%|█▌        | 259/1637 [7:54:51<41:57:55, 109.63s/it] 16%|█▌        | 260/1637 [7:56:41<41:55:44, 109.62s/it]                                                        {'loss': 7.5527, 'learning_rate': 4.695189615376151e-05, 'epoch': 0.16}
+ 16%|█▌        | 260/1637 [7:56:41<41:55:44, 109.62s/it] 16%|█▌        | 261/1637 [7:58:30<41:54:02, 109.62s/it] 16%|█▌        | 262/1637 [8:00:20<41:52:08, 109.62s/it] 16%|█▌        | 263/1637 [8:02:10<41:50:19, 109.62s/it] 16%|█▌        | 264/1637 [8:03:59<41:48:31, 109.62s/it] 16%|█▌        | 265/1637 [8:05:49<41:46:30, 109.61s/it] 16%|█▌        | 266/1637 [8:07:39<41:44:57, 109.63s/it] 16%|█▋        | 267/1637 [8:09:28<41:43:23, 109.64s/it] 16%|█▋        | 268/1637 [8:11:18<41:41:16, 109.62s/it] 16%|█▋        | 269/1637 [8:13:07<41:39:38, 109.63s/it] 16%|█▋        | 270/1637 [8:14:57<41:37:55, 109.64s/it]                                                        {'loss': 7.4715, 'learning_rate': 4.6718283381839264e-05, 'epoch': 0.16}
+ 16%|█▋        | 270/1637 [8:14:57<41:37:55, 109.64s/it] 17%|█▋        | 271/1637 [8:16:47<41:35:49, 109.63s/it] 17%|█▋        | 272/1637 [8:18:36<41:34:00, 109.63s/it] 17%|█▋        | 273/1637 [8:20:26<41:31:55, 109.62s/it] 17%|█▋        | 274/1637 [8:22:16<41:29:49, 109.60s/it] 17%|█▋        | 275/1637 [8:24:05<41:28:11, 109.61s/it] 17%|█▋        | 276/1637 [8:25:55<41:26:24, 109.61s/it] 17%|█▋        | 277/1637 [8:27:44<41:24:27, 109.61s/it] 17%|█▋        | 278/1637 [8:29:34<41:22:36, 109.61s/it] 17%|█▋        | 279/1637 [8:31:24<41:20:56, 109.61s/it] 17%|█▋        | 280/1637 [8:33:13<41:19:04, 109.61s/it]                                                        {'loss': 7.525, 'learning_rate': 4.647667199934518e-05, 'epoch': 0.17}
+ 17%|█▋        | 280/1637 [8:33:13<41:19:04, 109.61s/it] 17%|█▋        | 281/1637 [8:35:03<41:17:13, 109.61s/it] 17%|█▋        | 282/1637 [8:36:52<41:15:33, 109.62s/it] 17%|█▋        | 283/1637 [8:38:42<41:13:39, 109.62s/it] 17%|█▋        | 284/1637 [8:40:32<41:12:05, 109.63s/it] 17%|█▋        | 285/1637 [8:42:21<41:10:17, 109.63s/it] 17%|█▋        | 286/1637 [8:44:11<41:08:26, 109.63s/it] 18%|█▊        | 287/1637 [8:46:01<41:06:36, 109.63s/it] 18%|█▊        | 288/1637 [8:47:50<41:04:35, 109.62s/it] 18%|█▊        | 289/1637 [8:49:40<41:02:46, 109.62s/it] 18%|█▊        | 290/1637 [8:51:29<41:01:14, 109.63s/it]                                                        {'loss': 7.4315, 'learning_rate': 4.622715098915716e-05, 'epoch': 0.18}
+ 18%|█▊        | 290/1637 [8:51:29<41:01:14, 109.63s/it] 18%|█▊        | 291/1637 [8:53:19<40:59:22, 109.63s/it] 18%|█▊        | 292/1637 [8:55:09<40:57:19, 109.62s/it] 18%|█▊        | 293/1637 [8:56:58<40:55:39, 109.63s/it] 18%|█▊        | 294/1637 [8:58:48<40:54:01, 109.64s/it] 18%|█▊        | 295/1637 [9:00:38<40:51:56, 109.62s/it] 18%|█▊        | 296/1637 [9:02:27<40:50:05, 109.62s/it] 18%|█▊        | 297/1637 [9:04:17<40:48:26, 109.63s/it] 18%|█▊        | 298/1637 [9:06:06<40:46:24, 109.62s/it] 18%|█▊        | 299/1637 [9:07:56<40:44:36, 109.62s/it] 18%|█▊        | 300/1637 [9:09:46<40:42:51, 109.63s/it]                                                        {'loss': 7.4618, 'learning_rate': 4.596981224718405e-05, 'epoch': 0.18}
+ 18%|█▊        | 300/1637 [9:09:46<40:42:51, 109.63s/it] 18%|█▊        | 301/1637 [9:11:35<40:40:56, 109.62s/it] 18%|█▊        | 302/1637 [9:13:25<40:39:06, 109.62s/it] 19%|█▊        | 303/1637 [9:15:15<40:37:19, 109.62s/it] 19%|█▊        | 304/1637 [9:17:04<40:35:39, 109.63s/it] 19%|█▊        | 305/1637 [9:18:54<40:33:28, 109.62s/it] 19%|█▊        | 306/1637 [9:20:43<40:31:53, 109.63s/it] 19%|█▉        | 307/1637 [9:22:33<40:30:01, 109.62s/it] 19%|█▉        | 308/1637 [9:24:23<40:28:26, 109.64s/it] 19%|█▉        | 309/1637 [9:26:12<40:26:36, 109.64s/it] 19%|█▉        | 310/1637 [9:28:02<40:24:48, 109.64s/it]                                                        {'loss': 7.4005, 'learning_rate': 4.5704750548521365e-05, 'epoch': 0.19}
+ 19%|█▉        | 310/1637 [9:28:02<40:24:48, 109.64s/it] 19%|█▉        | 311/1637 [9:29:52<40:23:10, 109.65s/it] 19%|█▉        | 312/1637 [9:31:41<40:21:16, 109.64s/it] 19%|█▉        | 313/1637 [9:33:31<40:19:26, 109.64s/it] 19%|█▉        | 314/1637 [9:35:21<40:17:33, 109.64s/it] 19%|█▉        | 315/1637 [9:37:10<40:15:41, 109.64s/it] 19%|█▉        | 316/1637 [9:39:00<40:13:42, 109.63s/it] 19%|█▉        | 317/1637 [9:40:50<40:11:59, 109.64s/it] 19%|█▉        | 318/1637 [9:42:39<40:09:47, 109.62s/it] 19%|█▉        | 319/1637 [9:44:29<40:07:44, 109.61s/it] 20%|█▉        | 320/1637 [9:46:18<40:05:37, 109.60s/it]                                                        {'loss': 7.3366, 'learning_rate': 4.543206351254665e-05, 'epoch': 0.2}
+ 20%|█▉        | 320/1637 [9:46:18<40:05:37, 109.60s/it] 20%|█▉        | 321/1637 [9:48:08<40:03:47, 109.60s/it] 20%|█▉        | 322/1637 [9:49:57<40:01:51, 109.59s/it] 20%|█▉        | 323/1637 [9:51:47<40:00:09, 109.60s/it] 20%|█▉        | 324/1637 [9:53:37<39:58:31, 109.61s/it] 20%|█▉        | 325/1637 [9:55:26<39:56:54, 109.62s/it] 20%|█▉        | 326/1637 [9:57:16<39:54:59, 109.61s/it] 20%|█▉        | 327/1637 [9:59:06<39:53:28, 109.62s/it] 20%|██        | 328/1637 [10:00:55<39:51:48, 109.63s/it] 20%|██        | 329/1637 [10:02:45<39:49:57, 109.63s/it] 20%|██        | 330/1637 [10:04:34<39:48:18, 109.64s/it]                                                         {'loss': 7.3488, 'learning_rate': 4.515185156696732e-05, 'epoch': 0.2}
+ 20%|██        | 330/1637 [10:04:34<39:48:18, 109.64s/it] 20%|██        | 331/1637 [10:06:24<39:46:22, 109.63s/it] 20%|██        | 332/1637 [10:08:14<39:44:52, 109.65s/it] 20%|██        | 333/1637 [10:10:03<39:43:01, 109.65s/it] 20%|██        | 334/1637 [10:11:53<39:41:16, 109.65s/it] 20%|██        | 335/1637 [10:13:43<39:39:28, 109.65s/it] 21%|██        | 336/1637 [10:15:32<39:37:42, 109.66s/it] 21%|██        | 337/1637 [10:17:22<39:35:39, 109.65s/it] 21%|██        | 338/1637 [10:19:12<39:33:44, 109.64s/it] 21%|██        | 339/1637 [10:21:01<39:32:05, 109.65s/it] 21%|██        | 340/1637 [10:22:51<39:30:15, 109.65s/it]                                                         {'loss': 7.3293, 'learning_rate': 4.486421791083417e-05, 'epoch': 0.21}
+ 21%|██        | 340/1637 [10:22:51<39:30:15, 109.65s/it] 21%|██        | 341/1637 [10:24:41<39:28:15, 109.64s/it] 21%|██        | 342/1637 [10:26:30<39:26:25, 109.64s/it] 21%|██        | 343/1637 [10:28:20<39:24:30, 109.64s/it] 21%|██        | 344/1637 [10:30:10<39:22:42, 109.64s/it] 21%|██        | 345/1637 [10:31:59<39:20:42, 109.63s/it] 21%|██        | 346/1637 [10:33:49<39:18:39, 109.62s/it] 21%|██        | 347/1637 [10:35:38<39:16:50, 109.62s/it] 21%|██▏       | 348/1637 [10:37:28<39:15:12, 109.63s/it] 21%|██▏       | 349/1637 [10:39:18<39:13:24, 109.63s/it] 21%|██▏       | 350/1637 [10:41:07<39:11:38, 109.63s/it]                                                         {'loss': 7.2746, 'learning_rate': 4.4569268476534325e-05, 'epoch': 0.21}
+ 21%|██▏       | 350/1637 [10:41:07<39:11:38, 109.63s/it] 21%|██▏       | 351/1637 [10:42:57<39:09:34, 109.62s/it] 22%|██▏       | 352/1637 [10:44:46<39:07:18, 109.60s/it] 22%|██▏       | 353/1637 [10:46:36<39:05:30, 109.60s/it] 22%|██▏       | 354/1637 [10:48:26<39:03:39, 109.60s/it] 22%|██▏       | 355/1637 [10:50:15<39:01:55, 109.61s/it] 22%|██▏       | 356/1637 [10:52:05<39:00:07, 109.61s/it] 22%|██▏       | 357/1637 [10:53:54<38:58:10, 109.60s/it] 22%|██▏       | 358/1637 [10:55:44<38:56:27, 109.61s/it] 22%|██▏       | 359/1637 [10:57:34<38:54:22, 109.60s/it] 22%|██▏       | 360/1637 [10:59:23<38:52:48, 109.61s/it]                                                         {'loss': 7.2481, 'learning_rate': 4.4267111890777454e-05, 'epoch': 0.22}
+ 22%|██▏       | 360/1637 [10:59:23<38:52:48, 109.61s/it] 22%|██▏       | 361/1637 [11:01:13<38:51:02, 109.61s/it] 22%|██▏       | 362/1637 [11:03:02<38:48:53, 109.59s/it] 22%|██▏       | 363/1637 [11:04:52<38:46:50, 109.58s/it] 22%|██▏       | 364/1637 [11:06:42<38:44:47, 109.57s/it] 22%|██▏       | 365/1637 [11:08:31<38:42:41, 109.56s/it] 22%|██▏       | 366/1637 [11:10:21<38:40:36, 109.55s/it] 22%|██▏       | 367/1637 [11:12:10<38:38:35, 109.54s/it] 22%|██▏       | 368/1637 [11:14:00<38:36:28, 109.53s/it] 23%|██▎       | 369/1637 [11:15:49<38:34:26, 109.52s/it] 23%|██▎       | 370/1637 [11:17:39<38:32:29, 109.51s/it]                                                         {'loss': 7.3586, 'learning_rate': 4.3957859434589724e-05, 'epoch': 0.23}
+ 23%|██▎       | 370/1637 [11:17:39<38:32:29, 109.51s/it] 23%|██▎       | 371/1637 [11:19:28<38:30:28, 109.50s/it] 23%|██▎       | 372/1637 [11:21:18<38:28:22, 109.49s/it] 23%|██▎       | 373/1637 [11:23:07<38:26:11, 109.47s/it] 23%|██▎       | 374/1637 [11:24:56<38:24:14, 109.47s/it] 23%|██▎       | 375/1637 [11:26:46<38:22:16, 109.46s/it] 23%|██▎       | 376/1637 [11:28:35<38:20:45, 109.47s/it] 23%|██▎       | 377/1637 [11:30:25<38:18:51, 109.47s/it] 23%|██▎       | 378/1637 [11:32:14<38:16:56, 109.47s/it] 23%|██▎       | 379/1637 [11:34:04<38:14:42, 109.45s/it] 23%|██▎       | 380/1637 [11:35:53<38:12:37, 109.43s/it]                                                         {'loss': 7.3256, 'learning_rate': 4.3641625002330175e-05, 'epoch': 0.23}
+ 23%|██▎       | 380/1637 [11:35:53<38:12:37, 109.43s/it] 23%|██▎       | 381/1637 [11:37:43<38:10:48, 109.43s/it] 23%|██▎       | 382/1637 [11:39:32<38:09:04, 109.44s/it] 23%|██▎       | 383/1637 [11:41:21<38:07:13, 109.44s/it] 23%|██▎       | 384/1637 [11:43:11<38:05:10, 109.43s/it] 24%|██▎       | 385/1637 [11:45:00<38:03:13, 109.42s/it] 24%|██▎       | 386/1637 [11:46:50<38:01:20, 109.42s/it] 24%|██▎       | 387/1637 [11:48:39<37:59:16, 109.41s/it] 24%|██▎       | 388/1637 [11:50:28<37:57:34, 109.41s/it] 24%|██▍       | 389/1637 [11:52:18<37:55:34, 109.40s/it] 24%|██▍       | 390/1637 [11:54:07<37:53:30, 109.39s/it]                                                         {'loss': 7.1276, 'learning_rate': 4.331852505974468e-05, 'epoch': 0.24}
+ 24%|██▍       | 390/1637 [11:54:07<37:53:30, 109.39s/it] 24%|██▍       | 391/1637 [11:55:57<37:51:35, 109.39s/it] 24%|██▍       | 392/1637 [11:57:46<37:49:56, 109.39s/it] 24%|██▍       | 393/1637 [11:59:35<37:47:56, 109.39s/it] 24%|██▍       | 394/1637 [12:01:25<37:45:43, 109.37s/it] 24%|██▍       | 395/1637 [12:03:14<37:43:44, 109.36s/it] 24%|██▍       | 396/1637 [12:05:03<37:42:03, 109.37s/it] 24%|██▍       | 397/1637 [12:06:53<37:39:56, 109.35s/it] 24%|██▍       | 398/1637 [12:08:42<37:38:12, 109.36s/it] 24%|██▍       | 399/1637 [12:10:31<37:36:28, 109.36s/it] 24%|██▍       | 400/1637 [12:12:21<37:34:33, 109.36s/it]                                                         {'loss': 7.1, 'learning_rate': 4.298867860107284e-05, 'epoch': 0.24}
+ 24%|██▍       | 400/1637 [12:12:21<37:34:33, 109.36s/it][INFO|trainer.py:2979] 2024-05-14 23:28:06,839 >> Saving model checkpoint to /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-400
+[INFO|configuration_utils.py:473] 2024-05-14 23:28:06,840 >> Configuration saved in /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-400/config.json
+[INFO|configuration_utils.py:595] 2024-05-14 23:28:06,841 >> Configuration saved in /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07/tmp-checkpoint-400/generation_config.json
+Traceback (most recent call last):
+  File "/home/yangdezhao/ydz_temp/LLaMA-Factory-hx/src/train_bash.py", line 14, in <module>
+    main()
+  File "/home/yangdezhao/ydz_temp/LLaMA-Factory-hx/src/train_bash.py", line 5, in main
+    run_exp()
+  File "/home/yangdezhao/ydz_temp/LLaMA-Factory-hx/src/llmtuner/train/tuner.py", line 29, in run_exp
+    run_pt(model_args, data_args, training_args, finetuning_args, callbacks)
+  File "/home/yangdezhao/ydz_temp/LLaMA-Factory-hx/src/llmtuner/train/pt/workflow.py", line 47, in run_pt
+    train_result = trainer.train(resume_from_checkpoint=training_args.resume_from_checkpoint)
+  File "/home/yangdezhao/ydz_temp/transformers/src/transformers/trainer.py", line 1561, in train
+    return inner_training_loop(
+  File "/home/yangdezhao/ydz_temp/transformers/src/transformers/trainer.py", line 1955, in _inner_training_loop
+    self._maybe_log_save_evaluate(tr_loss, model, trial, epoch, ignore_keys_for_eval)
+  File "/home/yangdezhao/ydz_temp/transformers/src/transformers/trainer.py", line 2342, in _maybe_log_save_evaluate
+    self._save_checkpoint(model, trial, metrics=metrics)
+  File "/home/yangdezhao/ydz_temp/transformers/src/transformers/trainer.py", line 2418, in _save_checkpoint
+    self.save_model(staging_output_dir, _internal_call=True)
+  File "/home/yangdezhao/ydz_temp/transformers/src/transformers/trainer.py", line 2916, in save_model
+    self._save(output_dir, state_dict=state_dict)
+  File "/home/yangdezhao/ydz_temp/transformers/src/transformers/trainer.py", line 3001, in _save
+    self.model.save_pretrained(
+  File "/home/yangdezhao/ydz_temp/transformers/src/transformers/modeling_utils.py", line 2526, in save_pretrained
+    safe_save_file(shard, os.path.join(save_directory, shard_file), metadata={"format": "pt"})
+  File "/home/yangdezhao/anaconda3/envs/ydz/lib/python3.10/site-packages/safetensors/torch.py", line 281, in save_file
+    serialize_file(_flatten(tensors), filename, metadata=metadata)
+safetensors_rust.SafetensorError: Error while serializing: IoError(Os { code: 28, kind: StorageFull, message: "No space left on device" })
+Exception ignored in atexit callback: <function matmul_ext_update_autotune_table at 

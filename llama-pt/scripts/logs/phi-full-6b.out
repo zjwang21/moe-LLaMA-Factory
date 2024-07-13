@@ -1,0 +1,1383 @@
+[2024-03-26 15:07:19,734] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-26 15:07:22,937] [WARNING] [runner.py:203:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-03-26 15:07:22,985] [INFO] [runner.py:570:main] cmd = /home/nfs02/anaconda3/envs/wzjsz/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=9902 --enable_each_rank_log=None src/train_bash.py --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json --stage pt --model_name_or_path /home/nfs02/model/phi-2 --do_train --flash_attn --dataset is_1b,ar_1b,ta_1b,th_1b,fi_1b,tr_1b --preprocessing_num_workers 16 --mix_strategy concat --cutoff_len 2048 --cache_path /home/nfs03/wangzj/dataset/pretrain/6b --finetuning_type full --output_dir /home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6 --overwrite_output_dir --per_device_train_batch_size 16 --gradient_accumulation_steps 8 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 1000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16
+[2024-03-26 15:07:24,703] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-26 15:07:27,081] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-03-26 15:07:27,081] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-03-26 15:07:27,081] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-03-26 15:07:27,081] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-03-26 15:07:27,081] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-03-26 15:07:32,409] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-26 15:07:32,411] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-26 15:07:32,416] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-26 15:07:32,419] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-26 15:07:40,594] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-26 15:07:40,594] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-26 15:07:40,596] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-26 15:07:40,596] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-03-26 15:07:40,599] [INFO] [comm.py:637:init_distributed] cdb=None
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6/runs/Mar26_15-07-40_2080ti-1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6/runs/Mar26_15-07-40_2080ti-1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6/runs/Mar26_15-07-40_2080ti-1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2027] 2024-03-26 15:07:41,627 >> loading file vocab.json
+[INFO|tokenization_utils_base.py:2027] 2024-03-26 15:07:41,627 >> loading file merges.txt
+[INFO|tokenization_utils_base.py:2027] 2024-03-26 15:07:41,627 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2027] 2024-03-26 15:07:41,627 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2027] 2024-03-26 15:07:41,627 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2027] 2024-03-26 15:07:41,627 >> loading file tokenizer.json
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/26/2024 15:07:41 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6/runs/Mar26_15-07-40_2080ti-1,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+03/26/2024 15:07:41 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+03/26/2024 15:07:41 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[WARNING|logging.py:314] 2024-03-26 15:07:41,737 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:727] 2024-03-26 15:07:41,738 >> loading configuration file /home/nfs02/model/phi-2/config.json
+03/26/2024 15:07:41 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+[INFO|configuration_utils.py:727] 2024-03-26 15:07:41,785 >> loading configuration file /home/nfs02/model/phi-2/config.json
+[INFO|configuration_utils.py:792] 2024-03-26 15:07:41,787 >> Model config PhiConfig {
+  "_name_or_path": "/home/nfs02/model/phi-2",
+  "architectures": [
+    "PhiForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "auto_map": {
+    "AutoConfig": "configuration_phi.PhiConfig",
+    "AutoModelForCausalLM": "modeling_phi.PhiForCausalLM"
+  },
+  "bos_token_id": 50256,
+  "embd_pdrop": 0.0,
+  "eos_token_id": 50256,
+  "hidden_act": "gelu_new",
+  "hidden_size": 2560,
+  "initializer_range": 0.02,
+  "intermediate_size": 10240,
+  "layer_norm_eps": 1e-05,
+  "max_position_embeddings": 2048,
+  "model_type": "phi",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "partial_rotary_factor": 0.4,
+  "qk_layernorm": false,
+  "resid_pdrop": 0.1,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "vocab_size": 51200
+}
+
+03/26/2024 15:07:41 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|modeling_utils.py:3334] 2024-03-26 15:07:41,894 >> loading weights file /home/nfs02/model/phi-2/model.safetensors.index.json
+[INFO|modeling_utils.py:1459] 2024-03-26 15:07:41,895 >> Instantiating PhiForCausalLM model under default dtype torch.bfloat16.
+[WARNING|logging.py:329] 2024-03-26 15:07:41,895 >> The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+[WARNING|logging.py:329] 2024-03-26 15:07:41,903 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:827] 2024-03-26 15:07:41,907 >> Generate config GenerationConfig {
+  "bos_token_id": 50256,
+  "eos_token_id": 50256
+}
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.91s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.48s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.70s/it]
+03/26/2024 15:07:47 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+03/26/2024 15:07:47 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.48s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.70s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:05<00:05,  5.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.55s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.99s/it]
+03/26/2024 15:07:50 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+03/26/2024 15:07:50 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+03/26/2024 15:07:50 - INFO - llmtuner.model.loader - trainable params: 2779683840 || all params: 2779683840 || trainable%: 100.0000
+03/26/2024 15:07:50 - INFO - llmtuner.data.template - Add pad token: <|endoftext|>
+03/26/2024 15:07:50 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.14s/it]
+[INFO|modeling_utils.py:4070] 2024-03-26 15:07:50,452 >> All model checkpoint weights were used when initializing PhiForCausalLM.
+
+[INFO|modeling_utils.py:4078] 2024-03-26 15:07:50,452 >> All the weights of PhiForCausalLM were initialized from the model checkpoint at /home/nfs02/model/phi-2.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use PhiForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:780] 2024-03-26 15:07:50,457 >> loading configuration file /home/nfs02/model/phi-2/generation_config.json
+[INFO|configuration_utils.py:827] 2024-03-26 15:07:50,458 >> Generate config GenerationConfig {
+  "bos_token_id": 50256,
+  "eos_token_id": 50256
+}
+
+03/26/2024 15:07:50 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+03/26/2024 15:07:50 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.18s/it]
+03/26/2024 15:07:50 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+03/26/2024 15:07:50 - INFO - llmtuner.model.adapter - Fine-tuning method: Full
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 3996838
+})
+Using /home/zhouh/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+03/26/2024 15:07:56 - INFO - llmtuner.model.loader - trainable params: 2779683840 || all params: 2779683840 || trainable%: 100.0000
+03/26/2024 15:07:56 - INFO - llmtuner.data.template - Add pad token: <|endoftext|>
+03/26/2024 15:07:56 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/zhouh/.cache/torch_extensions/py310_cu117/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+03/26/2024 15:07:56 - INFO - llmtuner.model.loader - trainable params: 2779683840 || all params: 2779683840 || trainable%: 100.0000
+03/26/2024 15:07:56 - INFO - llmtuner.data.template - Add pad token: <|endoftext|>
+03/26/2024 15:07:56 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+ninja: no work to do.
+03/26/2024 15:07:56 - INFO - llmtuner.model.loader - trainable params: 2779683840 || all params: 2779683840 || trainable%: 100.0000
+03/26/2024 15:07:56 - INFO - llmtuner.data.template - Add pad token: <|endoftext|>
+03/26/2024 15:07:56 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+Loading extension module cpu_adam...
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 3996838
+})
+Time to load cpu_adam op: 3.0034778118133545 seconds
+Loading cached shuffled indices for dataset at /home/nfs03/wangzj/dataset/pretrain/6b/cache-ee6db49ab0b98f60.arrow
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 3996838
+})
+PhiForCausalLM(
+  (model): PhiModel(
+    (embed_tokens): Embedding(51200, 2560)
+    (embed_dropout): Dropout(p=0.0, inplace=False)
+    (layers): ModuleList(
+      (0): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (1): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (2): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (3): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (4): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (5): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (6): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (7): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (8): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (9): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (10): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (11): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (12): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (13): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (14): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (15): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (16): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (17): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (18): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (19): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (20): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (21): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (22): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (23): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (24): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (25): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (26): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (27): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (28): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (29): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (30): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+      (31): PhiDecoderLayer(
+        (self_attn): PhiFlashAttention2(
+          (q_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (k_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (v_proj): Linear(in_features=2560, out_features=2560, bias=True)
+          (dense): Linear(in_features=2560, out_features=2560, bias=True)
+          (rotary_emb): PhiRotaryEmbedding()
+        )
+        (mlp): PhiMLP(
+          (activation_fn): NewGELUActivation()
+          (fc1): Linear(in_features=2560, out_features=10240, bias=True)
+          (fc2): Linear(in_features=10240, out_features=2560, bias=True)
+        )
+        (input_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+        (resid_dropout): Dropout(p=0.1, inplace=False)
+      )
+    )
+    (final_layernorm): LayerNorm((2560,), eps=1e-05, elementwise_affine=True)
+  )
+  (lm_head): Linear(in_features=2560, out_features=51200, bias=True)
+)
+[INFO|trainer.py:586] 2024-03-26 15:07:56,572 >> Using auto half precision backend
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 3996838
+})
+[INFO|deepspeed.py:325] 2024-03-26 15:07:56,847 >> Detected ZeRO Offload and non-DeepSpeed optimizers: This combination should work as long as the custom optimizer has both CPU and GPU implementation (except LAMB)
+Using /home/zhouh/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/zhouh/.cache/torch_extensions/py310_cu117/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Using /home/zhouh/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+ninja: no work to do.
+Using /home/zhouh/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.8273274898529053 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.6819381713867188 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.7043471336364746 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000050, betas=(0.900000, 0.999000), weight_decay=0.010000, adam_w=1
+[2024-03-26 15:08:04,369] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.12.3, git-hash=unknown, git-branch=unknown
+[2024-03-26 15:08:15,496] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-03-26 15:08:15,498] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-03-26 15:08:15,498] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-03-26 15:08:15,527] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-03-26 15:08:15,527] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-03-26 15:08:15,527] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-03-26 15:08:15,528] [INFO] [stage_1_and_2.py:147:__init__] Reduce bucket size 500000000
+[2024-03-26 15:08:15,528] [INFO] [stage_1_and_2.py:148:__init__] Allgather bucket size 500000000
+[2024-03-26 15:08:15,528] [INFO] [stage_1_and_2.py:149:__init__] CPU Offload: True
+[2024-03-26 15:08:15,528] [INFO] [stage_1_and_2.py:150:__init__] Round robin gradient partitioning: False
+[2024-03-26 15:08:32,568] [INFO] [utils.py:802:see_memory_usage] Before initializing optimizer states
+[2024-03-26 15:08:32,570] [INFO] [utils.py:803:see_memory_usage] MA 5.43 GB         Max_MA 5.43 GB         CA 5.45 GB         Max_CA 5 GB 
+[2024-03-26 15:08:32,570] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 92.79 GB, percent = 24.6%
+[2024-03-26 15:08:37,917] [INFO] [utils.py:802:see_memory_usage] After initializing optimizer states
+[2024-03-26 15:08:37,918] [INFO] [utils.py:803:see_memory_usage] MA 5.43 GB         Max_MA 5.43 GB         CA 5.45 GB         Max_CA 5 GB 
+[2024-03-26 15:08:37,919] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 124.86 GB, percent = 33.2%
+[2024-03-26 15:08:37,919] [INFO] [stage_1_and_2.py:514:__init__] optimizer state initialized
+[2024-03-26 15:08:38,201] [INFO] [utils.py:802:see_memory_usage] After initializing ZeRO optimizer
+[2024-03-26 15:08:38,202] [INFO] [utils.py:803:see_memory_usage] MA 5.43 GB         Max_MA 5.43 GB         CA 5.45 GB         Max_CA 5 GB 
+[2024-03-26 15:08:38,203] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 125.4 GB, percent = 33.3%
+[2024-03-26 15:08:38,216] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedCPUAdam
+[2024-03-26 15:08:38,216] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-03-26 15:08:38,216] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-03-26 15:08:38,216] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-05, 5e-05], mom=[(0.9, 0.999), (0.9, 0.999)]
+[2024-03-26 15:08:38,217] [INFO] [config.py:974:print] DeepSpeedEngine configuration:
+[2024-03-26 15:08:38,218] [INFO] [config.py:978:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-03-26 15:08:38,218] [INFO] [config.py:978:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-03-26 15:08:38,218] [INFO] [config.py:978:print]   amp_enabled .................. False
+[2024-03-26 15:08:38,218] [INFO] [config.py:978:print]   amp_params ................... False
+[2024-03-26 15:08:38,218] [INFO] [config.py:978:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   bfloat16_enabled ............. True
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   checkpoint_parallel_write_pipeline  False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   checkpoint_tag_validation_enabled  True
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   checkpoint_tag_validation_fail  False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7f1e15846f50>
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   communication_data_type ...... None
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   curriculum_enabled_legacy .... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   curriculum_params_legacy ..... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   data_efficiency_enabled ...... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   dataloader_drop_last ......... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   disable_allgather ............ False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   dump_state ................... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   dynamic_loss_scale_args ...... None
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_enabled ........... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_gas_boundary_resolution  1
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_layer_num ......... 0
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_max_iter .......... 100
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_stability ......... 1e-06
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_tol ............... 0.01
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   eigenvalue_verbose ........... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   elasticity_enabled ........... False
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   fp16_auto_cast ............... None
+[2024-03-26 15:08:38,219] [INFO] [config.py:978:print]   fp16_enabled ................. False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   fp16_master_weights_and_gradients  False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   global_rank .................. 0
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   grad_accum_dtype ............. None
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   gradient_accumulation_steps .. 8
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   gradient_clipping ............ 1.0
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   gradient_predivide_factor .... 1.0
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   initial_dynamic_scale ........ 1
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   load_universal_checkpoint .... False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   loss_scale ................... 1.0
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   memory_breakdown ............. False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   mics_hierarchial_params_gather  False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   mics_shard_size .............. -1
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   optimizer_legacy_fusion ...... False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   optimizer_name ............... None
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   optimizer_params ............. None
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   pld_enabled .................. False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   pld_params ................... False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   prescale_gradients ........... False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   scheduler_name ............... None
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   scheduler_params ............. None
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   seq_parallel_communication_data_type  torch.float32
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   sparse_attention ............. None
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   sparse_gradients_enabled ..... False
+[2024-03-26 15:08:38,220] [INFO] [config.py:978:print]   steps_per_print .............. inf
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   train_batch_size ............. 512
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   train_micro_batch_size_per_gpu  16
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   use_node_local_storage ....... False
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   wall_clock_breakdown ......... False
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   weight_quantization_config ... None
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   world_size ................... 4
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   zero_allow_untested_optimizer  True
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   zero_enabled ................. True
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   zero_force_ds_cpu_optimizer .. True
+[2024-03-26 15:08:38,221] [INFO] [config.py:978:print]   zero_optimization_stage ...... 2
+[2024-03-26 15:08:38,221] [INFO] [config.py:964:print_user_config]   json = {
+    "train_batch_size": 512, 
+    "train_micro_batch_size_per_gpu": 16, 
+    "gradient_accumulation_steps": 8, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "initial_scale_power": 16, 
+        "loss_scale_window": 1000, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }
+}
+[INFO|trainer.py:1747] 2024-03-26 15:08:38,221 >> ***** Running training *****
+[INFO|trainer.py:1748] 2024-03-26 15:08:38,221 >>   Num examples = 3,996,838
+[INFO|trainer.py:1749] 2024-03-26 15:08:38,222 >>   Num Epochs = 1
+[INFO|trainer.py:1750] 2024-03-26 15:08:38,222 >>   Instantaneous batch size per device = 16
+[INFO|trainer.py:1753] 2024-03-26 15:08:38,222 >>   Total train batch size (w. parallel, distributed & accumulation) = 512
+[INFO|trainer.py:1754] 2024-03-26 15:08:38,222 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:1755] 2024-03-26 15:08:38,222 >>   Total optimization steps = 7,806
+[INFO|trainer.py:1756] 2024-03-26 15:08:38,224 >>   Number of trainable parameters = 2,779,683,840
+03/26/2024 15:08:38 - WARNING - llmtuner.extras.callbacks - Previous log file in this folder will be deleted.
+  0%|          | 0/7806 [00:00<?, ?it/s]  0%|          | 1/7806 [01:27<190:40:56, 87.95s/it]  0%|          | 2/7806 [02:55<190:28:40, 87.87s/it]  0%|          | 3/7806 [04:24<191:23:36, 88.30s/it]  0%|          | 4/7806 [05:53<191:40:33, 88.44s/it]  0%|          | 5/7806 [07:22<191:56:45, 88.58s/it]  0%|          | 6/7806 [08:50<191:59:56, 88.61s/it]  0%|          | 7/7806 [10:19<192:07:16, 88.68s/it]  0%|          | 8/7806 [11:48<192:11:09, 88.72s/it]  0%|          | 9/7806 [13:17<192:12:43, 88.75s/it]  0%|          | 10/7806 [14:45<192:06:40, 88.71s/it]                                                     {'loss': 2.3264, 'learning_rate': 4.999979753401145e-05, 'epoch': 0.0}
+  0%|          | 10/7806 [14:46<192:06:40, 88.71s/it]  0%|          | 11/7806 [16:14<192:20:42, 88.83s/it]  0%|          | 12/7806 [17:43<192:13:36, 88.79s/it]  0%|          | 13/7806 [19:12<192:05:14, 88.74s/it]  0%|          | 14/7806 [20:40<192:03:41, 88.73s/it]  0%|          | 15/7806 [22:09<191:58:57, 88.71s/it]  0%|          | 16/7806 [23:38<191:54:28, 88.69s/it]  0%|          | 17/7806 [25:06<191:49:23, 88.66s/it]  0%|          | 18/7806 [26:35<191:40:51, 88.60s/it]  0%|          | 19/7806 [28:03<191:31:07, 88.54s/it]  0%|          | 20/7806 [29:32<191:25:38, 88.51s/it]                                                     {'loss': 2.0123, 'learning_rate': 4.999919013932517e-05, 'epoch': 0.0}
+  0%|          | 20/7806 [29:32<191:25:38, 88.51s/it]  0%|          | 21/7806 [31:00<191:16:22, 88.45s/it]  0%|          | 22/7806 [32:28<191:14:48, 88.45s/it]  0%|          | 23/7806 [33:57<191:27:22, 88.56s/it]  0%|          | 24/7806 [35:26<191:24:52, 88.55s/it]  0%|          | 25/7806 [36:54<191:20:19, 88.53s/it]  0%|          | 26/7806 [38:23<191:18:05, 88.52s/it]  0%|          | 27/7806 [39:51<191:15:28, 88.51s/it]  0%|          | 28/7806 [41:20<191:17:39, 88.54s/it]  0%|          | 29/7806 [42:48<191:13:44, 88.52s/it]  0%|          | 30/7806 [44:17<191:11:39, 88.52s/it]                                                     {'loss': 1.873, 'learning_rate': 4.9998177825779314e-05, 'epoch': 0.0}
+  0%|          | 30/7806 [44:17<191:11:39, 88.52s/it]  0%|          | 31/7806 [45:45<191:09:04, 88.51s/it]  0%|          | 32/7806 [47:14<191:03:22, 88.47s/it]  0%|          | 33/7806 [48:42<191:05:03, 88.50s/it]  0%|          | 34/7806 [50:11<191:02:29, 88.49s/it]  0%|          | 35/7806 [51:39<191:07:01, 88.54s/it]  0%|          | 36/7806 [53:08<191:24:52, 88.69s/it]  0%|          | 37/7806 [54:37<191:14:36, 88.62s/it]  0%|          | 38/7806 [56:05<191:04:55, 88.56s/it]  0%|          | 39/7806 [57:34<190:59:11, 88.52s/it]  1%|          | 40/7806 [59:02<190:53:01, 88.49s/it]                                                     {'loss': 1.8734, 'learning_rate': 4.999676060977061e-05, 'epoch': 0.01}
+  1%|          | 40/7806 [59:02<190:53:01, 88.49s/it]  1%|          | 41/7806 [1:00:31<190:54:12, 88.51s/it]  1%|          | 42/7806 [1:01:59<190:52:31, 88.50s/it]  1%|          | 43/7806 [1:03:28<190:51:39, 88.51s/it]  1%|          | 44/7806 [1:04:56<190:50:22, 88.51s/it]  1%|          | 45/7806 [1:06:25<190:46:57, 88.50s/it]  1%|          | 46/7806 [1:07:53<190:43:34, 88.48s/it]  1%|          | 47/7806 [1:09:22<190:58:56, 88.61s/it]  1%|          | 48/7806 [1:10:50<190:52:02, 88.57s/it]  1%|          | 49/7806 [1:12:19<190:55:07, 88.60s/it]  1%|          | 50/7806 [1:13:48<190:50:14, 88.58s/it]                                                       {'loss': 1.8359, 'learning_rate': 4.9994938514254094e-05, 'epoch': 0.01}
+  1%|          | 50/7806 [1:13:48<190:50:14, 88.58s/it]  1%|          | 51/7806 [1:15:16<190:55:00, 88.63s/it]  1%|          | 52/7806 [1:16:45<190:55:28, 88.64s/it]  1%|          | 53/7806 [1:18:13<190:42:06, 88.55s/it]  1%|          | 54/7806 [1:19:42<190:42:34, 88.56s/it]  1%|          | 55/7806 [1:21:11<190:39:51, 88.56s/it]  1%|          | 56/7806 [1:22:39<190:41:27, 88.58s/it]  1%|          | 57/7806 [1:24:08<190:39:12, 88.57s/it]  1%|          | 58/7806 [1:25:37<190:44:19, 88.62s/it]  1%|          | 59/7806 [1:27:05<190:45:08, 88.64s/it]  1%|          | 60/7806 [1:28:34<190:36:08, 88.58s/it]                                                       {'loss': 1.8287, 'learning_rate': 4.9992711568742756e-05, 'epoch': 0.01}
+  1%|          | 60/7806 [1:28:34<190:36:08, 88.58s/it]  1%|          | 61/7806 [1:30:02<190:35:18, 88.59s/it]  1%|          | 62/7806 [1:31:31<190:32:42, 88.58s/it]  1%|          | 63/7806 [1:32:59<190:24:31, 88.53s/it]  1%|          | 64/7806 [1:34:28<190:21:38, 88.52s/it]  1%|          | 65/7806 [1:35:56<190:17:36, 88.50s/it]  1%|          | 66/7806 [1:37:25<190:16:45, 88.50s/it]  1%|          | 67/7806 [1:38:53<190:19:41, 88.54s/it]  1%|          | 68/7806 [1:40:22<190:17:43, 88.53s/it]  1%|          | 69/7806 [1:41:50<190:22:36, 88.58s/it]  1%|          | 70/7806 [1:43:19<190:27:00, 88.63s/it]                                                       {'loss': 1.771, 'learning_rate': 4.9990079809307066e-05, 'epoch': 0.01}
+  1%|          | 70/7806 [1:43:19<190:27:00, 88.63s/it]  1%|          | 71/7806 [1:44:48<190:26:59, 88.64s/it]  1%|          | 72/7806 [1:46:16<190:22:51, 88.62s/it]  1%|          | 73/7806 [1:47:45<190:17:43, 88.59s/it]  1%|          | 74/7806 [1:49:14<190:13:28, 88.57s/it]  1%|          | 75/7806 [1:50:42<190:15:12, 88.59s/it]  1%|          | 76/7806 [1:52:11<190:15:58, 88.61s/it]  1%|          | 77/7806 [1:53:40<190:22:51, 88.68s/it]  1%|          | 78/7806 [1:55:08<190:19:44, 88.66s/it]  1%|          | 79/7806 [1:56:37<190:26:05, 88.72s/it]phi_full.sh: line 26: 29053 Killed                  deepspeed --num_gpus 4 --master_port=9902 src/train_bash.py --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json --stage pt --model_name_or_path /home/nfs02/model/phi-2 --do_train --flash_attn --dataset is_1b,ar_1b,ta_1b,th_1b,fi_1b,tr_1b --preprocessing_num_workers 16 --mix_strategy concat --cutoff_len 2048 --cache_path /home/nfs03/wangzj/dataset/pretrain/6b --finetuning_type full --output_dir /home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6 --overwrite_output_dir --per_device_train_batch_size 16 --gradient_accumulation_steps 8 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 1000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16

@@ -1,0 +1,1891 @@
+[2024-04-01 13:52:09,454] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-01 13:52:14,477] [WARNING] [runner.py:203:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-04-01 13:52:14,501] [INFO] [runner.py:570:main] cmd = /home/nfs02/anaconda3/envs/wzjsz/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=9901 --enable_each_rank_log=None src/train_bash.py --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json --stage pt --model_name_or_path /home/nfs02/model/llama2/hf/Llama-2-7b-hf --do_train --flash_attn --dataset skypile_1b,is_1b --cache_path /home/nfs03/wangzj/dataset/pretrain/llama_zhis_2b --preprocessing_num_workers 16 --mix_strategy concat --cutoff_len 2048 --finetuning_type moe --save_all_params --moe_every_k_layers 1 --moe_router_type top1 --moe_num_experts 2 --output_dir /home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full --overwrite_output_dir --per_device_train_batch_size 8 --gradient_accumulation_steps 8 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 2000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16
+[2024-04-01 13:52:16,510] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-01 13:52:19,126] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-04-01 13:52:19,126] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-04-01 13:52:19,126] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-04-01 13:52:19,126] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-04-01 13:52:19,126] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-04-01 13:52:26,005] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-01 13:52:26,010] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-01 13:52:26,011] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-01 13:52:26,013] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-04-01 13:52:35,903] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-04-01 13:52:35,905] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-04-01 13:52:35,905] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-04-01 13:52:35,905] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-04-01 13:52:35,905] [INFO] [comm.py:637:init_distributed] cdb=None
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full/runs/Apr01_13-52-35_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=2000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full/runs/Apr01_13-52-35_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=2000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full/runs/Apr01_13-52-35_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=2000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+04/01/2024 13:52:36 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full/runs/Apr01_13-52-35_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=2000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2027] 2024-04-01 13:52:36,942 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2027] 2024-04-01 13:52:36,942 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2027] 2024-04-01 13:52:36,943 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2027] 2024-04-01 13:52:36,943 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2027] 2024-04-01 13:52:36,943 >> loading file tokenizer.json
+04/01/2024 13:52:37 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+04/01/2024 13:52:37 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+04/01/2024 13:52:37 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+[INFO|configuration_utils.py:727] 2024-04-01 13:52:37,133 >> loading configuration file /home/nfs02/model/llama2/hf/Llama-2-7b-hf/config.json
+[INFO|configuration_utils.py:792] 2024-04-01 13:52:37,134 >> Model config LlamaConfig {
+  "_name_or_path": "/home/nfs02/model/llama2/hf/Llama-2-7b-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+04/01/2024 13:52:37 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+[INFO|modeling_utils.py:3334] 2024-04-01 13:52:37,283 >> loading weights file /home/nfs02/model/llama2/hf/Llama-2-7b-hf/model.safetensors.index.json
+[INFO|modeling_utils.py:1459] 2024-04-01 13:52:37,285 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+[WARNING|logging.py:329] 2024-04-01 13:52:37,285 >> The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[WARNING|logging.py:329] 2024-04-01 13:52:37,289 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:827] 2024-04-01 13:52:37,293 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:34<01:34, 94.31s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:34<01:34, 94.45s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:34<01:34, 94.44s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:34<01:34, 94.44s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 57.61s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 63.14s/it]
+04/01/2024 13:54:47 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+04/01/2024 13:54:47 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 57.70s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 63.19s/it]
+[INFO|modeling_utils.py:4070] 2024-04-01 13:54:47,591 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4078] 2024-04-01 13:54:47,591 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at /home/nfs02/model/llama2/hf/Llama-2-7b-hf.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 57.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 63.20s/it]
+[INFO|configuration_utils.py:780] 2024-04-01 13:54:47,595 >> loading configuration file /home/nfs02/model/llama2/hf/Llama-2-7b-hf/generation_config.json
+[INFO|configuration_utils.py:827] 2024-04-01 13:54:47,595 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+04/01/2024 13:54:47 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+04/01/2024 13:54:47 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+04/01/2024 13:54:47 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+04/01/2024 13:54:47 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 57.67s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:06<00:00, 63.18s/it]
+04/01/2024 13:54:47 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+04/01/2024 13:54:47 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+04/01/2024 13:54:50 - INFO - llmtuner.model.adapter - Moe training and saving all params.
+04/01/2024 13:54:50 - INFO - llmtuner.model.loader - trainable params: 11067199488 || all params: 11067199488 || trainable%: 100.0000
+04/01/2024 13:54:50 - INFO - llmtuner.data.template - Add pad token: </s>
+04/01/2024 13:54:50 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+04/01/2024 13:54:50 - INFO - llmtuner.model.adapter - Moe training and saving all params.
+04/01/2024 13:54:50 - INFO - llmtuner.model.adapter - Moe training and saving all params.
+04/01/2024 13:54:50 - INFO - llmtuner.model.loader - trainable params: 11067199488 || all params: 11067199488 || trainable%: 100.0000
+04/01/2024 13:54:50 - INFO - llmtuner.data.template - Add pad token: </s>
+04/01/2024 13:54:50 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+04/01/2024 13:54:50 - INFO - llmtuner.model.loader - trainable params: 11067199488 || all params: 11067199488 || trainable%: 100.0000
+04/01/2024 13:54:50 - INFO - llmtuner.data.template - Add pad token: </s>
+04/01/2024 13:54:50 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+04/01/2024 13:54:50 - INFO - llmtuner.model.adapter - Moe training and saving all params.
+04/01/2024 13:54:50 - INFO - llmtuner.model.loader - trainable params: 11067199488 || all params: 11067199488 || trainable%: 100.0000
+04/01/2024 13:54:50 - INFO - llmtuner.data.template - Add pad token: </s>
+04/01/2024 13:54:50 - WARNING - llmtuner.data.loader - Loading dataset from disk will ignore other data arguments.
+Loading cached shuffled indices for dataset at /home/nfs03/wangzj/dataset/pretrain/llama_zhis_2b/cache-7c5371801f1872ef.arrow
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 976529
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 976529
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 976529
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 976529
+})
+PeftModelForCausalLM(
+  (base_model): MoeModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (1): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (2): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (3): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (4): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (5): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (6): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (7): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (8): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (9): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (10): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (11): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (12): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (13): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (14): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (15): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (16): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (17): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (18): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (19): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (20): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (21): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (22): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (23): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (24): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (25): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (26): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (27): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (28): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (29): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (30): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+          (31): LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=4096, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+        )
+        (norm): LlamaRMSNorm()
+      )
+      (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+    )
+  )
+)
+Detected kernel version 4.15.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[INFO|trainer.py:586] 2024-04-01 13:56:30,923 >> Using auto half precision backend
+[INFO|deepspeed.py:325] 2024-04-01 13:56:31,192 >> Detected ZeRO Offload and non-DeepSpeed optimizers: This combination should work as long as the custom optimizer has both CPU and GPU implementation (except LAMB)
+Using /home/wangzj/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Using /home/wangzj/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Using /home/wangzj/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Using /home/wangzj/.cache/torch_extensions/py310_cu117 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/wangzj/.cache/torch_extensions/py310_cu117/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+ninja: no work to do.
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 3.2631800174713135 seconds
+Time to load cpu_adam op: 3.2638542652130127 seconds
+Time to load cpu_adam op: 3.2647178173065186 seconds
+Time to load cpu_adam op: 3.2667994499206543 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000050, betas=(0.900000, 0.999000), weight_decay=0.010000, adam_w=1
+[2024-04-01 13:56:51,138] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.12.3, git-hash=unknown, git-branch=unknown
+[2024-04-01 13:57:03,200] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-04-01 13:57:03,204] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-04-01 13:57:03,204] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-04-01 13:57:03,235] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-04-01 13:57:03,235] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-04-01 13:57:03,235] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-04-01 13:57:03,235] [INFO] [stage_1_and_2.py:147:__init__] Reduce bucket size 500000000
+[2024-04-01 13:57:03,235] [INFO] [stage_1_and_2.py:148:__init__] Allgather bucket size 500000000
+[2024-04-01 13:57:03,235] [INFO] [stage_1_and_2.py:149:__init__] CPU Offload: True
+[2024-04-01 13:57:03,235] [INFO] [stage_1_and_2.py:150:__init__] Round robin gradient partitioning: False
+[2024-04-01 13:57:42,127] [INFO] [utils.py:802:see_memory_usage] Before initializing optimizer states
+[2024-04-01 13:57:42,128] [INFO] [utils.py:803:see_memory_usage] MA 20.92 GB         Max_MA 20.92 GB         CA 20.92 GB         Max_CA 21 GB 
+[2024-04-01 13:57:42,128] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 119.65 GB, percent = 47.6%
+[2024-04-01 13:57:55,416] [INFO] [utils.py:802:see_memory_usage] After initializing optimizer states
+[2024-04-01 13:57:55,416] [INFO] [utils.py:803:see_memory_usage] MA 20.92 GB         Max_MA 20.92 GB         CA 20.92 GB         Max_CA 21 GB 
+[2024-04-01 13:57:55,416] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 210.1 GB, percent = 83.5%
+[2024-04-01 13:57:55,416] [INFO] [stage_1_and_2.py:514:__init__] optimizer state initialized
+[2024-04-01 13:57:55,585] [INFO] [utils.py:802:see_memory_usage] After initializing ZeRO optimizer
+[2024-04-01 13:57:55,586] [INFO] [utils.py:803:see_memory_usage] MA 20.92 GB         Max_MA 20.92 GB         CA 20.92 GB         Max_CA 21 GB 
+[2024-04-01 13:57:55,586] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 210.42 GB, percent = 83.6%
+[2024-04-01 13:57:55,590] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedCPUAdam
+[2024-04-01 13:57:55,591] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-04-01 13:57:55,591] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-04-01 13:57:55,591] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-05, 5e-05], mom=[(0.9, 0.999), (0.9, 0.999)]
+[2024-04-01 13:57:55,592] [INFO] [config.py:974:print] DeepSpeedEngine configuration:
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   amp_enabled .................. False
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   amp_params ................... False
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   bfloat16_enabled ............. True
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   checkpoint_parallel_write_pipeline  False
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   checkpoint_tag_validation_enabled  True
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   checkpoint_tag_validation_fail  False
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fade0c0d3f0>
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   communication_data_type ...... None
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   curriculum_enabled_legacy .... False
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   curriculum_params_legacy ..... False
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-04-01 13:57:55,593] [INFO] [config.py:978:print]   data_efficiency_enabled ...... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   dataloader_drop_last ......... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   disable_allgather ............ False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   dump_state ................... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   dynamic_loss_scale_args ...... None
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_enabled ........... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_gas_boundary_resolution  1
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_layer_num ......... 0
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_max_iter .......... 100
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_stability ......... 1e-06
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_tol ............... 0.01
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   eigenvalue_verbose ........... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   elasticity_enabled ........... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   fp16_auto_cast ............... None
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   fp16_enabled ................. False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   fp16_master_weights_and_gradients  False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   global_rank .................. 0
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   grad_accum_dtype ............. None
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   gradient_accumulation_steps .. 8
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   gradient_clipping ............ 1.0
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   gradient_predivide_factor .... 1.0
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   initial_dynamic_scale ........ 1
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   load_universal_checkpoint .... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   loss_scale ................... 1.0
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   memory_breakdown ............. False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   mics_hierarchial_params_gather  False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   mics_shard_size .............. -1
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   optimizer_legacy_fusion ...... False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   optimizer_name ............... None
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   optimizer_params ............. None
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   pld_enabled .................. False
+[2024-04-01 13:57:55,594] [INFO] [config.py:978:print]   pld_params ................... False
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   prescale_gradients ........... False
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   scheduler_name ............... None
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   scheduler_params ............. None
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   seq_parallel_communication_data_type  torch.float32
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   sparse_attention ............. None
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   sparse_gradients_enabled ..... False
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   steps_per_print .............. inf
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   train_batch_size ............. 256
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   train_micro_batch_size_per_gpu  8
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   use_node_local_storage ....... False
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   wall_clock_breakdown ......... False
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   weight_quantization_config ... None
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   world_size ................... 4
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   zero_allow_untested_optimizer  True
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   zero_enabled ................. True
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   zero_force_ds_cpu_optimizer .. True
+[2024-04-01 13:57:55,595] [INFO] [config.py:978:print]   zero_optimization_stage ...... 2
+[2024-04-01 13:57:55,595] [INFO] [config.py:964:print_user_config]   json = {
+    "train_batch_size": 256, 
+    "train_micro_batch_size_per_gpu": 8, 
+    "gradient_accumulation_steps": 8, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "initial_scale_power": 16, 
+        "loss_scale_window": 1000, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }
+}
+[INFO|trainer.py:1747] 2024-04-01 13:57:55,595 >> ***** Running training *****
+[INFO|trainer.py:1748] 2024-04-01 13:57:55,595 >>   Num examples = 976,529
+[INFO|trainer.py:1749] 2024-04-01 13:57:55,595 >>   Num Epochs = 1
+[INFO|trainer.py:1750] 2024-04-01 13:57:55,595 >>   Instantaneous batch size per device = 8
+[INFO|trainer.py:1753] 2024-04-01 13:57:55,595 >>   Total train batch size (w. parallel, distributed & accumulation) = 256
+[INFO|trainer.py:1754] 2024-04-01 13:57:55,595 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:1755] 2024-04-01 13:57:55,595 >>   Total optimization steps = 3,814
+[INFO|trainer.py:1756] 2024-04-01 13:57:55,597 >>   Number of trainable parameters = 11,067,199,488
+  0%|          | 0/3814 [00:00<?, ?it/s][2024-04-01 14:00:37,707] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 43115
+[2024-04-01 14:00:42,937] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 43116
+[2024-04-01 14:00:42,940] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 43117
+[2024-04-01 14:00:48,417] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 43118
+[2024-04-01 14:00:54,144] [ERROR] [launch.py:321:sigkill_handler] ['/home/nfs02/anaconda3/envs/wzjsz/bin/python', '-u', 'src/train_bash.py', '--local_rank=3', '--deepspeed', '/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json', '--stage', 'pt', '--model_name_or_path', '/home/nfs02/model/llama2/hf/Llama-2-7b-hf', '--do_train', '--flash_attn', '--dataset', 'skypile_1b,is_1b', '--cache_path', '/home/nfs03/wangzj/dataset/pretrain/llama_zhis_2b', '--preprocessing_num_workers', '16', '--mix_strategy', 'concat', '--cutoff_len', '2048', '--finetuning_type', 'moe', '--save_all_params', '--moe_every_k_layers', '1', '--moe_router_type', 'top1', '--moe_num_experts', '2', '--output_dir', '/home/nfs02/wangzj/checkpoints/llama-moe/moe-zhis-full', '--overwrite_output_dir', '--per_device_train_batch_size', '8', '--gradient_accumulation_steps', '8', '--lr_scheduler_type', 'cosine', '--logging_steps', '10', '--save_total_limit', '1', '--save_only_model', '--save_steps', '2000', '--learning_rate', '5e-5', '--num_train_epochs', '1.0', '--plot_loss', '--bf16'] exits with return code = -9

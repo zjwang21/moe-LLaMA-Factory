@@ -1,0 +1,26 @@
+cd ../../
+deepspeed --num_gpus 4 --master_port=9902 src/train_bash.py \
+    --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json \
+    --stage pt \
+    --model_name_or_path /home/nfs02/model/phi-2 \
+    --do_train \
+    --flash_attn \
+    --dataset is_1b,ar_1b,ta_1b,th_1b,fi_1b,tr_1b \
+    --preprocessing_num_workers 16 \
+    --mix_strategy concat \
+    --cutoff_len 2048 \
+    --cache_path /home/nfs03/wangzj/dataset/pretrain/6b \
+    --finetuning_type full \
+    --output_dir /home/nfs02/wangzj/checkpoints/llama-moe/phi/full-6 \
+    --overwrite_output_dir \
+    --per_device_train_batch_size 16 \
+    --gradient_accumulation_steps 8 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --save_total_limit 1 \
+    --save_only_model \
+    --save_steps 1000 \
+    --learning_rate 5e-5 \
+    --num_train_epochs 1.0 \
+    --plot_loss \
+    --bf16

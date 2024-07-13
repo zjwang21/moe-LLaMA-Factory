@@ -1,0 +1,774 @@
+[2024-03-22 11:10:49,142] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-22 11:11:05,570] [WARNING] [runner.py:203:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-03-22 11:11:05,595] [INFO] [runner.py:570:main] cmd = /home/nfs02/anaconda3/envs/wzjsz/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=9901 --enable_each_rank_log=None src/train_bash.py --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json --stage pt --model_name_or_path /home/nfs02/model/llama2/hf/Llama-2-7b-hf --flash_attn --do_train --dataset skypile_1b,is_1b,ar_1b,ta_1b --preprocessing_num_workers 16 --mix_strategy concat --cutoff_len 2048 --finetuning_type moe --moe_every_k_layers 1 --moe_router_type top1 --moe_num_experts 2 --output_dir /home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta --overwrite_output_dir --per_device_train_batch_size 8 --gradient_accumulation_steps 8 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 1000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16
+[2024-03-22 11:11:07,555] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-22 11:11:10,217] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-03-22 11:11:10,217] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-03-22 11:11:10,217] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-03-22 11:11:10,217] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-03-22 11:11:10,217] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-03-22 11:11:37,786] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-22 11:11:37,786] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-22 11:11:37,786] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-22 11:11:37,787] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-03-22 11:11:46,026] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-22 11:11:46,027] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-22 11:11:46,027] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-03-22 11:11:46,027] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-03-22 11:11:46,027] [INFO] [comm.py:637:init_distributed] cdb=None
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta/runs/Mar22_11-11-46_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta/runs/Mar22_11-11-46_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta/runs/Mar22_11-11-46_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+03/22/2024 11:11:47 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta/runs/Mar22_11-11-46_Titan_RTX,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=8,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=1000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2027] 2024-03-22 11:11:47,060 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2027] 2024-03-22 11:11:47,061 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2027] 2024-03-22 11:11:47,061 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2027] 2024-03-22 11:11:47,061 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2027] 2024-03-22 11:11:47,061 >> loading file tokenizer.json
+[INFO|configuration_utils.py:727] 2024-03-22 11:11:47,265 >> loading configuration file /home/nfs02/model/llama2/hf/Llama-2-7b-hf/config.json
+[INFO|configuration_utils.py:792] 2024-03-22 11:11:47,267 >> Model config LlamaConfig {
+  "_name_or_path": "/home/nfs02/model/llama2/hf/Llama-2-7b-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+03/22/2024 11:11:47 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+03/22/2024 11:11:47 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+03/22/2024 11:11:47 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+03/22/2024 11:11:47 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+[INFO|modeling_utils.py:3334] 2024-03-22 11:11:47,369 >> loading weights file /home/nfs02/model/llama2/hf/Llama-2-7b-hf/model.safetensors.index.json
+[INFO|modeling_utils.py:1459] 2024-03-22 11:11:47,370 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+[WARNING|logging.py:329] 2024-03-22 11:11:47,370 >> The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[WARNING|logging.py:329] 2024-03-22 11:11:47,373 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:827] 2024-03-22 11:11:47,378 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [01:42<01:42, 102.86s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:42<01:42, 102.96s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:42<01:42, 102.72s/it]Loading checkpoint shards:  50%|█████     | 1/2 [01:42<01:42, 102.68s/it]Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 69.95s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 74.90s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 69.83s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 74.76s/it]
+[INFO|modeling_utils.py:4070] 2024-03-22 11:14:20,844 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4078] 2024-03-22 11:14:20,844 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at /home/nfs02/model/llama2/hf/Llama-2-7b-hf.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:780] 2024-03-22 11:14:20,848 >> loading configuration file /home/nfs02/model/llama2/hf/Llama-2-7b-hf/generation_config.json
+[INFO|configuration_utils.py:827] 2024-03-22 11:14:20,848 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+03/22/2024 11:14:20 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+03/22/2024 11:14:20 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+03/22/2024 11:14:20 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+03/22/2024 11:14:20 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 69.87s/it] Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 74.80s/it]
+03/22/2024 11:14:20 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 70.02s/it] 03/22/2024 11:14:20 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards: 100%|██████████| 2/2 [02:29<00:00, 74.95s/it]
+03/22/2024 11:14:20 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+03/22/2024 11:14:20 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+03/22/2024 11:14:23 - INFO - llmtuner.model.loader - trainable params: 4328783872 || all params: 11067199488 || trainable%: 39.1136
+03/22/2024 11:14:23 - INFO - llmtuner.data.template - Add pad token: </s>
+03/22/2024 11:14:23 - INFO - llmtuner.model.loader - trainable params: 4328783872 || all params: 11067199488 || trainable%: 39.1136
+03/22/2024 11:14:23 - INFO - llmtuner.data.template - Add pad token: </s>
+03/22/2024 11:14:24 - INFO - llmtuner.model.loader - trainable params: 4328783872 || all params: 11067199488 || trainable%: 39.1136
+03/22/2024 11:14:24 - INFO - llmtuner.data.template - Add pad token: </s>
+03/22/2024 11:14:24 - INFO - llmtuner.model.loader - trainable params: 4328783872 || all params: 11067199488 || trainable%: 39.1136
+03/22/2024 11:14:24 - INFO - llmtuner.data.template - Add pad token: </s>
+03/22/2024 11:15:37 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/skypile_1b.jsonl.
+Using custom data configuration default-e04fdd9113403d69
+Loading Dataset Infos from /home/nfs02/anaconda3/envs/wzjsz/lib/python3.10/site-packages/datasets/packaged_modules/json
+Generating dataset json (/home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Downloading and preparing dataset json/default to /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 7319.90it/s]
+Downloading took 0.0 min
+Checksum Computation took 0.0 min
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 223.64it/s]
+Generating train split
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 5338 examples [00:00, 36499.92 examples/s]Generating train split: 12594 examples [00:00, 50381.43 examples/s]Generating train split: 19675 examples [00:00, 54439.41 examples/s]Generating train split: 27011 examples [00:00, 56803.69 examples/s]Generating train split: 34174 examples [00:00, 57728.78 examples/s]Generating train split: 41253 examples [00:00, 58608.52 examples/s]Generating train split: 48367 examples [00:00, 58627.09 examples/s]Generating train split: 55341 examples [00:00, 58934.18 examples/s]Generating train split: 62420 examples [00:01, 59386.81 examples/s]Generating train split: 69602 examples [00:01, 59295.40 examples/s]Generating train split: 76802 examples [00:01, 58962.94 examples/s]Generating train split: 84092 examples [00:01, 59664.26 examples/s]Generating train split: 91255 examples [00:01, 59558.15 examples/s]Generating train split: 98379 examples [00:01, 59174.28 examples/s]Generating train split: 105480 examples [00:01, 58281.82 examples/s]Generating train split: 112701 examples [00:01, 59157.11 examples/s]Generating train split: 119968 examples [00:02, 59642.38 examples/s]Generating train split: 127061 examples [00:02, 59482.17 examples/s]Generating train split: 134160 examples [00:02, 58725.93 examples/s]Generating train split: 141330 examples [00:02, 59742.99 examples/s]Generating train split: 148495 examples [00:02, 60770.15 examples/s]Generating train split: 155649 examples [00:02, 60412.54 examples/s]Generating train split: 162720 examples [00:02, 60807.33 examples/s]Generating train split: 169947 examples [00:02, 60940.76 examples/s]Generating train split: 177074 examples [00:03, 60950.29 examples/s]Generating train split: 184200 examples [00:03, 59772.04 examples/s]Generating train split: 191434 examples [00:03, 60562.35 examples/s]Generating train split: 198431 examples [00:03, 60919.79 examples/s]Generating train split: 205640 examples [00:03, 60879.58 examples/s]Generating train split: 212798 examples [00:03, 59645.09 examples/s]Generating train split: 219880 examples [00:03, 60374.72 examples/s]Generating train split: 227053 examples [00:03, 60357.64 examples/s]Generating train split: 234234 examples [00:03, 59600.45 examples/s]Generating train split: 241373 examples [00:04, 58921.67 examples/s]Generating train split: 248577 examples [00:04, 59450.95 examples/s]Generating train split: 255830 examples [00:04, 60142.15 examples/s]Generating train split: 263029 examples [00:04, 60188.80 examples/s]Generating train split: 270088 examples [00:04, 58689.34 examples/s]Generating train split: 277206 examples [00:04, 59212.23 examples/s]Generating train split: 284318 examples [00:04, 59616.30 examples/s]Generating train split: 291435 examples [00:04, 59972.25 examples/s]Generating train split: 298473 examples [00:05, 58592.74 examples/s]Generating train split: 305565 examples [00:05, 58846.53 examples/s]Generating train split: 312697 examples [00:05, 58691.45 examples/s]Generating train split: 319849 examples [00:05, 58283.47 examples/s]Generating train split: 327112 examples [00:05, 59235.98 examples/s]Generating train split: 334226 examples [00:05, 59368.73 examples/s]Generating train split: 341467 examples [00:05, 59298.37 examples/s]Generating train split: 348577 examples [00:05, 59350.29 examples/s]Generating train split: 355751 examples [00:06, 59502.89 examples/s]Generating train split: 362905 examples [00:06, 59006.87 examples/s]Generating train split: 370186 examples [00:06, 59343.62 examples/s]Generating train split: 377275 examples [00:06, 59529.79 examples/s]Generating train split: 384471 examples [00:06, 59584.72 examples/s]Generating train split: 391636 examples [00:06, 58811.42 examples/s]Generating train split: 398671 examples [00:06, 58780.73 examples/s]Generating train split: 405766 examples [00:06, 59805.24 examples/s]Generating train split: 412897 examples [00:06, 58952.09 examples/s]Generating train split: 420182 examples [00:07, 58839.99 examples/s]Generating train split: 427439 examples [00:07, 59176.42 examples/s]Generating train split: 434562 examples [00:07, 58447.62 examples/s]Generating train split: 441666 examples [00:07, 58152.53 examples/s]Generating train split: 448898 examples [00:07, 58454.14 examples/s]Generating train split: 456055 examples [00:07, 57905.49 examples/s]Generating train split: 463251 examples [00:07, 58676.38 examples/s]Generating train split: 470502 examples [00:07, 59742.67 examples/s]Generating train split: 477847 examples [00:08, 60223.75 examples/s]Generating train split: 484966 examples [00:08, 59699.82 examples/s]Generating train split: 492213 examples [00:08, 59898.01 examples/s]Generating train split: 499418 examples [00:08, 60062.38 examples/s]Generating train split: 506594 examples [00:08, 59580.69 examples/s]Generating train split: 513783 examples [00:08, 58994.78 examples/s]Generating train split: 521002 examples [00:08, 59376.90 examples/s]Generating train split: 528029 examples [00:08, 58501.51 examples/s]Generating train split: 537002 examples [00:09, 56313.08 examples/s]Generating train split: 544198 examples [00:09, 54136.68 examples/s]Generating train split: 551349 examples [00:09, 53663.20 examples/s]Generating train split: 558529 examples [00:09, 53900.76 examples/s]Generating train split: 567510 examples [00:09, 52797.47 examples/s]Generating train split: 574676 examples [00:09, 54387.86 examples/s]Generating train split: 581811 examples [00:09, 55509.42 examples/s]Generating train split: 589013 examples [00:10, 57332.69 examples/s]Generating train split: 596170 examples [00:10, 57756.04 examples/s]Generating train split: 603329 examples [00:10, 58428.47 examples/s]Generating train split: 610616 examples [00:10, 59367.88 examples/s]Generating train split: 617946 examples [00:10, 59885.68 examples/s]Generating train split: 625097 examples [00:10, 60279.04 examples/s]Generating train split: 632271 examples [00:10, 60682.14 examples/s]Generating train split: 639479 examples [00:10, 60776.14 examples/s]Generating train split: 646696 examples [00:11, 60678.06 examples/s]Generating train split: 653805 examples [00:11, 60054.24 examples/s]Generating train split: 661042 examples [00:11, 60631.04 examples/s]Generating train split: 661595 examples [00:11, 58787.49 examples/s]
+Unable to verify splits sizes.
+Dataset json downloaded and prepared to /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96. Subsequent calls will reuse this data.
+Dataset({
+    features: ['text'],
+    num_rows: 661595
+})
+{'text': '一任车主，马尼托巴省本地车，1.8升I-4发动机，带变速箱的1速CVT，低价出售！ 主要特征：-加热式前排座椅-无钥匙进入-蓝牙连接-智能设备集成-远程启动-电动天窗-娱乐信息显示-生态模式 SAFTEY / ADD-ONS：-倒车摄像头-刹车辅助-电动尾门-儿童安全锁\n所有车辆均通过GM（通用汽车）155项 认证检测，并且免费提供5000km或90天全车保修！免费送一箱油+2次换机油+一次免费四轮定位服务！\n隶属于AutoCanada集团（加拿大最大汽车集团）主营GM（通用汽车）旗下品牌，拥有全套汽车服务！欢迎来玩。\n'}
+Process #0 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00000_of_00016.arrow
+Process #1 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00001_of_00016.arrow
+Process #2 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00002_of_00016.arrow
+Process #3 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00003_of_00016.arrow
+Process #4 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00004_of_00016.arrow
+Process #5 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00005_of_00016.arrow
+Process #6 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00006_of_00016.arrow
+Process #7 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00007_of_00016.arrow
+Process #8 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00008_of_00016.arrow
+Process #9 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00009_of_00016.arrow
+Process #10 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00010_of_00016.arrow
+Process #11 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00011_of_00016.arrow
+Process #12 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00012_of_00016.arrow
+Process #13 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00013_of_00016.arrow
+Process #14 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00014_of_00016.arrow
+Process #15 will write at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00015_of_00016.arrow
+Spawning 16 processes
+Converting format of dataset (num_proc=16):   0%|          | 0/661595 [00:00<?, ? examples/s]Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00000_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00002_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00005_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00003_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00011_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00001_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00006_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00007_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00009_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00010_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00013_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00015_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00014_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00008_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00004_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-e04fdd9113403d69/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-5528d6252f04d9a4_00012_of_00016.arrow
+Converting format of dataset (num_proc=16):   0%|          | 1000/661595 [00:00<06:13, 1768.18 examples/s]Converting format of dataset (num_proc=16):   3%|▎         | 17000/661595 [00:00<00:19, 32927.74 examples/s]Converting format of dataset (num_proc=16):  10%|▉         | 66000/661595 [00:00<00:04, 131159.06 examples/s]Converting format of dataset (num_proc=16):  20%|██        | 133000/661595 [00:00<00:02, 252139.66 examples/s]Converting format of dataset (num_proc=16):  30%|██▉       | 198000/661595 [00:00<00:01, 350553.97 examples/s]Converting format of dataset (num_proc=16):  38%|███▊      | 251000/661595 [00:01<00:01, 396792.47 examples/s]Converting format of dataset (num_proc=16):  48%|████▊     | 317000/661595 [00:01<00:00, 467963.81 examples/s]Converting format of dataset (num_proc=16):  58%|█████▊    | 382000/661595 [00:01<00:00, 516351.45 examples/s]Converting format of dataset (num_proc=16):  69%|██████▉   | 456000/661595 [00:01<00:00, 578029.10 examples/s]Converting format of dataset (num_proc=16):  79%|███████▉  | 523000/661595 [00:01<00:00, 595725.10 examples/s]Converting format of dataset (num_proc=16):  89%|████████▊ | 586350/661595 [00:01<00:00, 574117.57 examples/s]Converting format of dataset (num_proc=16):  98%|█████████▊| 646398/661595 [00:01<00:00, 580133.62 examples/s]Converting format of dataset (num_proc=16): 100%|██████████| 661595/661595 [00:14<00:00, 44119.78 examples/s] 
+Concatenating 16 shards
+03/22/2024 11:18:04 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/is_1b.jsonl.
+Using custom data configuration default-b019e4271eec4c56
+Loading Dataset Infos from /home/nfs02/anaconda3/envs/wzjsz/lib/python3.10/site-packages/datasets/packaged_modules/json
+Generating dataset json (/home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Downloading and preparing dataset json/default to /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 3246.37it/s]
+Downloading took 0.0 min
+Checksum Computation took 0.0 min
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 121.85it/s]
+Generating train split
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 6079 examples [00:00, 39664.56 examples/s]Generating train split: 14286 examples [00:00, 52272.09 examples/s]Generating train split: 22586 examples [00:00, 57809.55 examples/s]Generating train split: 30705 examples [00:00, 56517.75 examples/s]Generating train split: 37001 examples [00:00, 51471.50 examples/s]Generating train split: 45327 examples [00:00, 54951.01 examples/s]Generating train split: 53760 examples [00:00, 57917.87 examples/s]Generating train split: 61974 examples [00:01, 62105.21 examples/s]Generating train split: 69898 examples [00:01, 60770.89 examples/s]Generating train split: 77972 examples [00:01, 59449.31 examples/s]Generating train split: 84116 examples [00:01, 57802.52 examples/s]Generating train split: 92198 examples [00:01, 60239.61 examples/s]Generating train split: 98348 examples [00:01, 58074.87 examples/s]Generating train split: 106723 examples [00:01, 61939.99 examples/s]Generating train split: 114850 examples [00:01, 59699.16 examples/s]Generating train split: 122916 examples [00:02, 61387.42 examples/s]Generating train split: 130936 examples [00:02, 63991.96 examples/s]Generating train split: 139163 examples [00:02, 65285.08 examples/s]Generating train split: 147228 examples [00:02, 65896.57 examples/s]Generating train split: 155096 examples [00:02, 67337.50 examples/s]Generating train split: 163192 examples [00:02, 66321.99 examples/s]Generating train split: 171029 examples [00:02, 65632.32 examples/s]Generating train split: 179208 examples [00:02, 67702.42 examples/s]Generating train split: 187499 examples [00:03, 67697.18 examples/s]Generating train split: 195551 examples [00:03, 68525.75 examples/s]Generating train split: 203670 examples [00:03, 68995.41 examples/s]Generating train split: 211872 examples [00:03, 71069.06 examples/s]Generating train split: 220117 examples [00:03, 70845.77 examples/s]Generating train split: 228184 examples [00:03, 69631.05 examples/s]Generating train split: 236156 examples [00:03, 69537.09 examples/s]Generating train split: 244366 examples [00:03, 68715.49 examples/s]Generating train split: 254764 examples [00:04, 64177.32 examples/s]Generating train split: 262896 examples [00:04, 66310.41 examples/s]Generating train split: 270933 examples [00:04, 63823.62 examples/s]Generating train split: 279120 examples [00:04, 63228.49 examples/s]Generating train split: 287258 examples [00:04, 60574.83 examples/s]Generating train split: 295536 examples [00:04, 63959.37 examples/s]Generating train split: 305868 examples [00:04, 61925.20 examples/s]Generating train split: 314033 examples [00:04, 62097.63 examples/s]Generating train split: 322307 examples [00:05, 63576.45 examples/s]Generating train split: 330400 examples [00:05, 64100.06 examples/s]Generating train split: 340589 examples [00:05, 62518.00 examples/s]Generating train split: 348519 examples [00:05, 61344.34 examples/s]Generating train split: 356708 examples [00:05, 63830.46 examples/s]Generating train split: 364834 examples [00:05, 65544.93 examples/s]Generating train split: 372773 examples [00:05, 65377.47 examples/s]Generating train split: 380749 examples [00:06, 58795.30 examples/s]Generating train split: 388555 examples [00:06, 60655.57 examples/s]Generating train split: 396732 examples [00:06, 60942.19 examples/s]Generating train split: 404862 examples [00:06, 61834.30 examples/s]Generating train split: 412811 examples [00:06, 63548.42 examples/s]Generating train split: 420865 examples [00:06, 65096.80 examples/s]Generating train split: 429209 examples [00:06, 66845.87 examples/s]Generating train split: 437231 examples [00:06, 67616.39 examples/s]Generating train split: 445253 examples [00:07, 68029.63 examples/s]Generating train split: 453547 examples [00:07, 68891.48 examples/s]Generating train split: 461627 examples [00:07, 68631.11 examples/s]Generating train split: 469676 examples [00:07, 68990.25 examples/s]Generating train split: 477725 examples [00:07, 69280.00 examples/s]Generating train split: 485915 examples [00:07, 69823.89 examples/s]Generating train split: 494396 examples [00:07, 72034.94 examples/s]Generating train split: 502373 examples [00:07, 70561.51 examples/s]Generating train split: 510506 examples [00:07, 70573.77 examples/s]Generating train split: 518507 examples [00:08, 69161.35 examples/s]Generating train split: 526618 examples [00:08, 70751.45 examples/s]Generating train split: 534762 examples [00:08, 69036.59 examples/s]Generating train split: 542705 examples [00:08, 68065.48 examples/s]Generating train split: 550700 examples [00:08, 68362.75 examples/s]Generating train split: 558842 examples [00:08, 64959.19 examples/s]Generating train split: 566808 examples [00:08, 64739.53 examples/s]Generating train split: 575100 examples [00:08, 66477.52 examples/s]Generating train split: 583267 examples [00:09, 68131.17 examples/s]Generating train split: 591245 examples [00:09, 64831.64 examples/s]Generating train split: 601440 examples [00:09, 62561.37 examples/s]Generating train split: 609557 examples [00:09, 64543.52 examples/s]Generating train split: 619741 examples [00:09, 63167.47 examples/s]Generating train split: 619741 examples [00:09, 64299.59 examples/s]
+Unable to verify splits sizes.
+Dataset json downloaded and prepared to /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96. Subsequent calls will reuse this data.
+Dataset({
+    features: ['text'],
+    num_rows: 619741
+})
+{'text': 'JÓLAGJÖF MÍN OG KÆRÓ TIL HVERS ANNARS - Trendnet\n66°NorðurDANMÖRKMEN\'S STYLENEW INPERSONALSTYLE\nÆtli við séum ekki bara komnir á þennan stað, búnir að vera saman í 5 ár og þá förum við að segja "Æ eigum við ekki bara að gefa hver öðrum sófa í jólagjöf, eða nýja ryksugu, blalala" – jú eða bara fara í lúxusfrí. Sem er jú alveg praktískt, og mér finnst ekkert asnalegt þegar aðrir gera það. Ég lofaði bara sjálfum mér að ég yrði ekki svoleiðis, ég elska að gefa, ég elska að pæla og svona, æ þið vitið, allt í kringum gjafagleðina um jólin, en hér er ég. Ég gerði þetta í ár. Þetta var reyndar hvorki ryksuga, eða mubla, heldur jakki. Ekki misskilja heldur, ég er yfir mig ánægður með þetta og ég meira segja stakk uppá þessu. Við gáfum hver öðrum Tindur úlpuna frá 66°Norður – en fyrst var keypt rauð-appelsínugula og það kom fljótt í ljós að það var ekki séns að við gætum deilt úlpunni. Við vorum farnir í keppni hver vaknaði fyrr á morgnana til að ná honum í vinnuna, en við mætum á sama tíma semsagt.\nSvo samankomulagið var að við mundum deila kostnaði á nýrri úlpu, eða hann í rauninni "keypti sig úr" appelsínugulu og ég nýtti þann pening uppí svörtu. Svo nú verðum við hamingjusamir til æviloka. En úlpan er meira og minna uppseld ég, en þau áttu eina á Sværtegade hér í Köben, sem var líka bara skilaboð frá alheiminum að ég átti að grípa hana. Ég er himinnlifandi með hana, og jakkaperrinn sem ég er, þá líður mér eins og ég hef náð einhverjum topp. Ég gjörsamlega elska þessa úlpu.\nDrulluferskir á sunnudagsmorgni – kannski gaman að deila því með ykkur að þessar buxur eru nýkeyptar og þær voru svo þröngar að ég hélt þær ætluðu að sprengja á mér kúlurnar þegar ég keypti þær, svo gáfu þær sig það mikið að ég gæti orðið óléttur og notað þær á meðgöngu. Hvernig þrengi ég buxur? Sjóða þær í 90°? Help y\'all.\nJÓLAÓSKALISTINN MINN 2017 -\nÓKEEEEI GLEÐILEGAN FYRSTA DESEMBER!!!! ER LÍFIÐ EKKI DÁSAMLEGT KRAKKAR!! Ég er búinn að kaupa alltof margar jólagjafir og mér finnst ég samt eiga fullt eftir. Djöfull elska ég þennan tíma árs. Ég er bókstaflega byrjaður að telja niður klukkutímana, og er búinn að setja fullt í kalenderið mitt svo ég…'}
+Process #0 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00000_of_00016.arrow
+Process #1 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00001_of_00016.arrow
+Process #2 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00002_of_00016.arrow
+Process #3 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00003_of_00016.arrow
+Process #4 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00004_of_00016.arrow
+Process #5 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00005_of_00016.arrow
+Process #6 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00006_of_00016.arrow
+Process #7 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00007_of_00016.arrow
+Process #8 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00008_of_00016.arrow
+Process #9 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00009_of_00016.arrow
+Process #10 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00010_of_00016.arrow
+Process #11 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00011_of_00016.arrow
+Process #12 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00012_of_00016.arrow
+Process #13 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00013_of_00016.arrow
+Process #14 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00014_of_00016.arrow
+Process #15 will write at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00015_of_00016.arrow
+Spawning 16 processes
+Converting format of dataset (num_proc=16):   0%|          | 0/619741 [00:00<?, ? examples/s]Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00000_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00001_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00002_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00004_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00003_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00005_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00007_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00009_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00006_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00008_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00012_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00010_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00011_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00015_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00014_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-b019e4271eec4c56/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-0534fbcd404ab905_00013_of_00016.arrow
+Converting format of dataset (num_proc=16):   0%|          | 1000/619741 [00:00<05:11, 1988.04 examples/s]Converting format of dataset (num_proc=16):   5%|▌         | 31000/619741 [00:00<00:08, 66372.78 examples/s]Converting format of dataset (num_proc=16):  10%|█         | 64000/619741 [00:00<00:04, 124689.47 examples/s]Converting format of dataset (num_proc=16):  16%|█▋        | 101000/619741 [00:00<00:02, 185041.87 examples/s]Converting format of dataset (num_proc=16):  23%|██▎       | 141000/619741 [00:00<00:01, 240245.24 examples/s]Converting format of dataset (num_proc=16):  29%|██▉       | 182000/619741 [00:01<00:01, 281216.64 examples/s]Converting format of dataset (num_proc=16):  38%|███▊      | 233000/619741 [00:01<00:01, 343708.48 examples/s]Converting format of dataset (num_proc=16):  44%|████▍     | 273000/619741 [00:01<00:01, 341343.01 examples/s]Converting format of dataset (num_proc=16):  52%|█████▏    | 324000/619741 [00:01<00:00, 381840.62 examples/s]Converting format of dataset (num_proc=16):  59%|█████▉    | 366000/619741 [00:01<00:00, 390302.02 examples/s]Converting format of dataset (num_proc=16):  66%|██████▌   | 409000/619741 [00:01<00:00, 378832.19 examples/s]Converting format of dataset (num_proc=16):  73%|███████▎  | 452000/619741 [00:01<00:00, 378673.65 examples/s]Converting format of dataset (num_proc=16):  81%|████████  | 502000/619741 [00:01<00:00, 392523.30 examples/s]Converting format of dataset (num_proc=16):  88%|████████▊ | 545734/619741 [00:01<00:00, 402127.44 examples/s]Converting format of dataset (num_proc=16):  95%|█████████▍| 587670/619741 [00:02<00:00, 406404.08 examples/s]Converting format of dataset (num_proc=16): 100%|██████████| 619741/619741 [00:19<00:00, 32315.47 examples/s] 
+Concatenating 16 shards
+03/22/2024 11:20:20 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/ar_1b.jsonl.
+Using custom data configuration default-59cb3ddd10a01018
+Loading Dataset Infos from /home/nfs02/anaconda3/envs/wzjsz/lib/python3.10/site-packages/datasets/packaged_modules/json
+Generating dataset json (/home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Downloading and preparing dataset json/default to /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96...
+Downloading data files:   0%|          | 0/1 [00:00<?, ?it/s]Downloading data files: 100%|██████████| 1/1 [00:00<00:00, 6574.14it/s]
+Downloading took 0.0 min
+Checksum Computation took 0.0 min
+Extracting data files:   0%|          | 0/1 [00:00<?, ?it/s]Extracting data files: 100%|██████████| 1/1 [00:00<00:00, 196.45it/s]
+Generating train split
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 1820 examples [00:00, 16623.22 examples/s]Generating train split: 9594 examples [00:00, 48204.73 examples/s]Generating train split: 17189 examples [00:00, 57288.59 examples/s]Generating train split: 24866 examples [00:00, 62487.52 examples/s]Generating train split: 32671 examples [00:00, 65572.56 examples/s]Generating train split: 40331 examples [00:00, 66746.89 examples/s]Generating train split: 48218 examples [00:00, 68021.23 examples/s]Generating train split: 55777 examples [00:00, 62454.73 examples/s]Generating train split: 63476 examples [00:01, 60513.14 examples/s]Generating train split: 71275 examples [00:01, 61857.26 examples/s]Generating train split: 80872 examples [00:01, 60749.64 examples/s]Generating train split: 88257 examples [00:01, 62954.31 examples/s]Generating train split: 97798 examples [00:01, 61134.05 examples/s]Generating train split: 105449 examples [00:01, 63285.15 examples/s]Generating train split: 112801 examples [00:01, 63405.60 examples/s]Generating train split: 120478 examples [00:01, 64277.13 examples/s]Generating train split: 128167 examples [00:02, 65029.42 examples/s]Generating train split: 135915 examples [00:02, 65570.03 examples/s]Generating train split: 145794 examples [00:02, 63403.41 examples/s]Generating train split: 153235 examples [00:02, 62122.34 examples/s]Generating train split: 160952 examples [00:02, 62507.72 examples/s]Generating train split: 168582 examples [00:02, 64355.71 examples/s]Generating train split: 176123 examples [00:02, 63977.86 examples/s]Generating train split: 183898 examples [00:02, 62758.58 examples/s]Generating train split: 191582 examples [00:03, 63401.58 examples/s]Generating train split: 201431 examples [00:03, 62616.50 examples/s]Generating train split: 209122 examples [00:03, 64467.22 examples/s]Generating train split: 216782 examples [00:03, 64329.58 examples/s]Generating train split: 224489 examples [00:03, 65622.30 examples/s]Generating train split: 231782 examples [00:03, 65564.03 examples/s]Generating train split: 239614 examples [00:03, 67036.61 examples/s]Generating train split: 249412 examples [00:03, 63227.75 examples/s]Generating train split: 257169 examples [00:04, 63616.78 examples/s]Generating train split: 264722 examples [00:04, 63259.40 examples/s]Generating train split: 272209 examples [00:04, 61212.50 examples/s]Generating train split: 279812 examples [00:04, 58720.52 examples/s]Generating train split: 287495 examples [00:04, 59182.42 examples/s]Generating train split: 295347 examples [00:04, 59955.94 examples/s]Generating train split: 303215 examples [00:04, 62088.89 examples/s]Generating train split: 311078 examples [00:04, 61372.26 examples/s]Generating train split: 318718 examples [00:05, 60026.34 examples/s]Generating train split: 326443 examples [00:05, 60477.35 examples/s]Generating train split: 333990 examples [00:05, 59659.19 examples/s]Generating train split: 343513 examples [00:05, 56696.69 examples/s]Generating train split: 351258 examples [00:05, 60736.64 examples/s]Generating train split: 358945 examples [00:05, 62442.82 examples/s]Generating train split: 366785 examples [00:05, 64547.61 examples/s]Generating train split: 369160 examples [00:05, 62285.50 examples/s]
+Unable to verify splits sizes.
+Dataset json downloaded and prepared to /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96. Subsequent calls will reuse this data.
+Dataset({
+    features: ['text'],
+    num_rows: 369160
+})
+{'text': 'قال وزير تونسي إن الوفد اليهودي الفرنسي، غادر ملتقى "سفراء الحوار بين الأديان"، الذي انطلق بتونس يوم الأحد، "تجنبًا لأي لبس".\nوأوضح وزير الشؤون الدينية، أحمد عظوم، في تصريحات إعلاميّة، أن الوفد اليهودي الفرنسي "غير معني" بقرار قضائي تونسي يقضي بمنع منظمة الكشافة التونسية من قبول مشاركين إسرائيليين في هذا الملتقى.\nوقال عظوم، في كلمته أمام الملتقى، إنّ الملتقى الكشفي العالمي "سفراء الحوار بين الأديان"، يُساهم في التعايش السلمي ونبذ التطرف والعنف.\nوأشار إلى أنّ "وحدة الصف بين الشعوب في هذه اللحظة الفارقة، هي الضامن للتعايش السلمي بعيدًا عن الكراهية والتعصب على أساس الدين".\nمن جانبه، اعتبر القائد العام للكشافة التونسية، وحيد العبيدي، في كلمته، أن "الملتقى مناسبة لدفع مسار الحوار بين الأديان والثقافات ولتوفير الأمن والسلم".\nوأشار إلى أن 24 جنسية موزعين على 6 ديانات، يشاركون في هذا الملتقى العالمي الأول من نوعه، والذّي يتواصل حتى 8 نوفمبر/تشرين الثاني الجاري.\nويختتم الملتقى أعماله بإصدار "وثيقة تونس" لسفراء الحوار بين الأديان التي ستشكل لبنة أولى، لخلق منابر حوار داخل المنظمات الكشفية خلال المؤتمرات العالمية المقبلة.\nوانطلقت في مدينة الحمامات التونسية، مساء الأحد، أعمال الملتقى الكشفي العالمي "سفراء الحوار بين الأديان"، بمشاركة أكثر 150 شخصًا من 24 دولة.\nويهدف الملتقى، الذي يستمر 4 أيام، للعمل على تبني الحوار في المناهج الكشفية، وترسيخ ثقافة الحوار والتعايش بين الأديان.\nأصيب، اليوم الاثنين، مواطن، بالرصاص الحي عقب اقتحام قوات الاحتلال منزله واعتقال نجله في بلدة حلحول شمال الخليل، جنوب الضفة الغربية.'}
+Process #0 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00000_of_00016.arrow
+Process #1 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00001_of_00016.arrow
+Process #2 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00002_of_00016.arrow
+Process #3 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00003_of_00016.arrow
+Process #4 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00004_of_00016.arrow
+Process #5 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00005_of_00016.arrow
+Process #6 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00006_of_00016.arrow
+Process #7 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00007_of_00016.arrow
+Process #8 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00008_of_00016.arrow
+Process #9 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00009_of_00016.arrow
+Process #10 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00010_of_00016.arrow
+Process #11 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00011_of_00016.arrow
+Process #12 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00012_of_00016.arrow
+Process #13 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00013_of_00016.arrow
+Process #14 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00014_of_00016.arrow
+Process #15 will write at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00015_of_00016.arrow
+train.sh: line 28: 29562 Killed                  deepspeed --num_gpus 4 --master_port=9901 src/train_bash.py --deepspeed /home/wangzj/LLaMA-Factory/llama-pt/config/ds_config_cpu.json --stage pt --model_name_or_path /home/nfs02/model/llama2/hf/Llama-2-7b-hf --flash_attn --do_train --dataset skypile_1b,is_1b,ar_1b,ta_1b --preprocessing_num_workers 16 --mix_strategy concat --cutoff_len 2048 --finetuning_type moe --moe_every_k_layers 1 --moe_router_type top1 --moe_num_experts 2 --output_dir /home/nfs02/wangzj/checkpoints/llama-moe/moe-top1-zh-is-hi-ta --overwrite_output_dir --per_device_train_batch_size 8 --gradient_accumulation_steps 8 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 1000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16
+Spawning 16 processes
+Converting format of dataset (num_proc=16):   0%|          | 0/369160 [00:00<?, ? examples/s]Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00000_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00001_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00002_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00003_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00004_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00006_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00005_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00008_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00007_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00009_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00011_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00012_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00013_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00015_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00014_of_00016.arrow
+Caching processed dataset at /home/wangzj/.cache/huggingface/datasets/json/default-59cb3ddd10a01018/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-6129162dd7223443_00010_of_00016.arrow
+Converting format of dataset (num_proc=16):   0%|          | 1000/369160 [00:00<04:01, 1522.91 examples/s]Converting format of dataset (num_proc=16):   8%|▊         | 29000/369160 [00:00<00:06, 51025.69 examples/s]Converting format of dataset (num_proc=16):  15%|█▍        | 54000/369160 [00:00<00:03, 91233.31 examples/s]Converting format of dataset (num_proc=16):  22%|██▏       | 80000/369160 [00:00<00:02, 128668.46 examples/s]Converting format of dataset (num_proc=16):  30%|███       | 112000/369160 [00:01<00:01, 174027.75 examples/s]Converting format of dataset (num_proc=16):  38%|███▊      | 141000/369160 [00:01<00:01, 203582.29 examples/s]Converting format of dataset (num_proc=16):  47%|████▋     | 173000/369160 [00:01<00:00, 226889.99 examples/s]Converting format of dataset (num_proc=16):  56%|█████▋    | 208000/369160 [00:01<00:00, 257184.14 examples/s]Converting format of dataset (num_proc=16):  65%|██████▌   | 240000/369160 [00:01<00:00, 273712.64 examples/s]Converting format of dataset (num_proc=16):  74%|███████▍  | 275000/369160 [00:01<00:00, 291261.57 examples/s]Converting format of dataset (num_proc=16):  83%|████████▎ | 307000/369160 [00:01<00:00, 296240.71 examples/s]Converting format of dataset (num_proc=16):  92%|█████████▏| 341145/369160 [00:01<00:00, 305831.47 examples/s]

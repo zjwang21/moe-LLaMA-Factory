@@ -1,0 +1,3352 @@
+[2024-02-21 19:08:32,325] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-21 19:08:33,289] [WARNING] [runner.py:202:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-02-21 19:08:33,289] [INFO] [runner.py:568:main] cmd = /home/yangdezhao/anaconda3/envs/zhouh/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=9901 --enable_each_rank_log=None src/train_bash.py --deepspeed /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json --stage sft --model_name_or_path /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf --flash_attn --do_train --task mt --max_samples 1000000 --template alpaca --src_lang en --tgt_lang is --dataset opus100_enis --preprocessing_num_workers 20 --cutoff_len 2048 --finetuning_type moe --moe_every_k_layers 1 --moe_router_type hard --moe_num_experts 2 --output_dir /home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis --overwrite_output_dir --overwrite_cache --per_device_train_batch_size 16 --gradient_accumulation_steps 4 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 1 --save_only_model --save_steps 500000 --learning_rate 5e-5 --num_train_epochs 1.0 --plot_loss --bf16
+[2024-02-21 19:08:35,212] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-21 19:08:36,136] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-02-21 19:08:36,136] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-02-21 19:08:36,137] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-02-21 19:08:36,137] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-02-21 19:08:36,137] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-02-21 19:08:39,453] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-21 19:08:39,465] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-21 19:08:39,586] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-21 19:08:39,586] [INFO] [real_accelerator.py:191:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-02-21 19:08:41,906] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-21 19:08:41,909] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-21 19:08:42,128] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-21 19:08:42,130] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-02-21 19:08:42,130] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis/runs/Feb21_19-08-41_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis/runs/Feb21_19-08-41_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis/runs/Feb21_19-08-42_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|tokenization_utils_base.py:2027] 2024-02-21 19:08:43,216 >> loading file tokenizer.model
+[INFO|tokenization_utils_base.py:2027] 2024-02-21 19:08:43,216 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-21 19:08:43,216 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-21 19:08:43,217 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2027] 2024-02-21 19:08:43,217 >> loading file tokenizer.json
+02/21/2024 19:08:43 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+02/21/2024 19:08:43 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.bfloat16
+02/21/2024 19:08:43 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=True,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=False,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=4,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=5e-05,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis/runs/Feb21_19-08-42_ubuntu-WS-C621E-SAGE-Series,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=500000,
+save_strategy=steps,
+save_total_limit=1,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+[INFO|configuration_utils.py:727] 2024-02-21 19:08:43,338 >> loading configuration file /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf/config.json
+[INFO|configuration_utils.py:792] 2024-02-21 19:08:43,339 >> Model config LlamaConfig {
+  "_name_or_path": "/home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf",
+  "architectures": [
+    "LlamaForCausalLM"
+  ],
+  "attention_bias": false,
+  "attention_dropout": 0.0,
+  "bos_token_id": 1,
+  "eos_token_id": 2,
+  "hidden_act": "silu",
+  "hidden_size": 4096,
+  "initializer_range": 0.02,
+  "intermediate_size": 11008,
+  "max_position_embeddings": 4096,
+  "model_type": "llama",
+  "num_attention_heads": 32,
+  "num_hidden_layers": 32,
+  "num_key_value_heads": 32,
+  "pretraining_tp": 1,
+  "rms_norm_eps": 1e-05,
+  "rope_scaling": null,
+  "rope_theta": 10000.0,
+  "tie_word_embeddings": false,
+  "torch_dtype": "float16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "vocab_size": 32000
+}
+
+02/21/2024 19:08:43 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+[INFO|modeling_utils.py:3334] 2024-02-21 19:08:43,365 >> loading weights file /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf/pytorch_model.bin.index.json
+[INFO|modeling_utils.py:1459] 2024-02-21 19:08:43,366 >> Instantiating LlamaForCausalLM model under default dtype torch.bfloat16.
+[WARNING|logging.py:329] 2024-02-21 19:08:43,366 >> The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+[WARNING|logging.py:329] 2024-02-21 19:08:43,368 >> You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+[INFO|configuration_utils.py:827] 2024-02-21 19:08:43,371 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "eos_token_id": 2
+}
+
+02/21/2024 19:08:43 - INFO - llmtuner.model.patcher - Using FlashAttention-2 for faster training and inference.
+The model was loaded with use_flash_attention_2=True, which is deprecated and may be removed in a future release. Please use `attn_implementation="flash_attention_2"` instead.
+You are attempting to use Flash Attention 2.0 with a model not initialized on GPU. Make sure to move the model to GPU after initializing it on CPU with `model.to('cuda')`.
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/torch/_utils.py:831: UserWarning: TypedStorage is deprecated. It will be removed in the future and UntypedStorage will be the only storage class. This should only matter to you if you are using storages directly.  To access UntypedStorage directly, use tensor.untyped_storage() instead of tensor.storage()
+  return self.fget.__get__(instance, owner)()
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.73s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.88s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.10s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.00s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.26s/it]
+02/21/2024 19:08:48 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/21/2024 19:08:48 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.06s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.33s/it]
+02/21/2024 19:08:48 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/21/2024 19:08:48 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.72s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.28s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:02<00:00,  1.40s/it]
+02/21/2024 19:08:48 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/21/2024 19:08:48 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+02/21/2024 19:08:49 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/21/2024 19:08:49 - INFO - llmtuner.data.template - Add pad token: </s>
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.97s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.08s/it]
+[INFO|modeling_utils.py:4070] 2024-02-21 19:08:50,133 >> All model checkpoint weights were used when initializing LlamaForCausalLM.
+
+[INFO|modeling_utils.py:4078] 2024-02-21 19:08:50,133 >> All the weights of LlamaForCausalLM were initialized from the model checkpoint at /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use LlamaForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:780] 2024-02-21 19:08:50,138 >> loading configuration file /home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf/generation_config.json
+[INFO|configuration_utils.py:827] 2024-02-21 19:08:50,138 >> Generate config GenerationConfig {
+  "bos_token_id": 1,
+  "do_sample": true,
+  "eos_token_id": 2,
+  "max_length": 4096,
+  "pad_token_id": 0,
+  "temperature": 0.6,
+  "top_p": 0.9
+}
+
+02/21/2024 19:08:50 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+02/21/2024 19:08:50 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+02/21/2024 19:08:50 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/21/2024 19:08:50 - INFO - llmtuner.data.template - Add pad token: </s>
+02/21/2024 19:08:50 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/21/2024 19:08:50 - INFO - llmtuner.data.template - Add pad token: </s>
+02/21/2024 19:08:51 - INFO - llmtuner.model.loader - trainable params: 4328521760 || all params: 11066937376 || trainable%: 39.1122
+02/21/2024 19:08:51 - INFO - llmtuner.data.template - Add pad token: </s>
+02/21/2024 19:08:51 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_enis.jsonl.
+Using custom data configuration default-08dad3fbe934fe4f
+Loading Dataset Infos from /home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/packaged_modules/json
+Overwrite dataset info from restored data version if exists.
+Loading Dataset info from /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+Found cached dataset json (/home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96)
+Loading Dataset info from /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96
+{'en': 'What do you want?', 'is': 'Hvađ er í gangi? - Hæ, Larry.'}
+Process #0 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00000_of_00020.arrow
+Process #1 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00001_of_00020.arrow
+Process #2 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00002_of_00020.arrow
+Process #3 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00003_of_00020.arrow
+Process #4 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00004_of_00020.arrow
+Process #5 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00005_of_00020.arrow
+Process #6 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00006_of_00020.arrow
+Process #7 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00007_of_00020.arrow
+Process #8 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00008_of_00020.arrow
+Process #9 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00009_of_00020.arrow
+Process #10 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00010_of_00020.arrow
+Process #11 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00011_of_00020.arrow
+Process #12 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00012_of_00020.arrow
+Process #13 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00013_of_00020.arrow
+Process #14 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00014_of_00020.arrow
+Process #15 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00015_of_00020.arrow
+Process #16 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00016_of_00020.arrow
+Process #17 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00017_of_00020.arrow
+Process #18 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00018_of_00020.arrow
+Process #19 will write at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00019_of_00020.arrow
+02/21/2024 19:08:53 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_enis.jsonl.
+02/21/2024 19:08:53 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_enis.jsonl.
+02/21/2024 19:08:53 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/opus100_enis.jsonl.
+{'en': 'What do you want?', 'is': 'Hvađ er í gangi? - Hæ, Larry.'}
+{'en': 'What do you want?', 'is': 'Hvađ er í gangi? - Hæ, Larry.'}
+{'en': 'What do you want?', 'is': 'Hvađ er í gangi? - Hæ, Larry.'}
+Spawning 20 processes
+Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00000_of_00020.arrow
+Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:00<11:52, 1401.82 examples/s]Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00001_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00002_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00008_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00003_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00006_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00005_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00009_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00007_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00012_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00015_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00011_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00014_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00010_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00004_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00018_of_00020.arrow
+Running tokenizer on dataset (num_proc=20):   1%|▏         | 13000/1000000 [00:00<00:46, 21170.92 examples/s]Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00019_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00017_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00016_of_00020.arrow
+Caching processed dataset at /home/yangdezhao/.cache/huggingface/datasets/json/default-08dad3fbe934fe4f/0.0.0/8bb11242116d547c741b2e8a1f18598ffdd40a1d4f2a2872c7a28b697434bc96/cache-946051489c83de0a_00013_of_00020.arrow
+Running tokenizer on dataset (num_proc=20):   2%|▏         | 21000/1000000 [00:00<00:34, 27972.38 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▎         | 37000/1000000 [00:01<00:18, 52881.42 examples/s]Running tokenizer on dataset (num_proc=20):   5%|▍         | 47000/1000000 [00:01<00:17, 54899.24 examples/s]Running tokenizer on dataset (num_proc=20):   6%|▌         | 58000/1000000 [00:01<00:14, 65434.31 examples/s]Running tokenizer on dataset (num_proc=20):   7%|▋         | 67000/1000000 [00:01<00:15, 61011.45 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 80000/1000000 [00:01<00:14, 65462.78 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 88000/1000000 [00:01<00:13, 67709.66 examples/s]Running tokenizer on dataset (num_proc=20):  10%|█         | 100000/1000000 [00:01<00:13, 69022.76 examples/s]Running tokenizer on dataset (num_proc=20):  11%|█         | 111000/1000000 [00:02<00:11, 76354.95 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▏        | 120000/1000000 [00:02<00:12, 72893.17 examples/s]Running tokenizer on dataset (num_proc=20):  13%|█▎        | 128000/1000000 [00:02<00:11, 73817.00 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▍        | 140000/1000000 [00:02<00:11, 73137.22 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▌        | 151000/1000000 [00:02<00:10, 81571.02 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▌        | 160000/1000000 [00:02<00:11, 74874.92 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 170000/1000000 [00:02<00:10, 80542.60 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 180000/1000000 [00:03<00:10, 75132.34 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▉        | 188000/1000000 [00:03<00:10, 75696.05 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 200000/1000000 [00:03<00:10, 74901.86 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██        | 211000/1000000 [00:03<00:09, 82306.38 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 220000/1000000 [00:03<00:10, 75195.23 examples/s]Running tokenizer on dataset (num_proc=20):  23%|██▎       | 228000/1000000 [00:03<00:10, 75193.46 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 238000/1000000 [00:03<00:09, 80764.04 examples/s]Running tokenizer on dataset (num_proc=20):  25%|██▍       | 247000/1000000 [00:03<00:10, 74841.45 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 257000/1000000 [00:04<00:09, 76291.53 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▋       | 265000/1000000 [00:04<00:09, 74834.59 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 274000/1000000 [00:04<00:09, 78408.55 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 282000/1000000 [00:04<00:09, 72861.00 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 294000/1000000 [00:04<00:08, 81026.96 examples/s]Running tokenizer on dataset (num_proc=20):  30%|███       | 303000/1000000 [00:04<00:09, 75783.80 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███▏      | 313000/1000000 [00:04<00:08, 81843.26 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 322000/1000000 [00:04<00:09, 74501.28 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 331000/1000000 [00:04<00:08, 78008.19 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 340000/1000000 [00:05<00:08, 77651.74 examples/s]Running tokenizer on dataset (num_proc=20):  35%|███▍      | 348000/1000000 [00:05<00:08, 75819.58 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 357000/1000000 [00:05<00:08, 75985.97 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 366000/1000000 [00:05<00:08, 78090.69 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 375000/1000000 [00:05<00:08, 75110.28 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 384000/1000000 [00:05<00:07, 78129.41 examples/s]Running tokenizer on dataset (num_proc=20):  40%|███▉      | 395000/1000000 [00:05<00:07, 77432.84 examples/s]Running tokenizer on dataset (num_proc=20):  40%|████      | 403000/1000000 [00:05<00:07, 77116.75 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████▏     | 413000/1000000 [00:06<00:07, 81968.70 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 422000/1000000 [00:06<00:07, 76939.39 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 430000/1000000 [00:06<00:07, 76879.14 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▍     | 438000/1000000 [00:06<00:07, 73037.46 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▍     | 447000/1000000 [00:06<00:07, 77220.23 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 455000/1000000 [00:06<00:07, 75410.91 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▋     | 463000/1000000 [00:06<00:07, 75518.59 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 473000/1000000 [00:06<00:06, 80646.51 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 482000/1000000 [00:06<00:07, 73348.62 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 493000/1000000 [00:07<00:06, 81906.82 examples/s]Running tokenizer on dataset (num_proc=20):  50%|█████     | 502000/1000000 [00:07<00:06, 73101.92 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████▏    | 514000/1000000 [00:07<00:06, 80468.04 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 523000/1000000 [00:07<00:06, 75704.96 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 533000/1000000 [00:07<00:05, 80365.06 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▍    | 542000/1000000 [00:07<00:06, 73089.82 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▌    | 553000/1000000 [00:07<00:05, 81235.35 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 562000/1000000 [00:07<00:05, 73239.73 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 574000/1000000 [00:08<00:05, 77375.87 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 582000/1000000 [00:08<00:05, 75073.92 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 593000/1000000 [00:08<00:04, 83739.09 examples/s]Running tokenizer on dataset (num_proc=20):  60%|██████    | 602000/1000000 [00:08<00:05, 71989.41 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████▏   | 614000/1000000 [00:08<00:04, 78011.51 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 623000/1000000 [00:08<00:05, 72133.51 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 634000/1000000 [00:08<00:04, 80329.10 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 643000/1000000 [00:09<00:04, 74795.78 examples/s]Running tokenizer on dataset (num_proc=20):  65%|██████▌   | 654000/1000000 [00:09<00:04, 82075.89 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▋   | 663000/1000000 [00:09<00:04, 75475.87 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 674000/1000000 [00:09<00:04, 79601.44 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 683000/1000000 [00:09<00:04, 71770.59 examples/s]Running tokenizer on dataset (num_proc=20):  70%|██████▉   | 696000/1000000 [00:09<00:03, 84586.55 examples/s]Running tokenizer on dataset (num_proc=20):  70%|███████   | 705000/1000000 [00:09<00:04, 72429.75 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 717000/1000000 [00:09<00:03, 77271.53 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 726000/1000000 [00:10<00:03, 76672.74 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▎  | 737000/1000000 [00:10<00:03, 77409.22 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▍  | 745000/1000000 [00:10<00:03, 74442.95 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 757000/1000000 [00:10<00:03, 76629.92 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▋  | 765000/1000000 [00:10<00:03, 76386.88 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 777000/1000000 [00:10<00:02, 78260.92 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 785000/1000000 [00:10<00:02, 76065.44 examples/s]Running tokenizer on dataset (num_proc=20):  80%|███████▉  | 796000/1000000 [00:10<00:02, 83964.66 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 805000/1000000 [00:11<00:02, 75646.76 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 816000/1000000 [00:11<00:02, 78361.66 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 824000/1000000 [00:11<00:02, 75080.82 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▎ | 835000/1000000 [00:11<00:01, 82565.56 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 844000/1000000 [00:11<00:02, 72478.92 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 856000/1000000 [00:11<00:01, 78677.35 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▋ | 865000/1000000 [00:11<00:01, 74801.74 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 876000/1000000 [00:12<00:01, 76058.68 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 884000/1000000 [00:12<00:02, 42209.38 examples/s]Running tokenizer on dataset (num_proc=20):  90%|████████▉ | 895000/1000000 [00:12<00:01, 52585.87 examples/s]Running tokenizer on dataset (num_proc=20):  90%|█████████ | 903000/1000000 [00:12<00:01, 52787.26 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████▏| 914000/1000000 [00:12<00:01, 63813.96 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 922000/1000000 [00:13<00:01, 60183.45 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▎| 935000/1000000 [00:13<00:00, 72648.19 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 944000/1000000 [00:13<00:00, 69634.44 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 955000/1000000 [00:13<00:00, 75885.03 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▋| 964000/1000000 [00:13<00:00, 71602.12 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 975000/1000000 [00:13<00:00, 73864.19 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 983000/1000000 [00:13<00:00, 72726.74 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 994000/1000000 [00:13<00:00, 75051.30 examples/s]Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:14<00:00, 67714.15 examples/s]
+Concatenating 20 shards
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+input_ids:
+[1, 4103, 9632, 515, 4223, 304, 306, 2242, 392, 293, 29901, 1724, 437, 366, 864, 29973, 1149, 29871, 379, 1564, 30128, 604, 14468, 20676, 29875, 29973, 448, 379, 30078, 29892, 26977, 29889, 2]
+inputs:
+<s> Translate from English to Icelandic: What do you want? =>  Hvađ er í gangi? - Hæ, Larry.</s>
+label_ids:
+[-100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, -100, 379, 1564, 30128, 604, 14468, 20676, 29875, 29973, 448, 379, 30078, 29892, 26977, 29889, 2]
+labels:
+Hvađ er í gangi? - Hæ, Larry.</s>
+PeftModelForCausalLM(
+  (base_model): MoeModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=1, out_features=1, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+        )
+        (norm): LlamaRMSNorm()
+      )
+      (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+    )
+  )
+)
+Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 0/1000000 [00:00<?, ? examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:00<11:47, 1411.46 examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 4000/1000000 [00:00<02:53, 5750.57 examples/s]Running tokenizer on dataset (num_proc=20):   2%|▏         | 19000/1000000 [00:00<00:31, 31119.25 examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:01<17:56, 928.03 examples/s]Running tokenizer on dataset (num_proc=20):   0%|          | 1000/1000000 [00:01<18:04, 921.44 examples/s]Running tokenizer on dataset (num_proc=20):   1%|          | 7000/1000000 [00:01<02:07, 7813.24 examples/s]Running tokenizer on dataset (num_proc=20):   1%|          | 12000/1000000 [00:01<01:15, 13085.96 examples/s]Running tokenizer on dataset (num_proc=20):   3%|▎         | 26000/1000000 [00:01<00:39, 24892.34 examples/s]Running tokenizer on dataset (num_proc=20):   2%|▏         | 20000/1000000 [00:01<00:44, 22148.23 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▍         | 38000/1000000 [00:01<00:24, 38691.56 examples/s]Running tokenizer on dataset (num_proc=20):   2%|▏         | 21000/1000000 [00:01<00:49, 19632.33 examples/s]Running tokenizer on dataset (num_proc=20):   3%|▎         | 27000/1000000 [00:01<00:42, 22841.67 examples/s]Running tokenizer on dataset (num_proc=20):   2%|▎         | 25000/1000000 [00:01<00:44, 22106.10 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▎         | 35000/1000000 [00:01<00:30, 31462.10 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▎         | 37000/1000000 [00:01<00:26, 37015.11 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▍         | 45000/1000000 [00:01<00:31, 30577.74 examples/s]Running tokenizer on dataset (num_proc=20):   6%|▌         | 57000/1000000 [00:01<00:21, 43721.81 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▍         | 41000/1000000 [00:01<00:31, 30933.85 examples/s]Running tokenizer on dataset (num_proc=20):   4%|▍         | 44000/1000000 [00:02<00:30, 31248.32 examples/s]Running tokenizer on dataset (num_proc=20):   5%|▍         | 46000/1000000 [00:02<00:30, 30841.47 examples/s]Running tokenizer on dataset (num_proc=20):   5%|▌         | 51000/1000000 [00:02<00:25, 37150.55 examples/s]Running tokenizer on dataset (num_proc=20):   5%|▌         | 54000/1000000 [00:02<00:24, 39334.23 examples/s]Running tokenizer on dataset (num_proc=20):   6%|▋         | 65000/1000000 [00:02<00:27, 33471.08 examples/s]Running tokenizer on dataset (num_proc=20):   6%|▌         | 60000/1000000 [00:02<00:21, 42800.37 examples/s]Running tokenizer on dataset (num_proc=20):   6%|▌         | 60000/1000000 [00:02<00:22, 42225.48 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 75000/1000000 [00:02<00:22, 41573.60 examples/s]Running tokenizer on dataset (num_proc=20):   7%|▋         | 66000/1000000 [00:02<00:25, 36215.07 examples/s]Running tokenizer on dataset (num_proc=20):   7%|▋         | 66000/1000000 [00:02<00:26, 34690.33 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 82000/1000000 [00:02<00:25, 36547.21 examples/s]Running tokenizer on dataset (num_proc=20):   7%|▋         | 73000/1000000 [00:02<00:21, 42726.67 examples/s]Running tokenizer on dataset (num_proc=20):   7%|▋         | 73000/1000000 [00:02<00:24, 38008.01 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 79000/1000000 [00:02<00:20, 44608.52 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 88000/1000000 [00:02<00:25, 35696.49 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 79000/1000000 [00:02<00:22, 41813.68 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 85000/1000000 [00:02<00:21, 42738.09 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 94000/1000000 [00:02<00:23, 38513.81 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 90000/1000000 [00:03<00:23, 38656.26 examples/s]Running tokenizer on dataset (num_proc=20):   8%|▊         | 85000/1000000 [00:03<00:26, 34357.78 examples/s]Running tokenizer on dataset (num_proc=20):  10%|▉         | 99000/1000000 [00:03<00:25, 34688.93 examples/s]Running tokenizer on dataset (num_proc=20):   9%|▉         | 90000/1000000 [00:03<00:24, 37071.77 examples/s]Running tokenizer on dataset (num_proc=20):  10%|▉         | 97000/1000000 [00:03<00:20, 43892.17 examples/s]Running tokenizer on dataset (num_proc=20):  10%|█         | 104000/1000000 [00:03<00:27, 32890.25 examples/s]Running tokenizer on dataset (num_proc=20):  10%|█         | 105000/1000000 [00:03<00:18, 47946.98 examples/s]Running tokenizer on dataset (num_proc=20):  10%|▉         | 96000/1000000 [00:03<00:25, 35901.90 examples/s]Running tokenizer on dataset (num_proc=20):  11%|█         | 111000/1000000 [00:03<00:22, 39059.92 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▏        | 116000/1000000 [00:03<00:21, 40390.98 examples/s]Running tokenizer on dataset (num_proc=20):  11%|█         | 111000/1000000 [00:03<00:22, 39606.42 examples/s]Running tokenizer on dataset (num_proc=20):  10%|█         | 101000/1000000 [00:03<00:27, 32327.39 examples/s]Running tokenizer on dataset (num_proc=20):  10%|█         | 105000/1000000 [00:03<00:26, 33714.92 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▏        | 117000/1000000 [00:03<00:21, 41420.85 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▏        | 121000/1000000 [00:03<00:26, 32731.60 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▎        | 125000/1000000 [00:03<00:17, 49296.19 examples/s]Running tokenizer on dataset (num_proc=20):  13%|█▎        | 127000/1000000 [00:03<00:23, 36797.41 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▏        | 116000/1000000 [00:03<00:21, 40371.64 examples/s]Running tokenizer on dataset (num_proc=20):  13%|█▎        | 131000/1000000 [00:03<00:20, 43427.20 examples/s]Running tokenizer on dataset (num_proc=20):  13%|█▎        | 134000/1000000 [00:04<00:21, 41044.38 examples/s]Running tokenizer on dataset (num_proc=20):  12%|█▏        | 121000/1000000 [00:04<00:24, 36007.19 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▎        | 136000/1000000 [00:04<00:22, 37944.22 examples/s]Running tokenizer on dataset (num_proc=20):  13%|█▎        | 126000/1000000 [00:04<00:23, 37942.09 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▍        | 139000/1000000 [00:04<00:25, 33365.68 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▍        | 145000/1000000 [00:04<00:18, 46088.67 examples/s]Running tokenizer on dataset (num_proc=20):  13%|█▎        | 134000/1000000 [00:04<00:18, 46905.17 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▍        | 145000/1000000 [00:04<00:22, 37537.51 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▌        | 152000/1000000 [00:04<00:19, 44316.21 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▌        | 151000/1000000 [00:04<00:20, 40930.14 examples/s]Running tokenizer on dataset (num_proc=20):  14%|█▍        | 140000/1000000 [00:04<00:25, 33855.79 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▌        | 156000/1000000 [00:04<00:22, 36981.68 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▌        | 158000/1000000 [00:04<00:23, 36194.26 examples/s]Running tokenizer on dataset (num_proc=20):  15%|█▍        | 146000/1000000 [00:04<00:22, 37633.11 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▋        | 165000/1000000 [00:04<00:17, 46580.24 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▌        | 155000/1000000 [00:04<00:19, 44365.80 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▋        | 163000/1000000 [00:04<00:24, 34743.82 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 173000/1000000 [00:05<00:17, 47592.93 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 171000/1000000 [00:04<00:21, 38909.82 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 176000/1000000 [00:05<00:20, 39614.10 examples/s]Running tokenizer on dataset (num_proc=20):  16%|█▌        | 161000/1000000 [00:05<00:23, 35507.38 examples/s]Running tokenizer on dataset (num_proc=20):  17%|█▋        | 166000/1000000 [00:05<00:21, 38166.69 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 181000/1000000 [00:05<00:19, 41026.17 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 179000/1000000 [00:05<00:24, 33945.24 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 175000/1000000 [00:05<00:17, 47877.19 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▉        | 189000/1000000 [00:05<00:16, 47885.61 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 185000/1000000 [00:05<00:21, 38277.78 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▉        | 194000/1000000 [00:05<00:17, 45432.01 examples/s]Running tokenizer on dataset (num_proc=20):  20%|█▉        | 195000/1000000 [00:05<00:21, 36809.15 examples/s]Running tokenizer on dataset (num_proc=20):  18%|█▊        | 181000/1000000 [00:05<00:23, 35101.68 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▊        | 187000/1000000 [00:05<00:20, 39609.57 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 201000/1000000 [00:05<00:20, 39183.43 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 200000/1000000 [00:05<00:22, 35660.03 examples/s]Running tokenizer on dataset (num_proc=20):  19%|█▉        | 194000/1000000 [00:05<00:17, 44996.43 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██        | 209000/1000000 [00:05<00:17, 45202.18 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██        | 206000/1000000 [00:05<00:19, 40049.88 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██▏       | 213000/1000000 [00:06<00:18, 43558.08 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██▏       | 214000/1000000 [00:06<00:20, 39253.33 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 200000/1000000 [00:06<00:23, 34591.03 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 219000/1000000 [00:06<00:19, 40494.19 examples/s]Running tokenizer on dataset (num_proc=20):  20%|██        | 205000/1000000 [00:06<00:21, 37135.90 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▎       | 225000/1000000 [00:06<00:17, 44722.99 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 219000/1000000 [00:06<00:22, 34340.02 examples/s]Running tokenizer on dataset (num_proc=20):  21%|██▏       | 213000/1000000 [00:06<00:17, 45428.08 examples/s]Running tokenizer on dataset (num_proc=20):  23%|██▎       | 230000/1000000 [00:06<00:18, 42305.41 examples/s]Running tokenizer on dataset (num_proc=20):  23%|██▎       | 226000/1000000 [00:06<00:19, 40476.53 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 219000/1000000 [00:06<00:19, 39860.55 examples/s]Running tokenizer on dataset (num_proc=20):  23%|██▎       | 232000/1000000 [00:06<00:17, 42669.77 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▎       | 235000/1000000 [00:06<00:21, 35247.93 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▎       | 237000/1000000 [00:06<00:19, 39095.31 examples/s]Running tokenizer on dataset (num_proc=20):  22%|██▏       | 224000/1000000 [00:06<00:22, 34847.39 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 241000/1000000 [00:06<00:20, 37669.70 examples/s]Running tokenizer on dataset (num_proc=20):  23%|██▎       | 234000/1000000 [00:06<00:16, 46529.87 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 242000/1000000 [00:06<00:20, 36945.48 examples/s]Running tokenizer on dataset (num_proc=20):  25%|██▌       | 250000/1000000 [00:06<00:17, 41682.30 examples/s]Running tokenizer on dataset (num_proc=20):  25%|██▍       | 248000/1000000 [00:07<00:19, 38915.50 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 255000/1000000 [00:07<00:20, 36777.63 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 255000/1000000 [00:07<00:16, 43914.39 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 240000/1000000 [00:07<00:21, 35576.94 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 262000/1000000 [00:07<00:17, 42486.65 examples/s]Running tokenizer on dataset (num_proc=20):  24%|██▍       | 245000/1000000 [00:07<00:20, 37118.74 examples/s]Running tokenizer on dataset (num_proc=20):  25%|██▌       | 254000/1000000 [00:07<00:15, 47144.96 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 260000/1000000 [00:07<00:21, 33872.19 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 270000/1000000 [00:07<00:17, 40781.10 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 268000/1000000 [00:07<00:17, 42991.86 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 275000/1000000 [00:07<00:17, 41891.08 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 274000/1000000 [00:07<00:16, 43093.75 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▌       | 260000/1000000 [00:07<00:20, 35678.62 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 280000/1000000 [00:07<00:17, 40888.70 examples/s]Running tokenizer on dataset (num_proc=20):  26%|██▋       | 265000/1000000 [00:07<00:19, 36963.01 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 289000/1000000 [00:07<00:14, 48056.72 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 279000/1000000 [00:07<00:20, 34963.61 examples/s]Running tokenizer on dataset (num_proc=20):  27%|██▋       | 274000/1000000 [00:07<00:15, 46895.77 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 285000/1000000 [00:07<00:18, 39345.64 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 294000/1000000 [00:08<00:18, 37477.53 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 291000/1000000 [00:08<00:16, 42522.23 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 280000/1000000 [00:08<00:20, 35908.77 examples/s]Running tokenizer on dataset (num_proc=20):  30%|██▉       | 299000/1000000 [00:08<00:19, 36687.53 examples/s]Running tokenizer on dataset (num_proc=20):  30%|██▉       | 296000/1000000 [00:08<00:17, 39880.73 examples/s]Running tokenizer on dataset (num_proc=20):  28%|██▊       | 285000/1000000 [00:08<00:19, 37401.38 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███       | 309000/1000000 [00:08<00:14, 47071.35 examples/s]Running tokenizer on dataset (num_proc=20):  30%|███       | 301000/1000000 [00:08<00:18, 37341.78 examples/s]Running tokenizer on dataset (num_proc=20):  29%|██▉       | 293000/1000000 [00:08<00:15, 45245.72 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███       | 306000/1000000 [00:08<00:17, 39092.74 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 315000/1000000 [00:08<00:18, 37941.29 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███▏      | 313000/1000000 [00:08<00:15, 45755.20 examples/s]Running tokenizer on dataset (num_proc=20):  30%|██▉       | 299000/1000000 [00:08<00:19, 35559.96 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 320000/1000000 [00:08<00:18, 37433.49 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 318000/1000000 [00:08<00:16, 41073.56 examples/s]Running tokenizer on dataset (num_proc=20):  30%|███       | 305000/1000000 [00:08<00:18, 37338.08 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 329000/1000000 [00:08<00:14, 46133.22 examples/s]Running tokenizer on dataset (num_proc=20):  31%|███▏      | 313000/1000000 [00:08<00:15, 45313.49 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 323000/1000000 [00:08<00:18, 37330.57 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 329000/1000000 [00:09<00:15, 42241.00 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▎      | 335000/1000000 [00:09<00:17, 38486.35 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 334000/1000000 [00:09<00:15, 41931.53 examples/s]Running tokenizer on dataset (num_proc=20):  32%|███▏      | 319000/1000000 [00:09<00:18, 35933.31 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 341000/1000000 [00:09<00:17, 38616.03 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 326000/1000000 [00:09<00:16, 39945.48 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 339000/1000000 [00:09<00:16, 39341.88 examples/s]Running tokenizer on dataset (num_proc=20):  35%|███▌      | 350000/1000000 [00:09<00:13, 48099.04 examples/s]Running tokenizer on dataset (num_proc=20):  33%|███▎      | 333000/1000000 [00:09<00:14, 44753.04 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 344000/1000000 [00:09<00:17, 37703.54 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 356000/1000000 [00:09<00:16, 39488.59 examples/s]Running tokenizer on dataset (num_proc=20):  35%|███▌      | 350000/1000000 [00:09<00:16, 38827.03 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 339000/1000000 [00:09<00:16, 40309.09 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 361000/1000000 [00:09<00:15, 41087.97 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 357000/1000000 [00:09<00:14, 45260.23 examples/s]Running tokenizer on dataset (num_proc=20):  34%|███▍      | 344000/1000000 [00:09<00:16, 39088.77 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 366000/1000000 [00:09<00:15, 41890.17 examples/s]Running tokenizer on dataset (num_proc=20):  35%|███▍      | 349000/1000000 [00:09<00:16, 39081.59 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 371000/1000000 [00:09<00:14, 42342.69 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 362000/1000000 [00:09<00:18, 35173.77 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 356000/1000000 [00:09<00:14, 45105.80 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 367000/1000000 [00:10<00:16, 38189.81 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 376000/1000000 [00:10<00:16, 38152.51 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 372000/1000000 [00:10<00:15, 40461.27 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 381000/1000000 [00:10<00:15, 39854.33 examples/s]Running tokenizer on dataset (num_proc=20):  36%|███▌      | 361000/1000000 [00:10<00:17, 36874.43 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 366000/1000000 [00:10<00:16, 39180.43 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 378000/1000000 [00:10<00:15, 39326.84 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▊      | 386000/1000000 [00:10<00:15, 40727.57 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▉      | 391000/1000000 [00:10<00:14, 41467.03 examples/s]Running tokenizer on dataset (num_proc=20):  37%|███▋      | 371000/1000000 [00:10<00:15, 39380.29 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 383000/1000000 [00:10<00:15, 39476.18 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 377000/1000000 [00:10<00:14, 43564.64 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▉      | 388000/1000000 [00:10<00:15, 40743.91 examples/s]Running tokenizer on dataset (num_proc=20):  40%|███▉      | 396000/1000000 [00:10<00:15, 38732.41 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▉      | 393000/1000000 [00:10<00:14, 42772.13 examples/s]Running tokenizer on dataset (num_proc=20):  40%|████      | 401000/1000000 [00:10<00:15, 39429.41 examples/s]Running tokenizer on dataset (num_proc=20):  38%|███▊      | 382000/1000000 [00:10<00:16, 38250.89 examples/s]Running tokenizer on dataset (num_proc=20):  40%|███▉      | 398000/1000000 [00:10<00:14, 42037.11 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████      | 406000/1000000 [00:10<00:14, 40483.94 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▊      | 387000/1000000 [00:10<00:16, 37639.77 examples/s]Running tokenizer on dataset (num_proc=20):  40%|████      | 403000/1000000 [00:10<00:14, 42167.71 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████      | 411000/1000000 [00:10<00:14, 40716.30 examples/s]Running tokenizer on dataset (num_proc=20):  39%|███▉      | 392000/1000000 [00:10<00:15, 38618.48 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████      | 408000/1000000 [00:10<00:14, 41295.77 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 416000/1000000 [00:10<00:13, 41910.57 examples/s]Running tokenizer on dataset (num_proc=20):  40%|███▉      | 399000/1000000 [00:11<00:13, 44176.41 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████▏     | 413000/1000000 [00:11<00:14, 40145.45 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 422000/1000000 [00:11<00:14, 40188.94 examples/s]Running tokenizer on dataset (num_proc=20):  40%|████      | 404000/1000000 [00:11<00:15, 37877.66 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 419000/1000000 [00:11<00:13, 42454.57 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 427000/1000000 [00:11<00:14, 38380.20 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████      | 409000/1000000 [00:11<00:15, 39120.06 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 424000/1000000 [00:11<00:13, 41752.92 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 433000/1000000 [00:11<00:13, 43471.25 examples/s]Running tokenizer on dataset (num_proc=20):  41%|████▏     | 414000/1000000 [00:11<00:14, 39719.10 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 429000/1000000 [00:11<00:14, 38067.68 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▍     | 438000/1000000 [00:11<00:13, 42162.24 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 434000/1000000 [00:11<00:14, 39404.88 examples/s]Running tokenizer on dataset (num_proc=20):  42%|████▏     | 420000/1000000 [00:11<00:15, 37525.89 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▍     | 443000/1000000 [00:11<00:13, 39868.37 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 426000/1000000 [00:11<00:13, 41326.18 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▍     | 441000/1000000 [00:11<00:13, 42758.46 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▍     | 448000/1000000 [00:11<00:13, 39703.19 examples/s]Running tokenizer on dataset (num_proc=20):  43%|████▎     | 431000/1000000 [00:11<00:14, 40102.77 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▍     | 446000/1000000 [00:11<00:13, 40161.83 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▌     | 454000/1000000 [00:11<00:13, 39354.25 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▎     | 436000/1000000 [00:11<00:13, 41431.21 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 460000/1000000 [00:12<00:12, 43873.18 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▌     | 451000/1000000 [00:12<00:14, 37725.92 examples/s]Running tokenizer on dataset (num_proc=20):  44%|████▍     | 441000/1000000 [00:12<00:14, 39542.52 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 456000/1000000 [00:12<00:14, 38095.79 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▋     | 465000/1000000 [00:12<00:13, 40187.90 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▍     | 446000/1000000 [00:12<00:13, 40630.57 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 470000/1000000 [00:12<00:12, 41456.66 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 462000/1000000 [00:12<00:13, 39671.80 examples/s]Running tokenizer on dataset (num_proc=20):  45%|████▌     | 451000/1000000 [00:12<00:12, 42490.66 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 475000/1000000 [00:12<00:13, 40277.84 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 467000/1000000 [00:12<00:13, 38177.84 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 456000/1000000 [00:12<00:12, 41943.10 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 480000/1000000 [00:12<00:12, 41365.81 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 472000/1000000 [00:12<00:14, 37523.41 examples/s]Running tokenizer on dataset (num_proc=20):  46%|████▌     | 461000/1000000 [00:12<00:14, 37947.28 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 485000/1000000 [00:12<00:11, 43067.81 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 478000/1000000 [00:12<00:12, 42110.25 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 467000/1000000 [00:12<00:12, 42441.58 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 490000/1000000 [00:12<00:11, 42632.30 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 483000/1000000 [00:12<00:13, 37929.60 examples/s]Running tokenizer on dataset (num_proc=20):  47%|████▋     | 472000/1000000 [00:12<00:13, 39399.89 examples/s]Running tokenizer on dataset (num_proc=20):  50%|████▉     | 495000/1000000 [00:12<00:13, 38547.27 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 488000/1000000 [00:13<00:12, 39446.67 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 478000/1000000 [00:12<00:12, 41326.60 examples/s]Running tokenizer on dataset (num_proc=20):  50%|█████     | 501000/1000000 [00:13<00:11, 41646.49 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 493000/1000000 [00:13<00:13, 38763.24 examples/s]Running tokenizer on dataset (num_proc=20):  48%|████▊     | 483000/1000000 [00:13<00:12, 41253.60 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████     | 506000/1000000 [00:13<00:13, 37689.83 examples/s]Running tokenizer on dataset (num_proc=20):  50%|████▉     | 499000/1000000 [00:13<00:11, 42307.71 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 488000/1000000 [00:13<00:12, 41618.01 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████▏    | 513000/1000000 [00:13<00:11, 42592.25 examples/s]Running tokenizer on dataset (num_proc=20):  50%|█████     | 504000/1000000 [00:13<00:12, 38513.09 examples/s]Running tokenizer on dataset (num_proc=20):  49%|████▉     | 493000/1000000 [00:13<00:13, 37627.37 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 518000/1000000 [00:13<00:11, 42763.28 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████     | 508000/1000000 [00:13<00:12, 38096.03 examples/s]Running tokenizer on dataset (num_proc=20):  50%|████▉     | 498000/1000000 [00:13<00:12, 40322.79 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 523000/1000000 [00:13<00:11, 42476.00 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████     | 512000/1000000 [00:13<00:13, 37079.45 examples/s]Running tokenizer on dataset (num_proc=20):  50%|█████     | 503000/1000000 [00:13<00:12, 40481.59 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 528000/1000000 [00:13<00:11, 40173.84 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 519000/1000000 [00:13<00:11, 42610.31 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████     | 508000/1000000 [00:13<00:11, 42042.18 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 533000/1000000 [00:13<00:11, 39224.39 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 524000/1000000 [00:13<00:12, 39115.41 examples/s]Running tokenizer on dataset (num_proc=20):  51%|█████▏    | 513000/1000000 [00:13<00:13, 37436.66 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▍    | 540000/1000000 [00:13<00:10, 43494.61 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 528000/1000000 [00:14<00:12, 38868.19 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 518000/1000000 [00:14<00:12, 39452.04 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 533000/1000000 [00:14<00:11, 40212.17 examples/s]Running tokenizer on dataset (num_proc=20):  52%|█████▏    | 523000/1000000 [00:14<00:12, 39598.59 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▍    | 545000/1000000 [00:14<00:11, 38158.42 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▍    | 539000/1000000 [00:14<00:10, 43217.23 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 529000/1000000 [00:14<00:10, 44244.12 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▌    | 552000/1000000 [00:14<00:10, 43504.32 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▍    | 544000/1000000 [00:14<00:10, 41638.18 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 557000/1000000 [00:14<00:11, 40215.22 examples/s]Running tokenizer on dataset (num_proc=20):  53%|█████▎    | 534000/1000000 [00:14<00:13, 35117.81 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▍    | 549000/1000000 [00:14<00:11, 38739.17 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 562000/1000000 [00:14<00:10, 40666.36 examples/s]Running tokenizer on dataset (num_proc=20):  54%|█████▍    | 540000/1000000 [00:14<00:11, 39668.50 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▌    | 554000/1000000 [00:14<00:10, 40839.69 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 567000/1000000 [00:14<00:10, 41262.45 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▍    | 545000/1000000 [00:14<00:12, 37420.03 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 560000/1000000 [00:14<00:10, 42920.09 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 572000/1000000 [00:14<00:10, 41324.72 examples/s]Running tokenizer on dataset (num_proc=20):  55%|█████▌    | 552000/1000000 [00:14<00:10, 42652.44 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▋    | 565000/1000000 [00:14<00:11, 38210.41 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 577000/1000000 [00:14<00:10, 39765.48 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 557000/1000000 [00:14<00:10, 41314.03 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 570000/1000000 [00:15<00:10, 40357.28 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 583000/1000000 [00:15<00:10, 40346.96 examples/s]Running tokenizer on dataset (num_proc=20):  56%|█████▌    | 562000/1000000 [00:15<00:11, 39686.43 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▊    | 575000/1000000 [00:15<00:10, 41866.75 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 588000/1000000 [00:15<00:10, 40909.11 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 580000/1000000 [00:15<00:09, 42833.27 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 567000/1000000 [00:15<00:10, 39927.90 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 593000/1000000 [00:15<00:09, 42506.31 examples/s]Running tokenizer on dataset (num_proc=20):  57%|█████▋    | 572000/1000000 [00:15<00:10, 42052.15 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 585000/1000000 [00:15<00:10, 40170.55 examples/s]Running tokenizer on dataset (num_proc=20):  60%|█████▉    | 598000/1000000 [00:15<00:10, 39980.90 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 577000/1000000 [00:15<00:10, 40081.55 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 590000/1000000 [00:15<00:10, 38609.11 examples/s]Running tokenizer on dataset (num_proc=20):  60%|██████    | 604000/1000000 [00:15<00:09, 42735.42 examples/s]Running tokenizer on dataset (num_proc=20):  60%|█████▉    | 595000/1000000 [00:15<00:09, 40891.60 examples/s]Running tokenizer on dataset (num_proc=20):  58%|█████▊    | 582000/1000000 [00:15<00:10, 38676.29 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████    | 609000/1000000 [00:15<00:09, 40552.03 examples/s]Running tokenizer on dataset (num_proc=20):  60%|██████    | 600000/1000000 [00:15<00:09, 42479.30 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▊    | 586000/1000000 [00:15<00:10, 38317.64 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████▏   | 614000/1000000 [00:15<00:09, 41774.95 examples/s]Running tokenizer on dataset (num_proc=20):  59%|█████▉    | 591000/1000000 [00:15<00:10, 39828.82 examples/s]Running tokenizer on dataset (num_proc=20):  60%|██████    | 605000/1000000 [00:15<00:09, 41411.64 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 619000/1000000 [00:15<00:09, 40295.38 examples/s]Running tokenizer on dataset (num_proc=20):  60%|█████▉    | 596000/1000000 [00:15<00:10, 40088.17 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████    | 610000/1000000 [00:16<00:09, 40881.22 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 624000/1000000 [00:16<00:09, 41059.31 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 615000/1000000 [00:16<00:09, 39123.37 examples/s]Running tokenizer on dataset (num_proc=20):  60%|██████    | 601000/1000000 [00:16<00:10, 36821.83 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 629000/1000000 [00:16<00:09, 40026.29 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 620000/1000000 [00:16<00:09, 40997.36 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████    | 607000/1000000 [00:16<00:09, 40928.25 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 634000/1000000 [00:16<00:08, 42512.56 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▎   | 625000/1000000 [00:16<00:09, 41549.77 examples/s]Running tokenizer on dataset (num_proc=20):  61%|██████    | 612000/1000000 [00:16<00:09, 40822.62 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 639000/1000000 [00:16<00:09, 38784.51 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 617000/1000000 [00:16<00:09, 40384.73 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 630000/1000000 [00:16<00:09, 38868.45 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 644000/1000000 [00:16<00:08, 39605.68 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▎   | 635000/1000000 [00:16<00:09, 39856.20 examples/s]Running tokenizer on dataset (num_proc=20):  62%|██████▏   | 622000/1000000 [00:16<00:10, 37374.83 examples/s]Running tokenizer on dataset (num_proc=20):  65%|██████▍   | 649000/1000000 [00:16<00:08, 39191.50 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 640000/1000000 [00:16<00:08, 41628.99 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 629000/1000000 [00:16<00:08, 43664.95 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 655000/1000000 [00:16<00:07, 43465.16 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 645000/1000000 [00:16<00:08, 40897.83 examples/s]Running tokenizer on dataset (num_proc=20):  63%|██████▎   | 634000/1000000 [00:16<00:09, 36900.44 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 660000/1000000 [00:16<00:08, 38548.99 examples/s]Running tokenizer on dataset (num_proc=20):  65%|██████▌   | 650000/1000000 [00:17<00:09, 37276.59 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 639000/1000000 [00:17<00:09, 39290.37 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 667000/1000000 [00:17<00:07, 44673.12 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 657000/1000000 [00:17<00:07, 44155.73 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 672000/1000000 [00:17<00:07, 42401.65 examples/s]Running tokenizer on dataset (num_proc=20):  64%|██████▍   | 644000/1000000 [00:17<00:09, 37133.62 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 662000/1000000 [00:17<00:07, 45099.67 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 677000/1000000 [00:17<00:08, 39809.69 examples/s]Running tokenizer on dataset (num_proc=20):  65%|██████▌   | 651000/1000000 [00:17<00:08, 40702.80 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 667000/1000000 [00:17<00:08, 38559.14 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 682000/1000000 [00:17<00:08, 39092.66 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 656000/1000000 [00:17<00:08, 39962.14 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 672000/1000000 [00:17<00:08, 40145.33 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▉   | 688000/1000000 [00:17<00:07, 41697.95 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 678000/1000000 [00:17<00:07, 44646.81 examples/s]Running tokenizer on dataset (num_proc=20):  66%|██████▌   | 661000/1000000 [00:17<00:08, 37820.50 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▉   | 693000/1000000 [00:17<00:07, 43173.95 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 666000/1000000 [00:17<00:08, 40389.75 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 683000/1000000 [00:17<00:07, 42786.67 examples/s]Running tokenizer on dataset (num_proc=20):  70%|██████▉   | 698000/1000000 [00:17<00:07, 40952.32 examples/s]Running tokenizer on dataset (num_proc=20):  67%|██████▋   | 671000/1000000 [00:17<00:08, 40908.58 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▉   | 688000/1000000 [00:17<00:08, 36050.90 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 676000/1000000 [00:17<00:07, 41037.44 examples/s]Running tokenizer on dataset (num_proc=20):  70%|███████   | 703000/1000000 [00:18<00:07, 37999.55 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▉   | 693000/1000000 [00:18<00:07, 38420.87 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████   | 709000/1000000 [00:18<00:06, 42868.26 examples/s]Running tokenizer on dataset (num_proc=20):  68%|██████▊   | 681000/1000000 [00:18<00:08, 38204.42 examples/s]Running tokenizer on dataset (num_proc=20):  70%|███████   | 701000/1000000 [00:18<00:07, 41084.44 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████▏  | 714000/1000000 [00:18<00:06, 41692.17 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▊   | 686000/1000000 [00:18<00:07, 39659.52 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████   | 706000/1000000 [00:18<00:07, 40375.96 examples/s]Running tokenizer on dataset (num_proc=20):  69%|██████▉   | 691000/1000000 [00:18<00:07, 40356.39 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 719000/1000000 [00:18<00:07, 36781.04 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████   | 711000/1000000 [00:18<00:07, 40211.50 examples/s]Running tokenizer on dataset (num_proc=20):  70%|██████▉   | 696000/1000000 [00:18<00:07, 40008.87 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▎  | 725000/1000000 [00:18<00:06, 41342.75 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 716000/1000000 [00:18<00:06, 40631.05 examples/s]Running tokenizer on dataset (num_proc=20):  70%|███████   | 701000/1000000 [00:18<00:07, 38920.02 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 730000/1000000 [00:18<00:06, 38716.93 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 722000/1000000 [00:18<00:06, 41281.42 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████   | 706000/1000000 [00:18<00:07, 39964.24 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▎  | 736000/1000000 [00:18<00:06, 43219.11 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 727000/1000000 [00:18<00:06, 41319.47 examples/s]Running tokenizer on dataset (num_proc=20):  71%|███████   | 711000/1000000 [00:18<00:07, 39996.58 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▍  | 741000/1000000 [00:18<00:07, 36830.84 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 732000/1000000 [00:19<00:06, 41810.38 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 716000/1000000 [00:19<00:07, 39533.33 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▍  | 748000/1000000 [00:19<00:05, 43153.90 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▎  | 737000/1000000 [00:19<00:06, 40567.87 examples/s]Running tokenizer on dataset (num_proc=20):  72%|███████▏  | 720000/1000000 [00:19<00:07, 37489.49 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▌  | 753000/1000000 [00:19<00:05, 41726.75 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▍  | 742000/1000000 [00:19<00:06, 38669.30 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 726000/1000000 [00:19<00:06, 40621.69 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 759000/1000000 [00:19<00:05, 46062.72 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▍  | 746000/1000000 [00:19<00:06, 38647.30 examples/s]Running tokenizer on dataset (num_proc=20):  73%|███████▎  | 731000/1000000 [00:19<00:06, 40396.43 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▌  | 751000/1000000 [00:19<00:06, 39268.02 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▋  | 764000/1000000 [00:19<00:05, 39731.08 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▎  | 736000/1000000 [00:19<00:06, 40138.08 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 757000/1000000 [00:19<00:05, 40788.86 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 770000/1000000 [00:19<00:05, 41244.38 examples/s]Running tokenizer on dataset (num_proc=20):  74%|███████▍  | 741000/1000000 [00:19<00:06, 38749.71 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 775000/1000000 [00:19<00:05, 41950.51 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▍  | 746000/1000000 [00:19<00:06, 40669.28 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 762000/1000000 [00:19<00:06, 38510.14 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 767000/1000000 [00:19<00:05, 40713.75 examples/s]Running tokenizer on dataset (num_proc=20):  75%|███████▌  | 751000/1000000 [00:19<00:06, 39704.68 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 780000/1000000 [00:19<00:05, 37995.34 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 772000/1000000 [00:20<00:05, 41787.50 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 756000/1000000 [00:19<00:05, 41231.97 examples/s]Running tokenizer on dataset (num_proc=20):  79%|███████▊  | 786000/1000000 [00:20<00:05, 38027.67 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 777000/1000000 [00:20<00:05, 39084.13 examples/s]Running tokenizer on dataset (num_proc=20):  76%|███████▌  | 761000/1000000 [00:20<00:06, 38335.99 examples/s]Running tokenizer on dataset (num_proc=20):  79%|███████▉  | 793000/1000000 [00:20<00:04, 41852.65 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 781000/1000000 [00:20<00:06, 36443.93 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 767000/1000000 [00:20<00:05, 42439.14 examples/s]Running tokenizer on dataset (num_proc=20):  79%|███████▊  | 787000/1000000 [00:20<00:05, 41310.13 examples/s]Running tokenizer on dataset (num_proc=20):  80%|███████▉  | 799000/1000000 [00:20<00:05, 36756.67 examples/s]Running tokenizer on dataset (num_proc=20):  77%|███████▋  | 772000/1000000 [00:20<00:05, 38689.20 examples/s]Running tokenizer on dataset (num_proc=20):  79%|███████▉  | 792000/1000000 [00:20<00:04, 42208.16 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 778000/1000000 [00:20<00:05, 43821.63 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 805000/1000000 [00:20<00:05, 37632.28 examples/s]Running tokenizer on dataset (num_proc=20):  80%|███████▉  | 797000/1000000 [00:20<00:05, 38842.82 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████  | 812000/1000000 [00:20<00:04, 42154.16 examples/s]Running tokenizer on dataset (num_proc=20):  78%|███████▊  | 783000/1000000 [00:20<00:05, 37144.50 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 802000/1000000 [00:20<00:05, 39481.50 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████  | 808000/1000000 [00:20<00:04, 44404.60 examples/s]Running tokenizer on dataset (num_proc=20):  79%|███████▉  | 790000/1000000 [00:20<00:05, 39033.49 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 819000/1000000 [00:20<00:04, 37944.04 examples/s]Running tokenizer on dataset (num_proc=20):  80%|███████▉  | 795000/1000000 [00:20<00:05, 40363.69 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████▏ | 813000/1000000 [00:21<00:04, 39806.09 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▎ | 825000/1000000 [00:21<00:04, 38675.88 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 800000/1000000 [00:21<00:04, 41346.88 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 818000/1000000 [00:21<00:04, 38382.33 examples/s]Running tokenizer on dataset (num_proc=20):  83%|████████▎ | 832000/1000000 [00:21<00:03, 42061.64 examples/s]Running tokenizer on dataset (num_proc=20):  80%|████████  | 805000/1000000 [00:21<00:05, 37126.08 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 824000/1000000 [00:21<00:04, 38130.85 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████  | 809000/1000000 [00:21<00:05, 37144.50 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 839000/1000000 [00:21<00:04, 38764.81 examples/s]Running tokenizer on dataset (num_proc=20):  83%|████████▎ | 831000/1000000 [00:21<00:03, 45336.69 examples/s]Running tokenizer on dataset (num_proc=20):  81%|████████▏ | 813000/1000000 [00:21<00:04, 37583.65 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 844000/1000000 [00:21<00:04, 38689.81 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 818000/1000000 [00:21<00:04, 40509.19 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▎ | 836000/1000000 [00:21<00:04, 38074.25 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▍ | 849000/1000000 [00:21<00:03, 40416.62 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 842000/1000000 [00:21<00:03, 42839.65 examples/s]Running tokenizer on dataset (num_proc=20):  82%|████████▏ | 823000/1000000 [00:21<00:04, 36720.90 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▌ | 854000/1000000 [00:21<00:03, 40840.57 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▍ | 847000/1000000 [00:21<00:03, 40513.03 examples/s]Running tokenizer on dataset (num_proc=20):  83%|████████▎ | 828000/1000000 [00:21<00:04, 36885.22 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▌ | 852000/1000000 [00:22<00:03, 41318.51 examples/s]Running tokenizer on dataset (num_proc=20):  83%|████████▎ | 832000/1000000 [00:21<00:04, 37044.60 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 859000/1000000 [00:21<00:04, 32322.13 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▎ | 837000/1000000 [00:22<00:04, 39314.00 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 867000/1000000 [00:22<00:03, 37761.96 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 857000/1000000 [00:22<00:03, 35878.25 examples/s]Running tokenizer on dataset (num_proc=20):  84%|████████▍ | 842000/1000000 [00:22<00:04, 37654.32 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 872000/1000000 [00:22<00:03, 39358.99 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 862000/1000000 [00:22<00:03, 35913.50 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▍ | 847000/1000000 [00:22<00:04, 37106.17 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 866000/1000000 [00:22<00:03, 36055.40 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 877000/1000000 [00:22<00:03, 33260.01 examples/s]Running tokenizer on dataset (num_proc=20):  85%|████████▌ | 852000/1000000 [00:22<00:03, 38039.26 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 870000/1000000 [00:22<00:04, 30006.88 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 856000/1000000 [00:22<00:04, 35764.24 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▊ | 886000/1000000 [00:22<00:02, 38903.12 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 874000/1000000 [00:22<00:03, 31936.22 examples/s]Running tokenizer on dataset (num_proc=20):  86%|████████▌ | 860000/1000000 [00:22<00:03, 36224.41 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▉ | 893000/1000000 [00:22<00:02, 41096.62 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 878000/1000000 [00:22<00:03, 30580.15 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 866000/1000000 [00:22<00:03, 37858.84 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▊ | 886000/1000000 [00:23<00:02, 41730.66 examples/s]Running tokenizer on dataset (num_proc=20):  87%|████████▋ | 871000/1000000 [00:22<00:03, 40754.67 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 876000/1000000 [00:23<00:03, 37388.27 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▉ | 891000/1000000 [00:23<00:03, 34890.50 examples/s]Running tokenizer on dataset (num_proc=20):  90%|████████▉ | 898000/1000000 [00:23<00:03, 25989.34 examples/s]Running tokenizer on dataset (num_proc=20):  90%|█████████ | 902000/1000000 [00:23<00:03, 26153.11 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 880000/1000000 [00:23<00:04, 28899.88 examples/s]Running tokenizer on dataset (num_proc=20):  90%|████████▉ | 895000/1000000 [00:23<00:03, 27534.18 examples/s]Running tokenizer on dataset (num_proc=20):  88%|████████▊ | 884000/1000000 [00:23<00:03, 31013.03 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████ | 906000/1000000 [00:23<00:03, 26316.60 examples/s]Running tokenizer on dataset (num_proc=20):  90%|█████████ | 900000/1000000 [00:23<00:03, 30234.78 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▉ | 888000/1000000 [00:23<00:03, 30241.77 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████▏| 913000/1000000 [00:23<00:02, 33144.41 examples/s]Running tokenizer on dataset (num_proc=20):  90%|█████████ | 904000/1000000 [00:23<00:03, 28007.49 examples/s]Running tokenizer on dataset (num_proc=20):  89%|████████▉ | 892000/1000000 [00:23<00:03, 30600.51 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 919000/1000000 [00:23<00:02, 36794.72 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████ | 908000/1000000 [00:23<00:03, 28214.39 examples/s]Running tokenizer on dataset (num_proc=20):  90%|████████▉ | 896000/1000000 [00:23<00:03, 28771.48 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 924000/1000000 [00:23<00:02, 33861.76 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 915000/1000000 [00:23<00:02, 36285.84 examples/s]Running tokenizer on dataset (num_proc=20):  93%|█████████▎| 930000/1000000 [00:24<00:01, 39053.34 examples/s]Running tokenizer on dataset (num_proc=20):  90%|█████████ | 902000/1000000 [00:24<00:02, 33793.39 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 920000/1000000 [00:24<00:02, 33817.36 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▎| 935000/1000000 [00:24<00:01, 36081.53 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████ | 906000/1000000 [00:24<00:03, 30423.80 examples/s]Running tokenizer on dataset (num_proc=20):  93%|█████████▎| 926000/1000000 [00:24<00:01, 37373.35 examples/s]Running tokenizer on dataset (num_proc=20):  91%|█████████ | 911000/1000000 [00:24<00:02, 34820.65 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 940000/1000000 [00:24<00:01, 38895.87 examples/s]Running tokenizer on dataset (num_proc=20):  93%|█████████▎| 930000/1000000 [00:24<00:02, 34131.94 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 915000/1000000 [00:24<00:02, 35714.56 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 945000/1000000 [00:24<00:01, 39850.59 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▏| 920000/1000000 [00:24<00:02, 39294.03 examples/s]Running tokenizer on dataset (num_proc=20):  95%|█████████▌| 950000/1000000 [00:24<00:01, 40831.66 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 938000/1000000 [00:24<00:01, 37561.85 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 955000/1000000 [00:24<00:01, 40792.45 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 943000/1000000 [00:24<00:01, 39859.53 examples/s]Running tokenizer on dataset (num_proc=20):  92%|█████████▎| 925000/1000000 [00:24<00:02, 34120.93 examples/s]Running tokenizer on dataset (num_proc=20):  93%|█████████▎| 933000/1000000 [00:24<00:01, 43806.69 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 960000/1000000 [00:24<00:01, 37252.61 examples/s]Running tokenizer on dataset (num_proc=20):  95%|█████████▍| 948000/1000000 [00:24<00:01, 33568.27 examples/s]Running tokenizer on dataset (num_proc=20):  97%|█████████▋| 966000/1000000 [00:24<00:00, 41562.73 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 938000/1000000 [00:24<00:01, 40735.15 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 956000/1000000 [00:25<00:01, 41998.50 examples/s]Running tokenizer on dataset (num_proc=20):  97%|█████████▋| 972000/1000000 [00:25<00:00, 45413.59 examples/s]Running tokenizer on dataset (num_proc=20):  94%|█████████▍| 943000/1000000 [00:25<00:01, 39251.69 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 961000/1000000 [00:25<00:01, 38892.04 examples/s]Running tokenizer on dataset (num_proc=20):  95%|█████████▍| 949000/1000000 [00:25<00:01, 43885.47 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 977000/1000000 [00:25<00:00, 34636.92 examples/s]Running tokenizer on dataset (num_proc=20):  95%|█████████▌| 954000/1000000 [00:25<00:01, 44698.66 examples/s]Running tokenizer on dataset (num_proc=20):  97%|█████████▋| 966000/1000000 [00:25<00:00, 34706.76 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 981000/1000000 [00:25<00:00, 33832.94 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▌| 959000/1000000 [00:25<00:00, 41367.68 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 975000/1000000 [00:25<00:00, 44539.47 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▊| 987000/1000000 [00:25<00:00, 36791.01 examples/s]Running tokenizer on dataset (num_proc=20):  96%|█████████▋| 964000/1000000 [00:25<00:00, 41868.13 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 980000/1000000 [00:25<00:00, 38635.81 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 992000/1000000 [00:25<00:00, 38448.92 examples/s]Running tokenizer on dataset (num_proc=20):  97%|█████████▋| 969000/1000000 [00:25<00:00, 41143.57 examples/s]Running tokenizer on dataset (num_proc=20): 100%|█████████▉| 997000/1000000 [00:25<00:00, 38736.32 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 975000/1000000 [00:25<00:00, 44037.92 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 985000/1000000 [00:25<00:00, 33590.65 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 980000/1000000 [00:25<00:00, 45284.27 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 991000/1000000 [00:26<00:00, 38731.40 examples/s]Running tokenizer on dataset (num_proc=20):  98%|█████████▊| 985000/1000000 [00:26<00:00, 40545.85 examples/s]Running tokenizer on dataset (num_proc=20): 100%|█████████▉| 996000/1000000 [00:26<00:00, 32712.21 examples/s]Running tokenizer on dataset (num_proc=20):  99%|█████████▉| 991000/1000000 [00:26<00:00, 39158.41 examples/s]Running tokenizer on dataset (num_proc=20): 100%|█████████▉| 997000/1000000 [00:26<00:00, 37195.66 examples/s]Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:26<00:00, 37550.54 examples/s]
+Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:27<00:00, 36799.48 examples/s]
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+Running tokenizer on dataset (num_proc=20): 100%|██████████| 1000000/1000000 [00:27<00:00, 36470.20 examples/s]
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/datasets/table.py:1421: FutureWarning: promote has been superseded by promote_options='default'.
+  table = cls._concat_blocks(blocks, axis=0)
+[INFO|training_args.py:1846] 2024-02-21 19:09:51,668 >> PyTorch: setting up devices
+PeftModelForCausalLM(
+  (base_model): MoeModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=1, out_features=1, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+        )
+        (norm): LlamaRMSNorm()
+      )
+      (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+    )
+  )
+)
+PeftModelForCausalLM(
+  (base_model): MoeModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=1, out_features=1, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+        )
+        (norm): LlamaRMSNorm()
+      )
+      (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+    )
+  )
+)
+PeftModelForCausalLM(
+  (base_model): MoeModel(
+    (model): LlamaForCausalLM(
+      (model): LlamaModel(
+        (embed_tokens): Embedding(32000, 4096)
+        (layers): ModuleList(
+          (0-31): 32 x LlamaDecoderLayer(
+            (self_attn): LlamaFlashAttention2(
+              (q_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (k_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (v_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (o_proj): Linear(in_features=4096, out_features=4096, bias=False)
+              (rotary_emb): LlamaRotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): LlamaMLP(
+                (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=1, out_features=1, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): LlamaMLP(
+                    (gate_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (up_proj): Linear(in_features=4096, out_features=11008, bias=False)
+                    (down_proj): Linear(in_features=11008, out_features=4096, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): LlamaRMSNorm()
+            (post_attention_layernorm): LlamaRMSNorm()
+          )
+        )
+        (norm): LlamaRMSNorm()
+      )
+      (lm_head): Linear(in_features=4096, out_features=32000, bias=False)
+    )
+  )
+)
+/home/yangdezhao/zhouh_temp/transformers/src/transformers/training_args.py:1759: FutureWarning: `--push_to_hub_token` is deprecated and will be removed in version 5 of 🤗 Transformers. Use `--hub_token` instead.
+  warnings.warn(
+/home/yangdezhao/zhouh_temp/transformers/src/transformers/training_args.py:1759: FutureWarning: `--push_to_hub_token` is deprecated and will be removed in version 5 of 🤗 Transformers. Use `--hub_token` instead.
+  warnings.warn(
+/home/yangdezhao/zhouh_temp/transformers/src/transformers/training_args.py:1759: FutureWarning: `--push_to_hub_token` is deprecated and will be removed in version 5 of 🤗 Transformers. Use `--hub_token` instead.
+  warnings.warn(
+/home/yangdezhao/zhouh_temp/transformers/src/transformers/training_args.py:1759: FutureWarning: `--push_to_hub_token` is deprecated and will be removed in version 5 of 🤗 Transformers. Use `--hub_token` instead.
+  warnings.warn(
+[INFO|trainer.py:586] 2024-02-21 19:09:51,751 >> Using auto half precision backend
+[INFO|deepspeed.py:325] 2024-02-21 19:09:52,017 >> Detected ZeRO Offload and non-DeepSpeed optimizers: This combination should work as long as the custom optimizer has both CPU and GPU implementation (except LAMB)
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Detected CUDA files, patching ldflags
+Emitting ninja build file /home/yangdezhao/.cache/torch_extensions/py310_cu121/cpu_adam/build.ninja...
+Building extension module cpu_adam...
+Allowing ninja to set a default number of workers... (overridable by setting the environment variable MAX_JOBS=N)
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+ninja: no work to do.
+Installed CUDA version 12.2 does not match the version torch was compiled with 12.1 but since the APIs are compatible, accepting this combination
+Using /home/yangdezhao/.cache/torch_extensions/py310_cu121 as PyTorch extensions root...
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.479094982147217 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.4936115741729736 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.4608101844787598 seconds
+Loading extension module cpu_adam...
+Time to load cpu_adam op: 2.460392475128174 seconds
+Adam Optimizer #0 is created with AVX512 arithmetic capability.
+Config: alpha=0.000050, betas=(0.900000, 0.999000), weight_decay=0.010000, adam_w=1
+[2024-02-21 19:09:56,386] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.13.1, git-hash=unknown, git-branch=unknown
+[2024-02-21 19:10:16,285] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-02-21 19:10:16,287] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-02-21 19:10:16,288] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-02-21 19:10:16,296] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = DeepSpeedCPUAdam
+[2024-02-21 19:10:16,296] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=DeepSpeedCPUAdam type=<class 'deepspeed.ops.adam.cpu_adam.DeepSpeedCPUAdam'>
+[2024-02-21 19:10:16,296] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.bfloat16 ZeRO stage 2 optimizer
+[2024-02-21 19:10:16,296] [INFO] [stage_1_and_2.py:143:__init__] Reduce bucket size 500000000
+[2024-02-21 19:10:16,296] [INFO] [stage_1_and_2.py:144:__init__] Allgather bucket size 500000000
+[2024-02-21 19:10:16,296] [INFO] [stage_1_and_2.py:145:__init__] CPU Offload: True
+[2024-02-21 19:10:16,296] [INFO] [stage_1_and_2.py:146:__init__] Round robin gradient partitioning: False
+[2024-02-21 19:10:34,829] [INFO] [utils.py:791:see_memory_usage] Before initializing optimizer states
+[2024-02-21 19:10:34,830] [INFO] [utils.py:792:see_memory_usage] MA 20.76 GB         Max_MA 20.76 GB         CA 20.76 GB         Max_CA 21 GB 
+[2024-02-21 19:10:34,830] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 42.09 GB, percent = 16.7%
+[2024-02-21 19:10:41,649] [INFO] [utils.py:791:see_memory_usage] After initializing optimizer states
+[2024-02-21 19:10:41,651] [INFO] [utils.py:792:see_memory_usage] MA 20.76 GB         Max_MA 20.76 GB         CA 20.76 GB         Max_CA 21 GB 
+[2024-02-21 19:10:41,651] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 114.07 GB, percent = 45.4%
+[2024-02-21 19:10:41,652] [INFO] [stage_1_and_2.py:533:__init__] optimizer state initialized
+[2024-02-21 19:10:41,942] [INFO] [utils.py:791:see_memory_usage] After initializing ZeRO optimizer
+[2024-02-21 19:10:41,943] [INFO] [utils.py:792:see_memory_usage] MA 20.76 GB         Max_MA 20.76 GB         CA 20.76 GB         Max_CA 21 GB 
+[2024-02-21 19:10:41,943] [INFO] [utils.py:799:see_memory_usage] CPU Virtual Memory:  used = 113.94 GB, percent = 45.3%
+[2024-02-21 19:10:41,945] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = DeepSpeedCPUAdam
+[2024-02-21 19:10:41,945] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-02-21 19:10:41,945] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-02-21 19:10:41,945] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[5e-05], mom=[(0.9, 0.999)]
+[2024-02-21 19:10:41,947] [INFO] [config.py:984:print] DeepSpeedEngine configuration:
+[2024-02-21 19:10:41,947] [INFO] [config.py:988:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-02-21 19:10:41,947] [INFO] [config.py:988:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-02-21 19:10:41,947] [INFO] [config.py:988:print]   amp_enabled .................. False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   amp_params ................... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   bfloat16_enabled ............. True
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   checkpoint_parallel_write_pipeline  False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   checkpoint_tag_validation_enabled  True
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   checkpoint_tag_validation_fail  False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fc1ccf516c0>
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   communication_data_type ...... None
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   curriculum_enabled_legacy .... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   curriculum_params_legacy ..... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   data_efficiency_enabled ...... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   dataloader_drop_last ......... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   disable_allgather ............ False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   dump_state ................... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   dynamic_loss_scale_args ...... None
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_enabled ........... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_gas_boundary_resolution  1
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_layer_num ......... 0
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_max_iter .......... 100
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_stability ......... 1e-06
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_tol ............... 0.01
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   eigenvalue_verbose ........... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   elasticity_enabled ........... False
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-02-21 19:10:41,948] [INFO] [config.py:988:print]   fp16_auto_cast ............... None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   fp16_enabled ................. False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   fp16_master_weights_and_gradients  False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   global_rank .................. 0
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   grad_accum_dtype ............. None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   gradient_accumulation_steps .. 4
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   gradient_clipping ............ 1.0
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   gradient_predivide_factor .... 1.0
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   graph_harvesting ............. False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   initial_dynamic_scale ........ 1
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   load_universal_checkpoint .... False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   loss_scale ................... 1.0
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   memory_breakdown ............. False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   mics_hierarchial_params_gather  False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   mics_shard_size .............. -1
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   optimizer_legacy_fusion ...... False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   optimizer_name ............... None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   optimizer_params ............. None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   pld_enabled .................. False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   pld_params ................... False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   prescale_gradients ........... False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   scheduler_name ............... None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   scheduler_params ............. None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   seq_parallel_communication_data_type  torch.float32
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   sparse_attention ............. None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   sparse_gradients_enabled ..... False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   steps_per_print .............. inf
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   train_batch_size ............. 256
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   train_micro_batch_size_per_gpu  16
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   use_data_before_expert_parallel_  False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   use_node_local_storage ....... False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   wall_clock_breakdown ......... False
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   weight_quantization_config ... None
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   world_size ................... 4
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   zero_allow_untested_optimizer  True
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 use_multi_rank_bucket_allreduce=True allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=DeepSpeedZeroOffloadOptimizerConfig(device='cpu', nvme_path=None, buffer_count=4, pin_memory=True, pipeline=False, pipeline_read=False, pipeline_write=False, fast_init=False, ratio=1.0) sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-02-21 19:10:41,949] [INFO] [config.py:988:print]   zero_enabled ................. True
+[2024-02-21 19:10:41,950] [INFO] [config.py:988:print]   zero_force_ds_cpu_optimizer .. True
+[2024-02-21 19:10:41,950] [INFO] [config.py:988:print]   zero_optimization_stage ...... 2
+[2024-02-21 19:10:41,950] [INFO] [config.py:974:print_user_config]   json = {
+    "train_batch_size": 256, 
+    "train_micro_batch_size_per_gpu": 16, 
+    "gradient_accumulation_steps": 4, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": false, 
+        "loss_scale": 0, 
+        "initial_scale_power": 16, 
+        "loss_scale_window": 1000, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "offload_optimizer": {
+            "device": "cpu", 
+            "pin_memory": true
+        }, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": true
+    }
+}
+[INFO|trainer.py:1747] 2024-02-21 19:10:41,950 >> ***** Running training *****
+[INFO|trainer.py:1748] 2024-02-21 19:10:41,950 >>   Num examples = 1,000,000
+[INFO|trainer.py:1749] 2024-02-21 19:10:41,950 >>   Num Epochs = 1
+[INFO|trainer.py:1750] 2024-02-21 19:10:41,950 >>   Instantaneous batch size per device = 16
+[INFO|trainer.py:1753] 2024-02-21 19:10:41,950 >>   Total train batch size (w. parallel, distributed & accumulation) = 256
+[INFO|trainer.py:1754] 2024-02-21 19:10:41,950 >>   Gradient Accumulation steps = 4
+[INFO|trainer.py:1755] 2024-02-21 19:10:41,950 >>   Total optimization steps = 3,906
+[INFO|trainer.py:1756] 2024-02-21 19:10:41,952 >>   Number of trainable parameters = 4,328,521,760
+02/21/2024 19:10:41 - WARNING - llmtuner.extras.callbacks - Previous log file in this folder will be deleted.
+  0%|          | 0/3906 [00:00<?, ?it/s]routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+/home/yangdezhao/anaconda3/envs/zhouh/lib/python3.10/site-packages/deepspeed/runtime/zero/stage_1_and_2.py:1290: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+  total_norm_cuda = get_accelerator().FloatTensor([float(total_norm)])
+  0%|          | 1/3906 [00:21<23:35:49, 21.75s/it]routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.routing by langs.
+
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+routing by langs.
+[2024-02-21 19:11:23,319] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1564509
+[2024-02-21 19:11:23,319] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1564510
+[2024-02-21 19:11:26,644] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1564511
+[2024-02-21 19:11:30,171] [INFO] [launch.py:315:sigkill_handler] Killing subprocess 1564512
+[2024-02-21 19:11:32,107] [ERROR] [launch.py:321:sigkill_handler] ['/home/yangdezhao/anaconda3/envs/zhouh/bin/python', '-u', 'src/train_bash.py', '--local_rank=3', '--deepspeed', '/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/config/ds_config_cpu.json', '--stage', 'sft', '--model_name_or_path', '/home/yangdezhao/zhouh_temp/models/Llama-2-7b-hf', '--flash_attn', '--do_train', '--task', 'mt', '--max_samples', '1000000', '--template', 'alpaca', '--src_lang', 'en', '--tgt_lang', 'is', '--dataset', 'opus100_enis', '--preprocessing_num_workers', '20', '--cutoff_len', '2048', '--finetuning_type', 'moe', '--moe_every_k_layers', '1', '--moe_router_type', 'hard', '--moe_num_experts', '2', '--output_dir', '/home/yangdezhao/zhouh_temp/LLaMA-Factory/llama-pt/ckpts/moe-mt-enis', '--overwrite_output_dir', '--overwrite_cache', '--per_device_train_batch_size', '16', '--gradient_accumulation_steps', '4', '--lr_scheduler_type', 'cosine', '--logging_steps', '10', '--save_total_limit', '1', '--save_only_model', '--save_steps', '500000', '--learning_rate', '5e-5', '--num_train_epochs', '1.0', '--plot_loss', '--bf16'] exits with return code = -9

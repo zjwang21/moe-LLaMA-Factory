@@ -1,0 +1,31 @@
+cd ../../
+export WANDB_DISABLED=true
+deepspeed --include="localhost:0,1,2,3" --master_port=9902 src/train_bash.py \
+    --deepspeed /home/yangdezhao/ydz_temp/llm-moe/config/ds.json \
+    --stage pt \
+    --flash_attn \
+    --model_name_or_path /home/yangdezhao/ydz_temp/models/Qwen1.5-7B \
+    --small_path /home/yangdezhao/ydz_temp/models/0.5b-python \
+    --large_path /home/yangdezhao/ydz_temp/models/Qwen1.5-7B \
+    --every_k_layers_small 3 \
+    --every_k_layers_large 4 \
+    --seed 22 \
+    --max_samples 648112 \
+    --do_train \
+    --dataset python \
+    --preprocessing_num_workers 32 \
+    --cutoff_len 1024 \
+    --finetuning_type ca \
+    --output_dir /home/yangdezhao/ydz_temp/checkpoints/merge/qwen/0.5b-bn-7b-ca-0.07 \
+    --overwrite_output_dir \
+    --per_device_train_batch_size 8 \
+    --gradient_accumulation_steps 16 \
+    --lr_scheduler_type cosine \
+    --logging_steps 10 \
+    --save_total_limit 1 \
+    --save_only_model \
+    --save_steps 200 \
+    --learning_rate 2e-4 \
+    --num_train_epochs 1.0 \
+    --plot_loss \
+    --bf16

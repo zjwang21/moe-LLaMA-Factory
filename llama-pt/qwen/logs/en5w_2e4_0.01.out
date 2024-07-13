@@ -1,0 +1,1791 @@
+[2024-05-30 10:28:44,683] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-30 10:28:49,807] [WARNING] [runner.py:203:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+[2024-05-30 10:28:49,829] [INFO] [runner.py:570:main] cmd = /home/nfs02/anaconda3/envs/wzjsz/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=9902 --enable_each_rank_log=None src/train_bash.py --deepspeed /home/wangzj/LLaMA-Factory-hx/llama-pt/config/ds_config.json --stage pt --model_name_or_path /home/nfs04/wangzj/models/Qwen1.5-1.8B --adapter_name_or_path /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe --train_only_router --moe_router_type top2 --polarization_func entropy --polarization_coef 0.01 --use_polarization_loss --do_train --cache_dir /home/nfs04/wangzj/dataset/cache --dataset slimpajam_1b --max_samples 50000 --preprocessing_num_workers 16 --cutoff_len 512 --finetuning_type moe --output_dir /home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w --overwrite_output_dir --per_device_train_batch_size 16 --gradient_accumulation_steps 8 --lr_scheduler_type cosine --logging_steps 10 --save_total_limit 100 --save_steps 10000 --save_only_model --learning_rate 2e-4 --num_train_epochs 1.0 --plot_loss --fp16
+[2024-05-30 10:28:52,183] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-30 10:28:57,385] [INFO] [launch.py:145:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2024-05-30 10:28:57,385] [INFO] [launch.py:151:main] nnodes=1, num_local_procs=4, node_rank=0
+[2024-05-30 10:28:57,385] [INFO] [launch.py:162:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2024-05-30 10:28:57,385] [INFO] [launch.py:163:main] dist_world_size=4
+[2024-05-30 10:28:57,385] [INFO] [launch.py:165:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2024-05-30 10:29:08,452] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-30 10:29:08,463] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-30 10:29:08,470] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-30 10:29:08,494] [INFO] [real_accelerator.py:158:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2024-05-30 10:29:24,523] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-05-30 10:29:24,523] [INFO] [comm.py:668:init_distributed] Initializing TorchBackend in DeepSpeed with backend nccl
+[2024-05-30 10:29:24,772] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-05-30 10:29:24,897] [INFO] [comm.py:637:init_distributed] cdb=None
+[2024-05-30 10:29:25,056] [INFO] [comm.py:637:init_distributed] cdb=None
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+Using the `WANDB_DISABLED` environment variable is deprecated and will be removed in v5. Use the --report_to flag to control the integrations used for logging result (for instance --report_to none).
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Process rank: 3, device: cuda:3, n_gpu: 1
+  distributed training: True, compute dtype: torch.float16
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Process rank: 2, device: cuda:2, n_gpu: 1
+  distributed training: True, compute dtype: torch.float16
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory-hx/llama-pt/config/ds_config.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0002,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=3,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/runs/May30_10-29-24_v100-12,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=10000,
+save_strategy=steps,
+save_total_limit=100,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory-hx/llama-pt/config/ds_config.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0002,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=2,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/runs/May30_10-29-24_v100-12,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=10000,
+save_strategy=steps,
+save_total_limit=100,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Process rank: 0, device: cuda:0, n_gpu: 1
+  distributed training: True, compute dtype: torch.float16
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory-hx/llama-pt/config/ds_config.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0002,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=0,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/runs/May30_10-29-24_v100-12,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=10000,
+save_strategy=steps,
+save_total_limit=100,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Process rank: 1, device: cuda:1, n_gpu: 1
+  distributed training: True, compute dtype: torch.float16
+[INFO|tokenization_utils_base.py:2027] 2024-05-30 10:29:25,081 >> loading file vocab.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-30 10:29:25,081 >> loading file merges.txt
+[INFO|tokenization_utils_base.py:2027] 2024-05-30 10:29:25,081 >> loading file added_tokens.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-30 10:29:25,081 >> loading file special_tokens_map.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-30 10:29:25,081 >> loading file tokenizer_config.json
+[INFO|tokenization_utils_base.py:2027] 2024-05-30 10:29:25,081 >> loading file tokenizer.json
+05/30/2024 10:29:25 - INFO - llmtuner.hparams.parser - Training/evaluation parameters Seq2SeqTrainingArguments(
+_n_gpu=1,
+adafactor=False,
+adam_beta1=0.9,
+adam_beta2=0.999,
+adam_epsilon=1e-08,
+auto_find_batch_size=False,
+bf16=False,
+bf16_full_eval=False,
+data_seed=None,
+dataloader_drop_last=False,
+dataloader_num_workers=0,
+dataloader_persistent_workers=False,
+dataloader_pin_memory=True,
+dataloader_prefetch_factor=None,
+ddp_backend=None,
+ddp_broadcast_buffers=None,
+ddp_bucket_cap_mb=None,
+ddp_find_unused_parameters=None,
+ddp_timeout=1800,
+debug=[],
+deepspeed=/home/wangzj/LLaMA-Factory-hx/llama-pt/config/ds_config.json,
+disable_tqdm=False,
+dispatch_batches=None,
+do_eval=False,
+do_predict=False,
+do_train=True,
+eval_accumulation_steps=None,
+eval_delay=0,
+eval_steps=None,
+evaluation_strategy=no,
+fp16=True,
+fp16_backend=auto,
+fp16_full_eval=False,
+fp16_opt_level=O1,
+fsdp=[],
+fsdp_config={'min_num_params': 0, 'xla': False, 'xla_fsdp_grad_ckpt': False},
+fsdp_min_num_params=0,
+fsdp_transformer_layer_cls_to_wrap=None,
+full_determinism=False,
+generation_config=None,
+generation_max_length=None,
+generation_num_beams=None,
+gradient_accumulation_steps=8,
+gradient_checkpointing=False,
+gradient_checkpointing_kwargs=None,
+greater_is_better=None,
+group_by_length=False,
+half_precision_backend=auto,
+hub_always_push=False,
+hub_model_id=None,
+hub_private_repo=False,
+hub_strategy=every_save,
+hub_token=<HUB_TOKEN>,
+ignore_data_skip=False,
+include_inputs_for_metrics=False,
+include_num_input_tokens_seen=False,
+include_tokens_per_second=False,
+jit_mode_eval=False,
+label_names=None,
+label_smoothing_factor=0.0,
+learning_rate=0.0002,
+length_column_name=length,
+load_best_model_at_end=False,
+local_rank=1,
+log_level=passive,
+log_level_replica=warning,
+log_on_each_node=True,
+logging_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/runs/May30_10-29-25_v100-12,
+logging_first_step=False,
+logging_nan_inf_filter=True,
+logging_steps=10,
+logging_strategy=steps,
+lr_scheduler_kwargs={},
+lr_scheduler_type=cosine,
+max_grad_norm=1.0,
+max_steps=-1,
+metric_for_best_model=None,
+mp_parameters=,
+neftune_noise_alpha=None,
+no_cuda=False,
+num_train_epochs=1.0,
+optim=adamw_torch,
+optim_args=None,
+output_dir=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+overwrite_output_dir=True,
+past_index=-1,
+per_device_eval_batch_size=8,
+per_device_train_batch_size=16,
+predict_with_generate=False,
+prediction_loss_only=False,
+push_to_hub=False,
+push_to_hub_model_id=None,
+push_to_hub_organization=None,
+push_to_hub_token=<PUSH_TO_HUB_TOKEN>,
+ray_scope=last,
+remove_unused_columns=True,
+report_to=[],
+resume_from_checkpoint=None,
+run_name=/home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w,
+save_on_each_node=False,
+save_only_model=True,
+save_safetensors=True,
+save_steps=10000,
+save_strategy=steps,
+save_total_limit=100,
+seed=42,
+skip_memory_metrics=True,
+sortish_sampler=False,
+split_batches=False,
+tf32=None,
+torch_compile=False,
+torch_compile_backend=None,
+torch_compile_mode=None,
+torchdynamo=None,
+tpu_metrics_debug=False,
+tpu_num_cores=None,
+use_cpu=False,
+use_ipex=False,
+use_legacy_prediction_loop=False,
+use_mps_device=False,
+warmup_ratio=0.0,
+warmup_steps=0,
+weight_decay=0.0,
+)
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[WARNING|logging.py:314] 2024-05-30 10:29:25,821 >> Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+Special tokens have been added in the vocabulary, make sure the associated word embeddings are fine-tuned or trained.
+[INFO|configuration_utils.py:727] 2024-05-30 10:29:25,835 >> loading configuration file /home/nfs04/wangzj/models/Qwen1.5-1.8B/config.json
+[INFO|configuration_utils.py:792] 2024-05-30 10:29:25,836 >> Model config Qwen2Config {
+  "_name_or_path": "/home/nfs04/wangzj/models/Qwen1.5-1.8B",
+  "architectures": [
+    "Qwen2ForCausalLM"
+  ],
+  "attention_dropout": 0.0,
+  "bos_token_id": 151643,
+  "eos_token_id": 151643,
+  "hidden_act": "silu",
+  "hidden_size": 2048,
+  "initializer_range": 0.02,
+  "intermediate_size": 5504,
+  "max_position_embeddings": 32768,
+  "max_window_layers": 21,
+  "model_type": "qwen2",
+  "num_attention_heads": 16,
+  "num_hidden_layers": 24,
+  "num_key_value_heads": 16,
+  "rms_norm_eps": 1e-06,
+  "rope_theta": 1000000.0,
+  "sliding_window": 32768,
+  "tie_word_embeddings": false,
+  "torch_dtype": "bfloat16",
+  "transformers_version": "4.38.0.dev0",
+  "use_cache": true,
+  "use_sliding_window": false,
+  "vocab_size": 151936
+}
+
+[INFO|modeling_utils.py:3334] 2024-05-30 10:29:25,982 >> loading weights file /home/nfs04/wangzj/models/Qwen1.5-1.8B/model.safetensors
+[INFO|modeling_utils.py:1459] 2024-05-30 10:29:25,995 >> Instantiating Qwen2ForCausalLM model under default dtype torch.float16.
+[INFO|configuration_utils.py:827] 2024-05-30 10:29:25,997 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "eos_token_id": 151643
+}
+
+[INFO|modeling_utils.py:4070] 2024-05-30 10:29:44,626 >> All model checkpoint weights were used when initializing Qwen2ForCausalLM.
+
+[INFO|modeling_utils.py:4078] 2024-05-30 10:29:44,626 >> All the weights of Qwen2ForCausalLM were initialized from the model checkpoint at /home/nfs04/wangzj/models/Qwen1.5-1.8B.
+If your task is similar to the task the model of the checkpoint was trained on, you can already use Qwen2ForCausalLM for predictions without further training.
+[INFO|configuration_utils.py:780] 2024-05-30 10:29:44,638 >> loading configuration file /home/nfs04/wangzj/models/Qwen1.5-1.8B/generation_config.json
+[INFO|configuration_utils.py:827] 2024-05-30 10:29:44,638 >> Generate config GenerationConfig {
+  "bos_token_id": 151643,
+  "eos_token_id": 151643,
+  "max_new_tokens": 2048
+}
+
+05/30/2024 10:29:44 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+05/30/2024 10:29:44 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+05/30/2024 10:29:44 - INFO - llmtuner.model.adapter - Resume training from moe adapter: /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe.
+05/30/2024 10:29:44 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+05/30/2024 10:29:44 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+05/30/2024 10:29:44 - INFO - llmtuner.model.adapter - Resume training from moe adapter: /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe.
+05/30/2024 10:29:45 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+05/30/2024 10:29:45 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+05/30/2024 10:29:45 - INFO - llmtuner.model.adapter - Resume training from moe adapter: /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe.
+05/30/2024 10:29:45 - INFO - llmtuner.model.patcher - Gradient checkpointing enabled.
+05/30/2024 10:29:45 - INFO - llmtuner.model.adapter - Fine-tuning method: MOE
+05/30/2024 10:29:45 - INFO - llmtuner.model.adapter - Resume training from moe adapter: /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe.
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - MoeConfig(peft_type=<PeftType.MOE: 'MOE'>, auto_mapping=None, base_model_name_or_path='/home/nfs02/wangzj/models/Qwen1.5-1.8B', revision=None, task_type='CAUSAL_LM', inference_mode=False, init_moe_weights=True, router_type='top2', save_router_logits=True, num_experts=2, num_heads=4, topk=2, layers_to_transform=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], save_all_params=False, polarization_coef=0.01, use_polarization_loss=True, polarization_func='entropy')
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Mark only the moe router trainable.
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Loaded adapter(s): /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe
+05/30/2024 10:29:57 - INFO - llmtuner.model.loader - trainable params: 98304 || all params: 2648524800 || trainable%: 0.0037
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - MoeConfig(peft_type=<PeftType.MOE: 'MOE'>, auto_mapping=None, base_model_name_or_path='/home/nfs02/wangzj/models/Qwen1.5-1.8B', revision=None, task_type='CAUSAL_LM', inference_mode=False, init_moe_weights=True, router_type='top2', save_router_logits=True, num_experts=2, num_heads=4, topk=2, layers_to_transform=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], save_all_params=False, polarization_coef=0.01, use_polarization_loss=True, polarization_func='entropy')
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Mark only the moe router trainable.
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Loaded adapter(s): /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe
+05/30/2024 10:29:57 - INFO - llmtuner.model.loader - trainable params: 98304 || all params: 2648524800 || trainable%: 0.0037
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - MoeConfig(peft_type=<PeftType.MOE: 'MOE'>, auto_mapping=None, base_model_name_or_path='/home/nfs02/wangzj/models/Qwen1.5-1.8B', revision=None, task_type='CAUSAL_LM', inference_mode=False, init_moe_weights=True, router_type='top2', save_router_logits=True, num_experts=2, num_heads=4, topk=2, layers_to_transform=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], save_all_params=False, polarization_coef=0.01, use_polarization_loss=True, polarization_func='entropy')
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Mark only the moe router trainable.
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Loaded adapter(s): /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe
+05/30/2024 10:29:57 - INFO - llmtuner.model.loader - trainable params: 98304 || all params: 2648524800 || trainable%: 0.0037
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - MoeConfig(peft_type=<PeftType.MOE: 'MOE'>, auto_mapping=None, base_model_name_or_path='/home/nfs02/wangzj/models/Qwen1.5-1.8B', revision=None, task_type='CAUSAL_LM', inference_mode=False, init_moe_weights=True, router_type='top2', save_router_logits=True, num_experts=2, num_heads=4, topk=2, layers_to_transform=[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23], save_all_params=False, polarization_coef=0.01, use_polarization_loss=True, polarization_func='entropy')
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Mark only the moe router trainable.
+05/30/2024 10:29:57 - INFO - llmtuner.model.adapter - Loaded adapter(s): /home/nfs02/wangzj/checkpoints/llama-moe/qwen/1.8b-arderu6b-moe
+05/30/2024 10:29:57 - INFO - llmtuner.model.loader - trainable params: 98304 || all params: 2648524800 || trainable%: 0.0037
+05/30/2024 10:30:22 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/slimpajam_1b.jsonl.
+Using custom data configuration default-5f559cb30c539bf4
+Loading Dataset Infos from /home/nfs02/anaconda3/envs/wzjsz/lib/python3.10/site-packages/datasets/packaged_modules/json
+Generating dataset json (/home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7)
+Downloading and preparing dataset json/default to /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7...
+Downloading took 0.0 min
+Checksum Computation took 0.0 min
+Generating train split
+Generating train split: 0 examples [00:00, ? examples/s]Generating train split: 2360 examples [00:00, 15557.63 examples/s]Generating train split: 7174 examples [00:00, 26725.59 examples/s]Generating train split: 11597 examples [00:00, 25628.61 examples/s]Generating train split: 15798 examples [00:00, 18935.16 examples/s]Generating train split: 22470 examples [00:00, 24873.65 examples/s]Generating train split: 27414 examples [00:01, 26944.21 examples/s]Generating train split: 31744 examples [00:01, 25362.22 examples/s]Generating train split: 36201 examples [00:01, 26007.31 examples/s]Generating train split: 40614 examples [00:01, 27106.76 examples/s]Generating train split: 44973 examples [00:01, 26283.13 examples/s]Generating train split: 49643 examples [00:01, 28198.73 examples/s]Generating train split: 54006 examples [00:02, 25185.68 examples/s]Generating train split: 58314 examples [00:02, 26489.32 examples/s]Generating train split: 63183 examples [00:02, 29260.93 examples/s]Generating train split: 67766 examples [00:02, 29801.60 examples/s]Generating train split: 72499 examples [00:02, 32208.25 examples/s]Generating train split: 77004 examples [00:02, 31867.31 examples/s]Generating train split: 81662 examples [00:02, 32008.03 examples/s]Generating train split: 88543 examples [00:03, 34982.10 examples/s]Generating train split: 92877 examples [00:03, 35604.69 examples/s]Generating train split: 97257 examples [00:03, 29271.22 examples/s]Generating train split: 102027 examples [00:03, 30300.53 examples/s]Generating train split: 106930 examples [00:03, 30541.46 examples/s]Generating train split: 116498 examples [00:08, 4190.42 examples/s] Generating train split: 121255 examples [00:08, 5342.03 examples/s]Generating train split: 125726 examples [00:08, 6783.47 examples/s]Generating train split: 130120 examples [00:08, 8660.10 examples/s]Generating train split: 134689 examples [00:08, 11098.72 examples/s]Generating train split: 139333 examples [00:08, 13941.68 examples/s]Generating train split: 143900 examples [00:09, 17187.67 examples/s]Generating train split: 148487 examples [00:09, 20537.94 examples/s]Generating train split: 153498 examples [00:09, 24639.59 examples/s]Generating train split: 158099 examples [00:09, 27591.09 examples/s]Generating train split: 162600 examples [00:09, 29262.22 examples/s]Generating train split: 169647 examples [00:09, 32081.61 examples/s]Generating train split: 174668 examples [00:09, 33841.38 examples/s]Generating train split: 179141 examples [00:10, 34390.75 examples/s]Generating train split: 183916 examples [00:10, 35572.96 examples/s]Generating train split: 188490 examples [00:10, 33875.74 examples/s]Generating train split: 193184 examples [00:10, 32893.26 examples/s]Generating train split: 197796 examples [00:10, 32632.68 examples/s]Generating train split: 202452 examples [00:10, 34421.17 examples/s]Generating train split: 207041 examples [00:10, 32884.61 examples/s]Generating train split: 211515 examples [00:11, 31170.48 examples/s]Generating train split: 215976 examples [00:11, 29633.23 examples/s]Generating train split: 220612 examples [00:11, 29643.30 examples/s]Generating train split: 225535 examples [00:11, 30162.60 examples/s]Generating train split: 230248 examples [00:11, 28921.00 examples/s]Generating train split: 234478 examples [00:16, 2774.17 examples/s] Generating train split: 241247 examples [00:16, 4361.31 examples/s]Generating train split: 245888 examples [00:17, 5779.32 examples/s]Generating train split: 250163 examples [00:17, 7356.67 examples/s]Generating train split: 254493 examples [00:17, 9396.69 examples/s]Generating train split: 259230 examples [00:17, 12014.31 examples/s]Generating train split: 263673 examples [00:17, 14936.45 examples/s]Generating train split: 268399 examples [00:17, 18407.16 examples/s]Generating train split: 272721 examples [00:17, 20211.91 examples/s]Generating train split: 277541 examples [00:17, 23688.46 examples/s]Generating train split: 281976 examples [00:18, 25939.16 examples/s]Generating train split: 286820 examples [00:18, 28929.28 examples/s]Generating train split: 291341 examples [00:18, 29921.65 examples/s]Generating train split: 295818 examples [00:18, 30244.39 examples/s]Generating train split: 299972 examples [00:18, 29849.78 examples/s]Generating train split: 304569 examples [00:18, 29426.18 examples/s]Generating train split: 309416 examples [00:18, 29942.72 examples/s]Generating train split: 313846 examples [00:19, 29300.59 examples/s]Generating train split: 318280 examples [00:19, 29791.75 examples/s]Generating train split: 322977 examples [00:19, 32194.55 examples/s]Generating train split: 327315 examples [00:19, 30359.50 examples/s]Generating train split: 331811 examples [00:19, 30380.24 examples/s]Generating train split: 336085 examples [00:19, 30849.48 examples/s]Generating train split: 340776 examples [00:19, 32481.47 examples/s]Generating train split: 345625 examples [00:24, 3060.72 examples/s] Generating train split: 350046 examples [00:24, 4140.78 examples/s]Generating train split: 354589 examples [00:24, 5562.52 examples/s]Generating train split: 359220 examples [00:25, 7291.10 examples/s]Generating train split: 363924 examples [00:25, 9257.61 examples/s]Generating train split: 368512 examples [00:25, 11465.00 examples/s]Generating train split: 373232 examples [00:25, 13823.52 examples/s]Generating train split: 378015 examples [00:25, 17513.25 examples/s]Generating train split: 382452 examples [00:25, 20868.38 examples/s]Generating train split: 387194 examples [00:26, 23500.19 examples/s]Generating train split: 391857 examples [00:26, 26153.05 examples/s]Generating train split: 396140 examples [00:26, 28036.48 examples/s]Generating train split: 401059 examples [00:26, 30464.50 examples/s]Generating train split: 406340 examples [00:26, 33380.70 examples/s]Generating train split: 410946 examples [00:26, 31169.75 examples/s]Generating train split: 415408 examples [00:26, 30571.05 examples/s]Generating train split: 420156 examples [00:27, 30365.20 examples/s]Generating train split: 424728 examples [00:27, 30528.64 examples/s]Generating train split: 429135 examples [00:27, 29877.64 examples/s]Generating train split: 433805 examples [00:27, 30848.53 examples/s]Generating train split: 438695 examples [00:27, 31112.31 examples/s]Generating train split: 443210 examples [00:27, 30398.99 examples/s]Generating train split: 448290 examples [00:27, 32836.92 examples/s]Generating train split: 452476 examples [00:28, 32456.53 examples/s]Generating train split: 457208 examples [00:28, 32241.11 examples/s]Generating train split: 462060 examples [00:32, 3209.15 examples/s] Generating train split: 466743 examples [00:32, 4376.35 examples/s]Generating train split: 471442 examples [00:33, 5889.47 examples/s]Generating train split: 475565 examples [00:33, 7498.17 examples/s]Generating train split: 480430 examples [00:33, 10047.93 examples/s]Generating train split: 485235 examples [00:33, 12866.71 examples/s]Generating train split: 489997 examples [00:33, 16320.36 examples/s]Generating train split: 494684 examples [00:33, 19191.69 examples/s]Generating train split: 499591 examples [00:33, 22762.45 examples/s]Generating train split: 504198 examples [00:34, 25556.89 examples/s]Generating train split: 508977 examples [00:34, 28551.80 examples/s]Generating train split: 513388 examples [00:34, 30242.02 examples/s]Generating train split: 518016 examples [00:34, 30687.24 examples/s]Generating train split: 523137 examples [00:34, 32771.44 examples/s]Generating train split: 527980 examples [00:34, 32078.41 examples/s]Generating train split: 532880 examples [00:34, 33703.87 examples/s]Generating train split: 537624 examples [00:34, 34424.28 examples/s]Generating train split: 542669 examples [00:35, 32459.26 examples/s]Generating train split: 546953 examples [00:35, 28370.66 examples/s]Generating train split: 551469 examples [00:35, 30216.24 examples/s]Generating train split: 556504 examples [00:35, 32077.93 examples/s]Generating train split: 561011 examples [00:35, 30941.08 examples/s]Generating train split: 565986 examples [00:35, 31559.47 examples/s]Generating train split: 571019 examples [00:36, 32711.33 examples/s]Generating train split: 575624 examples [00:36, 31826.27 examples/s]Generating train split: 579849 examples [00:41, 2956.45 examples/s] Generating train split: 584692 examples [00:41, 4164.72 examples/s]Generating train split: 589804 examples [00:41, 5859.54 examples/s]Generating train split: 596713 examples [00:41, 8759.19 examples/s]Generating train split: 604182 examples [00:41, 12563.33 examples/s]Generating train split: 608284 examples [00:41, 14807.29 examples/s]Generating train split: 613065 examples [00:41, 17424.81 examples/s]Generating train split: 619982 examples [00:42, 22504.56 examples/s]Generating train split: 624528 examples [00:42, 25694.69 examples/s]Generating train split: 631495 examples [00:42, 28526.78 examples/s]Generating train split: 636357 examples [00:42, 31268.62 examples/s]Generating train split: 640944 examples [00:42, 32700.07 examples/s]Generating train split: 645795 examples [00:42, 33396.17 examples/s]Generating train split: 649674 examples [00:42, 32383.21 examples/s]Generating train split: 654424 examples [00:42, 33783.21 examples/s]Generating train split: 659176 examples [00:43, 35396.31 examples/s]Generating train split: 663716 examples [00:43, 32796.49 examples/s]Generating train split: 668531 examples [00:43, 32962.76 examples/s]Generating train split: 675569 examples [00:43, 35710.92 examples/s]Generating train split: 680364 examples [00:43, 35975.51 examples/s]Generating train split: 685139 examples [00:43, 37862.39 examples/s]Generating train split: 689781 examples [00:43, 38067.54 examples/s]Generating train split: 696687 examples [00:48, 3789.88 examples/s] Generating train split: 701527 examples [00:48, 5023.25 examples/s]Generating train split: 708824 examples [00:48, 7452.07 examples/s]Generating train split: 713659 examples [00:48, 9399.72 examples/s]Generating train split: 718441 examples [00:49, 11883.71 examples/s]Generating train split: 722847 examples [00:49, 14379.39 examples/s]Generating train split: 729696 examples [00:49, 18226.76 examples/s]Generating train split: 734210 examples [00:49, 20090.61 examples/s]Generating train split: 738610 examples [00:49, 21429.08 examples/s]Generating train split: 743341 examples [00:49, 25294.47 examples/s]Generating train split: 748330 examples [00:49, 28509.29 examples/s]Generating train split: 753052 examples [00:49, 31619.70 examples/s]Generating train split: 757231 examples [00:50, 32974.55 examples/s]Generating train split: 761697 examples [00:50, 33643.01 examples/s]Generating train split: 766477 examples [00:50, 36453.24 examples/s]Generating train split: 773470 examples [00:50, 38822.23 examples/s]Generating train split: 778233 examples [00:50, 38251.36 examples/s]Generating train split: 782199 examples [00:50, 34428.46 examples/s]Generating train split: 786745 examples [00:50, 34958.37 examples/s]Generating train split: 791173 examples [00:51, 32501.02 examples/s]Generating train split: 796112 examples [00:51, 33700.10 examples/s]Generating train split: 800592 examples [00:51, 32641.10 examples/s]Generating train split: 805340 examples [00:51, 32554.32 examples/s]Generating train split: 810299 examples [00:51, 34274.94 examples/s]Generating train split: 814671 examples [00:56, 3098.97 examples/s] Generating train split: 819110 examples [00:56, 4158.45 examples/s]Generating train split: 823785 examples [00:56, 5637.52 examples/s]Generating train split: 828796 examples [00:56, 7645.64 examples/s]Generating train split: 833181 examples [00:56, 9300.58 examples/s]Generating train split: 837737 examples [00:57, 11317.09 examples/s]Generating train split: 841848 examples [00:57, 12995.33 examples/s]Generating train split: 846441 examples [00:57, 16057.06 examples/s]Generating train split: 850994 examples [00:57, 18771.46 examples/s]Generating train split: 855345 examples [00:57, 21500.52 examples/s]Generating train split: 855529 examples [00:59, 14350.63 examples/s]
+Unable to verify splits sizes.
+Dataset json downloaded and prepared to /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7. Subsequent calls will reuse this data.
+Dataset({
+    features: ['text', 'meta', '__index_level_0__'],
+    num_rows: 50000
+})
+{'text': '@interface PodsDummy_XCDLumberjackNSLogger_OSX : NSObject\n@end\n@implementation PodsDummy_XCDLumberjackNSLogger_OSX\n@end\n', 'meta': {'redpajama_set_name': 'RedPajamaGithub'}, '__index_level_0__': 3706}
+Process #0 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00000_of_00016.arrow
+Process #1 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00001_of_00016.arrow
+Process #2 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00002_of_00016.arrow
+Process #3 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00003_of_00016.arrow
+Process #4 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00004_of_00016.arrow
+Process #5 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00005_of_00016.arrow
+Process #6 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00006_of_00016.arrow
+Process #7 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00007_of_00016.arrow
+Process #8 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00008_of_00016.arrow
+Process #9 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00009_of_00016.arrow
+Process #10 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00010_of_00016.arrow
+Process #11 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00011_of_00016.arrow
+Process #12 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00012_of_00016.arrow
+Process #13 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00013_of_00016.arrow
+Process #14 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00014_of_00016.arrow
+Process #15 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00015_of_00016.arrow
+Spawning 16 processes
+Converting format of dataset (num_proc=16):   0%|          | 0/50000 [00:00<?, ? examples/s]Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00000_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00002_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00001_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00003_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00004_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00005_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00008_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00009_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00010_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00007_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00011_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00006_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00012_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00013_of_00016.arrow
+Converting format of dataset (num_proc=16):   2%|▏         | 1000/50000 [00:00<00:30, 1599.61 examples/s]Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00015_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-95d8a670eef2051d_00014_of_00016.arrow
+Converting format of dataset (num_proc=16):  28%|██▊       | 14000/50000 [00:00<00:01, 24940.05 examples/s]Converting format of dataset (num_proc=16):  63%|██████▎   | 31500/50000 [00:00<00:00, 53047.01 examples/s]Converting format of dataset (num_proc=16):  84%|████████▍ | 41875/50000 [00:00<00:00, 59575.43 examples/s]Converting format of dataset (num_proc=16): 100%|██████████| 50000/50000 [00:04<00:00, 10039.78 examples/s]
+Concatenating 16 shards
+Process #0 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00000_of_00016.arrow
+Process #1 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00001_of_00016.arrow
+Process #2 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00002_of_00016.arrow
+Process #3 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00003_of_00016.arrow
+Process #4 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00004_of_00016.arrow
+Process #5 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00005_of_00016.arrow
+Process #6 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00006_of_00016.arrow
+Process #7 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00007_of_00016.arrow
+Process #8 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00008_of_00016.arrow
+Process #9 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00009_of_00016.arrow
+Process #10 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00010_of_00016.arrow
+Process #11 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00011_of_00016.arrow
+Process #12 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00012_of_00016.arrow
+Process #13 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00013_of_00016.arrow
+Process #14 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00014_of_00016.arrow
+Process #15 will write at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00015_of_00016.arrow
+Spawning 16 processes
+Running tokenizer on dataset (num_proc=16):   0%|          | 0/50000 [00:00<?, ? examples/s]05/30/2024 10:32:23 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/slimpajam_1b.jsonl.
+05/30/2024 10:32:23 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/slimpajam_1b.jsonl.
+Dataset({
+    features: ['text', 'meta', '__index_level_0__'],
+    num_rows: 50000
+})
+{'text': '@interface PodsDummy_XCDLumberjackNSLogger_OSX : NSObject\n@end\n@implementation PodsDummy_XCDLumberjackNSLogger_OSX\n@end\n', 'meta': {'redpajama_set_name': 'RedPajamaGithub'}, '__index_level_0__': 3706}
+Dataset({
+    features: ['text', 'meta', '__index_level_0__'],
+    num_rows: 50000
+})
+{'text': '@interface PodsDummy_XCDLumberjackNSLogger_OSX : NSObject\n@end\n@implementation PodsDummy_XCDLumberjackNSLogger_OSX\n@end\n', 'meta': {'redpajama_set_name': 'RedPajamaGithub'}, '__index_level_0__': 3706}
+05/30/2024 10:32:25 - WARNING - llmtuner.data.utils - Checksum failed: mismatched SHA-1 hash value at data/slimpajam_1b.jsonl.
+Dataset({
+    features: ['text', 'meta', '__index_level_0__'],
+    num_rows: 50000
+})
+{'text': '@interface PodsDummy_XCDLumberjackNSLogger_OSX : NSObject\n@end\n@implementation PodsDummy_XCDLumberjackNSLogger_OSX\n@end\n', 'meta': {'redpajama_set_name': 'RedPajamaGithub'}, '__index_level_0__': 3706}
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00000_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):   2%|▏         | 1000/50000 [00:22<18:39, 43.77 examples/s]Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00001_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):   4%|▍         | 2000/50000 [00:29<10:30, 76.17 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:32:58,806 >> Token indices sequence length is longer than the specified maximum sequence length for this model (34999 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00002_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):   6%|▌         | 3000/50000 [00:38<08:47, 89.08 examples/s]Running tokenizer on dataset (num_proc=16):   8%|▊         | 4000/50000 [00:38<05:23, 142.40 examples/s]Running tokenizer on dataset (num_proc=16):  10%|█         | 5000/50000 [00:40<03:46, 198.73 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:33:07,289 >> Token indices sequence length is longer than the specified maximum sequence length for this model (39228 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00003_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  12%|█▏        | 6000/50000 [00:47<04:12, 174.07 examples/s]Running tokenizer on dataset (num_proc=16):  14%|█▍        | 7000/50000 [00:48<03:03, 234.84 examples/s]Running tokenizer on dataset (num_proc=16):  14%|█▍        | 7125/50000 [00:49<03:17, 216.74 examples/s]Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00004_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  16%|█▋        | 8125/50000 [00:50<02:09, 324.08 examples/s]Running tokenizer on dataset (num_proc=16):  18%|█▊        | 9125/50000 [00:53<02:09, 316.04 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:33:15,712 >> Token indices sequence length is longer than the specified maximum sequence length for this model (129191 > 32768). Running this sequence through the model will result in indexing errors
+Running tokenizer on dataset (num_proc=16):  20%|██        | 10125/50000 [00:55<01:44, 379.86 examples/s]Running tokenizer on dataset (num_proc=16):  20%|██        | 10250/50000 [00:55<01:48, 367.07 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:33:25,086 >> Token indices sequence length is longer than the specified maximum sequence length for this model (35848 > 32768). Running this sequence through the model will result in indexing errors
+Running tokenizer on dataset (num_proc=16):  22%|██▎       | 11250/50000 [01:04<03:06, 207.53 examples/s]Running tokenizer on dataset (num_proc=16):  24%|██▍       | 12250/50000 [01:04<02:00, 314.13 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:33:28,488 >> Token indices sequence length is longer than the specified maximum sequence length for this model (43744 > 32768). Running this sequence through the model will result in indexing errors
+[WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:33:28,652 >> Token indices sequence length is longer than the specified maximum sequence length for this model (38252 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00005_of_00016.arrow
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00006_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  26%|██▋       | 13250/50000 [01:08<02:05, 292.06 examples/s]Running tokenizer on dataset (num_proc=16):  30%|███       | 15250/50000 [01:11<01:25, 405.48 examples/s]Running tokenizer on dataset (num_proc=16):  31%|███       | 15375/50000 [01:14<01:55, 299.39 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:33:35,928 >> Token indices sequence length is longer than the specified maximum sequence length for this model (105369 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00007_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  33%|███▎      | 16375/50000 [01:15<01:33, 358.30 examples/s]Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00008_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  35%|███▍      | 17375/50000 [01:18<01:33, 348.34 examples/s]Running tokenizer on dataset (num_proc=16):  37%|███▋      | 18375/50000 [01:19<01:05, 482.41 examples/s]Running tokenizer on dataset (num_proc=16):  39%|███▉      | 19375/50000 [01:20<01:00, 507.48 examples/s]Running tokenizer on dataset (num_proc=16):  39%|███▉      | 19500/50000 [01:22<01:18, 388.73 examples/s]Running tokenizer on dataset (num_proc=16):  39%|███▉      | 19625/50000 [01:22<01:16, 399.10 examples/s]Running tokenizer on dataset (num_proc=16):  43%|████▎     | 21625/50000 [01:23<00:31, 906.83 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:33:49,266 >> Token indices sequence length is longer than the specified maximum sequence length for this model (51131 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00009_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  45%|████▌     | 22625/50000 [01:28<01:06, 413.19 examples/s]Running tokenizer on dataset (num_proc=16):  47%|████▋     | 23625/50000 [01:29<00:51, 511.91 examples/s]Running tokenizer on dataset (num_proc=16):  49%|████▉     | 24625/50000 [01:32<00:59, 426.27 examples/s]Running tokenizer on dataset (num_proc=16):  51%|█████▏    | 25625/50000 [01:39<01:32, 264.65 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:34:01,454 >> Token indices sequence length is longer than the specified maximum sequence length for this model (36232 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00010_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  52%|█████▏    | 25750/50000 [01:41<01:41, 238.84 examples/s]Running tokenizer on dataset (num_proc=16):  54%|█████▎    | 26750/50000 [01:41<01:03, 367.66 examples/s]Running tokenizer on dataset (num_proc=16):  56%|█████▌    | 27750/50000 [01:42<00:45, 492.22 examples/s]Running tokenizer on dataset (num_proc=16):  58%|█████▊    | 28875/50000 [01:43<00:35, 587.52 examples/s]Running tokenizer on dataset (num_proc=16):  60%|██████    | 30000/50000 [01:44<00:32, 624.47 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:34:07,363 >> Token indices sequence length is longer than the specified maximum sequence length for this model (194308 > 32768). Running this sequence through the model will result in indexing errors
+Running tokenizer on dataset (num_proc=16):  60%|██████    | 30125/50000 [01:46<00:38, 510.39 examples/s]Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00011_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  62%|██████▏   | 31125/50000 [01:47<00:31, 595.82 examples/s]Running tokenizer on dataset (num_proc=16):  64%|██████▍   | 32125/50000 [01:52<00:51, 349.65 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:34:15,344 >> Token indices sequence length is longer than the specified maximum sequence length for this model (130268 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00012_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  66%|██████▋   | 33125/50000 [01:54<00:45, 370.30 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:34:20,250 >> Token indices sequence length is longer than the specified maximum sequence length for this model (84321 > 32768). Running this sequence through the model will result in indexing errors
+Running tokenizer on dataset (num_proc=16):  68%|██████▊   | 34125/50000 [01:58<00:50, 314.51 examples/s]Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00013_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  70%|███████   | 35125/50000 [02:00<00:38, 388.73 examples/s]Running tokenizer on dataset (num_proc=16):  72%|███████▏  | 36125/50000 [02:04<00:43, 316.57 examples/s]Running tokenizer on dataset (num_proc=16):  74%|███████▍  | 37125/50000 [02:06<00:36, 348.26 examples/s]Running tokenizer on dataset (num_proc=16):  76%|███████▋  | 38125/50000 [02:07<00:24, 481.66 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:34:29,673 >> Token indices sequence length is longer than the specified maximum sequence length for this model (61819 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00014_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  78%|███████▊  | 39250/50000 [02:09<00:22, 483.03 examples/s]Running tokenizer on dataset (num_proc=16):  80%|████████  | 40250/50000 [02:11<00:19, 494.65 examples/s]Running tokenizer on dataset (num_proc=16):  81%|████████  | 40375/50000 [02:13<00:28, 338.01 examples/s]Running tokenizer on dataset (num_proc=16):  83%|████████▎ | 41375/50000 [02:14<00:18, 456.23 examples/s][WARNING|tokenization_utils_base.py:3843] 2024-05-30 10:34:39,913 >> Token indices sequence length is longer than the specified maximum sequence length for this model (124423 > 32768). Running this sequence through the model will result in indexing errors
+Caching processed dataset at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-61a9a2e388e1bde0_00015_of_00016.arrow
+Running tokenizer on dataset (num_proc=16):  85%|████████▍ | 42375/50000 [02:19<00:23, 324.02 examples/s]Running tokenizer on dataset (num_proc=16):  87%|████████▋ | 43375/50000 [02:19<00:14, 460.05 examples/s]Running tokenizer on dataset (num_proc=16):  89%|████████▉ | 44375/50000 [02:20<00:09, 593.35 examples/s]Running tokenizer on dataset (num_proc=16):  91%|█████████ | 45375/50000 [02:21<00:06, 763.25 examples/s]Running tokenizer on dataset (num_proc=16):  91%|█████████▏| 45625/50000 [02:22<00:06, 633.35 examples/s]Running tokenizer on dataset (num_proc=16):  93%|█████████▎| 46625/50000 [02:29<00:11, 281.60 examples/s]Running tokenizer on dataset (num_proc=16):  94%|█████████▎| 46750/50000 [02:30<00:13, 243.43 examples/s]Running tokenizer on dataset (num_proc=16):  96%|█████████▌| 47750/50000 [02:32<00:07, 304.37 examples/s]Running tokenizer on dataset (num_proc=16):  98%|█████████▊| 48750/50000 [02:35<00:03, 325.82 examples/s]Running tokenizer on dataset (num_proc=16):  98%|█████████▊| 48875/50000 [02:36<00:04, 280.42 examples/s]Running tokenizer on dataset (num_proc=16): 100%|█████████▉| 49875/50000 [02:43<00:00, 205.58 examples/s]Running tokenizer on dataset (num_proc=16): 100%|██████████| 50000/50000 [02:44<00:00, 189.81 examples/s]Running tokenizer on dataset (num_proc=16): 100%|██████████| 50000/50000 [02:46<00:00, 301.11 examples/s]
+Concatenating 16 shards
+input_ids:
+[12093, 70290, 6859, 6484, 43, 890, 27134, 2448, 7395, 30400, 55, 549, 26209, 198, 6622, 198, 16578, 70290, 6859, 6484, 43, 890, 27134, 2448, 7395, 30400, 55, 198, 6622, 198, 151643, 7039, 33976, 432, 646, 387, 264, 2699, 312, 2015, 1388, 311, 3270, 458, 4549, 911, 279, 10990, 7070, 14429, 3840, 438, 1052, 374, 825, 304, 1449, 1614, 14418, 504, 882, 311, 882, 11, 323, 279, 3482, 374, 49485, 448, 1105, 304, 1449, 4128, 369, 5019, 879, 30997, 311, 1349, 1105, 13, 2055, 358, 686, 36355, 304, 11629, 1246, 358, 5798, 323, 23983, 279, 1614, 624, 34762, 1635, 4134, 16145, 6635, 311, 1281, 1549, 862, 10990, 7070, 14429, 31496, 438, 807, 1030, 264, 501, 3093, 315, 50270, 82, 429, 1410, 15551, 279, 12188, 504, 2155, 11067, 323, 25941, 323, 8450, 1281, 64255, 323, 803, 35201, 9666, 13, 2379, 3381, 429, 3432, 419, 501, 5440, 432, 1035, 387, 2664, 311, 8193, 1549, 279, 330, 1040, 1211, 1, 1091, 894, 1008, 25546, 6174, 323, 432, 4977, 429, 807, 1033, 1290, 438, 1449, 1463, 7073, 10788, 825, 52163, 269, 803, 624, 9485, 501, 50270, 82, 1033, 537, 279, 1172, 501, 3166, 304, 1493, 4119, 11, 807, 1030, 264, 738, 315, 13918, 7746, 2669, 18663, 504, 279, 8151, 1137, 5527, 311, 41740, 11, 1045, 6548, 36780, 9317, 5479, 323, 501, 97685, 624, 2121, 5135, 438, 358, 8930, 279, 3745, 358, 1030, 264, 1602, 2797, 2168, 315, 279, 3093, 315, 1614, 358, 4829, 311, 1281, 11, 358, 1030, 3884, 10077, 315, 24248, 304, 279, 6467, 11, 1602, 76873, 12645, 98732, 448, 25386, 424, 429, 95758, 2310, 7218, 76024, 624, 2461, 419, 2390, 358, 6635, 311, 990, 279, 5235, 18457, 53514, 22293, 738, 369, 279, 10990, 7070, 14429, 429, 374, 2167, 14452, 323, 18304, 13942, 624, 2132, 4436, 944, 16965, 438, 279, 5479, 4946, 1602, 1632, 323, 279, 11221, 525, 1602, 2797, 11, 2337, 279, 1882, 582, 686, 1172, 614, 311, 1896, 2453, 979, 11589, 279, 2632, 5479, 311, 5648, 14719, 1105, 476, 11785, 11, 775, 14421, 1105, 13, 1634, 847, 4522, 504, 279, 7167, 572, 311, 4009, 264, 12896, 448, 279, 23603, 86968, 18824, 24569, 23704, 700, 11, 358, 23983, 279, 1614, 448, 5938, 12258, 25685, 12463, 438, 358, 5798, 432, 311, 614, 419, 12463, 2331, 369, 279, 2937, 330, 35012, 18824, 1, 14762, 358, 1035, 3796, 389, 279, 86968, 13, 2055, 358, 5798, 279, 44909, 323, 279, 64386, 9380, 15663, 279, 305, 9118, 11, 22696, 11, 39932, 13569, 11, 4992, 13, 14576, 311, 6707, 6177, 279, 65739, 448, 279, 15625, 476, 279, 68348, 13, 151643, 641, 3213, 1635, 358, 614, 65806, 3807, 52269, 14697, 304, 847, 2205, 3082, 13, 20035, 537, 3884, 894, 32319, 15570, 4730, 5926, 358, 572, 18442, 311, 1490, 458, 52269, 16262, 825, 315, 847, 22791, 14697, 264, 5625, 315, 2849, 4134, 13, 60033, 358, 9099, 847, 8849, 6249, 14046, 311, 1490, 421, 279, 52269, 374, 264, 5792, 20181, 13, 3197, 358, 10067, 279, 21852, 419, 6556, 358, 572, 33972, 311, 1490, 358, 614, 264, 6716, 315, 32319, 15570, 4730, 304, 21682, 13, 358, 2776, 10282, 4297, 27031, 1431, 304, 279, 3900, 429]
+inputs:
+@interface PodsDummy_XCDLumberjackNSLogger_OSX : NSObject
+@end
+@implementation PodsDummy_XCDLumberjackNSLogger_OSX
+@end
+<|endoftext|>Nowadays it can be a bit reiterative to write an article about the Panzer III history as there is one in every model magazine from time to time, and the web is saturated with them in every language for everyone who desires to read them. So I will concentrate in telling how I built and painted the model.
+Several years ago Dragon decided to make again their Panzer III kits as they had a new kind of moulds that could inject the plastic from different sides and angles and thus make thinner and more delicate pieces. They thought that having this new technology it would be better to produce again the "classics" than any other newer ones and it seems that they were right as every modeller bought one…..or more.
+These new moulds were not the only new thing in these models, they had a set of tracks links already separated from the sprues ready to assemble, some photoetched metal parts and new decals.
+As soon as I opened the box I had a very clear image of the kind of model I wanted to make, I had seen lots of photographs in the books, very dusty machines cramped with equipage that resembled old moving vans.
+For this project I decided to use the Blackdog resin accessories set for the Panzer III that is really suitable and fits perfectly.
+It isn't complicated as the parts fit very well and the instructions are very clear, during the process we will only have to take care when handling the little parts to avoid breaking them or worst, loosing them. As my idea from the beginning was to represent a tank with the desert camouflage painting badly worn out, I painted the model with German Dark Grey colour as I built it to have this colour base for the later "soap painting" technique I would apply on the camouflage. So I built the chassis and the turret leaving aside the hatches, wheels, antenna rail, etc. mainly to easily paint the scratches with the brush or the sponge.<|endoftext|>In recent years I have erected several owl boxes in my local area. Having not seen any barn owls recently I was pleased to see an owl entering one of my nest boxes a couple of days ago. Yesterday I placed my trail camera nearby to see if the owl is a regular visitor. When I checked the footage this morning I was delighted to see I have a pair of barn owls in residence. I'm keeping everything crossed now in the hope that
+Caching indices mapping at /home/nfs04/wangzj/dataset/cache/json/default-5f559cb30c539bf4/0.0.0/c8d2d9508a2a2067ab02cd118834ecef34c3700d143b31835ec4235bf10109f7/cache-0ba0df05fc291c57.arrow
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 101106
+})
+PeftModelForCausalLM(
+  (base_model): MoeModel(
+    (model): Qwen2ForCausalLM(
+      (model): Qwen2Model(
+        (embed_tokens): Embedding(151936, 2048)
+        (layers): ModuleList(
+          (0): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (1): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (2): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (3): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (4): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (5): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (6): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (7): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (8): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (9): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (10): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (11): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (12): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (13): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (14): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (15): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (16): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (17): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (18): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (19): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (20): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (21): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (22): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+          (23): Qwen2DecoderLayer(
+            (self_attn): Qwen2Attention(
+              (q_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (k_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (v_proj): Linear(in_features=2048, out_features=2048, bias=True)
+              (o_proj): Linear(in_features=2048, out_features=2048, bias=False)
+              (rotary_emb): Qwen2RotaryEmbedding()
+            )
+            (mlp): moe.MLP(
+              (base_layer): Qwen2MLP(
+                (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                (act_fn): SiLU()
+              )
+              (moe_router_embedding): ModuleDict(
+                (default): Linear(in_features=2048, out_features=2, bias=False)
+              )
+              (moe_experts): ModuleDict(
+                (default): ModuleList(
+                  (0): Qwen2MLP(
+                    (gate_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (up_proj): Linear(in_features=2048, out_features=5504, bias=False)
+                    (down_proj): Linear(in_features=5504, out_features=2048, bias=False)
+                    (act_fn): SiLU()
+                  )
+                )
+              )
+            )
+            (input_layernorm): Qwen2RMSNorm()
+            (post_attention_layernorm): Qwen2RMSNorm()
+          )
+        )
+        (norm): Qwen2RMSNorm()
+      )
+      (lm_head): Linear(in_features=2048, out_features=151936, bias=False)
+    )
+  )
+)
+Detected kernel version 4.15.0, which is below the recommended minimum of 5.5.0; this can cause the process to hang. It is recommended to upgrade the kernel to the minimum version or higher.
+[INFO|trainer.py:586] 2024-05-30 10:35:08,854 >> Using auto half precision backend
+[2024-05-30 10:35:09,840] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed info: version=0.12.3, git-hash=unknown, git-branch=unknown
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 101106
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 101106
+})
+Dataset({
+    features: ['input_ids', 'attention_mask'],
+    num_rows: 101106
+})
+[2024-05-30 10:35:21,438] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Flops Profiler Enabled: False
+[2024-05-30 10:35:21,440] [INFO] [logging.py:96:log_dist] [Rank 0] Using client Optimizer as basic optimizer
+[2024-05-30 10:35:21,440] [INFO] [logging.py:96:log_dist] [Rank 0] Removing param_group that has no 'params' in the basic Optimizer
+[2024-05-30 10:35:21,452] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Basic Optimizer = AdamW
+[2024-05-30 10:35:21,452] [INFO] [utils.py:56:is_zero_supported_optimizer] Checking ZeRO support for optimizer=AdamW type=<class 'torch.optim.adamw.AdamW'>
+[2024-05-30 10:35:21,453] [INFO] [logging.py:96:log_dist] [Rank 0] Creating torch.float16 ZeRO stage 2 optimizer
+[2024-05-30 10:35:21,453] [INFO] [stage_1_and_2.py:147:__init__] Reduce bucket size 500000000
+[2024-05-30 10:35:21,453] [INFO] [stage_1_and_2.py:148:__init__] Allgather bucket size 500000000
+[2024-05-30 10:35:21,453] [INFO] [stage_1_and_2.py:149:__init__] CPU Offload: False
+[2024-05-30 10:35:21,453] [INFO] [stage_1_and_2.py:150:__init__] Round robin gradient partitioning: False
+[2024-05-30 10:35:22,142] [INFO] [utils.py:802:see_memory_usage] Before initializing optimizer states
+[2024-05-30 10:35:22,143] [INFO] [utils.py:803:see_memory_usage] MA 5.38 GB         Max_MA 5.38 GB         CA 5.66 GB         Max_CA 6 GB 
+[2024-05-30 10:35:22,143] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 43.27 GB, percent = 20.0%
+[2024-05-30 10:35:22,479] [INFO] [utils.py:802:see_memory_usage] After initializing optimizer states
+[2024-05-30 10:35:22,479] [INFO] [utils.py:803:see_memory_usage] MA 5.38 GB         Max_MA 5.38 GB         CA 5.66 GB         Max_CA 6 GB 
+[2024-05-30 10:35:22,480] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 43.27 GB, percent = 20.0%
+[2024-05-30 10:35:22,480] [INFO] [stage_1_and_2.py:514:__init__] optimizer state initialized
+[2024-05-30 10:35:22,819] [INFO] [utils.py:802:see_memory_usage] After initializing ZeRO optimizer
+[2024-05-30 10:35:22,820] [INFO] [utils.py:803:see_memory_usage] MA 5.38 GB         Max_MA 5.38 GB         CA 5.66 GB         Max_CA 6 GB 
+[2024-05-30 10:35:22,820] [INFO] [utils.py:810:see_memory_usage] CPU Virtual Memory:  used = 43.27 GB, percent = 20.0%
+[2024-05-30 10:35:22,820] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed Final Optimizer = AdamW
+[2024-05-30 10:35:22,820] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed using client LR scheduler
+[2024-05-30 10:35:22,820] [INFO] [logging.py:96:log_dist] [Rank 0] DeepSpeed LR Scheduler = None
+[2024-05-30 10:35:22,820] [INFO] [logging.py:96:log_dist] [Rank 0] step=0, skipped=0, lr=[0.0002], mom=[(0.9, 0.999)]
+[2024-05-30 10:35:22,822] [INFO] [config.py:974:print] DeepSpeedEngine configuration:
+[2024-05-30 10:35:22,822] [INFO] [config.py:978:print]   activation_checkpointing_config  {
+    "partition_activations": false, 
+    "contiguous_memory_optimization": false, 
+    "cpu_checkpointing": false, 
+    "number_checkpoints": null, 
+    "synchronize_checkpoint_boundary": false, 
+    "profile": false
+}
+[2024-05-30 10:35:22,822] [INFO] [config.py:978:print]   aio_config ................... {'block_size': 1048576, 'queue_depth': 8, 'thread_count': 1, 'single_submit': False, 'overlap_events': True}
+[2024-05-30 10:35:22,822] [INFO] [config.py:978:print]   amp_enabled .................. False
+[2024-05-30 10:35:22,822] [INFO] [config.py:978:print]   amp_params ................... False
+[2024-05-30 10:35:22,822] [INFO] [config.py:978:print]   autotuning_config ............ {
+    "enabled": false, 
+    "start_step": null, 
+    "end_step": null, 
+    "metric_path": null, 
+    "arg_mappings": null, 
+    "metric": "throughput", 
+    "model_info": null, 
+    "results_dir": "autotuning_results", 
+    "exps_dir": "autotuning_exps", 
+    "overwrite": true, 
+    "fast": true, 
+    "start_profile_step": 3, 
+    "end_profile_step": 5, 
+    "tuner_type": "gridsearch", 
+    "tuner_early_stopping": 5, 
+    "tuner_num_trials": 50, 
+    "model_info_path": null, 
+    "mp_size": 1, 
+    "max_train_batch_size": null, 
+    "min_train_batch_size": 1, 
+    "max_train_micro_batch_size_per_gpu": 1.024000e+03, 
+    "min_train_micro_batch_size_per_gpu": 1, 
+    "num_tuning_micro_batch_sizes": 3
+}
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   bfloat16_enabled ............. False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   checkpoint_parallel_write_pipeline  False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   checkpoint_tag_validation_enabled  True
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   checkpoint_tag_validation_fail  False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   comms_config ................. <deepspeed.comm.config.DeepSpeedCommsConfig object at 0x7fca1749ebf0>
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   communication_data_type ...... None
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   compression_config ........... {'weight_quantization': {'shared_parameters': {'enabled': False, 'quantizer_kernel': False, 'schedule_offset': 0, 'quantize_groups': 1, 'quantize_verbose': False, 'quantization_type': 'symmetric', 'quantize_weight_in_forward': False, 'rounding': 'nearest', 'fp16_mixed_quantize': False, 'quantize_change_ratio': 0.001}, 'different_groups': {}}, 'activation_quantization': {'shared_parameters': {'enabled': False, 'quantization_type': 'symmetric', 'range_calibration': 'dynamic', 'schedule_offset': 1000}, 'different_groups': {}}, 'sparse_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'row_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'head_pruning': {'shared_parameters': {'enabled': False, 'method': 'topk', 'schedule_offset': 1000}, 'different_groups': {}}, 'channel_pruning': {'shared_parameters': {'enabled': False, 'method': 'l1', 'schedule_offset': 1000}, 'different_groups': {}}, 'layer_reduction': {'enabled': False}}
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   curriculum_enabled_legacy .... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   curriculum_params_legacy ..... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   data_efficiency_config ....... {'enabled': False, 'seed': 1234, 'data_sampling': {'enabled': False, 'num_epochs': 1000, 'num_workers': 0, 'curriculum_learning': {'enabled': False}}, 'data_routing': {'enabled': False, 'random_ltd': {'enabled': False, 'layer_token_lr_schedule': {'enabled': False}}}}
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   data_efficiency_enabled ...... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   dataloader_drop_last ......... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   disable_allgather ............ False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   dump_state ................... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   dynamic_loss_scale_args ...... {'init_scale': 65536, 'scale_window': 1000, 'delayed_shift': 2, 'consecutive_hysteresis': False, 'min_scale': 1}
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_enabled ........... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_gas_boundary_resolution  1
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_layer_name ........ bert.encoder.layer
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_layer_num ......... 0
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_max_iter .......... 100
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_stability ......... 1e-06
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_tol ............... 0.01
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   eigenvalue_verbose ........... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   elasticity_enabled ........... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   flops_profiler_config ........ {
+    "enabled": false, 
+    "recompute_fwd_factor": 0.0, 
+    "profile_step": 1, 
+    "module_depth": -1, 
+    "top_modules": 1, 
+    "detailed": true, 
+    "output_file": null
+}
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   fp16_auto_cast ............... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   fp16_enabled ................. True
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   fp16_master_weights_and_gradients  False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   global_rank .................. 0
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   grad_accum_dtype ............. None
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   gradient_accumulation_steps .. 8
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   gradient_clipping ............ 1.0
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   gradient_predivide_factor .... 1.0
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   hybrid_engine ................ enabled=False max_out_tokens=512 inference_tp_size=1 release_inference_cache=False pin_parameters=True tp_gather_partition_size=8
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   initial_dynamic_scale ........ 65536
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   load_universal_checkpoint .... False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   loss_scale ................... 0
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   memory_breakdown ............. False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   mics_hierarchial_params_gather  False
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   mics_shard_size .............. -1
+[2024-05-30 10:35:22,823] [INFO] [config.py:978:print]   monitor_config ............... tensorboard=TensorBoardConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') wandb=WandbConfig(enabled=False, group=None, team=None, project='deepspeed') csv_monitor=CSVConfig(enabled=False, output_path='', job_name='DeepSpeedJobName') enabled=False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   nebula_config ................ {
+    "enabled": false, 
+    "persistent_storage_path": null, 
+    "persistent_time_interval": 100, 
+    "num_of_version_in_retention": 2, 
+    "enable_nebula_load": true, 
+    "load_path": null
+}
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   optimizer_legacy_fusion ...... False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   optimizer_name ............... None
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   optimizer_params ............. None
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   pipeline ..................... {'stages': 'auto', 'partition': 'best', 'seed_layers': False, 'activation_checkpoint_interval': 0, 'pipe_partitioned': True, 'grad_partitioned': True}
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   pld_enabled .................. False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   pld_params ................... False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   prescale_gradients ........... False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   scheduler_name ............... None
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   scheduler_params ............. None
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   seq_parallel_communication_data_type  torch.float32
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   sparse_attention ............. None
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   sparse_gradients_enabled ..... False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   steps_per_print .............. inf
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   train_batch_size ............. 512
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   train_micro_batch_size_per_gpu  16
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   use_node_local_storage ....... False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   wall_clock_breakdown ......... False
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   weight_quantization_config ... None
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   world_size ................... 4
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   zero_allow_untested_optimizer  True
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   zero_config .................. stage=2 contiguous_gradients=True reduce_scatter=True reduce_bucket_size=500000000 allgather_partitions=True allgather_bucket_size=500000000 overlap_comm=True load_from_fp32_weights=True elastic_checkpoint=False offload_param=None offload_optimizer=None sub_group_size=1,000,000,000 cpu_offload_param=None cpu_offload_use_pin_memory=None cpu_offload=None prefetch_bucket_size=50,000,000 param_persistence_threshold=100,000 model_persistence_threshold=sys.maxsize max_live_parameters=1,000,000,000 max_reuse_distance=1,000,000,000 gather_16bit_weights_on_model_save=False stage3_gather_fp16_weights_on_model_save=False ignore_unused_parameters=True legacy_stage1=False round_robin_gradients=False zero_hpz_partition_size=1 zero_quantized_weights=False zero_quantized_nontrainable_weights=False zero_quantized_gradients=False mics_shard_size=-1 mics_hierarchical_params_gather=False memory_efficient_linear=True pipeline_loading_checkpoint=False override_module_apply=True
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   zero_enabled ................. True
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   zero_force_ds_cpu_optimizer .. True
+[2024-05-30 10:35:22,824] [INFO] [config.py:978:print]   zero_optimization_stage ...... 2
+[2024-05-30 10:35:22,824] [INFO] [config.py:964:print_user_config]   json = {
+    "train_batch_size": 512, 
+    "train_micro_batch_size_per_gpu": 16, 
+    "gradient_accumulation_steps": 8, 
+    "gradient_clipping": 1.0, 
+    "zero_allow_untested_optimizer": true, 
+    "fp16": {
+        "enabled": true, 
+        "loss_scale": 0, 
+        "initial_scale_power": 16, 
+        "loss_scale_window": 1000, 
+        "hysteresis": 2, 
+        "min_loss_scale": 1
+    }, 
+    "zero_optimization": {
+        "stage": 2, 
+        "allgather_partitions": true, 
+        "allgather_bucket_size": 5.000000e+08, 
+        "overlap_comm": true, 
+        "reduce_scatter": true, 
+        "reduce_bucket_size": 5.000000e+08, 
+        "contiguous_gradients": true
+    }, 
+    "steps_per_print": inf, 
+    "bf16": {
+        "enabled": false
+    }
+}
+[INFO|trainer.py:1748] 2024-05-30 10:35:22,824 >> ***** Running training *****
+[INFO|trainer.py:1749] 2024-05-30 10:35:22,824 >>   Num examples = 101,106
+[INFO|trainer.py:1750] 2024-05-30 10:35:22,824 >>   Num Epochs = 1
+[INFO|trainer.py:1751] 2024-05-30 10:35:22,824 >>   Instantaneous batch size per device = 16
+[INFO|trainer.py:1754] 2024-05-30 10:35:22,824 >>   Total train batch size (w. parallel, distributed & accumulation) = 512
+[INFO|trainer.py:1755] 2024-05-30 10:35:22,824 >>   Gradient Accumulation steps = 8
+[INFO|trainer.py:1756] 2024-05-30 10:35:22,824 >>   Total optimization steps = 197
+[INFO|trainer.py:1757] 2024-05-30 10:35:22,826 >>   Number of trainable parameters = 98,304
+  0%|          | 0/197 [00:00<?, ?it/s]  1%|          | 1/197 [00:38<2:07:05, 38.91s/it]  1%|          | 2/197 [01:11<1:55:03, 35.40s/it]  2%|▏         | 3/197 [01:44<1:49:42, 33.93s/it]  2%|▏         | 4/197 [02:16<1:47:03, 33.28s/it]  3%|▎         | 5/197 [02:49<1:45:51, 33.08s/it]  3%|▎         | 6/197 [03:22<1:45:29, 33.14s/it]  4%|▎         | 7/197 [03:55<1:45:19, 33.26s/it]  4%|▍         | 8/197 [04:28<1:44:24, 33.15s/it]  5%|▍         | 9/197 [05:01<1:43:34, 33.06s/it]  5%|▌         | 10/197 [05:33<1:42:11, 32.79s/it]                                                  {'loss': 2.81, 'learning_rate': 0.00019873113120936074, 'epoch': 0.05}
+  5%|▌         | 10/197 [05:33<1:42:11, 32.79s/it]                                                  {'learning_rate': 0.00019873113120936074, 'aux_loss': 0.27711302042007446, 'epoch': 0.05}
+  5%|▌         | 10/197 [05:35<1:42:11, 32.79s/it]  6%|▌         | 11/197 [06:06<1:41:33, 32.76s/it]  6%|▌         | 12/197 [06:39<1:40:53, 32.72s/it]  7%|▋         | 13/197 [07:11<1:40:13, 32.68s/it]  7%|▋         | 14/197 [07:44<1:39:37, 32.67s/it]  8%|▊         | 15/197 [08:17<1:39:35, 32.83s/it]  8%|▊         | 16/197 [08:52<1:40:53, 33.45s/it]  9%|▊         | 17/197 [09:26<1:40:28, 33.49s/it]  9%|▉         | 18/197 [09:59<1:39:39, 33.40s/it] 10%|▉         | 19/197 [10:32<1:39:04, 33.39s/it] 10%|█         | 20/197 [11:05<1:37:52, 33.18s/it]                                                  {'loss': 2.7667, 'learning_rate': 0.00019495672539760007, 'epoch': 0.1}
+ 10%|█         | 20/197 [11:05<1:37:52, 33.18s/it]                                                  {'learning_rate': 0.00019495672539760007, 'aux_loss': 0.3001454174518585, 'epoch': 0.1}
+ 10%|█         | 20/197 [11:06<1:37:52, 33.18s/it] 11%|█         | 21/197 [11:38<1:37:02, 33.08s/it] 11%|█         | 22/197 [12:12<1:37:13, 33.34s/it] 12%|█▏        | 23/197 [12:45<1:36:41, 33.34s/it] 12%|█▏        | 24/197 [13:18<1:35:44, 33.20s/it] 13%|█▎        | 25/197 [13:49<1:33:38, 32.67s/it] 13%|█▎        | 26/197 [14:23<1:33:43, 32.89s/it] 14%|█▎        | 27/197 [14:55<1:33:07, 32.87s/it] 14%|█▍        | 28/197 [15:30<1:33:51, 33.32s/it] 15%|█▍        | 29/197 [16:02<1:32:34, 33.06s/it] 15%|█▌        | 30/197 [16:36<1:32:30, 33.23s/it]                                                  {'loss': 2.7567, 'learning_rate': 0.00018877256707947306, 'epoch': 0.15}
+ 15%|█▌        | 30/197 [16:36<1:32:30, 33.23s/it]                                                  {'learning_rate': 0.00018877256707947306, 'aux_loss': 0.3296470642089844, 'epoch': 0.15}
+ 15%|█▌        | 30/197 [16:38<1:32:30, 33.23s/it] 16%|█▌        | 31/197 [17:09<1:32:14, 33.34s/it] 16%|█▌        | 32/197 [17:43<1:32:07, 33.50s/it] 17%|█▋        | 33/197 [18:16<1:30:44, 33.20s/it] 17%|█▋        | 34/197 [18:48<1:29:13, 32.85s/it] 18%|█▊        | 35/197 [19:21<1:29:11, 33.04s/it] 18%|█▊        | 36/197 [19:54<1:28:03, 32.82s/it] 19%|█▉        | 37/197 [20:27<1:28:12, 33.08s/it] 19%|█▉        | 38/197 [21:00<1:27:14, 32.92s/it] 20%|█▉        | 39/197 [21:34<1:27:42, 33.31s/it] 20%|██        | 40/197 [22:06<1:26:08, 32.92s/it]                                                  {'loss': 2.7433, 'learning_rate': 0.00018033559396470454, 'epoch': 0.2}
+ 20%|██        | 40/197 [22:06<1:26:08, 32.92s/it]                                                  {'learning_rate': 0.00018033559396470454, 'aux_loss': 0.34086737036705017, 'epoch': 0.2}
+ 20%|██        | 40/197 [22:08<1:26:08, 32.92s/it] 21%|██        | 41/197 [22:39<1:25:39, 32.94s/it] 21%|██▏       | 42/197 [23:12<1:25:23, 33.05s/it] 22%|██▏       | 43/197 [23:46<1:25:07, 33.16s/it] 22%|██▏       | 44/197 [24:18<1:23:42, 32.83s/it] 23%|██▎       | 45/197 [24:51<1:23:36, 33.00s/it] 23%|██▎       | 46/197 [25:25<1:23:23, 33.14s/it] 24%|██▍       | 47/197 [25:59<1:23:34, 33.43s/it] 24%|██▍       | 48/197 [26:32<1:22:36, 33.27s/it] 25%|██▍       | 49/197 [27:04<1:21:38, 33.10s/it] 25%|██▌       | 50/197 [27:37<1:20:41, 32.93s/it]                                                  {'loss': 2.7217, 'learning_rate': 0.00016985991429075036, 'epoch': 0.25}
+ 25%|██▌       | 50/197 [27:37<1:20:41, 32.93s/it]                                                  {'learning_rate': 0.00016985991429075036, 'aux_loss': 0.3496495187282562, 'epoch': 0.25}
+ 25%|██▌       | 50/197 [27:39<1:20:41, 32.93s/it] 26%|██▌       | 51/197 [28:09<1:19:46, 32.78s/it] 26%|██▋       | 52/197 [28:42<1:19:12, 32.78s/it] 27%|██▋       | 53/197 [29:16<1:19:09, 32.98s/it] 27%|██▋       | 54/197 [29:49<1:18:53, 33.10s/it] 28%|██▊       | 55/197 [30:23<1:19:04, 33.41s/it] 28%|██▊       | 56/197 [30:56<1:18:11, 33.27s/it] 29%|██▉       | 57/197 [31:29<1:17:04, 33.03s/it] 29%|██▉       | 58/197 [32:01<1:15:58, 32.80s/it] 30%|██▉       | 59/197 [32:33<1:15:06, 32.66s/it] 30%|███       | 60/197 [33:06<1:14:49, 32.77s/it]                                                  {'loss': 2.6851, 'learning_rate': 0.00015761137331759084, 'epoch': 0.3}
+ 30%|███       | 60/197 [33:06<1:14:49, 32.77s/it]                                                  {'learning_rate': 0.00015761137331759084, 'aux_loss': 0.3567611575126648, 'epoch': 0.3}
+ 30%|███       | 60/197 [33:08<1:14:49, 32.77s/it] 31%|███       | 61/197 [33:40<1:15:02, 33.11s/it] 31%|███▏      | 62/197 [34:13<1:14:17, 33.02s/it] 32%|███▏      | 63/197 [34:47<1:14:43, 33.46s/it] 32%|███▏      | 64/197 [35:21<1:14:19, 33.53s/it] 33%|███▎      | 65/197 [35:53<1:12:55, 33.15s/it] 34%|███▎      | 66/197 [36:26<1:12:16, 33.11s/it] 34%|███▍      | 67/197 [36:59<1:11:36, 33.05s/it] 35%|███▍      | 68/197 [37:32<1:10:42, 32.89s/it] 35%|███▌      | 69/197 [38:04<1:09:47, 32.71s/it] 36%|███▌      | 70/197 [38:37<1:09:27, 32.81s/it]                                                  {'loss': 2.6727, 'learning_rate': 0.00014390080687266013, 'epoch': 0.35}
+ 36%|███▌      | 70/197 [38:37<1:09:27, 32.81s/it]                                                  {'learning_rate': 0.00014390080687266013, 'aux_loss': 0.3407689034938812, 'epoch': 0.35}
+ 36%|███▌      | 70/197 [38:39<1:09:27, 32.81s/it] 36%|███▌      | 71/197 [39:11<1:09:40, 33.18s/it] 37%|███▋      | 72/197 [39:45<1:09:18, 33.27s/it] 37%|███▋      | 73/197 [40:18<1:08:45, 33.27s/it] 38%|███▊      | 74/197 [40:52<1:08:39, 33.49s/it] 38%|███▊      | 75/197 [41:25<1:08:07, 33.50s/it] 39%|███▊      | 76/197 [41:58<1:07:06, 33.27s/it] 39%|███▉      | 77/197 [42:31<1:06:09, 33.08s/it] 40%|███▉      | 78/197 [43:04<1:05:36, 33.08s/it] 40%|████      | 79/197 [43:37<1:05:11, 33.14s/it] 41%|████      | 80/197 [44:11<1:04:43, 33.19s/it]                                                  {'loss': 2.6853, 'learning_rate': 0.0001290761531532374, 'epoch': 0.41}
+ 41%|████      | 80/197 [44:11<1:04:43, 33.19s/it]                                                  {'learning_rate': 0.0001290761531532374, 'aux_loss': 0.3257792890071869, 'epoch': 0.41}
+ 41%|████      | 80/197 [44:12<1:04:43, 33.19s/it] 41%|████      | 81/197 [44:43<1:03:32, 32.87s/it] 42%|████▏     | 82/197 [45:15<1:02:49, 32.77s/it] 42%|████▏     | 83/197 [45:48<1:02:16, 32.78s/it] 43%|████▎     | 84/197 [46:21<1:01:58, 32.91s/it] 43%|████▎     | 85/197 [46:55<1:01:48, 33.11s/it] 44%|████▎     | 86/197 [47:28<1:01:14, 33.10s/it] 44%|████▍     | 87/197 [48:01<1:00:36, 33.06s/it] 45%|████▍     | 88/197 [48:34<59:54, 32.98s/it]   45%|████▌     | 89/197 [49:06<58:57, 32.76s/it] 46%|████▌     | 90/197 [49:39<58:31, 32.82s/it]                                                {'loss': 2.6804, 'learning_rate': 0.00011351362296805485, 'epoch': 0.46}
+ 46%|████▌     | 90/197 [49:39<58:31, 32.82s/it]                                                {'learning_rate': 0.00011351362296805485, 'aux_loss': 0.33241212368011475, 'epoch': 0.46}
+ 46%|████▌     | 90/197 [49:41<58:31, 32.82s/it] 46%|████▌     | 91/197 [50:12<57:55, 32.79s/it] 47%|████▋     | 92/197 [50:44<57:06, 32.63s/it] 47%|████▋     | 93/197 [51:17<56:54, 32.83s/it] 48%|████▊     | 94/197 [51:51<56:39, 33.01s/it] 48%|████▊     | 95/197 [52:23<55:59, 32.93s/it] 49%|████▊     | 96/197 [52:56<55:28, 32.96s/it] 49%|████▉     | 97/197 [53:30<55:30, 33.31s/it] 50%|████▉     | 98/197 [54:03<54:34, 33.08s/it] 50%|█████     | 99/197 [54:36<54:04, 33.10s/it] 51%|█████     | 100/197 [55:09<53:39, 33.19s/it]                                                 {'loss': 2.6678, 'learning_rate': 9.760815249421973e-05, 'epoch': 0.51}
+ 51%|█████     | 100/197 [55:10<53:39, 33.19s/it]                                                 {'learning_rate': 9.760815249421973e-05, 'aux_loss': 0.32033443450927734, 'epoch': 0.51}
+ 51%|█████     | 100/197 [55:11<53:39, 33.19s/it] 51%|█████▏    | 101/197 [55:43<53:18, 33.32s/it] 52%|█████▏    | 102/197 [56:16<52:43, 33.30s/it] 52%|█████▏    | 103/197 [56:49<51:57, 33.16s/it] 53%|█████▎    | 104/197 [57:21<50:51, 32.81s/it] 53%|█████▎    | 105/197 [57:55<50:39, 33.04s/it] 54%|█████▍    | 106/197 [58:28<50:21, 33.21s/it] 54%|█████▍    | 107/197 [59:02<49:50, 33.23s/it] 55%|█████▍    | 108/197 [59:34<48:47, 32.89s/it] 55%|█████▌    | 109/197 [1:00:07<48:15, 32.90s/it] 56%|█████▌    | 110/197 [1:00:40<47:51, 33.01s/it]                                                   {'loss': 2.6829, 'learning_rate': 8.176338083342561e-05, 'epoch': 0.56}
+ 56%|█████▌    | 110/197 [1:00:40<47:51, 33.01s/it]                                                   {'learning_rate': 8.176338083342561e-05, 'aux_loss': 0.32630491256713867, 'epoch': 0.56}
+ 56%|█████▌    | 110/197 [1:00:42<47:51, 33.01s/it] 56%|█████▋    | 111/197 [1:01:12<47:06, 32.87s/it] 57%|█████▋    | 112/197 [1:01:45<46:28, 32.81s/it] 57%|█████▋    | 113/197 [1:02:18<45:54, 32.80s/it] 58%|█████▊    | 114/197 [1:02:50<45:16, 32.73s/it] 58%|█████▊    | 115/197 [1:03:23<44:37, 32.66s/it] 59%|█████▉    | 116/197 [1:03:55<44:00, 32.60s/it] 59%|█████▉    | 117/197 [1:04:28<43:20, 32.51s/it] 60%|█████▉    | 118/197 [1:05:01<42:57, 32.63s/it] 60%|██████    | 119/197 [1:05:33<42:25, 32.63s/it] 61%|██████    | 120/197 [1:06:07<42:10, 32.87s/it]                                                   {'loss': 2.665, 'learning_rate': 6.638140671077633e-05, 'epoch': 0.61}
+ 61%|██████    | 120/197 [1:06:07<42:10, 32.87s/it]                                                   {'learning_rate': 6.638140671077633e-05, 'aux_loss': 0.3166043162345886, 'epoch': 0.61}
+ 61%|██████    | 120/197 [1:06:08<42:10, 32.87s/it] 61%|██████▏   | 121/197 [1:06:40<41:42, 32.92s/it] 62%|██████▏   | 122/197 [1:07:13<41:11, 32.96s/it] 62%|██████▏   | 123/197 [1:07:46<40:34, 32.90s/it] 63%|██████▎   | 124/197 [1:08:20<40:25, 33.23s/it] 63%|██████▎   | 125/197 [1:08:53<40:06, 33.42s/it] 64%|██████▍   | 126/197 [1:09:27<39:26, 33.34s/it] 64%|██████▍   | 127/197 [1:09:58<38:19, 32.85s/it] 65%|██████▍   | 128/197 [1:10:30<37:32, 32.65s/it] 65%|██████▌   | 129/197 [1:11:03<37:03, 32.70s/it] 66%|██████▌   | 130/197 [1:11:36<36:40, 32.85s/it]                                                   {'loss': 2.6701, 'learning_rate': 5.1852584264324866e-05, 'epoch': 0.66}
+ 66%|██████▌   | 130/197 [1:11:36<36:40, 32.85s/it]                                                   {'learning_rate': 5.1852584264324866e-05, 'aux_loss': 0.3108726143836975, 'epoch': 0.66}
+ 66%|██████▌   | 130/197 [1:11:38<36:40, 32.85s/it] 66%|██████▋   | 131/197 [1:12:10<36:16, 32.98s/it] 67%|██████▋   | 132/197 [1:12:42<35:26, 32.71s/it] 68%|██████▊   | 133/197 [1:13:14<34:49, 32.66s/it] 68%|██████▊   | 134/197 [1:13:49<34:51, 33.20s/it] 69%|██████▊   | 135/197 [1:14:22<34:12, 33.10s/it] 69%|██████▉   | 136/197 [1:14:55<33:49, 33.27s/it] 70%|██████▉   | 137/197 [1:15:28<33:12, 33.20s/it] 70%|███████   | 138/197 [1:16:01<32:27, 33.01s/it] 71%|███████   | 139/197 [1:16:33<31:40, 32.77s/it] 71%|███████   | 140/197 [1:17:06<31:01, 32.66s/it]                                                   {'loss': 2.6748, 'learning_rate': 3.854561688141205e-05, 'epoch': 0.71}
+ 71%|███████   | 140/197 [1:17:06<31:01, 32.66s/it]                                                   {'learning_rate': 3.854561688141205e-05, 'aux_loss': 0.3012148141860962, 'epoch': 0.71}
+ 71%|███████   | 140/197 [1:17:07<31:01, 32.66s/it] 72%|███████▏  | 141/197 [1:17:39<30:39, 32.84s/it] 72%|███████▏  | 142/197 [1:18:12<30:15, 33.00s/it] 73%|███████▎  | 143/197 [1:18:45<29:38, 32.94s/it] 73%|███████▎  | 144/197 [1:19:18<29:01, 32.87s/it] 74%|███████▎  | 145/197 [1:19:51<28:40, 33.09s/it] 74%|███████▍  | 146/197 [1:20:24<28:05, 33.05s/it] 75%|███████▍  | 147/197 [1:20:57<27:27, 32.94s/it] 75%|███████▌  | 148/197 [1:21:30<26:49, 32.85s/it] 76%|███████▌  | 149/197 [1:22:02<26:15, 32.83s/it] 76%|███████▌  | 150/197 [1:22:34<25:19, 32.34s/it]                                                   {'loss': 2.6746, 'learning_rate': 2.679820047424253e-05, 'epoch': 0.76}
+ 76%|███████▌  | 150/197 [1:22:34<25:19, 32.34s/it]                                                   {'learning_rate': 2.679820047424253e-05, 'aux_loss': 0.2977117598056793, 'epoch': 0.76}
+ 76%|███████▌  | 150/197 [1:22:35<25:19, 32.34s/it] 77%|███████▋  | 151/197 [1:23:06<24:48, 32.36s/it] 77%|███████▋  | 152/197 [1:23:39<24:24, 32.54s/it] 78%|███████▊  | 153/197 [1:24:12<23:52, 32.56s/it] 78%|███████▊  | 154/197 [1:24:43<23:10, 32.34s/it] 79%|███████▊  | 155/197 [1:25:16<22:46, 32.53s/it] 79%|███████▉  | 156/197 [1:25:49<22:10, 32.46s/it] 80%|███████▉  | 157/197 [1:26:22<21:51, 32.78s/it] 80%|████████  | 158/197 [1:26:54<21:05, 32.45s/it] 81%|████████  | 159/197 [1:27:26<20:32, 32.44s/it] 81%|████████  | 160/197 [1:28:00<20:17, 32.89s/it]                                                   {'loss': 2.6696, 'learning_rate': 1.690845364381034e-05, 'epoch': 0.81}
+ 81%|████████  | 160/197 [1:28:00<20:17, 32.89s/it]                                                   {'learning_rate': 1.690845364381034e-05, 'aux_loss': 0.30426812171936035, 'epoch': 0.81}
+ 81%|████████  | 160/197 [1:28:02<20:17, 32.89s/it] 82%|████████▏ | 161/197 [1:28:33<19:46, 32.96s/it] 82%|████████▏ | 162/197 [1:29:07<19:25, 33.29s/it] 83%|████████▎ | 163/197 [1:29:40<18:47, 33.16s/it] 83%|████████▎ | 164/197 [1:30:13<18:13, 33.14s/it] 84%|████████▍ | 165/197 [1:30:46<17:35, 32.98s/it] 84%|████████▍ | 166/197 [1:31:19<17:04, 33.05s/it] 85%|████████▍ | 167/197 [1:31:52<16:29, 32.98s/it] 85%|████████▌ | 168/197 [1:32:24<15:48, 32.70s/it] 86%|████████▌ | 169/197 [1:32:57<15:20, 32.87s/it] 86%|████████▋ | 170/197 [1:33:28<14:32, 32.31s/it]                                                   {'loss': 2.6685, 'learning_rate': 9.127352212124662e-06, 'epoch': 0.86}
+ 86%|████████▋ | 170/197 [1:33:28<14:32, 32.31s/it]                                                   {'learning_rate': 9.127352212124662e-06, 'aux_loss': 0.30178380012512207, 'epoch': 0.86}
+ 86%|████████▋ | 170/197 [1:33:30<14:32, 32.31s/it] 87%|████████▋ | 171/197 [1:34:01<13:59, 32.28s/it] 87%|████████▋ | 172/197 [1:34:33<13:29, 32.37s/it] 88%|████████▊ | 173/197 [1:35:06<13:04, 32.67s/it] 88%|████████▊ | 174/197 [1:35:39<12:29, 32.60s/it] 89%|████████▉ | 175/197 [1:36:11<11:55, 32.53s/it] 89%|████████▉ | 176/197 [1:36:45<11:28, 32.80s/it] 90%|████████▉ | 177/197 [1:37:18<11:00, 33.00s/it] 90%|█████████ | 178/197 [1:37:51<10:24, 32.85s/it] 91%|█████████ | 179/197 [1:38:23<09:50, 32.81s/it] 91%|█████████▏| 180/197 [1:38:56<09:15, 32.69s/it]                                                   {'loss': 2.6648, 'learning_rate': 3.6523601144548003e-06, 'epoch': 0.91}
+ 91%|█████████▏| 180/197 [1:38:56<09:15, 32.69s/it]                                                   {'learning_rate': 3.6523601144548003e-06, 'aux_loss': 0.3028110861778259, 'epoch': 0.91}
+ 91%|█████████▏| 180/197 [1:38:58<09:15, 32.69s/it] 92%|█████████▏| 181/197 [1:39:29<08:46, 32.93s/it] 92%|█████████▏| 182/197 [1:40:02<08:11, 32.74s/it] 93%|█████████▎| 183/197 [1:40:34<07:38, 32.77s/it] 93%|█████████▎| 184/197 [1:41:08<07:07, 32.90s/it] 94%|█████████▍| 185/197 [1:41:41<06:35, 32.94s/it] 94%|█████████▍| 186/197 [1:42:14<06:02, 32.93s/it] 95%|█████████▍| 187/197 [1:42:47<05:31, 33.10s/it] 95%|█████████▌| 188/197 [1:43:20<04:56, 32.94s/it] 96%|█████████▌| 189/197 [1:43:52<04:22, 32.76s/it] 96%|█████████▋| 190/197 [1:44:24<03:48, 32.66s/it]                                                   {'loss': 2.6685, 'learning_rate': 6.224182828353242e-07, 'epoch': 0.96}
+ 96%|█████████▋| 190/197 [1:44:24<03:48, 32.66s/it]                                                   {'learning_rate': 6.224182828353242e-07, 'aux_loss': 0.302100270986557, 'epoch': 0.96}
+ 96%|█████████▋| 190/197 [1:44:26<03:48, 32.66s/it] 97%|█████████▋| 191/197 [1:44:57<03:15, 32.67s/it] 97%|█████████▋| 192/197 [1:45:31<02:45, 33.02s/it] 98%|█████████▊| 193/197 [1:46:04<02:11, 32.99s/it] 98%|█████████▊| 194/197 [1:46:35<01:37, 32.55s/it] 99%|█████████▉| 195/197 [1:47:07<01:04, 32.24s/it] 99%|█████████▉| 196/197 [1:47:40<00:32, 32.61s/it]100%|██████████| 197/197 [1:48:14<00:00, 32.82s/it][INFO|trainer.py:1989] 2024-05-30 12:23:37,032 >> 
+
+Training completed. Do not forget to share your model on huggingface.co/models =)
+
+
+                                                   {'train_runtime': 6494.2059, 'train_samples_per_second': 15.569, 'train_steps_per_second': 0.03, 'train_loss': 2.6946260965415063, 'epoch': 1.0}
+100%|██████████| 197/197 [1:48:14<00:00, 32.82s/it]100%|██████████| 197/197 [1:48:14<00:00, 32.97s/it]
+[INFO|trainer.py:2981] 2024-05-30 12:23:45,950 >> Saving model checkpoint to /home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w
+/home/nfs02/wangzj/public_code/hitsz/peft/src/peft/utils/save_and_load.py:154: UserWarning: Could not find a config file in /home/nfs02/wangzj/models/Qwen1.5-1.8B - will assume that the vocabulary was not modified.
+  warnings.warn(
+[2024-05-30 12:23:48,585] [INFO] [launch.py:347:main] Process 21237 exits successfully.
+[2024-05-30 12:23:51,588] [INFO] [launch.py:347:main] Process 21236 exits successfully.
+[2024-05-30 12:23:52,589] [INFO] [launch.py:347:main] Process 21238 exits successfully.
+[INFO|tokenization_utils_base.py:2435] 2024-05-30 12:24:06,785 >> tokenizer config file saved in /home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/tokenizer_config.json
+[INFO|tokenization_utils_base.py:2444] 2024-05-30 12:24:06,786 >> Special tokens file saved in /home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/special_tokens_map.json
+[INFO|tokenization_utils_base.py:2495] 2024-05-30 12:24:06,787 >> added tokens file saved in /home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/added_tokens.json
+***** train metrics *****
+  epoch                    =        1.0
+  train_loss               =     2.6946
+  train_runtime            = 1:48:14.20
+  train_samples_per_second =     15.569
+  train_steps_per_second   =       0.03
+Figure saved: /home/nfs04/wangzj/checkpoints/moe/1.8b-arderu6b-top2auxrouter-entropy0.01-en5w/training_loss.png
+05/30/2024 12:24:08 - WARNING - llmtuner.extras.ploting - No metric eval_loss to plot.
+[INFO|modelcard.py:452] 2024-05-30 12:24:08,661 >> Dropping the following result as it does not have all the necessary fields:
+{'task': {'name': 'Causal Language Modeling', 'type': 'text-generation'}}
+[2024-05-30 12:24:12,609] [INFO] [launch.py:347:main] Process 21235 exits successfully.
